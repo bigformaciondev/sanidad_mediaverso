@@ -8,7 +8,14 @@
       "bienestar-emocional": "Bienestar emocional",
       "conductas-auditivas": "Conductas auditivas",
       "espanol": "Español",
-      "gallego": "Gallego"
+      "gallego": "Gallego",
+      "inicio-banner-1": "Accede al Mediaverso de contenidos y experiencias para la promoción de tu salud.",
+      "alimentacion-saludable-parrafo-banner-inicio": "La correcta nutrición es uno de los pilares de la salud y el desarrollo, permite reforzar el sistema inmunitario, contraer menos enfermedades y gozar de una mejor salud.",
+      "bienestar-emocional-parrafo-banner-inicio": "Se refiere a tus sentimientos: cómo reconocerlos, expresarlos, y cómo encararlos de manera que contribuyan a tu tratamiento y recuperación.",
+      "conductas-auditivas-parrafo-banner-inicio": "Aquel comportamiento que provoca la necesidad imperiosa de ser repetido, a pesar del evidente daño psíquico y físico que genera tanto a nivel personal como sobre terceros.",
+      "actividad-fisica-parrafo-banner-inicio": "Mantiene la aptitud física, la salud y el bienestar de la persona. Tiene ventajas como el fortalecimiento muscular, mejorar el sistema cardiovascular entre otros.",
+      "boton-ver-mas" : "Ver más"
+      
     },
     "gl": {
       "welcome": "Benvidos",
@@ -19,7 +26,13 @@
       "bienestar-emocional": "Benestar emocional",
       "conductas-auditivas": "Condutas auditivas",
       "espanol": "Español",
-      "gallego": "Galego"
+      "gallego": "Galego",
+      "inicio-banner-1": "Accede ao Mediaverso de contidos e experiencias para promover a túa saúde.",
+      "alimentacion-saludable-parrafo-banner-inicio": "A alimentación correcta é un dos piares da saúde e do desenvolvemento, permítenos fortalecer o sistema inmunitario, contraer menos enfermidades e gozar dunha mellor saúde.",
+      "bienestar-emocional-parrafo-banner-inicio": "Refírese aos teus sentimentos: como recoñecelos, expresalos e como tratalos de maneira que contribúan ao teu tratamento e recuperación.",
+      "conductas-auditivas-parrafo-banner-inicio": "Ese comportamento que provoca a urxente necesidade de repetirse, a pesar do evidente dano psicolóxico e físico que xera tanto a nivel persoal como a terceiros.",
+      "actividad-fisica-parrafo-banner-inicio": "Mantén a condición física, a saúde e o benestar da persoa. Ten vantaxes como o fortalecemento muscular, a mellora do sistema cardiovascular, entre outras.",
+      "boton-ver-mas" : "Ver máis"
     }
   }
   
