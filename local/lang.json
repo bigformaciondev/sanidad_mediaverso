@@ -1,0 +1,25 @@
+{
+    "es": {
+      "welcome": "Bienvenido a mi sitio web",
+      "about": "Acerca de nosotros",
+      "contact": "Contáctanos",
+      "alimentacion-saludable": "Alimentación Saludable",
+      "actividad-fisica": "Actividad física",
+      "bienestar-emocional": "Bienestar emocional",
+      "conductas-auditivas": "Conductas auditivas",
+      "espanol": "Español",
+      "gallego": "Gallego"
+    },
+    "gl": {
+      "welcome": "Benvidos",
+      "about": "Sobre nos",
+      "contact": "Contacto",
+      "alimentacion-saludable": "Alimentación Saudable",
+      "actividad-fisica": "Actividade física",
+      "bienestar-emocional": "Benestar emocional",
+      "conductas-auditivas": "Condutas auditivas",
+      "espanol": "Español",
+      "gallego": "Galego"
+    }
+  }
+  
