@@ -45,48 +45,48 @@
       "menu_id": 2,
       "nombre": "ActivAR-T",
       "ruta": "/actividad/activar-t",
-      "imagen": "assets/img/activar-t.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/activar-t-banner1.webp",
+      "badge": "Actividad Física"
     },
     {
       "id": 7,
       "menu_id": 2,
       "nombre": "BiG Fit: actividad física en familia",
       "ruta": "/actividad/big-fit",
-      "imagen": "assets/img/big-fit.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/big-fit-banner1.webp",
+      "badge": "Actividad Física"
     },
     {
       "id": 8,
       "menu_id": 2,
       "nombre": "Camiña",
       "ruta": "/actividad/camina",
-      "imagen": "assets/img/camina.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/camina-banner1.webp",
+      "badge": "Actividad Física"
     },
     {
       "id": 9,
       "menu_id": 2,
       "nombre": "Consejo",
       "ruta": "/actividad/consejo",
-      "imagen": "assets/img/consejo.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/consejo-banner1.webp",
+      "badge": "Actividad Física"
     },
     {
       "id": 10,
       "menu_id": 2,
       "nombre": "EnMovemento",
       "ruta": "/actividad/enmovemento",
-      "imagen": "assets/img/enmovemento.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/en-movimiento-banner1.webp",
+      "badge": "Actividad Física"
     },
     {
       "id": 11,
       "menu_id": 2,
       "nombre": "Formación actividad",
       "ruta": "/actividad/formacion",
-      "imagen": "assets/img/formacion-actividad.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/formacion-actividad-fisica-banner1.webp",
+      "badge": "Actividad Física"
     },
   
     {
@@ -94,32 +94,32 @@
       "menu_id": 3,
       "nombre": "BiG Relación",
       "ruta": "/bienestar/big-relacion",
-      "imagen": "assets/img/big-relacion.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/big-relajacion-banner1.webp",
+      "badge": "Bienestar Emocional"
     },
     {
       "id": 13,
       "menu_id": 3,
       "nombre": "Formación bienestar",
       "ruta": "/bienestar/formacion",
-      "imagen": "assets/img/formacion-bienestar.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/formacion-bienestar-emocional-banner1.webp",
+      "badge": "Bienestar Emocional"
     },
     {
       "id": 14,
       "menu_id": 3,
       "nombre": "Programas para el bienestar",
       "ruta": "/bienestar/programas",
-      "imagen": "assets/img/programas.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/programa-bienestar-banner1.webp",
+      "badge": "Bienestar Emocional"
     },
     {
       "id": 15,
       "menu_id": 3,
       "nombre": "Sueño saludable",
       "ruta": "/bienestar/sueno",
-      "imagen": "assets/img/sueno-saludable.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/sueño-saludable-banner1.webp",
+      "badge": "Bienestar Emocional"
     },
   
     {
@@ -127,32 +127,32 @@
       "menu_id": 4,
       "nombre": "Decisiones en mano",
       "ruta": "/conductas/decisiones",
-      "imagen": "assets/img/decisiones.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/decisiones-en-mano-banner1.webp",
+      "badge": "Conductas Adictivas"
     },
     {
       "id": 17,
       "menu_id": 4,
       "nombre": "En tus manos",
       "ruta": "/conductas/en-tus-manos",
-      "imagen": "assets/img/en-tus-manos.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/en-tus-manos-banner1.webp",
+      "badge": "Conductas Adictivas"
     },
     {
       "id": 18,
       "menu_id": 4,
       "nombre": "Formación conductas adictivas",
       "ruta": "/conductas/formacion",
-      "imagen": "assets/img/formacion-conductas.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/formacion-conductas-adictivas-banner1.webp",
+      "badge": "Conductas Adictivas"
     },
     {
       "id": 19,
       "menu_id": 4,
       "nombre": "Vuelve a lo esencial",
       "ruta": "/conductas/esencial",
-      "imagen": "assets/img/vuelve-esencial.webp",
-      "badge": "Sin categorizar"
+      "imagen": "assets/img/vuelve-esencial-banner1.webp",
+      "badge": "Conductas Adictivas"
     }
   ]
   
