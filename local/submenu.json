@@ -1,0 +1,24 @@
+[
+    { "id": 1, "menu_id": 1, "nombre": "Chef Junior", "ruta": "/alimentacion/chef-junior" },
+    { "id": 2, "menu_id": 1, "nombre": "Consejos", "ruta": "/alimentacion/consejos" },
+    { "id": 3, "menu_id": 1, "nombre": "Formación", "ruta": "/alimentacion/formacion" },
+    { "id": 4, "menu_id": 1, "nombre": "Los ladrones de salud", "ruta": "/alimentacion/ladrones" },
+    { "id": 5, "menu_id": 1, "nombre": "Planificador de comidas", "ruta": "/alimentacion/planificador" },
+    
+    { "id": 6, "menu_id": 2, "nombre": "ActivAR-T", "ruta": "/actividad/activar-t" },
+    { "id": 7, "menu_id": 2, "nombre": "BiG Fit: actividad física en familia", "ruta": "/actividad/big-fit" },
+    { "id": 8, "menu_id": 2, "nombre": "Camiña", "ruta": "/actividad/camina" },
+    { "id": 9, "menu_id": 2, "nombre": "Consejo", "ruta": "/actividad/consejo" },
+    { "id": 10, "menu_id": 2, "nombre": "EnMovemento", "ruta": "/actividad/enmovemento" },
+    { "id": 11, "menu_id": 2, "nombre": "Formación actividad", "ruta": "/actividad/formacion" },
+
+    { "id": 12, "menu_id": 3, "nombre": "BiG Relación", "ruta": "/bienestar/big-relacion" },
+    { "id": 13, "menu_id": 3, "nombre": "Formación bienestar", "ruta": "/bienestar/formacion" },
+    { "id": 14, "menu_id": 3, "nombre": "Programas para el bienestar", "ruta": "/bienestar/programas" },
+    { "id": 15, "menu_id": 3, "nombre": "Sueño saludable", "ruta": "/bienestar/sueno" },
+
+    { "id": 16, "menu_id": 4, "nombre": "Decisiones en mano", "ruta": "/conductas/decisiones" },
+    { "id": 17, "menu_id": 4, "nombre": "En tus manos", "ruta": "/conductas/en-tus-manos" },
+    { "id": 18, "menu_id": 4, "nombre": "Formación conductas adictivas", "ruta": "/conductas/formacion" },
+    { "id": 19, "menu_id": 4, "nombre": "Vuelve a lo esencial", "ruta": "/conductas/esencial" }
+]
