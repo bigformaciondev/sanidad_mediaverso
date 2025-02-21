@@ -9358,6 +9358,13 @@ fieldset:disabled .btn {
   visibility: hidden !important;
 }
 
+/*!
+ * Modificaciones B
+ */
+ img#circulo {
+  border-radius: 50%;
+}
+
 @media (min-width: 576px) {
   .float-sm-start {
     float: left !important;
@@ -12869,3 +12876,4 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+

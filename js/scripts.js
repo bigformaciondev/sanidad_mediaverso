@@ -24,3 +24,7 @@ window.addEventListener('DOMContentLoaded', event => {
   });
 
 });
+
+function irASeccion(id) {
+    window.location.href="#" + id;
+}
