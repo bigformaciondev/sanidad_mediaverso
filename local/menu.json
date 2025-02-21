@@ -1,6 +1,6 @@
 [
-    { "id": 1, "nombre": "Alimentación saludable" },
-    { "id": 2, "nombre": "Actividad física" },
-    { "id": 3, "nombre": "Bienestar emocional" },
-    { "id": 4, "nombre": "Conductas adictivas" }
-]
+    { "id": 1, "nombre": "Alimentación saludable", "key": "alimentacion-saludable", "tabId": "alimentacion-saludable-filter", "imagen": "assets/logo/alimentacion-saludable-logo1.png" },
+    { "id": 2, "nombre": "Actividad física", "key": "actividad-fisica",  "tabId": "actividad-fisica-filter", "imagen": "assets/logo/actividad-fisicas-logo1.png" },
+    { "id": 3, "nombre": "Bienestar emocional", "key": "bienestar-emocional", "tabId": "bienestar-emocional-filter", "imagen": "assets/logo/bienestar-emocional-logo1.png" },
+    { "id": 4, "nombre": "Conductas auditivas", "key": "conductas-auditivas", "tabId": "conductas-auditivas-filter", "imagen": "assets/logo/conductas-adictivas-logo1.png" }
+  ]
