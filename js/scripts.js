@@ -43,25 +43,26 @@ document.addEventListener("DOMContentLoaded", function () {
     menus.forEach(menu => {
       // Crear elemento <li>
       const li = document.createElement("li");
-      li.className = "nav-item";
+      li.className = "nav-item d-flex flex-row";
   
       // Crear imagen
       const img = document.createElement("img");
       img.id = "circulo";
+      img.className = "d-block m-auto p-2";
       img.src = menu.imagen;
       img.width = 80;
       img.height = 71;
-      li.appendChild(img);
+      
   
       // Crear enlace
       const a = document.createElement("a");
-      a.className = "nav-link active show text-light";
+      a.className = "nav-link text-light d-block";
       a.setAttribute("data-translate", menu.key);
       a.setAttribute("data-bs-toggle", "tab");
       a.setAttribute("data-bs-target", `#${menu.tabId}`);
       // Opcional: Agregar texto o dejarlo vacío para que se traduzca dinámicamente
       a.innerText = menu.nombre; // Se puede reemplazar por un valor vacío si la traducción se hace después
-  
+      a.appendChild(img);
       li.appendChild(a);
       navUl.appendChild(li);
     });
@@ -94,7 +95,7 @@ function loadMenusAndSubmenus() {
             submenuItems.forEach(item => {
                
               let col = document.createElement("div");
-              col.className = "col-lg-3 p-3";
+              col.className = "col-12 col-md-6 col-lg-4 col-xl-3 p-3";
               
               let card = document.createElement("div");
               card.className = "card text-center";
