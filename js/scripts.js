@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     const cardBody = document.createElement("div");
     cardBody.className = "card-body";
-  
+    cardBody.style.height = "180px";
     const badge = document.createElement("span");
     badge.className = "badge bg-secondary mb-2";
     badge.innerText = item.badge;
