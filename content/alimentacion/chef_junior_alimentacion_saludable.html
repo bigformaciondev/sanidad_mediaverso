@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Página de inicio de mi proyecto web">
+    <title>Mi Proyecto Web</title>
+
+    <!-- Bootstrap CSS -->
+
+    <!-- Bootstrap CSS desde archivos locales -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <!-- Icono del sitio (favicon) -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a class="navbar-brand js-scroll-trigger m-1" href="#page-top">
+            <span class="d-block d-lg-block h4 text-white">Sanidade Mediaverso</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse px-5" id="navbarResponsive">
+            <ul class="navbar-nav text-center">
+                <li class="nav-item"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png" width="80"
+                        height="71" onclick="irASeccion('alimentacion-saludable')" /><a
+                        class="nav-link js-scroll-trigger" href="#alimentacion-saludable"
+                        data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
+                <li class="nav-item"><img id="circulo" src="../../assets/logo/actividad-fisicas-logo1.png" width="80"
+                        height="71" onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger"
+                        href="#actividad-fisica" data-translate="actividad-fisica">Actividade física</a></li>
+                <li class="nav-item"><img id="circulo" src="../../assets/logo/bienestar-emocional-logo1.png" width="80"
+                        height="71" onclick="irASeccion('bienestar-emocional')" /><a class="nav-link js-scroll-trigger"
+                        href="#bienestar-emocional" data-translate="bienestar-emocional">Benestar emocional</a></li>
+                <li class="nav-item"><img id="circulo" src="../../assets/logo/conductas-adictivas-logo1.png" width="80"
+                        height="71" onclick="irASeccion('conductas-adictivas')" /><a class="nav-link js-scroll-trigger"
+                        href="#conductas-adictivas" data-translate="conductas-adictivas">Conductas adictivas</a></li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse text-center" id="navbarResponsive">
+            <a class="navbar-brand d-inline-flex align-items-center" href="#page-top">
+                <div onclick="changeLanguage('es')" role="button">
+                    <img src="../../assets/flag/esflag.svg" alt="Español" class="mx-3 flag-icon"><span class=""
+                        data-translate="espanol">Español</span>
+                </div>
+                <div onclick="changeLanguage('gl')" role="button">
+                    <img src="../../assets/flag/glflag.svg" alt="Galego" class="mx-3 flag-icon"><span class=""
+                        data-translate="gallego">Gallego</span>
+                </div>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
+            <div class="navbar-brand d-flex text-light">
+                <a class="p-1 text-light"
+                    href="https://www.instagram.com/vidasaudable.sergas/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#"
+                    target="_blank">
+                    <i class="bi bi-instagram text-light"></i>
+                </a>
+                <a class="p-1 text-light" href="https://www.facebook.com/vidasaudable.sergas/" target="_blank">
+                    <i class="bi bi-facebook text-light"></i>
+                </a>
+                <a class="p-1 text-light" href="https://x.com/vida_saudable" target="_blank">
+                    <i class="bi bi-twitter-x text-light"></i>
+                </a>
+                <a class="p-1 text-light" href="mailto:sanidademediaverso@sergas.es">
+                    <i class="bi bi-envelope text-light"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+        <span class="d-block d-lg-block">Chef junior alimentacion saludable</span>
+    </div>
+
+    <script src="../../js/scripts.js"></script>
+    <script src="../../js/lang.js"></script>
+</body>
+
+</html>
