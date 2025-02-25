@@ -1,158 +1,173 @@
 [
-    {
-      "id": 1,
-      "menu_id": 1,
-      "nombre": "Chef Junior",
-      "ruta": "/alimentacion/chef-junior",
-      "imagen": "assets/img/acercaDe-ChefJunior_banner1.webp",
-      "badge": "Alimentación saludable"
-    },
-    {
-      "id": 2,
-      "menu_id": 1,
-      "nombre": "Consejos",
-      "ruta": "/alimentacion/consejos",
-      "imagen": "assets/img/consejos-banner1.webp",
-      "badge": "Alimentación saludable"
-    },
-    {
-      "id": 3,
-      "menu_id": 1,
-      "nombre": "Formación",
-      "ruta": "/alimentacion/formacion",
-      "imagen": "assets/img/formacion-alimentacion-saludable-banner1.webp",
-      "badge": "Alimentación saludable"
-    },
-    {
-      "id": 4,
-      "menu_id": 1,
-      "nombre": "Los ladrones de salud",
-      "ruta": "/alimentacion/ladrones",
-      "imagen": "assets/img/ladrones-banner1.webp",
-      "badge": "Alimentación saludable"
-    },
-    {
-      "id": 5,
-      "menu_id": 1,
-      "nombre": "Planificador de comidas",
-      "ruta": "/alimentacion/planificador",
-      "imagen": "assets/img/planificador-comidas-banner1.webp",
-      "badge": "Alimentación saludable"
-    },
-  
-    {
-      "id": 6,
-      "menu_id": 2,
-      "nombre": "ActivAR-T",
-      "ruta": "/actividad/activar-t",
-      "imagen": "assets/img/activar-t-banner1.webp",
-      "badge": "Actividad Física"
-    },
-    {
-      "id": 7,
-      "menu_id": 2,
-      "nombre": "BiG Fit: actividad física en familia",
-      "ruta": "/actividad/big-fit",
-      "imagen": "assets/img/big-fit-banner1.webp",
-      "badge": "Actividad Física"
-    },
-    {
-      "id": 8,
-      "menu_id": 2,
-      "nombre": "Camiña",
-      "ruta": "/actividad/camina",
-      "imagen": "assets/img/camina-banner1.webp",
-      "badge": "Actividad Física"
-    },
-    {
-      "id": 9,
-      "menu_id": 2,
-      "nombre": "Consejo",
-      "ruta": "/actividad/consejo",
-      "imagen": "assets/img/consejo-banner1.webp",
-      "badge": "Actividad Física"
-    },
-    {
-      "id": 10,
-      "menu_id": 2,
-      "nombre": "EnMovemento",
-      "ruta": "/actividad/enmovemento",
-      "imagen": "assets/img/en-movimiento-banner1.webp",
-      "badge": "Actividad Física"
-    },
-    {
-      "id": 11,
-      "menu_id": 2,
-      "nombre": "Formación actividad",
-      "ruta": "/actividad/formacion",
-      "imagen": "assets/img/formacion-actividad-fisica-banner1.webp",
-      "badge": "Actividad Física"
-    },
-  
-    {
-      "id": 12,
-      "menu_id": 3,
-      "nombre": "BiG Relación",
-      "ruta": "/bienestar/big-relacion",
-      "imagen": "assets/img/big-relajacion-banner1.webp",
-      "badge": "Bienestar Emocional"
-    },
-    {
-      "id": 13,
-      "menu_id": 3,
-      "nombre": "Formación bienestar",
-      "ruta": "/bienestar/formacion",
-      "imagen": "assets/img/formacion-bienestar-emocional-banner1.webp",
-      "badge": "Bienestar Emocional"
-    },
-    {
-      "id": 14,
-      "menu_id": 3,
-      "nombre": "Programas para el bienestar",
-      "ruta": "/bienestar/programas",
-      "imagen": "assets/img/programa-bienestar-banner1.webp",
-      "badge": "Bienestar Emocional"
-    },
-    {
-      "id": 15,
-      "menu_id": 3,
-      "nombre": "Sueño saludable",
-      "ruta": "/bienestar/sueno",
-      "imagen": "assets/img/sueño-saludable-banner1.webp",
-      "badge": "Bienestar Emocional"
-    },
-  
-    {
-      "id": 16,
-      "menu_id": 4,
-      "nombre": "Decisiones en mano",
-      "ruta": "/conductas/decisiones",
-      "imagen": "assets/img/decisiones-en-mano-banner1.webp",
-      "badge": "Conductas Adictivas"
-    },
-    {
-      "id": 17,
-      "menu_id": 4,
-      "nombre": "En tus manos",
-      "ruta": "/conductas/en-tus-manos",
-      "imagen": "assets/img/en-tus-manos-banner1.webp",
-      "badge": "Conductas Adictivas"
-    },
-    {
-      "id": 18,
-      "menu_id": 4,
-      "nombre": "Formación conductas adictivas",
-      "ruta": "/conductas/formacion",
-      "imagen": "assets/img/formacion-conductas-adictivas-banner1.webp",
-      "badge": "Conductas Adictivas"
-    },
-    {
-      "id": 19,
-      "menu_id": 4,
-      "nombre": "Vuelve a lo esencial",
-      "ruta": "/conductas/esencial",
-      "imagen": "assets/img/vuelve-esencial-banner1.webp",
-      "badge": "Conductas Adictivas"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "menu_id": 1,
+    "nombre": "Chef Junior",
+    "ruta": "/alimentacion/chef-junior",
+    "imagen": "assets/img/acercaDe-ChefJunior_banner1.webp",
+    "badge": "alimentacion-saludable",
+    "key": "chef-junior"
+  },
+  {
+    "id": 2,
+    "menu_id": 1,
+    "nombre": "Consejos",
+    "ruta": "/alimentacion/consejos",
+    "imagen": "assets/img/consejos-banner1.webp",
+    "badge": "alimentacion-saludable",
+    "key": "consejos"
+  },
+  {
+    "id": 3,
+    "menu_id": 1,
+    "nombre": "Formación",
+    "ruta": "/alimentacion/formacion",
+    "imagen": "assets/img/formacion-alimentacion-saludable-banner1.webp",
+    "badge": "alimentacion-saludable",
+    "key": "formacion-alimentacion"
+  },
+  {
+    "id": 4,
+    "menu_id": 1,
+    "nombre": "Los ladrones de salud",
+    "ruta": "/alimentacion/ladrones",
+    "imagen": "assets/img/ladrones-banner1.webp",
+    "badge": "alimentacion-saludable",
+    "key": "ladrones-de-salud"
+  },
+  {
+    "id": 5,
+    "menu_id": 1,
+    "nombre": "Planificador de comidas",
+    "ruta": "/alimentacion/planificador",
+    "imagen": "assets/img/planificador-comidas-banner1.webp",
+    "badge": "alimentacion-saludable",
+    "key": "planificador-de-comidas"
+  },
+  {
+    "id": 6,
+    "menu_id": 2,
+    "nombre": "ActivAR-T",
+    "ruta": "/actividad/activar-t",
+    "imagen": "assets/img/activar-t-banner1.webp",
+    "badge": "actividad-fisica",
+    "key": "activar-t"
+  },
+  {
+    "id": 7,
+    "menu_id": 2,
+    "nombre": "BiG Fit: actividad-fisica en familia",
+    "ruta": "/actividad/big-fit",
+    "imagen": "assets/img/big-fit-banner1.webp",
+    "badge": "actividad-fisica",
+    "key": "big-fit"
+  },
+  {
+    "id": 8,
+    "menu_id": 2,
+    "nombre": "Camiña",
+    "ruta": "/actividad/camina",
+    "imagen": "assets/img/camina-banner1.webp",
+    "badge": "actividad-fisica",
+    "key": "camina"
+  },
+  {
+    "id": 9,
+    "menu_id": 2,
+    "nombre": "Consejo",
+    "ruta": "/actividad/consejo",
+    "imagen": "assets/img/consejo-banner1.webp",
+    "badge": "actividad-fisica",
+    "key": "consejo"
+  },
+  {
+    "id": 10,
+    "menu_id": 2,
+    "nombre": "EnMovemento",
+    "ruta": "/actividad/enmovemento",
+    "imagen": "assets/img/en-movimiento-banner1.webp",
+    "badge": "actividad-fisica",
+    "key": "enmovemento"
+  },
+  {
+    "id": 11,
+    "menu_id": 2,
+    "nombre": "Formación actividad",
+    "ruta": "/actividad/formacion",
+    "imagen": "assets/img/formacion-actividad-fisica-banner1.webp",
+    "badge": "actividad-fisica",
+    "key": "formacion-actividad"
+  },
+  {
+    "id": 12,
+    "menu_id": 3,
+    "nombre": "BiG Relación",
+    "ruta": "/bienestar/big-relacion",
+    "imagen": "assets/img/big-relajacion-banner1.webp",
+    "badge": "bienestar-emocional",
+    "key": "big-relacion"
+  },
+  {
+    "id": 13,
+    "menu_id": 3,
+    "nombre": "Formación bienestar",
+    "ruta": "/bienestar/formacion",
+    "imagen": "assets/img/formacion-bienestar-emocional-banner1.webp",
+    "badge": "bienestar-emocional",
+    "key": "formacion-bienestar"
+  },
+  {
+    "id": 14,
+    "menu_id": 3,
+    "nombre": "Programas para el bienestar",
+    "ruta": "/bienestar/programas",
+    "imagen": "assets/img/programa-bienestar-banner1.webp",
+    "badge": "bienestar-emocional",
+    "key": "programas-bienestar"
+  },
+  {
+    "id": 15,
+    "menu_id": 3,
+    "nombre": "Sueño saludable",
+    "ruta": "/bienestar/sueno",
+    "imagen": "assets/img/sueño-saludable-banner1.webp",
+    "badge": "bienestar-emocional",
+    "key": "sueno-saludable"
+  },
+  {
+    "id": 16,
+    "menu_id": 4,
+    "nombre": "Decisiones en mano",
+    "ruta": "/conductas/decisiones",
+    "imagen": "assets/img/decisiones-en-mano-banner1.webp",
+    "badge": "conductas-adictivas",
+    "key": "decisiones-en-mano"
+  },
+  {
+    "id": 17,
+    "menu_id": 4,
+    "nombre": "En tus manos",
+    "ruta": "/conductas/en-tus-manos",
+    "imagen": "assets/img/en-tus-manos-banner1.webp",
+    "badge": "conductas-adictivas",
+    "key": "en-tus-manos"
+  },
+  {
+    "id": 18,
+    "menu_id": 4,
+    "nombre": "Formación conductas-adictivas",
+    "ruta": "/conductas/formacion",
+    "imagen": "assets/img/formacion-conductas-adictivas-banner1.webp",
+    "badge": "conductas-adictivas",
+    "key": "formacion-conductas-adictivas"
+  },
+  {
+    "id": 19,
+    "menu_id": 4,
+    "nombre": "Vuelve a lo esencial",
+    "ruta": "/conductas/esencial",
+    "imagen": "assets/img/vuelve-esencial-banner1.webp",
+    "badge": "conductas-adictivas",
+    "key": "vuelve-a-lo-esencial"
+  }
+]
