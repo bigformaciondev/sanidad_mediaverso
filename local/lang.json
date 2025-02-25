@@ -42,7 +42,16 @@
     "mapa-del-portal": "Mapa del Portal",
     "contacte": "Contacto",
     "transparencia-y-gobierno-abierto": "Transparencia y gobierno abierto",
-    "rss": "RSS"
+    "rss": "RSS",
+    "chef-junior-1": "Ampliar información de la APP",
+    "chef-junior-2": "La Consellería de Sanidade de la Xunta de Galicia ofrece en las stores de Apple y Google la aplicación móvil “Chef Junior”, que tiene como objetivo promover hábitos alimentarios saludables",
+    "chef-junior-3": "La aplicación, disponible tanto en gallego como castellano, es una herramienta para aprender jugando sobre las diferencias entre los alimentos, posibles formas de cocinarlos y sus combinaciones para conseguir una alimentación sana y equilibrada.",
+    "chef-junior-4": "A medida que avanzan por las pantallas, reciben información sobre:",
+    "chef-junior-5-1": "Recomendaciones",
+    "chef-junior-5-2": "sobre alimentos a utilizar",
+    "chef-junior-6-1": "Consejos",
+    "chef-junior-6-2": "sobre los tipos de métodos de cocción más saludables",
+    "chef-junior-7": "La aplicación cuenta con una serie de funcionalidades que se describen a continuación:"
   },
   "gl": {
     "welcome": "Benvidos",
@@ -87,6 +96,15 @@
     "mapa-del-portal": "Mapa do Portal",
     "contacte": "Contacte",
     "transparencia-y-gobierno-abierto": "Transparencia e goberno aberto",
-    "rss": "RSS"
+    "rss": "RSS",
+    "chef-junior-1": "Ampliar información da APP",
+    "chef-junior-2": "A Consellería de Sanidade da Xunta de Galicia ofrece na App Store e en Google Play a aplicación móbil “Chef Junior”, que ten como obxectivo promover hábitos alimentarios saudables.",
+    "chef-junior-3": "A aplicación, dispoñible tanto en galego como castelán, é unha ferramenta para aprender xogando sobre as diferenzas entre os alimentos, posibles formas de cociñalos e as súas combinacións para conseguir unha alimentación sa e equilibrada",
+    "chef-junior-4": "A medida que avanzan polas pantallas, reciben información sobre:",
+    "chef-junior-5-1": "Recomendacións",
+    "chef-junior-5-2": "sobre alimentos a utilizar",
+    "chef-junior-6-1": "Consellos",
+    "chef-junior-6-2": "sobre os tipos de métodos de cocción máis saudables",
+    "chef-junior-7": "A aplicación conta cunha serie de funcionalidades que se describen a continuación:"
   }
 }
