@@ -13028,3 +13028,23 @@ section.resume-section .resume-section-content {
 .back-to-top {
   z-index: 1000;
 }
+.footer-links {
+  list-style: none;            /* Quita las viñetas */
+  font-size: 0.8rem;           /* Texto más pequeño; ajusta el valor según lo necesites */
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-links li {
+  margin: 0 10px;              /* Espaciado entre elementos */
+  position: relative;
+}
+
+/* Añade una barra separadora (|) entre los elementos, excepto el último */
+.footer-links li:not(:last-child)::after {
+  content: "|";
+  margin-left: 10px;
+  color: #fff;                 /* Color de la barra, ajústalo si es necesario */
+}
