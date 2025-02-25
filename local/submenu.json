@@ -3,7 +3,7 @@
     "id": 1,
     "menu_id": 1,
     "nombre": "Chef Junior",
-    "ruta": "/alimentacion/chef-junior",
+    "ruta": "/content/alimentacion/chef_junior_alimentacion_saludable.html",
     "imagen": "assets/img/acercaDe-ChefJunior_banner1.webp",
     "badge": "alimentacion-saludable",
     "key": "chef-junior"
@@ -12,7 +12,7 @@
     "id": 2,
     "menu_id": 1,
     "nombre": "Consejos",
-    "ruta": "/alimentacion/consejos",
+    "ruta": "/content/alimentacion/consejos_alimentacion_saludable.html",
     "imagen": "assets/img/consejos-banner1.webp",
     "badge": "alimentacion-saludable",
     "key": "consejos"
@@ -21,7 +21,7 @@
     "id": 3,
     "menu_id": 1,
     "nombre": "Formación",
-    "ruta": "/alimentacion/formacion",
+    "ruta": "/content/alimentacion/formacion_alimentacion_saludable.html",
     "imagen": "assets/img/formacion-alimentacion-saludable-banner1.webp",
     "badge": "alimentacion-saludable",
     "key": "formacion-alimentacion"
@@ -30,7 +30,7 @@
     "id": 4,
     "menu_id": 1,
     "nombre": "Los ladrones de salud",
-    "ruta": "/alimentacion/ladrones",
+    "ruta": "/content/alimentacion/ladrones_de_salud_alimentacion_saludable.html",
     "imagen": "assets/img/ladrones-banner1.webp",
     "badge": "alimentacion-saludable",
     "key": "ladrones-de-salud"
@@ -39,7 +39,7 @@
     "id": 5,
     "menu_id": 1,
     "nombre": "Planificador de comidas",
-    "ruta": "/alimentacion/planificador",
+    "ruta": "/content/alimentacion/planificador_de_comidas_alimentacion_saludable.html",
     "imagen": "assets/img/planificador-comidas-banner1.webp",
     "badge": "alimentacion-saludable",
     "key": "planificador-de-comidas"
@@ -48,7 +48,7 @@
     "id": 6,
     "menu_id": 2,
     "nombre": "ActivAR-T",
-    "ruta": "/actividad/activar-t",
+    "ruta": "/content/actividad_fisica/activart_actividad_fisica.html",
     "imagen": "assets/img/activar-t-banner1.webp",
     "badge": "actividad-fisica",
     "key": "activar-t"
@@ -57,7 +57,7 @@
     "id": 7,
     "menu_id": 2,
     "nombre": "BiG Fit: actividad-fisica en familia",
-    "ruta": "/actividad/big-fit",
+    "ruta": "/content/actividad_fisica/big_fit_actividad_fisica.html",
     "imagen": "assets/img/big-fit-banner1.webp",
     "badge": "actividad-fisica",
     "key": "big-fit"
@@ -66,7 +66,7 @@
     "id": 8,
     "menu_id": 2,
     "nombre": "Camiña",
-    "ruta": "/actividad/camina",
+    "ruta": "/content/actividad_fisica/camina_actividad_fisica.html",
     "imagen": "assets/img/camina-banner1.webp",
     "badge": "actividad-fisica",
     "key": "camina"
@@ -75,7 +75,7 @@
     "id": 9,
     "menu_id": 2,
     "nombre": "Consejo",
-    "ruta": "/actividad/consejo",
+    "ruta": "/content/actividad_fisica/consejo_actividad_fisica.html",
     "imagen": "assets/img/consejo-banner1.webp",
     "badge": "actividad-fisica",
     "key": "consejo"
@@ -84,7 +84,7 @@
     "id": 10,
     "menu_id": 2,
     "nombre": "EnMovemento",
-    "ruta": "/actividad/enmovemento",
+    "ruta": "/content/actividad_fisica/enmovemento_actividad_fisica.html",
     "imagen": "assets/img/en-movimiento-banner1.webp",
     "badge": "actividad-fisica",
     "key": "enmovemento"
@@ -93,7 +93,7 @@
     "id": 11,
     "menu_id": 2,
     "nombre": "Formación actividad",
-    "ruta": "/actividad/formacion",
+    "ruta": "/content/actividad_fisica/formacion_actividad_fisica.html",
     "imagen": "assets/img/formacion-actividad-fisica-banner1.webp",
     "badge": "actividad-fisica",
     "key": "formacion-actividad"
@@ -102,7 +102,7 @@
     "id": 12,
     "menu_id": 3,
     "nombre": "BiG Relación",
-    "ruta": "/bienestar/big-relacion",
+    "ruta": "/content/bienestar_emocional/big_relajacion_bienestar_emocional.html",
     "imagen": "assets/img/big-relajacion-banner1.webp",
     "badge": "bienestar-emocional",
     "key": "big-relacion"
@@ -111,7 +111,7 @@
     "id": 13,
     "menu_id": 3,
     "nombre": "Formación bienestar",
-    "ruta": "/bienestar/formacion",
+    "ruta": "/content/bienestar_emocional/formacion_bienestar_emocional.html",
     "imagen": "assets/img/formacion-bienestar-emocional-banner1.webp",
     "badge": "bienestar-emocional",
     "key": "formacion-bienestar"
@@ -120,7 +120,7 @@
     "id": 14,
     "menu_id": 3,
     "nombre": "Programas para el bienestar",
-    "ruta": "/bienestar/programas",
+    "ruta": "/content/bienestar_emocional/programas_bienestar_emocional.html",
     "imagen": "assets/img/programa-bienestar-banner1.webp",
     "badge": "bienestar-emocional",
     "key": "programas-bienestar"
@@ -129,7 +129,7 @@
     "id": 15,
     "menu_id": 3,
     "nombre": "Sueño saludable",
-    "ruta": "/bienestar/sueno",
+    "ruta": "/content/bienestar_emocional/sueno_saludable_bienestar_emocional.html",
     "imagen": "assets/img/sueño-saludable-banner1.webp",
     "badge": "bienestar-emocional",
     "key": "sueno-saludable"
@@ -138,7 +138,7 @@
     "id": 16,
     "menu_id": 4,
     "nombre": "Decisiones en mano",
-    "ruta": "/conductas/decisiones",
+    "ruta": "/content/conductas_adictivas/decisiones_mano_conductas_adictivas.html",
     "imagen": "assets/img/decisiones-en-mano-banner1.webp",
     "badge": "conductas-adictivas",
     "key": "decisiones-en-mano"
@@ -147,7 +147,7 @@
     "id": 17,
     "menu_id": 4,
     "nombre": "En tus manos",
-    "ruta": "/conductas/en-tus-manos",
+    "ruta": "/content/conductas_adictivas/en_tus_manos_conductas_adictivas.html",
     "imagen": "assets/img/en-tus-manos-banner1.webp",
     "badge": "conductas-adictivas",
     "key": "en-tus-manos"
@@ -156,7 +156,7 @@
     "id": 18,
     "menu_id": 4,
     "nombre": "Formación conductas-adictivas",
-    "ruta": "/conductas/formacion",
+    "ruta": "/content/conductas_adictivas/formacion_conductas_adictivas.html",
     "imagen": "assets/img/formacion-conductas-adictivas-banner1.webp",
     "badge": "conductas-adictivas",
     "key": "formacion-conductas-adictivas"
@@ -165,7 +165,7 @@
     "id": 19,
     "menu_id": 4,
     "nombre": "Vuelve a lo esencial",
-    "ruta": "/conductas/esencial",
+    "ruta": "/content/conductas_adictivas/volver_esencial_conductas_adictivas.html",
     "imagen": "assets/img/vuelve-esencial-banner1.webp",
     "badge": "conductas-adictivas",
     "key": "vuelve-a-lo-esencial"

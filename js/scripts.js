@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     aTodos.className = "nav-link active show text-light";
     aTodos.setAttribute("data-bs-toggle", "tab");
     aTodos.setAttribute("data-bs-target", "#todos-filter");
-    aTodos.innerText = "Todos"; // Puedes traducirlo si lo deseas
+    /*aTodos.innerText = "Todos"; // Puedes traducirlo si lo deseas*/
     
     liTodos.appendChild(aTodos);
     navUl.appendChild(liTodos);
