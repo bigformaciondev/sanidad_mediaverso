@@ -202,43 +202,43 @@ h1,
 
 h1,
 .h1 {
-  font-size: calc(1.725rem + 5.7vw);
+  font-size: calc(1.525rem + 5.7vw);
 }
 
 @media (min-width: 1200px) {
   h1,
   .h1 {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 }
 
 h2,
 .h2 {
-  font-size: calc(1.475rem + 2.7vw);
+  font-size: calc(1.375rem + 2.7vw);
 }
 
 @media (min-width: 1200px) {
   h2,
   .h2 {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
 h3,
 .h3 {
-  font-size: calc(1.325rem + 0.9vw);
+  font-size: calc(1.125rem + 0.9vw);
 }
 
 @media (min-width: 1200px) {
   h3,
   .h3 {
-    /*font-size: 2rem;*/
+    font-size: 1.5rem;
   }
 }
 
 h4,
 .h4 {
-  font-size: calc(1.275rem + 0.3vw);
+  font-size: calc(0.975rem + 0.3vw);
 }
 
 @media (min-width: 1200px) {
@@ -3411,8 +3411,8 @@ fieldset:disabled .btn {
   --bs-btn-hover-border-color: #027bc4;
   --bs-btn-focus-shadow-rgb: 161, 79, 48;
   --bs-btn-active-color: #027bc4;
-  --bs-btn-active-bg: #ca7d60;
-  --bs-btn-active-border-color: #c46d4c;
+  --bs-btn-active-bg: #027bc4;
+  --bs-btn-active-border-color: #027bc4;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #027bc4;
   --bs-btn-disabled-bg: #027bc4;
@@ -4359,11 +4359,11 @@ fieldset:disabled .btn {
 .nav-justified .nav-item .nav-link {
   width: 100%;
 }
-
+/* elimiando para mostrar todos los tab por defecto
 .tab-content > .tab-pane {
   display: none;
 }
-
+*/
 .tab-content > .active {
   display: block;
 }
@@ -7839,7 +7839,7 @@ fieldset:disabled .btn {
 
 .link-primary:hover,
 .link-primary:focus {
-  color: #ca7d60 !important;
+  color: white !important;
 }
 
 .link-secondary {
@@ -13023,4 +13023,8 @@ section.resume-section .resume-section-content {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+}
+/*CSS NUEVOS AÑADIDOS*/
+.back-to-top {
+  z-index: 1000;
 }
