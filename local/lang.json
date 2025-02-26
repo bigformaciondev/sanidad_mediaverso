@@ -51,7 +51,22 @@
     "chef-junior-5-2": "sobre alimentos a utilizar",
     "chef-junior-6-1": "Consejos",
     "chef-junior-6-2": "sobre los tipos de métodos de cocción más saludables",
-    "chef-junior-7": "La aplicación cuenta con una serie de funcionalidades que se describen a continuación:"
+    "chef-junior-7": "La aplicación cuenta con una serie de funcionalidades que se describen a continuación:",
+    "chef-junior-7-1": "Rellenar la cesta de la compra:",
+    "chef-junior-7-2": "A través de un minijuego tipo Match 3, la persona usuaria puede elegir entre una amplia variedad de ingredientes, que puede seleccionar y acumular, desde los más saludables hasta los menos recomendados.",
+    "chef-junior-7-3": "Hacer la compra:",
+    "chef-junior-7-4": "Una vez conseguidos los ingredientes, se podrá ver la lista para conocer las propiedades de cada uno y lo que aportan nutricionalmente.",
+    "chef-junior-7-5": "¡A cocinar!: ",
+    "chef-junior-7-6": "El juego permite utilizar diferentes técnicas de cocina para aprender varias formas de preparar los alimentos, algunas pueden ser más saludables que otras. Las más saludables sumarán una mayor puntuación y permitirán desbloquear recetas saludables para hacer en casa.",
+    "chef-junior-7-7": "Puntuación obtenida:",
+    "chef-junior-7-8": "El juego permite sumar o restar puntos según la calidad de la comida y la cocción. Si se eligen correctamente se obtendrá una puntuación final que se podrá superar cada vez que se juegue.",
+    "chef-junior-7-9": "Tiempo de selección de alimentos",
+    "chef-junior-7-10": "Clasificación:",
+    "chef-junior-7-11": " Niños (Menores de 12 años)",
+    "chef-junior-8": "El diseño de la aplicación y la información está adaptado para un público infantil correspondiente a alumnos de 5º y 6º de primaria, entre 10 y 12 años.",
+    "chef-junior-9": "Pulsa aquí para jugar desde el ordenador.",
+    "chef-junior-10": "Descarga la aplicación para dispositivos iOS",
+    "chef-junior-11": "Descarga la aplicación para dispositivos Android"
   },
   "gl": {
     "welcome": "Benvidos",
@@ -105,6 +120,21 @@
     "chef-junior-5-2": "sobre alimentos a utilizar",
     "chef-junior-6-1": "Consellos",
     "chef-junior-6-2": "sobre os tipos de métodos de cocción máis saudables",
-    "chef-junior-7": "A aplicación conta cunha serie de funcionalidades que se describen a continuación:"
+    "chef-junior-7": "A aplicación conta cunha serie de funcionalidades que se describen a continuación:",
+    "chef-junior-7-1": "Encher a cesta da compra:",
+    "chef-junior-7-2": "A través dun minixogo tipo Match 3, a persoa usuaria pode elixir entre unha ampla variedade de ingredientes, que pode seleccionar e acumular, desde os máis saudables ata os menos recomendados.",
+    "chef-junior-7-3": "Facer a compra: ",
+    "chef-junior-7-4": "Unha vez conseguidos os ingredientes, poderase ver a lista para coñecer as propiedades de cada un e o que achegan nutricionalmente.",
+    "chef-junior-7-5": "A cociñar!: ",
+    "chef-junior-7-6": "O xogo permite utilizar diferentes técnicas de cociña para aprender varias formas de preparar os alimentos, algunhas poden ser máis saudables que outras. As máis saudables sumarán unha maior puntuación e permitirán desbloquear receitas saudables para facer na casa.",
+    "chef-junior-7-7": "Puntuación obtida:",
+    "chef-junior-7-8": "O xogo permite sumar ou restar puntos segundo a calidade da comida e a cocción. Se se elixen correctamente obterase unha puntuación final que se poderá superar cada vez que se xogue.",
+    "chef-junior-7-9": "Tempo de selección de alimentos",
+    "chef-junior-7-10": "Clasificación:",
+    "chef-junior-7-11": "Nenos (Menores de 12 anos)",
+    "chef-junior-8": "O deseño da aplicación e a información está adaptado para un público infantil correspondente a alumnos de 5º e 6º de primaria, entre 10 e 12 anos.",
+    "chef-junior-9": "Pulsa aquí para xogar dende o ordenador.",
+    "chef-junior-10": "Descarga a aplicación para dispositivos iOS",
+    "chef-junior-11": "Descarga a aplicación para dispositivos Android"
   }
 }
