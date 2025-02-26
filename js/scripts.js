@@ -27,8 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
     loadMenusAndSubmenus();
   });
 function irASeccion(id) {
-    window.location.href="#" + id;
+  // Busca el elemento en la página actual
+  const targetElement = document.getElementById(id);
+  if (targetElement) {
+    // Si lo encuentra, realiza un scroll suave
+    targetElement.scrollIntoView({ behavior: "smooth" });
+  } else {
+    // Si no se encuentra (por ejemplo, no estamos en la página index), redirige a la página principal con el hash
+    window.location.href = "index.html#" + id;
+  }
 }
+
 document.addEventListener("DOMContentLoaded", function () {
     fetch("../local/menu.json")
       .then(response => response.json())
@@ -135,57 +144,76 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch("../local/menu.json").then(res => res.json()),
       fetch("../local/submenu.json").then(res => res.json())
     ])
-      .then(([menus, submenus]) => {
-        // Para cada menú, carga los submenús filtrados en su pestaña correspondiente
-        menus.forEach(menu => {
-          const tabPane = document.getElementById(menu.tabId);
-          if (tabPane) {
-            let row = tabPane.querySelector('.row');
-            if (!row) {
-              row = document.createElement("div");
-              row.className = "row gy-5 m-2";
-              tabPane.appendChild(row);
-            }
-            // Limpia el contenedor de cards
-            row.innerHTML = "";
+    .then(([menus, submenus]) => {
+      const selectedCategory = localStorage.getItem("selectedCategory");
   
-            const submenuItems = submenus.filter(item => item.menu_id === menu.id);
-  
-            if (submenuItems.length > 8) {
-              // Si hay más de 8 items, se paginan
-              renderCards(submenuItems, row, 1, 8);
-            } else {
-              submenuItems.forEach(item => {
-                const col = createCard(item);
-                row.appendChild(col);
-              });
-            }
-          }
-        });
-  
-        // Pestaña "Todos": muestra todos los submenús sin filtrar
-        const todosPane = document.getElementById("todos-filter");
-        if (todosPane) {
-          let row = todosPane.querySelector('.row');
+      menus.forEach(menu => {
+        const tabPane = document.getElementById(menu.tabId);
+        if (tabPane) {
+          let row = tabPane.querySelector('.row');
           if (!row) {
             row = document.createElement("div");
             row.className = "row gy-5 m-2";
-            todosPane.appendChild(row);
+            tabPane.appendChild(row);
           }
           row.innerHTML = "";
-          if (submenus.length > 8) {
-            renderCards(submenus, row, 1, 8);
+  
+          const submenuItems = submenus.filter(item => item.menu_id === menu.id);
+          if (submenuItems.length > 8) {
+            renderCards(submenuItems, row, 1, 8);
           } else {
-            submenus.forEach(item => {
+            submenuItems.forEach(item => {
               const col = createCard(item);
               row.appendChild(col);
             });
           }
         }
-      })
-      .catch(error => {
-        console.error("Error al cargar los menús y submenús:", error);
       });
+  
+      // Pestaña "Todos": muestra todos los submenús sin filtrar
+      const todosPane = document.getElementById("todos-filter");
+      if (todosPane) {
+        let row = todosPane.querySelector('.row');
+        if (!row) {
+          row = document.createElement("div");
+          row.className = "row gy-5 m-2";
+          todosPane.appendChild(row);
+        }
+        row.innerHTML = "";
+        if (submenus.length > 8) {
+          renderCards(submenus, row, 1, 8);
+        } else {
+          submenus.forEach(item => {
+            const col = createCard(item);
+            row.appendChild(col);
+          });
+        }
+      }
+  
+      // Aplicar filtro si hay una categoría almacenada en localStorage
+      if (selectedCategory) {
+        filterCategory(selectedCategory);
+        localStorage.removeItem("selectedCategory"); // Eliminar después de aplicarlo
+      }
+    })
+    .catch(error => {
+      console.error("Error al cargar los menús y submenús:", error);
+    });
+  }
+  function filterCategory(category) {
+    const tabs = document.querySelectorAll(".nav-link[data-bs-target]");
+    
+    tabs.forEach(tab => {
+      console.log("tab atributo");
+      console.log(tab.getAttribute("data-bs-target"));
+      console.log("category");
+      console.log(category);
+      if (tab.getAttribute("data-bs-target") === category) {
+        console.log("tab");
+        console.log(tab);
+        tab.click(); // Simula el clic en la pestaña correspondiente
+      }
+    });
   }
   
   function createCard(item) {
