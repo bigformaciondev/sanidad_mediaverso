@@ -12990,7 +12990,14 @@ img#circulo {
   height: 100px ;
   border-radius: 50%;
 }
+.store-badge {
+  max-width: 100px; /* Ajusta el ancho máximo */
+  height: auto; /* Mantiene la proporción */
+}
 
+.card-footer {
+  overflow: hidden; /* Evita que las imágenes salgan del contenedor */
+}
 @media (max-width: 400px) {
   .collapse.show img#circulo {
     display: none !important;
