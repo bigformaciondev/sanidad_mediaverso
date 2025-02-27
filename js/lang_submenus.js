@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const language = localStorage.getItem("language") || "es";
     changeLanguage(language);
+    
 });
 
 function changeLanguage(lang) {
@@ -19,6 +20,7 @@ function changeLanguage(lang) {
             });
 
             localStorage.setItem("language", lang);
+            
         })
         .catch(error => console.error("Error al cargar el archivo de idioma", error));
 }
