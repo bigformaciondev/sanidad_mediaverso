@@ -21,45 +21,13 @@
 </head>
 
 <body id="page-top">
-  <!-- Navigation-->
+  <!-- Navigation  width="80" height="71"-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger m-1" href="#page-top">
-      <span class="d-block d-lg-block h4 text-white">Sanidade Mediaverso</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-        class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse px-5" id="navbarResponsive">
-      <ul class="navbar-nav text-center">
-        <li class="nav-item"><img id="circulo" src="assets/logo/alimentacion-saludable-logo1.png" width="80" height="71"
-            onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger"
-            href="#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
-        <li class="nav-item"><img id="circulo" src="assets/logo/actividad-fisicas-logo1.png" width="80" height="71"
-            onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger" href="#actividad-fisica"
-            data-translate="actividad-fisica">Actividade física</a></li>
-        <li class="nav-item"><img id="circulo" src="assets/logo/bienestar-emocional-logo1.png" width="80" height="71"
-            onclick="irASeccion('bienestar-emocional')" /><a class="nav-link js-scroll-trigger"
-            href="#bienestar-emocional" data-translate="bienestar-emocional">Benestar emocional</a></li>
-        <li class="nav-item"><img id="circulo" src="assets/logo/conductas-adictivas-logo1.png" width="80" height="71"
-            onclick="irASeccion('conductas-adictivas')" /><a class="nav-link js-scroll-trigger"
-            href="#conductas-adictivas" data-translate="conductas-adictivas">Conductas adictivas</a></li>
-      </ul>
-    </div>
-    <div class="collapse navbar-collapse text-center" id="navbarResponsive">
-      <a class="navbar-brand d-inline-flex align-items-center" href="#page-top">
-        <div onclick="changeLanguage('es')" role="button">
-          <img src="assets/flag/esflag.svg" alt="Español" class="mx-3 flag-icon"><span class=""
-            data-translate="espanol">Español</span>
-        </div>
-        <div onclick="changeLanguage('gl')" role="button">
-          <img src="assets/flag/glflag.svg" alt="Galego" class="mx-3 flag-icon"><span class=""
-            data-translate="gallego">Gallego</span>
-        </div>
-      </a>
-    </div>
     <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
       <div class="navbar-brand d-flex text-light">
-        <a class="p-1 text-light" href="https://www.instagram.com/vidasaudable.sergas/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" target="_blank">
+        <a class="p-1 text-light"
+          href="https://www.instagram.com/vidasaudable.sergas/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#"
+          target="_blank">
           <i class="bi bi-instagram text-light"></i>
         </a>
         <a class="p-1 text-light" href="https://www.facebook.com/vidasaudable.sergas/" target="_blank">
@@ -71,55 +39,160 @@
         <a class="p-1 text-light" href="mailto:sanidademediaverso@sergas.es">
           <i class="bi bi-envelope text-light"></i>
         </a>
+        <a class="p-1 text-light" href="http://wa.me/605826010">
+          <i class="bi bi-whatsapp text-light"></i>
+        </a>
       </div>
     </div>
+    <a class="navbar-brand js-scroll-trigger m-1" href="#page-top">
+      <span class="d-block d-lg-block h4 text-white">Sanidade Mediaverso</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse h-100 justify-content-between px-5" id="navbarResponsive">
+      <ul class="navbar-nav text-center h-100">
+        <li class="nav-item h-25"><img id="circulo" src="assets/logo/alimentacion-saludable-logo1.png"
+            onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="assets/logo/actividad-fisicas-logo1.png"
+            onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="#actividad-fisica" data-translate="actividad-fisica">Actividade física</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="assets/logo/bienestar-emocional-logo1.png"
+            onclick="irASeccion('bienestar-emocional')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="#bienestar-emocional" data-translate="bienestar-emocional">Benestar emocional</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="assets/logo/conductas-adictivas-logo1.png"
+            onclick="irASeccion('conductas-adictivas')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="#conductas-adictivas" data-translate="conductas-adictivas">Conductas adictivas</a></li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse d-flex justify-content-around  text-center text-light px-2" id="navbarResponsive">
+        <div onclick="changeLanguage('es')" role="button" class="d-flex align-items-center">
+          <img src="../assets/flag/esflag.svg" alt="Español" class="mx-1 flag-icon">
+          <span data-translate="espanol">Español</span>
+        </div>
+
+        <div onclick="changeLanguage('gl')" role="button" class="d-flex align-items-center ms-4">
+          <img src="../assets/flag/glflag.svg" alt="Galego" class="mx-1 flag-icon">
+          <span data-translate="gallego">Gallego</span>
+        </div>
+        <a href="content/alimentacion/descargas.html" class="text-light" title="Descargar archivos">
+          <i class="bi bi-download text-light h5"></i>
+        </a>
+    </div>
+
   </nav>
   <!-- Page Content-->
   <div class="container-fluid p-0">
     <!-- About-->
-    <section class="resume-section d-flex align-items-end" id="inicio-banner-1">
-      <h3 class="mb-5 text-light w-50" data-translate="inicio-banner-1">Accede al Mediaverso de contenidos y
-        experiencias para la promoción de tu salud.</h3>
+    <section class="resume-section d-flex align-items-end position-relative p-5" id="inicio-banner-1">
+      <!-- Imagen del logo en la esquina superior derecha -->
+      <div class="position-absolute top-0 end-0 p-3 w-50">
+        <img src="assets/logo/logos.png" class="img-fluid" alt="Logo">
+      </div>
+
+      <!-- Texto alineado a la izquierda con separación -->
+      <div class="position-relative" style="width: fit-content;">
+        <div style="width: 15%; height: 10px; background-color: #81d1ec; position: absolute; top: -25px; left: 5%;">
+        </div>
+        <h3 class="mb-5 text-light ms-xxl-5 ps-5 ps-lg-7 ps-xl-9 titulos-index" style="width: 40%;"
+          data-translate="inicio-banner-1">
+          Accede al Mediaverso de contenidos y experiencias para la promoción de tu salud.
+        </h3>
+      </div>
 
     </section>
+
+
     <hr class="m-0" />
     <!-- Alimentacion saludable-->
     <section class="resume-section d-flex align-items-end flex-column" id="alimentacion-saludable">
-      <h1 class="mb-2 text-light w-50" data-translate="alimentacion-saludable"></h1>
-      <h5 class="mb-5 text-light w-50" data-translate="alimentacion-saludable-parrafo-banner-inicio"></h5>
-      <div class="d-flex justify-content-start w-50">
-        <a class="btn btn-primary py-2 px-5 fw-bold my-1 js-scroll-trigger" style="font-size: 1.75rem"
-          data-translate="boton-ver-mas" href="#menu">Ver mas</a>
+
+      <!-- Contenedor para alinear la barra y el texto -->
+      <div class="w-50">
+        <!-- Barra azul alineada a la izquierda -->
+        <div style="width: 20%; height: 15px; background-color: #81d1ec; margin-bottom: 10px;"></div>
+
+        <!-- Título y párrafo -->
+        <h3 class="mb-2 text-light titulos-index-categorias" data-translate="alimentacion-saludable"></h3>
+        <h3 class="mb-5 text-light subtitulos-index-categorias w-75"
+          data-translate="alimentacion-saludable-parrafo-banner-inicio"></h3>
       </div>
+
+      <!-- Botón alineado a la izquierda -->
+      <div class="d-flex justify-content-start w-50">
+        <a class="btn btn-primary py-3 px-5 fw-bold my-1 js-scroll-trigger" style="font-size: 1.75rem"
+          data-translate="boton-ver-mas" href="#menu" onclick="filterCategory('#alimentacion-saludable-filter')">Ver
+          más</a>
+      </div>
+
     </section>
     <hr class="m-0" />
     <section class="resume-section d-flex align-items-end flex-column" id="actividad-fisica">
-      <h1 class="mb-2 text-light w-50" data-translate="actividad-fisica"></h1>
-      <h5 class="mb-5 text-light w-50" data-translate="actividad-fisica-parrafo-banner-inicio"></h5>
-      <div class="d-flex justify-content-start w-50">
-        <a class="btn btn-primary py-2 px-5 my-1 fw-bold js-scroll-trigger" style="font-size: 1.75rem"
-          data-translate="boton-ver-mas" href="#menu">Ver mas</a>
+
+      <!-- Contenedor para alinear la barra y el texto -->
+      <div class="w-50">
+        <!-- Barra azul alineada a la izquierda -->
+        <div style="width: 20%; height: 15px; background-color: #81d1ec; margin-bottom: 10px;"></div>
+
+        <!-- Título y párrafo -->
+        <h3 class="mb-2 text-light titulos-index-categorias" data-translate="actividad-fisica"></h3>
+        <h3 class="mb-5 text-light subtitulos-index-categorias w-75"
+          data-translate="actividad-fisica-parrafo-banner-inicio"></h3>
       </div>
+
+      <!-- Botón alineado a la izquierda -->
+      <div class="d-flex justify-content-start w-50">
+        <a class="btn btn-primary py-3 px-5 fw-bold my-1 js-scroll-trigger" style="font-size: 1.75rem"
+          data-translate="boton-ver-mas" href="#menu" onclick="filterCategory('#actividad-fisica-filter')">Ver más</a>
+      </div>
+
     </section>
     <hr class="m-0" />
     <!-- Bienestar emocional-->
     <section class="resume-section d-flex align-items-end flex-column" id="bienestar-emocional">
-      <h1 class="mb-2 text-light w-50" data-translate="bienestar-emocional"></h1>
-      <h5 class="mb-5 text-light w-50" data-translate="bienestar-emocional-parrafo-banner-inicio"></h5>
-      <div class="d-flex justify-content-start w-50">
-        <a class="btn btn-primary py-2 px-5 my-1 fw-bold js-scroll-trigger" style="font-size: 1.75rem"
-          data-translate="boton-ver-mas" href="#menu">Ver mas</a>
+
+      <!-- Contenedor para alinear la barra y el texto -->
+      <div class="w-50">
+        <!-- Barra azul alineada a la izquierda -->
+        <div style="width: 20%; height: 15px; background-color: #81d1ec; margin-bottom: 10px;"></div>
+
+        <!-- Título y párrafo -->
+        <h3 class="mb-2 text-light titulos-index-categorias" data-translate="bienestar-emocional"></h3>
+        <h3 class="mb-5 text-light subtitulos-index-categorias w-75"
+          data-translate="bienestar-emocional-parrafo-banner-inicio"></h3>
       </div>
+
+      <!-- Botón alineado a la izquierda -->
+      <div class="d-flex justify-content-start w-50">
+        <a class="btn btn-primary py-3 px-5 fw-bold my-1 js-scroll-trigger" style="font-size: 1.75rem"
+          data-translate="boton-ver-mas" href="#menu" onclick="filterCategory('#bienestar-emocional-filter')">Ver
+          más</a>
+      </div>
+
     </section>
     <hr class="m-0" />
     <!-- Conductas adictivas-->
     <section class="resume-section d-flex align-items-end flex-column" id="conductas-adictivas">
-      <h1 class="mb-2 text-light w-50" data-translate="conductas-adictivas"></h1>
-      <h5 class="mb-5 text-light w-50" data-translate="conductas-adictivas-parrafo-banner-inicio"></h5>
-      <div class="d-flex justify-content-start w-50">
-        <a class="btn btn-primary py-2 px-5 my-1 fw-bold js-scroll-trigger" style="font-size: 1.75rem"
-          data-translate="boton-ver-mas" href="#menu">Ver mas</a>
+
+      <!-- Contenedor para alinear la barra y el texto -->
+      <div class="w-50">
+        <!-- Barra azul alineada a la izquierda -->
+        <div style="width: 20%; height: 15px; background-color: #81d1ec; margin-bottom: 10px;"></div>
+
+        <!-- Título y párrafo -->
+        <h3 class="mb-2 text-light titulos-index-categorias" data-translate="conductas-adictivas"></h3>
+        <h3 class="mb-5 text-light subtitulos-index-categorias w-75"
+          data-translate="conductas-adictivas-parrafo-banner-inicio"></h3>
       </div>
+
+      <!-- Botón alineado a la izquierda -->
+      <div class="d-flex justify-content-start w-50">
+        <a class="btn btn-primary py-3 px-5 fw-bold my-1 js-scroll-trigger" style="font-size: 1.75rem"
+          data-translate="boton-ver-mas" href="#menu" onclick="filterCategory('#conductas-adictivas-filter')">Ver
+          más</a>
+      </div>
+
     </section>
     <section id="menu" class="menu section">
       <div>
@@ -157,7 +230,8 @@
           <img src="assets/logo/logo-xunta-negativo.svg" width="80" height="71" />
         </div>
         <div>
-          <p data-translate="footer-info-xunta">© Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade</p>
+          <p data-translate="footer-info-xunta">© Xunta de Galicia. Información mantida e publicada en Internet pola
+            Consellería de Sanidade</p>
           <ul class="d-flex d-inline-flex footer-links">
             <li class="text-decoration-none d-flex">
               <a class="nav-link js-scroll-trigger" href="https://012.xunta.gal/portada"
@@ -197,8 +271,7 @@
               </a>
             </li>
             <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/canles-rss"
-                data-translate="rss">
+              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/canles-rss" data-translate="rss">
                 RSS
               </a>
             </li>
