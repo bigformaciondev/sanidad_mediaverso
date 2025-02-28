@@ -304,3 +304,203 @@ document.addEventListener("DOMContentLoaded", function () {
     showWeek(1);           // Muestra la semana 1 por defecto
     renderWeekPagination(); // Genera los controles de paginación (1 a 8)
 });
+// Suponemos que mealPlanData ya está cargado globalmente desde tu JSON de planificador de alimentos
+// Función auxiliar para agrupar ingredientes
+function groupIngredients(adultos, ninos, semana, dias) {
+  // Factor multiplicador: cada adulto cuenta 1, cada niño 0.5
+  const factor = adultos + ninos * 0.5;
+  const grouped = {};
+
+  // Recorremos mealPlanData
+  mealPlanData.forEach(week => {
+    // Filtrar por semana: si "9" se consideran todas, sino la semana específica
+    if (semana === "9" || week.semana == semana) {
+      week.dias.forEach(day => {
+        // Filtrar por día: si "8" se consideran todos los días, sino el día específico
+        if (dias === "8" || day.dia == dias) {
+          // Para cada tipo de comida
+          ["almorzo", "comida", "merenda", "cea"].forEach(type => {
+            if (day[type]) {
+              const meal = day[type];
+              meal.ingredientes.forEach(ing => {
+                // Creamos una clave única basada en el nombre y la unidad
+                const key = ing.nombre + "|" + ing.unidad;
+                if (!grouped[key]) {
+                  grouped[key] = { nombre: ing.nombre, unidad: ing.unidad, cantidad: 0 };
+                }
+                // Acumulamos la cantidad ajustada por el factor
+                grouped[key].cantidad += ing.cantidad * factor;
+              });
+            }
+          });
+        }
+      });
+    }
+  });
+
+  return grouped;
+}
+
+// Función para generar el PDF de la cesta de la compra
+function generarCestaPDF(adultos, ninos, semana, dias) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  // Título y filtros en el PDF
+  doc.setFontSize(16);
+  doc.text("Cesta de la compra", 10, 10);
+  doc.setFontSize(12);
+  doc.text(`Adultos: ${adultos}   Niños: ${ninos}`, 10, 20);
+  doc.text(
+    `Semana: ${semana === "9" ? "Todas las semanas" : "Semana " + semana}`,
+    10,
+    30
+  );
+  // Para el día, si se selecciona un número, usamos el nombre según currentLang y dayNames
+  const dayLabel = dias === "8" ? "Todos los días" : (dayNames[currentLang] && dayNames[currentLang][dias] ? dayNames[currentLang][dias] : dias);
+  doc.text(`Días: ${dayLabel}`, 10, 40);
+
+  let y = 50;
+
+  // Agrupamos los ingredientes
+  const grouped = groupIngredients(adultos, ninos, semana, dias);
+  // Convertimos el objeto agrupado a un array
+  const ingredientsArray = Object.values(grouped);
+  // Opcional: ordenamos alfabéticamente
+  ingredientsArray.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+  // Listamos cada ingrediente
+  ingredientsArray.forEach(ing => {
+    // Mostramos la cantidad con 2 decimales
+    doc.text(`- ${ing.nombre}: ${ing.cantidad.toFixed(2)} ${ing.unidad}`, 10, y);
+    y += 6;
+    // Si y supera el límite de la página, añade una nueva página
+    if (y > 280) {
+      doc.addPage();
+      y = 20;
+    }
+  });
+
+  // Guarda el PDF
+  doc.save("cesta_de_compra.pdf");
+}
+
+// Función para generar el PDF del recetario (puedes dejarlo igual o ajustarlo similarmente)
+function generarRecetarioPDF(adultos, ninos, semana, dias) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.setFontSize(16);
+  doc.text("Recetario", 10, 10);
+  doc.setFontSize(12);
+  doc.text(`Adultos: ${adultos}   Niños: ${ninos}`, 10, 20);
+  doc.text(
+    `Semana: ${semana === "9" ? "Todas las semanas" : "Semana " + semana}`,
+    10,
+    30
+  );
+  const dayLabel = dias === "8" ? "Todos los días" : (dayNames[currentLang] && dayNames[currentLang][dias] ? dayNames[currentLang][dias] : dias);
+  doc.text(`Días: ${dayLabel}`, 10, 40);
+
+  let y = 50;
+
+  // Recorremos mealPlanData y listamos las comidas
+  mealPlanData.forEach(week => {
+    if (semana === "9" || week.semana == semana) {
+      doc.setFontSize(14);
+      doc.text(`Semana ${week.semana}:`, 10, y);
+      y += 8;
+      week.dias.forEach(day => {
+        if (dias === "8" || day.dia == dias) {
+          doc.setFontSize(12);
+          doc.text(`Día ${dayNames[currentLang] && dayNames[currentLang][day.dia] ? dayNames[currentLang][day.dia] : day.dia}:`, 10, y);
+          y += 6;
+          ["almorzo", "comida", "merenda", "cea"].forEach(type => {
+            if (day[type]) {
+              const typeLabel = mealTypeNames[currentLang][type] || capitalize(type);
+              const mealText = `${typeLabel}: ${day[type].nombre}`;
+              doc.text(mealText, 15, y);
+              y += 6;
+            }
+          });
+          y += 4; // Espacio entre días
+        }
+      });
+      y += 8; // Espacio entre semanas
+    }
+  });
+
+  doc.save("recetario.pdf");
+}
+
+// Asignamos eventos a los botones del formulario
+// Función para validar y sanitizar los valores del formulario
+function validateFormValues(adultos, ninos, semana, dias) {
+  // Verifica que sean números y no negativos
+  if (isNaN(adultos) || adultos < 0 || adultos > 100) {
+    alert("Por favor, ingresa un valor válido para Adultos (0 - 100).");
+    return false;
+  }
+  if (isNaN(ninos) || ninos < 0 || ninos > 100) {
+    alert("Por favor, ingresa un valor válido para Niños (0 - 100).");
+    return false;
+  }
+  // Para semana: si no es "9" (todas las semanas), debe estar entre 1 y 8
+  if (semana !== "9") {
+    const semNum = parseInt(semana, 10);
+    if (isNaN(semNum) || semNum < 1 || semNum > 8) {
+      alert("Por favor, selecciona una semana válida (1 - 8) o 'Todas las semanas'.");
+      return false;
+    }
+  }
+  // Para días: si no es "8" (todos los días), debe estar entre 1 y 7
+  if (dias !== "8") {
+    const diaNum = parseInt(dias, 10);
+    if (isNaN(diaNum) || diaNum < 1 || diaNum > 7) {
+      alert("Por favor, selecciona un día válido (1 - 7) o 'Todos los días'.");
+      return false;
+    }
+  }
+  return true;
+}
+
+// Asignamos eventos a los botones del formulario
+document.getElementById("btnRecetario").addEventListener("click", function(e) {
+  e.preventDefault();
+  
+  // Obtener valores y eliminar espacios en blanco
+  const adultosStr = document.getElementById("adultosForm").value.trim();
+  const ninosStr = document.getElementById("kidsForm").value.trim();
+  const semana = document.getElementById("semanaForm").value.trim();
+  const dias = document.getElementById("diasForm").value.trim();
+  
+  // Convertir a números
+  const adultos = parseInt(adultosStr, 10);
+  const ninos = parseInt(ninosStr, 10);
+  
+  // Validar datos
+  if (!validateFormValues(adultos, ninos, semana, dias)) {
+    return; // Si falla la validación, no se continúa
+  }
+  
+  generarRecetarioPDF(adultos, ninos, semana, dias);
+});
+
+document.getElementById("btnCesta").addEventListener("click", function(e) {
+  e.preventDefault();
+  
+  const adultosStr = document.getElementById("adultosForm").value.trim();
+  const ninosStr = document.getElementById("kidsForm").value.trim();
+  const semana = document.getElementById("semanaForm").value.trim();
+  const dias = document.getElementById("diasForm").value.trim();
+  
+  const adultos = parseInt(adultosStr, 10);
+  const ninos = parseInt(ninosStr, 10);
+  
+  if (!validateFormValues(adultos, ninos, semana, dias)) {
+    return;
+  }
+  
+  generarCestaPDF(adultos, ninos, semana, dias);
+});
+
