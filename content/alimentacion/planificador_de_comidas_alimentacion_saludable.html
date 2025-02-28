@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Página de inicio de Sanidad Mediaverso">
+  <title>Sanidad Mediaverso</title>
+
+  <!-- Bootstrap CSS -->
+
+  <!-- Bootstrap CSS desde archivos locales -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <!-- Archivo CSS personalizado -->
+  <link rel="stylesheet" href="../../css/styles.css">
+
+  <!-- Icono del sitio (favicon) -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
+      <div class="navbar-brand d-flex text-light">
+        <a class="p-1 text-light"
+          href="https://www.instagram.com/vidasaudable.sergas/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#"
+          target="_blank">
+          <i class="bi bi-instagram text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="https://www.facebook.com/vidasaudable.sergas/" target="_blank">
+          <i class="bi bi-facebook text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="https://x.com/vida_saudable" target="_blank">
+          <i class="bi bi-twitter-x text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="mailto:sanidademediaverso@sergas.es">
+          <i class="bi bi-envelope text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="http://wa.me/605826010">
+          <i class="bi bi-whatsapp text-light"></i>
+        </a>
+      </div>
+    </div>
+    <a class="navbar-brand js-scroll-trigger m-1" href="../../index.html">
+      <span class="d-block d-lg-block h4 text-white">Sanidade Mediaverso</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse h-100 justify-content-between px-5" id="navbarResponsive">
+      <ul class="navbar-nav text-center h-100">
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png"
+            onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion
+            Saludable</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/actividad-fisicas-logo1.png"
+            onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#actividad-fisica" data-translate="actividad-fisica">Actividade física</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/bienestar-emocional-logo1.png"
+            onclick="irASeccion('bienestar-emocional')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#bienestar-emocional" data-translate="bienestar-emocional">Benestar emocional</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/conductas-adictivas-logo1.png"
+            onclick="irASeccion('conductas-adictivas')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#conductas-adictivas" data-translate="conductas-adictivas">Conductas adictivas</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse d-flex justify-content-around  text-center text-light px-2"
+      id="navbarResponsive" style="width: 100%;">
+
+      <div class="d-flex ">
+        <div onclick="changeLanguage('es');window.location.href=''" role="button" class="d-flex align-items-center">
+          <img src="../../assets/flag/esflag.svg" alt="Español" class="mx-1 flag-icon">
+          <span data-translate="espanol">Español</span>
+        </div>
+      </div>
+      <div class="d-flex ">
+
+        <div onclick="changeLanguage('gl'); window.location.href=''" role="button" class="d-flex align-items-center ms-4">
+          <img src="../../assets/flag/glflag.svg" alt="Galego" class="mx-1 flag-icon">
+          <span data-translate="gallego">Gallego</span>
+        </div>
+      </div>
+      <div class="d-flex">
+        <a href="../../content/descargas.html" class="text-light" title="Descargar archivos">
+          <i class="bi bi-download text-light h5"></i>
+        </a>
+      </div>
+    </div>
+
+  </nav>
+  <!-- Page Content-->
+  <div class="container-fluid p-0">
+    <div class="d-flex justify-content-center w-100 my-3">
+      <h2 class="" data-translate="planificador-comidas">Planificador de comidas</h2>
+    </div>
+    <div id="form-container" class="container py-4">
+      <form id="downloadForm">
+        <!-- Fila para inputs y selects -->
+        <div class="row g-3 mb-3">
+          <!-- Adultos -->
+          <div class="col-md-3">
+            <label for="adultosForm" class="form-label" data-translate="adultos">Adultos</label>
+            <input type="number" value="0" class="form-control" id="adultosForm" aria-describedby="adultosForm">
+          </div>
+          <!-- Niños -->
+          <div class="col-md-3">
+            <label for="kidsForm" class="form-label" data-translate="ninos">Niños</label>
+            <input type="number" value="0" class="form-control" id="kidsForm" aria-describedby="kidsForm">
+          </div>
+          <!-- Semana -->
+          <div class="col-md-3">
+            <label for="semanaForm" class="form-label" data-translate="semana">Semana</label>
+            <select class="form-select" id="semanaForm">
+              <option value="9" data-translate="todas-semanas" selected>Todas las semanas</option>
+              <option value="1">Semana 1</option>
+              <option value="2">Semana 2</option>
+              <option value="3">Semana 3</option>
+              <option value="4">Semana 4</option>
+              <option value="5">Semana 5</option>
+              <option value="6">Semana 6</option>
+              <option value="7">Semana 7</option>
+              <option value="8">Semana 8</option>
+            </select>
+          </div>
+          <!-- Días -->
+          <div class="col-md-3">
+            <label for="diasForm" class="form-label" data-translate="dias">Días</label>
+            <select class="form-select" id="diasForm">
+              <option value="8" data-translate="todos-dias" selected>Todos los días</option>
+              <option value="1" data-translate="lunes">Lunes</option>
+              <option value="2" data-translate="martes">Martes</option>
+              <option value="3" data-translate="miercoles">Miércoles</option>
+              <option value="4" data-translate="jueves">Jueves</option>
+              <option value="5" data-translate="viernes">Viernes</option>
+              <option value="6" data-translate="sabado">Sábado</option>
+              <option value="7" data-translate="domingo">Domingo</option>
+            </select>
+          </div>
+        </div>
+    
+        <!-- Fila para los 2 botones -->
+        <div class="row g-3">
+          <div class="col d-flex w-100">
+            <button id="btnRecetario" type="submit" class="btn btn-primary me-2 w-50" data-translate="descargar-recetario">Descargar recetario</button>
+            <button id="btnCesta" type="submit" class="btn btn-outline-primary w-50" data-translate="descargar-cesta-compra">Descargar cesta de la compra</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    
+    <div id="img-container" class="container my-2">
+      <img src="../../assets/img/planificador-comidas-subbanner1.png" alt="Español" class="w-100">
+    </div>
+
+    <div id="week-container" class="container my-4">
+      <!-- Aquí se renderizará la tabla de la semana seleccionada -->
+    </div>
+
+    <div id="week-pagination" class="container">
+      <!-- Aquí se generarán los controles de paginación (semanas 1 a 8) -->
+    </div>
+
+  </div>
+  <script src="../../js/planificador_comidas.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  // Determinar el idioma actual. Si no está definido, se usa "es" por defecto.
+  const lang = localStorage.getItem("language") || "es";
+  // Construir la ruta del JSON según el idioma
+  let jsonPath;
+  if (lang === "gl") {
+    jsonPath = "../../local/plan_alimentacion_completo.json";
+  } else {
+    jsonPath = "../../local/plan_alimentacion_completo_es.json";
+  }
+  
+  fetch(jsonPath)
+    .then(response => response.json())
+    .then(data => {
+      // Asigna los datos a la variable global
+      window.mealPlanData = data;
+      // Muestra la semana 1 y la paginación
+      showWeek(1);
+      renderWeekPagination();
+    })
+    .catch(error => console.error("Error al cargar el plan de alimentación:", error));
+});
+  </script>
+  <script src="../../js/scripts_submenus.js"></script>
+  <script src="../../js/lang_submenus.js"></script>
+</body>
+<!-- Modal para mostrar detalles de la comida -->
+<div class="modal fade" id="mealModal" tabindex="-1" aria-labelledby="mealModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg"> <!-- modal-lg para mayor tamaño -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mealModalLabel">Detalles de la Comida</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Aquí se insertarán los ingredientes y las instrucciones -->
+        <div id="mealModalContent"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>

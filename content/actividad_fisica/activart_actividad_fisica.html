@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Página de inicio de Sanidad Mediaverso">
+    <title>Sanidad Mediaverso</title>
+
+    <!-- Prueba style arreglo tamaño youtube      -->
+
+    <style type="text/css">
+        html, body, div#yt, iframe { margin:0; padding:0; height:100%; }
+        iframe { display:block; width:100%; border:none; }
+    </style>
+
+    <!-- Bootstrap CSS desde archivos locales -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <!-- Icono del sitio (favicon) -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a class="navbar-brand js-scroll-trigger m-1" href="../../index.html">
+            <span class="d-block d-lg-block h4 text-white">Sanidade Mediaverso</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse px-5" id="navbarResponsive">
+            <ul class="navbar-nav text-center">
+                <li class="nav-item"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png" width="80"
+                        height="71" onclick="irASeccion('alimentacion-saludable')" /><a
+                        class="nav-link js-scroll-trigger" href="../../index.html#alimentacion-saludable"
+                        data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
+                <li class="nav-item"><img id="circulo" src="../../assets/logo/actividad-fisicas-logo1.png" width="80"
+                        height="71" onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger"
+                        href="../../index.html#actividad-fisica" data-translate="actividad-fisica">Actividade física</a></li>
+                <li class="nav-item"><img id="circulo" src="../../assets/logo/bienestar-emocional-logo1.png" width="80"
+                        height="71" onclick="irASeccion('bienestar-emocional')" /><a class="nav-link js-scroll-trigger"
+                        href="../../index.html#bienestar-emocional" data-translate="bienestar-emocional">Benestar emocional</a></li>
+                <li class="nav-item"><img id="circulo" src="../../assets/logo/conductas-adictivas-logo1.png" width="80"
+                        height="71" onclick="irASeccion('conductas-adictivas')" /><a class="nav-link js-scroll-trigger"
+                        href="../../index.html#conductas-adictivas" data-translate="conductas-adictivas">Conductas adictivas</a></li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse text-center" id="navbarResponsive">
+            <a class="navbar-brand d-inline-flex align-items-center" href="../../index.html">
+                <div onclick="changeLanguage('es')" role="button">
+                    <img src="../../assets/flag/esflag.svg" alt="Español" class="mx-3 flag-icon"><span class=""
+                        data-translate="espanol">Español</span>
+                </div>
+                <div onclick="changeLanguage('gl')" role="button">
+                    <img src="../../assets/flag/glflag.svg" alt="Galego" class="mx-3 flag-icon"><span class=""
+                        data-translate="gallego">Gallego</span>
+                </div>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
+            <div class="navbar-brand d-flex text-light">
+                <a class="p-1 text-light"
+                    href="https://www.instagram.com/vidasaudable.sergas/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#"
+                    target="_blank">
+                    <i class="bi bi-instagram text-light"></i>
+                </a>
+                <a class="p-1 text-light" href="https://www.facebook.com/vidasaudable.sergas/" target="_blank">
+                    <i class="bi bi-facebook text-light"></i>
+                </a>
+                <a class="p-1 text-light" href="https://x.com/vida_saudable" target="_blank">
+                    <i class="bi bi-twitter-x text-light"></i>
+                </a>
+                <a class="p-1 text-light" href="mailto:sanidademediaverso@sergas.es">
+                    <i class="bi bi-envelope text-light"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <div class="container-fluid p-0" id="yt">
+        <div class="container-fluid " id="yt">
+            <div class="d-flex justify-content-center w-100 my-3">
+              <h2 class="" data-translate="planificador-comidas">ActivAR-t</h2>
+            </div>
+                  <div class="m-3 p-3">
+                      <p>La aplicación móvil <b>«ActivAR-t»</b>, disponible en las stores de Apple y Google Store es un juego ofrecido por la <b>Consellería de Sanidade de la Xunta de Galicia</b> que tiene como objetivo el fomento y educación en la actividad física. Se trata de una experiencia interactiva en realidad aumentada en la que un pequeño robot nos reta a movernos para superar diferentes tipos de pruebas y subir de nivel.</p>
+                  </div>
+                  <div id="yt" class="m-3 p-3">
+                      <iframe src="https://www.youtube.com/embed/R6HnQ9pAy00?si=rXeHueRa1pg0_uaH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+                  </div>
+                  <div class="m-3 p-3">
+                      <p>Disponible tanto en gallego como en castellano, el juego cuenta con las siguientes características:</p>
+                      <ul>
+                        <li><b>Barra de energía. </b>El juego cuenta con una barra en el menú principal en la que se muestra el nivel de batería del robot. Con el objetivo de motivar a la persona a hacer ejercicio con la app, a medida que se van superando niveles, la barra se va llenando, y después de varios días consecutivos sin utilizar la app, la barra aparecerá baja indicando que el robot está sin energía y hay que rellenarla.</li>
+                        <li><b>Selección de dificultad. </b>Permite escoger entre diferentes opciones que afectan a la intensidad del ejercicio.</li>
+                            <ul>
+                                <li>Fácil</li>
+                                <li>Medio</li>
+                                <li>Difícil</li>
+                            </ul>
+                        <li><b>Selección de nivel. </b> Una vez escogida la dificultad, se puede navegar entre los diferentes niveles de cada una. De más fácil a más difícil hasta superar todos los niveles de la dificultad seleccionada.</li>
+                        <li><b>Pantalla de juego.</b> Mediante la cámara se superponen elementos virtuales en el entorno. Las personas usuarias tendrán que coger o esquivar mediante el movimiento del móvil y de todo su cuerpo diferentes elementos que proyecta un robot animado. En esta pantalla hay tres fases:</li>
+                            <ul>
+                                <li>Colocación del robot. Se le pide a la persona usuaria que escanee el suelo para colocar el robot virtual en la pantalla con respecto al mundo real.</li>
+                                <li>Tutorial. Un ejemplo sencillo de la mecánica del juego para aprender a atrapar bolas y esquivar barras.</li>
+                                <li>Juego. Después de aprender cómo se interactúa, comienza la cuenta atrás y el juego en sí.</li>
+                            </ul>
+                        <li><b>Pantalla de resultados. </b>Al terminar cada nivel se muestra la puntuación conseguida.</li>
+                      </ul>
+                  </div>
+                <div class="m-3 p-2">
+                    <ul>
+                        <li class="m-2">
+                        <a href="https://apps.apple.com/es/app/activar-t/id6475166955" target="_blank">Descarga la aplicación para dispositivos iOS</a>
+                        </li>
+                        <li class="m-2">
+                        <a href="https://play.google.com/store/apps/details?id=es.sergas.sanmed.ob212&pli=1" target="_blank">Descarga la aplicación para dispositivos Android</a>
+                        </li>
+                    </ul>
+                </div>
+                  <div>
+                      <img class="mw-100" src="../../assets/img/activar-t-banner1.webp" />
+                  </div>
+                  <footer id="footer" class="footer bg-primary text-light">
+                    <div class="container d-flex justify-content-between text-center py-4">
+                      <div>
+                        <img src="../../assets/logo/logo-xunta-negativo.svg" width="80" height="71" />
+                      </div>
+                      <div>
+                        <p data-translate="footer-info-xunta">© Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade</p>
+                        <ul class="d-flex d-inline-flex footer-links">
+                          <li class="text-decoration-none d-flex">
+                            <a class="nav-link js-scroll-trigger" href="https://012.xunta.gal/portada"
+                              data-translate="atencion-a-la-ciudadania">
+                              Atencion a la ciudadania
+                            </a>
+                          </li>
+                          <li class="text-decoration-none d-flex">
+                            <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/A-nosa-organizacion/Accesibilidade"
+                              data-translate="accesibilidad">
+                              Accesibilidad
+                            </a>
+                          </li>
+                          <li class="text-decoration-none d-flex">
+                            <a class="nav-link js-scroll-trigger"
+                              href="https://www.xunta.gal/aviso-legal-do-portal-da-xunta?langId=gl_ES" data-translate="aviso-legal">
+                              Aviso Legal
+                            </a>
+                          </li>
+                          <li class="text-decoration-none d-flex">
+                            <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/mapa-web"
+                              data-translate="mapa-del-portal">
+                              Mapa del Portal
+                            </a>
+                          </li>
+                          <li class="text-decoration-none d-flex">
+                            <a class="nav-link js-scroll-trigger"
+                              href="https://www.sergas.gal/A-nosa-organizacion/Consultas-reclamacions-suxestions"
+                              data-translate="contacte">
+                              Contacte
+                            </a>
+                          </li>
+                          <li class="text-decoration-none d-flex">
+                            <a class="nav-link js-scroll-trigger" href="https://sanidade.xunta.gal/transparencia-e-goberno-aberto"
+                              data-translate="transparencia-y-gobierno-abierto">
+                              Transparencia y gobierno abierto
+                            </a>
+                          </li>
+                          <li class="text-decoration-none d-flex">
+                            <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/canles-rss"
+                              data-translate="rss">
+                              RSS
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="my-3">
+                        <a id="back-to-top " href="#" class="btn btn-primary back-to-top" role="button">
+                          <i class="bi bi-arrow-up"></i>
+                        </a>
+                      </div>
+                    </div>
+              
+              
+                </div>
+              
+                </footer>
+                  
+    </div>
+
+    <script src="../../js/scripts.js"></script>
+    <script src="../../js/lang.js"></script>
+</body>
+
+</html>
