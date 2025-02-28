@@ -7,7 +7,12 @@
     <meta name="description" content="Página de inicio de mi proyecto web">
     <title>Mi Proyecto Web</title>
 
-    <!-- Bootstrap CSS -->
+   <!-- Prueba style arreglo tamaño youtube      -->
+
+   <style type="text/css">
+        html, body, div#yt, iframe { margin:0; padding:0; height:100%; }
+        iframe { display:block; width:100%; border:none; }
+    </style>
 
     <!-- Bootstrap CSS desde archivos locales -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -78,10 +83,120 @@
         </div>
     </nav>
     <!-- Page Content-->
-    <div class="container-fluid p-0">
-        <span class="d-block d-lg-block">camiña actividad fisica</span>
-    </div>
-
+    <div class="container-fluid " id="yt">
+        <div class="d-flex justify-content-center w-100 my-3">
+          <h2 class="" data-translate="camina">Camiña</h2>
+        </div>
+              <div class="m-3 p-3">
+                  <p>La Consellería de Sanidade de la <b>Xunta de Galicia</b> ofrece en las stores de Apple y Google la aplicación móvil «Camiña», cuyo objetivo es reducir el sedentarismo y promover hábitos beneficiosos para la actividad física.</p>
+              </div>
+              <div id="yt" class="m-3 p-3">
+                  <iframe src="https://www.youtube.com/embed/X1VDqHJAkOw?si=Af1fD979yBHmnbwu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+              </div>
+              <div class="m-3 p-3">
+                  <p>Disponible tanto en gallego como en castellano, la aplicación cuenta con las siguientes <b>características:</b></p>
+                  <ul>
+                      <li>Aplicación móvil, dirigida al público general,  invita a caminar en cualquier lugar y los pasos dados se utilizarán para completar las diferentes etapas del Camino de Santiago.</li>
+                      <li>Además, en estas rutas,  el usuario será motivado mostrándole  datos interesantes como monumentos y adquiriendo sellos por cada etapa con el objetivo de conseguir la Compostela de cada uno de los caminos.</li>
+                  </ul>
+              </div>
+              <div>
+                  <img class="mw-100" src="../../assets/img/camina-banner1.webp" />
+              </div>
+              <div class="m-3 p-3">
+                  <p>Las <b>características técnicas</b> que muestra la aplicación son:</p>
+                  <ul>
+                      <li><p><b>Iniciar sesión o entrar como invitado: </b>la persona puede registrarse en el servicio É-saude con sus datos personales o acceder como invitado.</p></li>
+                      <li><p><b>Seleccionar ruta: </b>en la aplicación se pueden ver y acceder a las diferentes rutas del Camino de Santiago, desde el Camino Francés hasta el Camino Portugués de la Costa, entre otras.</p></li>
+                      <li><p><b>Ver datos por etapa: </b>dentro de cada Camino de Santiago aparecen las diferentes etapas en las que se divide el camino, se puede acceder a opciones como información histórica de ese tramo, o el mapa para saber dónde se encuentra la persona usuaria./p></li>
+                      <li><p><b>Ver puntos de interés: </b>a medida que la persona usuaria avanza,  puede ver diferentes puntos de interés en el mapa  que aparecen mientras camina, junto con información asociada como dónde están y qué se puede ver.</p></li>
+                      <li><p><b>Comunicación con aplicación de contador de pasos móvil: </b>la aplicación cuenta los pasos del usuario que se pueden visualizar en cada etapa seleccionada.</p></li>
+                  </ul>
+              </div>
+              
+                <div class="m-3 p-3 pt-0">
+                    <p>El objetivo de la aplicación es reducir el comportamiento sedentario, motivando la práctica de caminar comparando el número de pasos que da el usuario con el número de pasos que daría si estuviera haciendo el Camino de Santiago.</p>
+                </div>
+                <div class="m-3 p-3 pt-0">
+                    <p>Aunque es una aplicación para todos los públicos, está pensada principalmente para personas mayores de 65 años.</p>
+                </div>
+                <div class="m-3 p-3 pt-0">
+                    <p><b>Niveles de seguridad para el acceso a las diferentes funcionalidades de la aplicación: </b>La persona usuaria puede acceder a la app como invitada o iniciando sesión a través de É-Saúde con Chave 365 o certificado digital. Para más información sobre el tratamiento de datos utilizado en esta aplicación, se puede consultar la política de privacidad en el siguiente enlace: <a href="https://sanidademediaverso.sergas.gal/es/camina/politica-de-privacidade/">Ver política de Privacidad</a> *Para acceder con CHAVE365 es necesario que previamente el paciente autorice su uso de forma presencial en su centro de salud o de forma telemática con DNI electrónico cubriendo el formulario Solicitud de acceso con CHAVE365 y/o certificado digital.</p>
+                </div>
+                <div class="m-3 p-3 pt-0">
+                  <ul>
+                      <li class="m-2">
+                      <a href="https://apps.apple.com/es/app/cami%C3%B1a/id6478587081" target="_blank">Descarga la aplicación para dispositivos iOS</a>
+                      </li>
+                      <li class="m-2">
+                      <a href="https://play.google.com/store/apps/details?id=es.sergas.sanmed.ob23" target="_blank">Descarga la aplicación para dispositivos Android</a>
+                      </li>
+                  </ul>
+                </div>
+              <footer id="footer" class="footer bg-primary text-light">
+                  <div class="container d-flex justify-content-between text-center py-4">
+                    <div>
+                      <img src="../../assets/logo/logo-xunta-negativo.svg" width="80" height="71" />
+                    </div>
+                    <div>
+                      <p data-translate="footer-info-xunta">© Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade</p>
+                      <ul class="d-flex d-inline-flex footer-links">
+                        <li class="text-decoration-none d-flex">
+                          <a class="nav-link js-scroll-trigger" href="https://012.xunta.gal/portada"
+                            data-translate="atencion-a-la-ciudadania">
+                            Atencion a la ciudadania
+                          </a>
+                        </li>
+                        <li class="text-decoration-none d-flex">
+                          <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/A-nosa-organizacion/Accesibilidade"
+                            data-translate="accesibilidad">
+                            Accesibilidad
+                          </a>
+                        </li>
+                        <li class="text-decoration-none d-flex">
+                          <a class="nav-link js-scroll-trigger"
+                            href="https://www.xunta.gal/aviso-legal-do-portal-da-xunta?langId=gl_ES" data-translate="aviso-legal">
+                            Aviso Legal
+                          </a>
+                        </li>
+                        <li class="text-decoration-none d-flex">
+                          <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/mapa-web"
+                            data-translate="mapa-del-portal">
+                            Mapa del Portal
+                          </a>
+                        </li>
+                        <li class="text-decoration-none d-flex">
+                          <a class="nav-link js-scroll-trigger"
+                            href="https://www.sergas.gal/A-nosa-organizacion/Consultas-reclamacions-suxestions"
+                            data-translate="contacte">
+                            Contacte
+                          </a>
+                        </li>
+                        <li class="text-decoration-none d-flex">
+                          <a class="nav-link js-scroll-trigger" href="https://sanidade.xunta.gal/transparencia-e-goberno-aberto"
+                            data-translate="transparencia-y-gobierno-abierto">
+                            Transparencia y gobierno abierto
+                          </a>
+                        </li>
+                        <li class="text-decoration-none d-flex">
+                          <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/canles-rss"
+                            data-translate="rss">
+                            RSS
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="my-3">
+                      <a id="back-to-top " href="#" class="btn btn-primary back-to-top" role="button">
+                        <i class="bi bi-arrow-up"></i>
+                      </a>
+                    </div>
+                  </div>
+            
+            
+              </div>
+            
+              </footer>
     <script src="../../js/scripts.js"></script>
     <script src="../../js/lang.js"></script>
 </body>
