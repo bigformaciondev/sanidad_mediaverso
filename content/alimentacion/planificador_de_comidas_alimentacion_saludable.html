@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Página de inicio de mi proyecto web">
-  <title>Mi Proyecto Web</title>
+  <meta name="description" content="Página de inicio de Sanidad Mediaverso">
+  <title>Sanidad Mediaverso</title>
 
   <!-- Bootstrap CSS -->
 
   <!-- Bootstrap CSS desde archivos locales -->
-  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
@@ -185,7 +184,6 @@
     .then(data => {
       // Asigna los datos a la variable global
       window.mealPlanData = data;
-      console.log(mealPlanData);
       // Muestra la semana 1 y la paginación
       showWeek(1);
       renderWeekPagination();
