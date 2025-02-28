@@ -60,7 +60,7 @@ function renderWeekTableWithoutThead(weekData) {
 
     // Creamos la tabla con clases de Bootstrap
     const table = document.createElement("table");
-    table.className = "table  table-striped table-borderless table-space align-middle";
+    table.className = "table w-100 table-striped table-borderless table-space align-middle";
 
     // Crearemos un único <tbody> que contendrá
     // la fila de encabezado y las filas de comidas
@@ -307,30 +307,37 @@ document.addEventListener("DOMContentLoaded", function () {
 // Suponemos que mealPlanData ya está cargado globalmente desde tu JSON de planificador de alimentos
 // Función auxiliar para agrupar ingredientes
 function groupIngredients(adultos, ninos, semana, dias) {
-  // Factor multiplicador: cada adulto cuenta 1, cada niño 0.5
+  // Factor: cada adulto = 1, cada niño = 0.5
   const factor = adultos + ninos * 0.5;
   const grouped = {};
 
-  // Recorremos mealPlanData
+  // Convertir semana y dias a números para comparar correctamente
+  const semSeleccionada = parseInt(semana, 10);
+  const diaSeleccionado = parseInt(dias, 10);
+
   mealPlanData.forEach(week => {
-    // Filtrar por semana: si "9" se consideran todas, sino la semana específica
-    if (semana === "9" || week.semana == semana) {
+    // Si se selecciona "Todas las semanas" (valor "9") o coincide la semana
+    if (semana === "9" || parseInt(week.semana, 10) === semSeleccionada) {
       week.dias.forEach(day => {
-        // Filtrar por día: si "8" se consideran todos los días, sino el día específico
-        if (dias === "8" || day.dia == dias) {
+        // Asumimos que day.dia es un número o convertible a número.
+        const diaNumero = parseInt(day.dia, 10);
+        // Si se seleccionan "Todos los días" (valor "8") o coincide el día
+        if (dias === "8" || diaNumero === diaSeleccionado) {
           // Para cada tipo de comida
           ["almorzo", "comida", "merenda", "cea"].forEach(type => {
             if (day[type]) {
               const meal = day[type];
-              meal.ingredientes.forEach(ing => {
-                // Creamos una clave única basada en el nombre y la unidad
-                const key = ing.nombre + "|" + ing.unidad;
-                if (!grouped[key]) {
-                  grouped[key] = { nombre: ing.nombre, unidad: ing.unidad, cantidad: 0 };
-                }
-                // Acumulamos la cantidad ajustada por el factor
-                grouped[key].cantidad += ing.cantidad * factor;
-              });
+              if (meal.ingredientes && Array.isArray(meal.ingredientes)) {
+                meal.ingredientes.forEach(ing => {
+                  // Normalizamos la clave: quitamos espacios y convertimos a minúsculas
+                  const key = ing.nombre.trim().toLowerCase() + "|" + ing.unidad.trim().toLowerCase();
+                  if (!grouped[key]) {
+                    grouped[key] = { nombre: ing.nombre, unidad: ing.unidad, cantidad: 0 };
+                  }
+                  // Sumamos la cantidad convertida a número y ajustada por el factor
+                  grouped[key].cantidad += Number(ing.cantidad) * factor;
+                });
+              }
             }
           });
         }
@@ -340,6 +347,7 @@ function groupIngredients(adultos, ninos, semana, dias) {
 
   return grouped;
 }
+
 
 // Función para generar el PDF de la cesta de la compra
 function generarCestaPDF(adultos, ninos, semana, dias) {
@@ -390,6 +398,7 @@ function generarRecetarioPDF(adultos, ninos, semana, dias) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
+  // Encabezado del PDF
   doc.setFontSize(16);
   doc.text("Recetario", 10, 10);
   doc.setFontSize(12);
@@ -399,50 +408,110 @@ function generarRecetarioPDF(adultos, ninos, semana, dias) {
     10,
     30
   );
-  const dayLabel = dias === "8" ? "Todos los días" : (dayNames[currentLang] && dayNames[currentLang][dias] ? dayNames[currentLang][dias] : dias);
+  const dayLabel =
+    dias === "8"
+      ? "Todos los días"
+      : (dayNames[currentLang] && dayNames[currentLang][dias]
+          ? dayNames[currentLang][dias]
+          : dias);
   doc.text(`Días: ${dayLabel}`, 10, 40);
 
   let y = 50;
+  const lineHeight = 6; // Altura de línea para cada texto
 
-  // Recorremos mealPlanData y listamos las comidas
+  // Recorremos los datos del plan de alimentación
   mealPlanData.forEach(week => {
     if (semana === "9" || week.semana == semana) {
       doc.setFontSize(14);
       doc.text(`Semana ${week.semana}:`, 10, y);
-      y += 8;
+      y += lineHeight + 2;
       week.dias.forEach(day => {
+        // Filtrar por día: "8" significa todos los días, sino, se compara
         if (dias === "8" || day.dia == dias) {
           doc.setFontSize(12);
-          doc.text(`Día ${dayNames[currentLang] && dayNames[currentLang][day.dia] ? dayNames[currentLang][day.dia] : day.dia}:`, 10, y);
-          y += 6;
+          // Mapeamos el número del día al nombre según el idioma actual
+          const dayName =
+            dayNames[currentLang] && dayNames[currentLang][day.dia]
+              ? dayNames[currentLang][day.dia]
+              : day.dia;
+          doc.text(`Día ${dayName}:`, 10, y);
+          y += lineHeight;
+
+          // Para cada tipo de comida
           ["almorzo", "comida", "merenda", "cea"].forEach(type => {
             if (day[type]) {
-              const typeLabel = mealTypeNames[currentLang][type] || capitalize(type);
-              const mealText = `${typeLabel}: ${day[type].nombre}`;
-              doc.text(mealText, 15, y);
-              y += 6;
+              const typeLabel =
+                mealTypeNames[currentLang][type] || capitalize(type);
+              const meal = day[type];
+
+              // Escribe el título de la comida: "Desayuno: <nombre>"
+              doc.text(`${typeLabel}: ${meal.nombre}`, 15, y);
+              y += lineHeight;
+
+              // Lista los ingredientes (si existen)
+              if (meal.ingredientes && meal.ingredientes.length > 0) {
+                doc.text("  Ingredientes:", 18, y);
+                y += lineHeight;
+                meal.ingredientes.forEach(ing => {
+                  doc.text(
+                    `    - ${ing.nombre}: ${ing.cantidad}${ing.unidad}`,
+                    20,
+                    y
+                  );
+                  y += lineHeight;
+                  if (y > 280) {
+                    doc.addPage();
+                    y = 20;
+                  }
+                });
+              }
+
+              // Lista las instrucciones (si existen)
+              if (meal.instrucciones && meal.instrucciones.length > 0) {
+                doc.text("  Instrucciones:", 18, y);
+                y += lineHeight;
+                meal.instrucciones.forEach(step => {
+                  doc.text(`    • ${step}`, 20, y);
+                  y += lineHeight;
+                  if (y > 280) {
+                    doc.addPage();
+                    y = 20;
+                  }
+                });
+              }
+              y += 2; // Espacio extra entre comidas
             }
           });
           y += 4; // Espacio entre días
+          if (y > 280) {
+            doc.addPage();
+            y = 20;
+          }
         }
       });
       y += 8; // Espacio entre semanas
+      if (y > 280) {
+        doc.addPage();
+        y = 20;
+      }
     }
   });
 
   doc.save("recetario.pdf");
 }
 
+
+
 // Asignamos eventos a los botones del formulario
 // Función para validar y sanitizar los valores del formulario
 function validateFormValues(adultos, ninos, semana, dias) {
   // Verifica que sean números y no negativos
-  if (isNaN(adultos) || adultos < 0 || adultos > 100) {
-    alert("Por favor, ingresa un valor válido para Adultos (0 - 100).");
+  if (isNaN(adultos) || adultos < 1 || adultos > 100) {
+    alert("Por favor, ingresa un valor válido para Adultos (1 - 100).");
     return false;
   }
-  if (isNaN(ninos) || ninos < 0 || ninos > 100) {
-    alert("Por favor, ingresa un valor válido para Niños (0 - 100).");
+  if (isNaN(ninos) || ninos < 1 || ninos > 100) {
+    alert("Por favor, ingresa un valor válido para Niños (1 - 100).");
     return false;
   }
   // Para semana: si no es "9" (todas las semanas), debe estar entre 1 y 8
