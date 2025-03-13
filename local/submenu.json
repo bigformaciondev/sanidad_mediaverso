@@ -101,11 +101,11 @@
   {
     "id": 12,
     "menu_id": 3,
-    "nombre": "BiG Relación",
+    "nombre": "BiG Relajación",
     "ruta": "/content/bienestar_emocional/big_relajacion_bienestar_emocional.html",
     "imagen": "assets/img/big-relajacion-banner1.webp",
     "badge": "bienestar-emocional",
-    "key": "big-relacion"
+    "key": "big-relajacion"
   },
   {
     "id": 13,

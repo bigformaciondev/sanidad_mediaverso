@@ -22,65 +22,69 @@
     <link rel="stylesheet" href="../../css/styles.css">
 
     <!-- Icono del sitio (favicon) -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../assets/favicon.webp" type="image/x-icon">
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger m-1" href="../../index.html">
-            <span class="d-block d-lg-block h4 text-white">Sanidade Mediaverso</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse px-5" id="navbarResponsive">
-            <ul class="navbar-nav text-center">
-                <li class="nav-item"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png" width="80"
-                        height="71" onclick="irASeccion('alimentacion-saludable')" /><a
-                        class="nav-link js-scroll-trigger" href="../../index.html#alimentacion-saludable"
-                        data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
-                <li class="nav-item"><img id="circulo" src="../../assets/logo/actividad-fisicas-logo1.png" width="80"
-                        height="71" onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger"
-                        href="../../index.html#actividad-fisica" data-translate="actividad-fisica">Actividade física</a></li>
-                <li class="nav-item"><img id="circulo" src="../../assets/logo/bienestar-emocional-logo1.png" width="80"
-                        height="71" onclick="irASeccion('bienestar-emocional')" /><a class="nav-link js-scroll-trigger"
-                        href="../../index.html#bienestar-emocional" data-translate="bienestar-emocional">Benestar emocional</a></li>
-                <li class="nav-item"><img id="circulo" src="../../assets/logo/conductas-adictivas-logo1.png" width="80"
-                        height="71" onclick="irASeccion('conductas-adictivas')" /><a class="nav-link js-scroll-trigger"
-                        href="../../index.html#conductas-adictivas" data-translate="conductas-adictivas">Conductas adictivas</a></li>
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse text-center" id="navbarResponsive">
-            <a class="navbar-brand d-inline-flex align-items-center" href="#page-top">
-                <div onclick="changeLanguage('es')" role="button">
-                    <img src="../../assets/flag/esflag.svg" alt="Español" class="mx-3 flag-icon"><span class=""
-                        data-translate="espanol">Español</span>
-                </div>
-                <div onclick="changeLanguage('gl')" role="button">
-                    <img src="../../assets/flag/glflag.svg" alt="Galego" class="mx-3 flag-icon"><span class=""
-                        data-translate="gallego">Gallego</span>
-                </div>
+      <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
+        <div class="navbar-brand d-flex text-light">
+          <a class="p-1 text-light"
+            href="https://www.instagram.com/vidasaudable.sergas/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#"
+            target="_blank">
+            <i class="bi bi-instagram text-light"></i>
+          </a>
+          <a class="p-1 text-light" href="https://www.facebook.com/vidasaudable.sergas/" target="_blank">
+            <i class="bi bi-facebook text-light"></i>
+          </a>
+          <a class="p-1 text-light" href="https://x.com/vida_saudable" target="_blank">
+            <i class="bi bi-twitter-x text-light"></i>
+          </a>
+          <a class="p-1 text-light" href="mailto:sanidademediaverso@sergas.es">
+            <i class="bi bi-envelope text-light"></i>
+          </a>
+          <a class="p-1 text-light" href="http://wa.me/605826010">
+              <i class="bi bi-whatsapp text-light"></i>
             </a>
         </div>
-        <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
-            <div class="navbar-brand d-flex text-light">
-                <a class="p-1 text-light"
-                    href="https://www.instagram.com/vidasaudable.sergas/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#"
-                    target="_blank">
-                    <i class="bi bi-instagram text-light"></i>
-                </a>
-                <a class="p-1 text-light" href="https://www.facebook.com/vidasaudable.sergas/" target="_blank">
-                    <i class="bi bi-facebook text-light"></i>
-                </a>
-                <a class="p-1 text-light" href="https://x.com/vida_saudable" target="_blank">
-                    <i class="bi bi-twitter-x text-light"></i>
-                </a>
-                <a class="p-1 text-light" href="mailto:sanidademediaverso@sergas.es">
-                    <i class="bi bi-envelope text-light"></i>
-                </a>
-            </div>
+      </div>
+      <a class="navbar-brand js-scroll-trigger m-1" href="../../index.html">
+          <span class="d-block d-lg-block h4 text-white">Sanidade Mediaverso</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse h-100  flex-column px-2" id="navbarResponsive">
+        <ul class="navbar-nav text-center h-100">
+          <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png"  onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger pt-3"
+              href="../../index.html#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
+          <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/actividad-fisicas-logo1.png"  onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger pt-3"
+              href="../../index.html#actividad-fisica" data-translate="actividad-fisica">Actividade física</a></li>
+          <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/bienestar-emocional-logo1.png"  onclick="irASeccion('bienestar-emocional')" /><a class="nav-link js-scroll-trigger pt-3"
+              href="../../index.html#bienestar-emocional" data-translate="bienestar-emocional">Benestar emocional</a></li>
+          <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/conductas-adictivas-logo1.png"  onclick="irASeccion('conductas-adictivas')" /><a class="nav-link js-scroll-trigger pt-3"
+              href="../../index.html#conductas-adictivas" data-translate="conductas-adictivas">Conductas adictivas</a></li>
+        </ul>
+        <div class="navbar-brand d-flex justify-content-between text-light mt-2">
+          <!-- Idiomas -->
+          <div class="d-flex align-items-center ms-2" onclick="changeLanguage('es')" role="button">
+            <img src="../../assets/flag/esflag.svg" alt="Español" class="mx-1 flag-icon">
+            <span data-translate="espanol">Español</span>
+          </div>
+          <div class="d-flex align-items-center ms-2" onclick="changeLanguage('gl')" role="button">
+            <img src="../../assets/flag/glflag.svg" alt="Galego" class="mx-1 flag-icon">
+            <span data-translate="gallego">Gallego</span>
+          </div>
+          <!-- Descargas -->
+          <div class="ms-2">
+            <a href="../../content/descargas.html" class="text-light" title="Descargar archivos">
+              <i class="bi bi-download text-light h5"></i>
+            </a>
+          </div>
         </div>
+      </div>
+  
     </nav>
     <!-- Page Content-->
     <div class="container-fluid " id="yt">
@@ -88,48 +92,48 @@
           <h2 class="" data-translate="camina">Camiña</h2>
         </div>
               <div class="m-3 p-3">
-                  <p>La Consellería de Sanidade de la <b>Xunta de Galicia</b> ofrece en las stores de Apple y Google la aplicación móvil «Camiña», cuyo objetivo es reducir el sedentarismo y promover hábitos beneficiosos para la actividad física.</p>
+                  <span data-translate="camina-1">La Consellería de Sanidade de la </span><b data-translate="camina-">Xunta de Galicia</b><span data-translate="camina-2"> ofrece en las stores de Apple y Google la aplicación móvil «Camiña», cuyo objetivo es reducir el sedentarismo y promover hábitos beneficiosos para la actividad física.</span>
               </div>
               <div id="yt" class="m-3 p-3">
                   <iframe src="https://www.youtube.com/embed/X1VDqHJAkOw?si=Af1fD979yBHmnbwu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
               </div>
               <div class="m-3 p-3">
-                  <p>Disponible tanto en gallego como en castellano, la aplicación cuenta con las siguientes <b>características:</b></p>
+                  <span data-translate="camina-3">Disponible tanto en gallego como en castellano, la aplicación cuenta con las siguientes </span><b data-translate="caracteristicas">características:</b>
                   <ul>
-                      <li>Aplicación móvil, dirigida al público general,  invita a caminar en cualquier lugar y los pasos dados se utilizarán para completar las diferentes etapas del Camino de Santiago.</li>
-                      <li>Además, en estas rutas,  el usuario será motivado mostrándole  datos interesantes como monumentos y adquiriendo sellos por cada etapa con el objetivo de conseguir la Compostela de cada uno de los caminos.</li>
+                      <li data-translate="camina-4">Aplicación móvil, dirigida al público general,  invita a caminar en cualquier lugar y los pasos dados se utilizarán para completar las diferentes etapas del Camino de Santiago.</li>
+                      <li data-translate="camina-5">Además, en estas rutas,  el usuario será motivado mostrándole  datos interesantes como monumentos y adquiriendo sellos por cada etapa con el objetivo de conseguir la Compostela de cada uno de los caminos.</li>
                   </ul>
               </div>
               <div>
                   <img class="mw-100" src="../../assets/img/camina-banner1.webp" />
               </div>
               <div class="m-3 p-3">
-                  <p>Las <b>características técnicas</b> que muestra la aplicación son:</p>
+                  <span data-translate="camina-6">Las </span><b data-translate="camina-23">características técnicas</b><span data-translate="camina-7"> que muestra la aplicación son:</span>
                   <ul>
-                      <li><p><b>Iniciar sesión o entrar como invitado: </b>la persona puede registrarse en el servicio É-saude con sus datos personales o acceder como invitado.</p></li>
-                      <li><p><b>Seleccionar ruta: </b>en la aplicación se pueden ver y acceder a las diferentes rutas del Camino de Santiago, desde el Camino Francés hasta el Camino Portugués de la Costa, entre otras.</p></li>
-                      <li><p><b>Ver datos por etapa: </b>dentro de cada Camino de Santiago aparecen las diferentes etapas en las que se divide el camino, se puede acceder a opciones como información histórica de ese tramo, o el mapa para saber dónde se encuentra la persona usuaria./p></li>
-                      <li><p><b>Ver puntos de interés: </b>a medida que la persona usuaria avanza,  puede ver diferentes puntos de interés en el mapa  que aparecen mientras camina, junto con información asociada como dónde están y qué se puede ver.</p></li>
-                      <li><p><b>Comunicación con aplicación de contador de pasos móvil: </b>la aplicación cuenta los pasos del usuario que se pueden visualizar en cada etapa seleccionada.</p></li>
+                      <li><b data-translate="camina-8">Iniciar sesión o entrar como invitado: </b><span data-translate="camina-9">la persona puede registrarse en el servicio É-saude con sus datos personales o acceder como invitado.</span></li>
+                      <li><b data-translate="camina-10">Seleccionar ruta: </b><span data-translate="camina-11">en la aplicación se pueden ver y acceder a las diferentes rutas del Camino de Santiago, desde el Camino Francés hasta el Camino Portugués de la Costa, entre otras.</span></li>
+                      <li><b data-translate="camina-12">Ver datos por etapa: </b><span data-translate="camina-13">dentro de cada Camino de Santiago aparecen las diferentes etapas en las que se divide el camino, se puede acceder a opciones como información histórica de ese tramo, o el mapa para saber dónde se encuentra la persona usuaria./span></li>
+                      <li><b data-translate="camina-14">Ver puntos de interés: </b><span data-translate="camina-15">a medida que la persona usuaria avanza,  puede ver diferentes puntos de interés en el mapa  que aparecen mientras camina, junto con información asociada como dónde están y qué se puede ver.</span></li>
+                      <li><b data-translate="camina-16">Comunicación con aplicación de contador de pasos móvil: </b><span data-translate="camina-17">la aplicación cuenta los pasos del usuario que se pueden visualizar en cada etapa seleccionada.</span></li>
                   </ul>
               </div>
               
                 <div class="m-3 p-3 pt-0">
-                    <p>El objetivo de la aplicación es reducir el comportamiento sedentario, motivando la práctica de caminar comparando el número de pasos que da el usuario con el número de pasos que daría si estuviera haciendo el Camino de Santiago.</p>
+                    <span data-translate="camina-18">El objetivo de la aplicación es reducir el comportamiento sedentario, motivando la práctica de caminar comparando el número de pasos que da el usuario con el número de pasos que daría si estuviera haciendo el Camino de Santiago.</span>
                 </div>
                 <div class="m-3 p-3 pt-0">
-                    <p>Aunque es una aplicación para todos los públicos, está pensada principalmente para personas mayores de 65 años.</p>
+                    <span data-translate="camina-19">Aunque es una aplicación para todos los públicos, está pensada principalmente para personas mayores de 65 años.</span>
                 </div>
                 <div class="m-3 p-3 pt-0">
-                    <p><b>Niveles de seguridad para el acceso a las diferentes funcionalidades de la aplicación: </b>La persona usuaria puede acceder a la app como invitada o iniciando sesión a través de É-Saúde con Chave 365 o certificado digital. Para más información sobre el tratamiento de datos utilizado en esta aplicación, se puede consultar la política de privacidad en el siguiente enlace: <a href="https://sanidademediaverso.sergas.gal/es/camina/politica-de-privacidade/">Ver política de Privacidad</a> *Para acceder con CHAVE365 es necesario que previamente el paciente autorice su uso de forma presencial en su centro de salud o de forma telemática con DNI electrónico cubriendo el formulario Solicitud de acceso con CHAVE365 y/o certificado digital.</p>
+                    <b data-translate="camina-20">Niveles de seguridad para el acceso a las diferentes funcionalidades de la aplicación: </b><span>La persona usuaria puede acceder a la app como invitada o iniciando sesión a través de É-Saúde con Chave 365 o certificado digital. Para más información sobre el tratamiento de datos utilizado en esta aplicación, se puede consultar la política de privacidad en el siguiente enlace: <a href="https://sanidademediaverso.sergas.gal/es/camina/politica-de-privacidade/">Ver política de Privacidad</a> *Para acceder con CHAVE365 es necesario que previamente el paciente autorice su uso de forma presencial en su centro de salud o de forma telemática con DNI electrónico cubriendo el formulario Solicitud de acceso con CHAVE365 y/o certificado digital.</span>
                 </div>
                 <div class="m-3 p-3 pt-0">
                   <ul>
                       <li class="m-2">
-                      <a href="https://apps.apple.com/es/app/cami%C3%B1a/id6478587081" target="_blank">Descarga la aplicación para dispositivos iOS</a>
+                      <a href="https://apps.apple.com/es/app/cami%C3%B1a/id6478587081" target="_blank" data-translate="descarga-app-iOS">Descarga la aplicación para dispositivos iOS</a>
                       </li>
                       <li class="m-2">
-                      <a href="https://play.google.com/store/apps/details?id=es.sergas.sanmed.ob23" target="_blank">Descarga la aplicación para dispositivos Android</a>
+                      <a href="https://play.google.com/store/apps/details?id=es.sergas.sanmed.ob23" target="_blank" data-translate="descarga-app-Android">Descarga la aplicación para dispositivos Android</a>
                       </li>
                   </ul>
                 </div>
@@ -139,7 +143,7 @@
                       <img src="../../assets/logo/logo-xunta-negativo.svg" width="80" height="71" />
                     </div>
                     <div>
-                      <p data-translate="footer-info-xunta">© Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade</p>
+                      <span data-translate="footer-info-xunta">© Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade</span>
                       <ul class="d-flex d-inline-flex footer-links">
                         <li class="text-decoration-none d-flex">
                           <a class="nav-link js-scroll-trigger" href="https://012.xunta.gal/portada"
@@ -193,12 +197,12 @@
                     </div>
                   </div>
             
-            
+                </footer>
               </div>
             
-              </footer>
-    <script src="../../js/scripts.js"></script>
-    <script src="../../js/lang.js"></script>
+            
+              <script src="../../js/scripts_submenus.js"></script>
+              <script src="../../js/lang_submenus.js"></script>
 </body>
 
 </html>
