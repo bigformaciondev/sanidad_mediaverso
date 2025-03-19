@@ -18,6 +18,7 @@
 
   <!-- Icono del sitio (favicon) -->
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  
 </head>
 
 <body id="page-top">
@@ -111,7 +112,7 @@
               <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
               <h4 class="mt-2" data-translate="formacion-alimentacion-1"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
-              <button class="btn btn-primary mt-auto w-100" data-translate="accede"></button>
+              <a class="btn btn-primary mt-auto w-100" data-translate="accede" href="formacion_salud_nutricion_dietetica.html"></a>
             </div>
           </div>
         </div>
@@ -126,7 +127,7 @@
               <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
               <h4 class="mt-2" data-translate="formacion-alimentacion-2"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
-              <button class="btn btn-primary mt-auto w-100" data-translate="accede"></button>
+              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(1)"></button>            
             </div>
           </div>
         </div>
@@ -141,7 +142,7 @@
               <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
               <h4 class="mt-2" data-translate="formacion-alimentacion-3"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
-              <button class="btn btn-primary mt-auto w-100" data-translate="accede"></button>
+              <a class="btn btn-primary mt-auto w-100" data-translate="accede" href="formacion_comer_sentirse_bien.html"></a>
             </div>
           </div>
         </div>
@@ -156,7 +157,7 @@
               <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
               <h4 class="mt-2" data-translate="formacion-alimentacion-4"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
-              <button class="btn btn-primary mt-auto w-100" data-translate="accede"></button>
+              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(2)"></button>            
             </div>
           </div>
         </div>
@@ -164,7 +165,49 @@
         
     </div>
   </div>
+  <script>
+    const scormList = [
+      {
+        id: 1,
+        folder: {
+          es: "assets/SCORMS/formacion-sobre-alimentacion-y-nutricion-saludable/content/#/",
+          gl: "assets/SCORMS/formacion-sobre-alimentacion-e-nutricion-saudable-gal/content/#/"
+        }
+      },
+      {
+        id: 2,
+        folder: {
+          es: "assets/SCORMS/cocinar-sano-es-facil-si-sabes-como/content/#/",
+          gl: "assets/SCORMS/cocinar-saudable-e-sinxelo-se-sabes-como-gal/content/#/"
+        }
+      }
+    // Agrega más SCORMs según necesites...
+    ];
+    function getScormFolderById(id) {
+      const numericId = Number(id);
+      const scormItem = scormList.find(item => item.id === numericId);
+      if (!scormItem) {
+        console.error("SCORM ID not found:", id);
+        return null;
+      }
+      // Retorna la carpeta correspondiente al idioma actual, 
+      // si no existe para ese idioma, se usa el valor por defecto en "es"
+      const language = localStorage.getItem("language") || "es";
+      return scormItem.folder[language] || scormItem.folder["es"];
+    }
 
+    // Función openScorm que utiliza el ID y detecta el idioma para obtener la ruta adecuada
+    function openScorm(id) {
+      const folder = getScormFolderById(id);
+      if (!folder) {
+        alert("SCORM no encontrado para el ID " + id);
+        return;
+      }
+      // Construye la URL al SCORM. Ajusta la ruta según tu estructura de carpetas.
+      const scormPath = "../../verScorm.html?scorm=" + encodeURIComponent(folder);
+      window.open(scormPath, "_blank");
+    }
+  </script>
   <script src="../../js/scripts_submenus.js"></script>
   <script src="../../js/lang_submenus.js"></script>
 </body>
