@@ -92,61 +92,67 @@
         <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3">
           <div class="card text-center">
             <div class="card-header p-0">
-              <!-- Cambiar por video -->
-              <img
-                class="card-img-top"
-                src="../../assets/img/consejos-subbanner1.webp"
-                style="width: 100%; object-fit: cover"
-              />
+              <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
+                <iframe
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=819fbIf7&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=a20IgCJI&captions=y&chapterId=0&playerJs=n"
+                  frameborder="0"
+                  scrolling="no"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                  allowfullscreen
+                ></iframe>
+              </div>
             </div>
-            <div
-              class="card-body d-flex flex-column justify-content-center"
-              style="height: 180px"
-            >
+            <div class="card-body d-flex flex-column justify-content-center" style="height: 180px">
               <h4 data-translate="consejos-1"></h4>
               <p data-translate="consejos-1-1"></p>
             </div>
           </div>
         </div>
+      
         <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3">
           <div class="card text-center">
             <div class="card-header p-0">
-              <!-- Cambiar por video -->
-              <img
-                class="card-img-top"
-                src="../../assets/img/consejos-subbanner2.webp"
-                style="width: 100%; object-fit: cover"
-              />
+              <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
+                <iframe
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=i92C9Cd4&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=IhjFIi96&captions=y&chapterId=0&playerJs=n"
+                  frameborder="0"
+                  scrolling="no"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                  allowfullscreen
+                ></iframe>
+              </div>
             </div>
-            <div
-              class="card-body d-flex flex-column justify-content-center"
-              style="height: 180px"
-            >
+            <div class="card-body d-flex flex-column justify-content-center" style="height: 180px">
               <h4 data-translate="consejos-2"></h4>
               <p data-translate="consejos-2-1"></p>
             </div>
           </div>
         </div>
+      
         <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3">
           <div class="card text-center">
             <div class="card-header p-0">
-              <!-- Cambiar por video -->
-              <img
-                class="card-img-top"
-                src="../../assets/img/consejos-subbanner3.webp"
-                style="width: 100%; object-fit: cover"
-              />
+              <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
+                <iframe
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=21Bg7i93&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=IGFCB8Eh&captions=y&chapterId=0&playerJs=n"
+                  frameborder="0"
+                  scrolling="no"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                  allowfullscreen
+                ></iframe>
+              </div>
             </div>
-            <div
-              class="card-body d-flex flex-column justify-content-center"
-              style="height: 180px"
-            >
+            <div class="card-body d-flex flex-column justify-content-center" style="height: 180px">
               <h4 data-translate="consejos-3"></h4>
               <p data-translate="consejos-3-1"></p>
             </div>
           </div>
         </div>
       </div>
+      
       <footer id="footer" class="footer bg-primary text-light">
         <div class="container d-flex justify-content-between text-center py-4">
           <div>
@@ -240,8 +246,30 @@
         </div>
       </footer>
     </div>
-
     <script src="../../js/scripts_submenus.js"></script>
     <script src="../../js/lang_submenus.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      // Supongamos que el idioma actual está en currentLang = "es" o "gl"
+      const currentLang = localStorage.getItem("language") || "es";
+
+      // Seleccionamos todos los iframes que tengan data-src-es
+      const iframes = document.querySelectorAll('iframe[data-src-es]');
+
+        iframes.forEach(ifr => {
+          // Obtenemos la URL para español y gallego
+          const urlEs = ifr.getAttribute("data-src-es");
+          const urlGl = ifr.getAttribute("data-src-gl");
+
+          // Dependiendo del idioma, asignamos el src
+          if (currentLang === "gl" && urlGl) {
+            ifr.src = urlGl;
+          } else {
+            // Por defecto, usamos español
+            ifr.src = urlEs;
+          }
+        });
+      });
+      </script>
   </body>
 </html>

@@ -9,3 +9,4 @@ function irASeccion(id) {
       window.location.href = "../../index.html#" + id;
     }
   }
+  

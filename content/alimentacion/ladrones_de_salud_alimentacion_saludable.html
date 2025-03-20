@@ -155,6 +155,29 @@
 
     <script src="../../js/scripts_submenus.js"></script>
     <script src="../../js/lang_submenus.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      // Supongamos que el idioma actual está en currentLang = "es" o "gl"
+      const currentLang = localStorage.getItem("language") || "es";
+
+      // Seleccionamos todos los iframes que tengan data-src-es
+      const iframes = document.querySelectorAll('iframe[data-src-es]');
+
+        iframes.forEach(ifr => {
+          // Obtenemos la URL para español y gallego
+          const urlEs = ifr.getAttribute("data-src-es");
+          const urlGl = ifr.getAttribute("data-src-gl");
+
+          // Dependiendo del idioma, asignamos el src
+          if (currentLang === "gl" && urlGl) {
+            ifr.src = urlGl;
+          } else {
+            // Por defecto, usamos español
+            ifr.src = urlEs;
+          }
+        });
+      });
+      </script>
 </body>
 
 </html>
