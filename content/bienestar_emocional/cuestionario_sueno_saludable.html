@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Página de inicio de Sanidad Mediaverso">
+  <title>Sanidad Mediaverso</title>
+
+  <!-- Bootstrap CSS -->
+
+  <!-- Bootstrap CSS desde archivos locales -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <!-- Archivo CSS personalizado -->
+  <link rel="stylesheet" href="../../css/styles.css">
+
+  <!-- Icono del sitio (favicon) -->
+  <link rel="icon" href="../../assets/favicon.webp" type="image/x-icon">
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
+      <div class="navbar-brand d-flex text-light">
+        <a class="p-1 text-light"
+          href="https://www.instagram.com/vidasaudable.sergas/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#"
+          target="_blank">
+          <i class="bi bi-instagram text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="https://www.facebook.com/vidasaudable.sergas/" target="_blank">
+          <i class="bi bi-facebook text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="https://x.com/vida_saudable" target="_blank">
+          <i class="bi bi-twitter-x text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="mailto:sanidademediaverso@sergas.es">
+          <i class="bi bi-envelope text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="http://wa.me/605826010">
+            <i class="bi bi-whatsapp text-light"></i>
+          </a>
+      </div>
+    </div>
+    <a class="navbar-brand js-scroll-trigger m-1" href="../../index.html">
+        <span class="d-block d-lg-block h4 text-white">Sanidade Mediaverso</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse h-100  flex-column px-2" id="navbarResponsive">
+      <ul class="navbar-nav text-center h-100">
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png"  onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/actividad-fisicas-logo1.png"  onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#actividad-fisica" data-translate="actividad-fisica">Actividade física</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/bienestar-emocional-logo1.png"  onclick="irASeccion('bienestar-emocional')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#bienestar-emocional" data-translate="bienestar-emocional">Benestar emocional</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/conductas-adictivas-logo1.png"  onclick="irASeccion('conductas-adictivas')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#conductas-adictivas" data-translate="conductas-adictivas">Conductas adictivas</a></li>
+      </ul>
+      <div class="navbar-brand d-flex justify-content-between text-light mt-2">
+        <!-- Idiomas -->
+        <div class="d-flex align-items-center ms-2" onclick="changeLanguage('es')" role="button">
+          <img src="../../assets/flag/esflag.svg" alt="Español" class="mx-1 flag-icon">
+          <span data-translate="espanol">Español</span>
+        </div>
+        <div class="d-flex align-items-center ms-2" onclick="changeLanguage('gl')" role="button">
+          <img src="../../assets/flag/glflag.svg" alt="Galego" class="mx-1 flag-icon">
+          <span data-translate="gallego">Gallego</span>
+        </div>
+        <!-- Descargas -->
+        <div class="ms-2">
+          <a href="../../content/descargas.html" class="text-light" title="Descargar archivos">
+            <i class="bi bi-download text-light h5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+  <!-- Page Content-->
+  <div class="container-fluid p-0">
+    <div class="d-flex justify-content-center w-100 my-3">
+      <h2 class="" data-translate="sueno-saludable-1"></h2>
+    </div>
+    <div id="img-container" class="container my-2">
+      <img  data-src-es="../../assets/img/sueno-saludable-es.png"
+            data-src-gl="../../assets/img/sueno-saludable-gal.png"
+            alt="Español" class="w-100">
+    </div>
+    <div id="form-container" class="container py-4">
+      <form id="sleepForm">
+        <!-- Fila para Edad y Fecha -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label for="age" class="form-label">Edad:</label>
+            <input type="number" class="form-control" id="age" min="0">
+          </div>
+          <div class="col-md-6">
+            <label for="date" class="form-label">Fecha:</label>
+            <input type="date" class="form-control" id="date">
+          </div>
+        </div>
+        
+        <!-- Preguntas sobre el sueño -->
+        <div class="mb-3">
+          <label class="form-label">1. Durante el último mes, ¿cuál fue, normalmente, su hora de acostarse?</label>
+          <select class="form-select" id="bedtime">
+            <option selected>Seleccione una hora</option>
+            <option value="22:00">22:00</option>
+            <option value="23:00">23:00</option>
+            <option value="00:00">00:00</option>
+          </select>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">2. ¿Cuánto tiempo tardó en dormir, normalmente, las noches del último mes?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sleepTime" id="less15" value="Menos de 15 min">
+            <label class="form-check-label" for="less15">Menos de 15 min</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sleepTime" id="16to30" value="Entre 16-30 min">
+            <label class="form-check-label" for="16to30">Entre 16-30 min</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sleepTime" id="31to60" value="Entre 31-60 min">
+            <label class="form-check-label" for="31to60">Entre 31-60 min</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sleepTime" id="more60" value="Más de 60 min">
+            <label class="form-check-label" for="more60">Más de 60 min</label>
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">3. Durante el último mes, ¿a qué hora se levantó habitualmente por la mañana?</label>
+          <select class="form-select" id="wakeTime">
+            <option selected>Seleccione una hora</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">3. Durante el último mes, ¿a qué hora se levantó habitualmente por la mañana?</label>
+          <select class="form-select" id="wakeTime">
+            <option selected>Seleccione una hora</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">3. Durante el último mes, ¿a qué hora se levantó habitualmente por la mañana?</label>
+          <select class="form-select" id="wakeTime">
+            <option selected>Seleccione una hora</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+          </select>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">4. ¿Cuántas horas calcula que durmió realmente cada noche durante el último mes?</label>
+          <input type="number" class="form-control" id="sleepHours" min="0">
+        </div>
+        
+        <!-- Botón para generar PDF -->
+        <div class="row g-3">
+          <div class="col d-flex w-100 ">
+              <button type="submit" class="btn btn-primary w-50 me-2">Resultado</button>
+              <button type="submit" class="btn btn-outline-primary w-50">Descargar Sueño Saludable (PDF)</button>
+          </div>
+        </div>
+         
+      </form>
+    </div>
+    
+    <footer id="footer" class="footer bg-primary text-light">
+      <div class="container d-flex justify-content-between text-center py-4">
+        <div>
+          <img src="../../assets/logo/logo-xunta-negativo.svg" width="80" height="71" />
+        </div>
+        <div>
+          <p data-translate="footer-info-xunta">© Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade</p>
+          <ul class="d-flex d-inline-flex footer-links">
+            <li class="text-decoration-none d-flex">
+              <a class="nav-link js-scroll-trigger" href="https://012.xunta.gal/portada"
+                data-translate="atencion-a-la-ciudadania">
+                Atencion a la ciudadania
+              </a>
+            </li>
+            <li class="text-decoration-none d-flex">
+              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/A-nosa-organizacion/Accesibilidade"
+                data-translate="accesibilidad">
+                Accesibilidad
+              </a>
+            </li>
+            <li class="text-decoration-none d-flex">
+              <a class="nav-link js-scroll-trigger"
+                href="https://www.xunta.gal/aviso-legal-do-portal-da-xunta?langId=gl_ES" data-translate="aviso-legal">
+                Aviso Legal
+              </a>
+            </li>
+            <li class="text-decoration-none d-flex">
+              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/mapa-web"
+                data-translate="mapa-del-portal">
+                Mapa del Portal
+              </a>
+            </li>
+            <li class="text-decoration-none d-flex">
+              <a class="nav-link js-scroll-trigger"
+                href="https://www.sergas.gal/A-nosa-organizacion/Consultas-reclamacions-suxestions"
+                data-translate="contacte">
+                Contacte
+              </a>
+            </li>
+            <li class="text-decoration-none d-flex">
+              <a class="nav-link js-scroll-trigger" href="https://sanidade.xunta.gal/transparencia-e-goberno-aberto"
+                data-translate="transparencia-y-gobierno-abierto">
+                Transparencia y gobierno abierto
+              </a>
+            </li>
+            <li class="text-decoration-none d-flex">
+              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/canles-rss"
+                data-translate="rss">
+                RSS
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="my-3">
+          <a id="back-to-top " href="#" class="btn btn-primary back-to-top" role="button">
+            <i class="bi bi-arrow-up"></i>
+          </a>
+        </div>
+      </div>
+  </footer>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Supongamos que el idioma actual está en currentLang = "es" o "gl"
+    const currentLang = localStorage.getItem("language") || "es";
+
+    // Seleccionamos todos los iframes que tengan data-src-es
+    const iframes = document.querySelectorAll('img[data-src-es]');
+
+      iframes.forEach(ifr => {
+        // Obtenemos la URL para español y gallego
+        const urlEs = ifr.getAttribute("data-src-es");
+        const urlGl = ifr.getAttribute("data-src-gl");
+
+        // Dependiendo del idioma, asignamos el src
+        if (currentLang === "gl" && urlGl) {
+          ifr.src = urlGl;
+        } else {
+          // Por defecto, usamos español
+          ifr.src = urlEs;
+        }
+      });
+    });
+    </script>
+  <script src="../../js/planificador_comidas.js"></script>
+  <script src="../../js/scripts_submenus.js"></script>
+  <script src="../../js/lang_submenus.js"></script>
+</body>
+<!-- Modal para mostrar detalles de la comida -->
+<div class="modal fade" id="mealModal" tabindex="-1" aria-labelledby="mealModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg"> <!-- modal-lg para mayor tamaño -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mealModalLabel">Detalles de la Comida</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Aquí se insertarán los ingredientes y las instrucciones -->
+        <div id="mealModalContent"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>

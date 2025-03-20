@@ -30,6 +30,19 @@ function changeLanguage(lang) {
           iframe.src = newSrc;
         }
       });
+      // 2. Reasignar src de los images según el idioma
+      // Reasignar src de los images según el idioma usando el atributo correcto "data-src-es"
+      document.querySelectorAll("img[data-src-es]").forEach((iframe) => {
+        let newSrc = null;
+        if (lang === "gl") {
+          newSrc = iframe.getAttribute("data-src-gl");
+        } else {
+          newSrc = iframe.getAttribute("data-src-es");
+        }
+        if (newSrc) {
+          iframe.src = newSrc;
+        }
+      });
       localStorage.setItem("language", lang);
     })
     .catch((error) =>

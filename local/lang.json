@@ -210,7 +210,8 @@
     "caracteristicas": "características",
     "nivel": "Nivel",
     "nivel-1": "Nivel 1",
-    "nivel-2": "Nivel 2"
+    "nivel-2": "Nivel 2",
+    "videos": "Videos"
   },
   "gl": {
     "welcome": "Benvidos",
@@ -425,6 +426,7 @@
     "caracteristicas": "características",
     "nivel": "Nivel",
     "nivel-1": "Nivel 1",
-    "nivel-2": "Nivel 2"
+    "nivel-2": "Nivel 2",
+    "videos": "Videos"
   }
 }
