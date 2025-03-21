@@ -96,151 +96,492 @@
         <!-- Fila para Edad y Fecha -->
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="age" class="form-label">Edad:</label>
-            <input type="number" class="form-control" id="age" min="0">
+            <label for="age" class="form-label" data-translate="form-age">Edad:</label>
+            <input type="number" class="form-control" id="age" min="0" max="105">
           </div>
           <div class="col-md-6">
-            <label for="date" class="form-label">Fecha:</label>
+            <label for="date" class="form-label" data-translate="form-date">Fecha:</label>
             <input type="date" class="form-control" id="date">
           </div>
         </div>
         
         <!-- Preguntas sobre el sueño -->
         <div class="mb-3">
-          <label class="form-label">1. Durante el último mes, ¿cuál fue, normalmente, su hora de acostarse?</label>
+          <label class="form-label" data-translate="form-bedtime-question">
+            1. Durante el último mes, ¿cuál fue, normalmente, su hora de acostarse?
+          </label>
           <select class="form-select" id="bedtime">
-            <option selected>Seleccione una hora</option>
+            <option selected data-translate="form-select-hour">Seleccione una hora</option>
+            <option value="00:00">00:00</option>
+            <option value="01:00">01:00</option>
+            <option value="02:00">02:00</option>
+            <option value="03:00">03:00</option>
+            <option value="04:00">04:00</option>
+            <option value="05:00">05:00</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
             <option value="22:00">22:00</option>
             <option value="23:00">23:00</option>
+          </select>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label" data-translate="form-sleepTime-question">
+            2. ¿Cuánto tiempo tardó en dormir, normalmente, las noches del último mes?
+          </label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sleepTime" id="less15" value="1">
+            <label class="form-check-label" for="less15" data-translate="form-sleepTime-less15">Menos de 15 min</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sleepTime" id="16to30" value="2">
+            <label class="form-check-label" for="16to30" data-translate="form-sleepTime-16to30">Entre 16-30 min</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sleepTime" id="31to60" value="3">
+            <label class="form-check-label" for="31to60" data-translate="form-sleepTime-31to60">Entre 31-60 min</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sleepTime" id="more60" value="4">
+            <label class="form-check-label" for="more60" data-translate="form-sleepTime-more60">Más de 60 min</label>
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label" data-translate="form-wakeTime-question">
+            3. Durante el último mes, ¿a qué hora se levantó habitualmente por la mañana?
+          </label>
+          <select class="form-select" id="wakeTime">
+            <option selected data-translate="form-select-hour">Seleccione una hora</option>
             <option value="00:00">00:00</option>
+            <option value="01:00">01:00</option>
+            <option value="02:00">02:00</option>
+            <option value="03:00">03:00</option>
+            <option value="04:00">04:00</option>
+            <option value="05:00">05:00</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+            <option value="22:00">22:00</option>
+            <option value="23:00">23:00</option>
           </select>
         </div>
         
         <div class="mb-3">
-          <label class="form-label">2. ¿Cuánto tiempo tardó en dormir, normalmente, las noches del último mes?</label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepTime" id="less15" value="Menos de 15 min">
-            <label class="form-check-label" for="less15">Menos de 15 min</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepTime" id="16to30" value="Entre 16-30 min">
-            <label class="form-check-label" for="16to30">Entre 16-30 min</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepTime" id="31to60" value="Entre 31-60 min">
-            <label class="form-check-label" for="31to60">Entre 31-60 min</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepTime" id="more60" value="Más de 60 min">
-            <label class="form-check-label" for="more60">Más de 60 min</label>
-          </div>
-        </div>
-        
-        <div class="mb-3">
-          <label class="form-label">3. Durante el último mes, ¿a qué hora se levantó habitualmente por la mañana?</label>
-          <select class="form-select" id="wakeTime">
-            <option selected>Seleccione una hora</option>
-            <option value="06:00">06:00</option>
-            <option value="07:00">07:00</option>
-            <option value="08:00">08:00</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">3. Durante el último mes, ¿a qué hora se levantó habitualmente por la mañana?</label>
-          <select class="form-select" id="wakeTime">
-            <option selected>Seleccione una hora</option>
-            <option value="06:00">06:00</option>
-            <option value="07:00">07:00</option>
-            <option value="08:00">08:00</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">3. Durante el último mes, ¿a qué hora se levantó habitualmente por la mañana?</label>
-          <select class="form-select" id="wakeTime">
-            <option selected>Seleccione una hora</option>
-            <option value="06:00">06:00</option>
-            <option value="07:00">07:00</option>
-            <option value="08:00">08:00</option>
-          </select>
-        </div>
-        
-        <div class="mb-3">
-          <label class="form-label">4. ¿Cuántas horas calcula que durmió realmente cada noche durante el último mes?</label>
+          <label class="form-label" data-translate="form-sleepHours-question"> 4. ¿Cuántas horas calcula que durmió realmente cada noche durante el último mes? </label>
           <input type="number" class="form-control" id="sleepHours" min="0">
         </div>
-        
+      
+        <fieldset class="mb-3">
+          <p  data-translate="form-q5-intro"> 5. Durante el último mes, ¿cuántas veces ha tenido usted problemas para dormir a causa de: </p>
+          <div class="row g-3 mb-3">
+            <div class="col-md-4 mb-3">
+              <label class="form-label" data-translate="form-q5-a">
+                a. No poder conciliar el sueño en la primera media hora
+              </label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-a" id="5-a-1" value="1">
+                <label class="form-check-label" for="5-a-1" data-translate="form-frequency-never">
+                  Ninguna vez en el último mes
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-a" id="5-a-2" value="2">
+                <label class="form-check-label" for="5-a-2" data-translate="form-frequency-lessOnce">
+                  Menos de una vez a la semana
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-a" id="5-a-3" value="3">
+                <label class="form-check-label" for="5-a-3" data-translate="form-frequency-onceOrTwice">
+                  Una o dos veces a la semana
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-a" id="5-a-4" value="4">
+                <label class="form-check-label" for="5-a-4" data-translate="form-frequency-threeOrMore">
+                  Tres o más veces a la semana
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label" data-translate="form-q5-b">
+                b. Despertarse durante la noche o de madrugada
+              </label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-b" id="5-b-1" value="1">
+                <label class="form-check-label" for="5-b-1" data-translate="form-frequency-never">
+                  Ninguna vez en el último mes
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-b" id="5-b-2" value="2">
+                <label class="form-check-label" for="5-b-2" data-translate="form-frequency-lessOnce">
+                  Menos de una vez a la semana
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-b" id="5-b-3" value="3">
+                <label class="form-check-label" for="5-b-3" data-translate="form-frequency-onceOrTwice">
+                  Una o dos veces a la semana
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-b" id="5-b-4" value="4">
+                <label class="form-check-label" for="5-b-4" data-translate="form-frequency-threeOrMore">
+                  Tres o más veces a la semana
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label" data-translate="form-q5-c">c. Tener que levantarse para ir al servicio</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-c" id="5-c-1" value="1">
+                <label class="form-check-label" for="5-c-1" data-translate="form-frequency-never">Ninguna vez en el último mes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-c" id="5-c-2" value="2">
+                <label class="form-check-label" for="5-c-2" data-translate="form-frequency-less-once">Menos de una vez a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-c" id="5-c-3" value="3">
+                <label class="form-check-label" for="5-c-3" data-translate="form-frequency-once-or-twice">Una o dos veces a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-c" id="5-c-4" value="4">
+                <label class="form-check-label" for="5-c-4" data-translate="form-frequency-three-or-more">Tres o más veces a la semana</label>
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 mb-3">
+            <div class="col-md-4 mb-3">
+              <label class="form-label" data-translate="form-q5-d">d. No poder respirar bien:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-d" id="5-d-1" value="1">
+                <label class="form-check-label" for="5-d-1" data-translate="form-frequency-never">Ninguna vez en el último mes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-d" id="5-d-2" value="2">
+                <label class="form-check-label" for="5-d-2" data-translate="form-frequency-less-once">Menos de una vez a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-d" id="5-d-3" value="3">
+                <label class="form-check-label" for="5-d-3" data-translate="form-frequency-once-or-twice">Una o dos veces a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-d" id="5-d-4" value="4">
+                <label class="form-check-label" for="5-d-4" data-translate="form-frequency-three-or-more">Tres o más veces a la semana</label>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label" data-translate="form-q5-e">e. Toser o roncar ruidosamente:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-e" id="5-e-1" value="1">
+                <label class="form-check-label" for="5-e-1" data-translate="form-frequency-never">Ninguna vez en el último mes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-e" id="5-e-2" value="2">
+                <label class="form-check-label" for="5-e-2" data-translate="form-frequency-less-once">Menos de una vez a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-e" id="5-e-3" value="3">
+                <label class="form-check-label" for="5-e-3" data-translate="form-frequency-once-or-twice">Una o dos veces a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-e" id="5-e-4" value="4">
+                <label class="form-check-label" for="5-e-4" data-translate="form-frequency-three-or-more">Tres o más veces a la semana</label>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label" data-translate="form-q5-f">f. Sentir frío:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-f" id="5-f-1" value="1">
+                <label class="form-check-label" for="5-f-1" data-translate="form-frequency-never">Ninguna vez en el último mes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-f" id="5-f-2" value="2">
+                <label class="form-check-label" for="5-f-2" data-translate="form-frequency-less-once">Menos de una vez a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-f" id="5-f-3" value="3">
+                <label class="form-check-label" for="5-f-3" data-translate="form-frequency-once-or-twice">Una o dos veces a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-f" id="5-f-4" value="4">
+                <label class="form-check-label" for="5-f-4" data-translate="form-frequency-three-or-more">Tres o más veces a la semana</label>
+              </div>
+            </div>
+            
+          </div>
+          <div class="row g-3 mb-3">
+            <div class="col-md-4 mb-3">
+              <label class="form-label" data-translate="form-q5-g">g. Sufrir dolores:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-g" id="5-g-1" value="1">
+                <label class="form-check-label" for="5-g-1" data-translate="form-frequency-never">Ninguna vez en el último mes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-g" id="5-g-2" value="2">
+                <label class="form-check-label" for="5-g-2" data-translate="form-frequency-less-once">Menos de una vez a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-g" id="5-g-3" value="3">
+                <label class="form-check-label" for="5-g-3" data-translate="form-frequency-once-or-twice">Una o dos veces a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-g" id="5-g-4" value="4">
+                <label class="form-check-label" for="5-g-4" data-translate="form-frequency-three-or-more">Tres o más veces a la semana</label>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label" data-translate="form-q5-h">h. Tener pesadillas:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-h" id="5-h-1" value="1">
+                <label class="form-check-label" for="5-h-1" data-translate="form-frequency-never">Ninguna vez en el último mes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-h" id="5-h-2" value="2">
+                <label class="form-check-label" for="5-h-2" data-translate="form-frequency-less-once">Menos de una vez a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-h" id="5-h-3" value="3">
+                <label class="form-check-label" for="5-h-3" data-translate="form-frequency-once-or-twice">Una o dos veces a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-h" id="5-h-4" value="4">
+                <label class="form-check-label" for="5-h-4" data-translate="form-frequency-three-or-more">Tres o más veces a la semana</label>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label" data-translate="form-q5-i">i. Sufrir dolores:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-i" id="5-i-1" value="1">
+                <label class="form-check-label" for="5-i-1" data-translate="form-frequency-never">Ninguna vez en el último mes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-i" id="5-i-2" value="2">
+                <label class="form-check-label" for="5-i-2" data-translate="form-frequency-less-once">Menos de una vez a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-i" id="5-i-3" value="3">
+                <label class="form-check-label" for="5-i-3" data-translate="form-frequency-once-or-twice">Una o dos veces a la semana</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="5-i" id="5-i-4" value="4">
+                <label class="form-check-label" for="5-i-4" data-translate="form-frequency-three-or-more">Tres o más veces a la semana</label>
+              </div>
+            </div>
+          </div>
+          <!-- Otras razones -->
+          <div class="mb-3">
+            <label class="form-label" data-translate="form-q5-j">j. Otras razones. Por favor descríbalas:</label>
+            <textarea class="form-control" id="5-j-1" rows="4" placeholder="" data-translate="form-q5-j-placeholder"></textarea>
+          </div>
+        </fieldset>
+        <div class="row g-3 mb-3">
+          <div class="col-md-4 mb-3">
+            <label class="form-label" data-translate="form-q6">6. Durante el último mes, ¿cómo valoraría en conjunto, la calidad de su sueño?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="6-a" id="6-a-1" value="1">
+              <label class="form-check-label" for="6-a-1" data-translate="form-q6-option-1">Muy buena</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="6-a" id="6-a-2" value="2">
+              <label class="form-check-label" for="6-a-2" data-translate="form-q6-option-2">Bastante buena</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="6-a" id="6-a-3" value="3">
+              <label class="form-check-label" for="6-a-3" data-translate="form-q6-option-3">Bastante mala</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="6-a" id="6-a-4" value="4">
+              <label class="form-check-label" for="6-a-4" data-translate="form-q6-option-4">Muy mala</label>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label" data-translate="form-q7">7. Durante el último mes, ¿cuántas veces ha tomado medicinas (por su cuenta o recetadas por el médico) para dormir?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="7-a" id="7-a-1" value="1">
+              <label class="form-check-label" for="7-a-1" data-translate="form-frequency-never">Ninguna vez en el último mes</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="7-a" id="7-a-2" value="2">
+              <label class="form-check-label" for="7-a-2" data-translate="form-frequency-less-once">Menos de una vez a la semana</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="7-a" id="7-a-3" value="3">
+              <label class="form-check-label" for="7-a-3" data-translate="form-frequency-once-or-twice">Una o dos veces a la semana</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="7-a" id="7-a-4" value="4">
+              <label class="form-check-label" for="7-a-4" data-translate="form-frequency-three-or-more">Tres o más veces a la semana</label>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label" data-translate="form-q8">8. Durante el último mes, ¿cuántas veces ha sentido somnolencia mientras conducía, comía o desarrollaba alguna otra actividad?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="8-a" id="8-a-1" value="1">
+              <label class="form-check-label" for="8-a-1" data-translate="form-frequency-never">Ninguna vez en el último mes</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="8-a" id="8-a-2" value="2">
+              <label class="form-check-label" for="8-a-2" data-translate="form-frequency-less-once">Menos de una vez a la semana</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="8-a" id="8-a-3" value="3">
+              <label class="form-check-label" for="8-a-3" data-translate="form-frequency-once-or-twice">Una o dos veces a la semana</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="8-a" id="8-a-4" value="4">
+              <label class="form-check-label" for="8-a-4" data-translate="form-frequency-three-or-more">Tres o más veces a la semana</label>
+            </div>
+          </div>
+          
+        <div class="row g-3 mb-3">
+          <div class="col-md-4 mb-3">
+            <label class="form-label" data-translate="form-q9">9. Durante el último mes, ¿ha representado para usted mucho problema el tener ánimos para realizar alguna de las actividades detalladas en la pregunta anterior?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="9-a" id="9-a-1" value="1">
+              <label class="form-check-label" for="9-a-1" data-translate="form-q9-option-1">Ningún problema</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="9-a" id="9-a-2" value="2">
+              <label class="form-check-label" for="9-a-2" data-translate="form-q9-option-2">Solo un leve problema</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="9-a" id="9-a-3" value="3">
+              <label class="form-check-label" for="9-a-3" data-translate="form-q9-option-3">Un problema</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="9-a" id="9-a-4" value="4">
+              <label class="form-check-label" for="9-a-4" data-translate="form-q9-option-4">Un grave problema</label>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label" data-translate="form-q10">10. ¿Duerme usted solo o acompañado?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="10-a" id="10-a-1" value="1">
+              <label class="form-check-label" for="10-a-1" data-translate="form-q10-option-1">Solo</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="10-a" id="10-a-2" value="2">
+              <label class="form-check-label" for="10-a-2" data-translate="form-q10-option-2">Con alguien en otra habitación</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="10-a" id="10-a-3" value="3">
+              <label class="form-check-label" for="10-a-3" data-translate="form-q10-option-3">En la misma habitación, en otra cama</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="10-a" id="10-a-4" value="4">
+              <label class="form-check-label" for="10-a-4" data-translate="form-q10-option-4">En la misma cama</label>
+            </div>
+          </div>
+          
+        </div>
         <!-- Botón para generar PDF -->
         <div class="row g-3">
-          <div class="col d-flex w-100 ">
-              <button type="submit" class="btn btn-primary w-50 me-2">Resultado</button>
-              <button type="submit" class="btn btn-outline-primary w-50">Descargar Sueño Saludable (PDF)</button>
+          <div class="col d-flex w-100">
+            <button type="submit" class="btn btn-primary w-50 me-2" aria-label="Ver resultados del sueño saludable" data-translate="form-result">Resultado</button>
+            <button type="submit" class="btn btn-outline-primary w-50" aria-label="Descargar PDF sueño saludable" data-translate="form-download">Descargar Sueño Saludable (PDF)</button>
           </div>
         </div>
-         
+        
+        
       </form>
     </div>
     
-    <footer id="footer" class="footer bg-primary text-light">
-      <div class="container d-flex justify-content-between text-center py-4">
-        <div>
-          <img src="../../assets/logo/logo-xunta-negativo.svg" width="80" height="71" />
+   
+  </div>
+  <footer id="footer" class="footer bg-primary text-light py-3">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <!-- Logo -->
+        <div class="col-12 col-md-3 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start">
+          <img src="../../assets/logo/logo-xunta-negativo.svg" width="120" height="71" alt="Logo Xunta de Galicia" />
         </div>
-        <div>
-          <p data-translate="footer-info-xunta">© Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade</p>
-          <ul class="d-flex d-inline-flex footer-links">
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://012.xunta.gal/portada"
-                data-translate="atencion-a-la-ciudadania">
-                Atencion a la ciudadania
+        
+        <!-- Información y enlaces -->
+        <div class="col-12 col-md-6 text-center mb-3 mb-md-0">
+          <p class="mb-2" data-translate="footer-info-xunta">
+            © Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade
+          </p>
+          <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-2 pt-2">
+            <li class="px-2 border-end">
+              <a class="nav-link text-light" href="https://012.xunta.gal/portada" data-translate="atencion-a-la-ciudadania">
+                Atención a la ciudadanía
               </a>
             </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/A-nosa-organizacion/Accesibilidade"
-                data-translate="accesibilidad">
+            <li class="px-2 border-end">
+              <a class="nav-link text-light" href="https://www.sergas.gal/A-nosa-organizacion/Accesibilidade" data-translate="accesibilidad">
                 Accesibilidad
               </a>
             </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger"
-                href="https://www.xunta.gal/aviso-legal-do-portal-da-xunta?langId=gl_ES" data-translate="aviso-legal">
+            <li class="px-2 border-end">
+              <a class="nav-link text-light" href="https://www.xunta.gal/aviso-legal-do-portal-da-xunta?langId=gl_ES" data-translate="aviso-legal">
                 Aviso Legal
               </a>
             </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/mapa-web"
-                data-translate="mapa-del-portal">
+            <li class="px-2 border-end">
+              <a class="nav-link text-light" href="https://www.sergas.gal/mapa-web" data-translate="mapa-del-portal">
                 Mapa del Portal
               </a>
             </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger"
-                href="https://www.sergas.gal/A-nosa-organizacion/Consultas-reclamacions-suxestions"
-                data-translate="contacte">
+            <li class="px-2 border-end">
+              <a class="nav-link text-light" href="https://www.sergas.gal/A-nosa-organizacion/Consultas-reclamacions-suxestions" data-translate="contacte">
                 Contacte
               </a>
             </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://sanidade.xunta.gal/transparencia-e-goberno-aberto"
-                data-translate="transparencia-y-gobierno-abierto">
+            <li class="px-2 border-end">
+              <a class="nav-link text-light" href="https://sanidade.xunta.gal/transparencia-e-goberno-aberto" data-translate="transparencia-y-gobierno-abierto">
                 Transparencia y gobierno abierto
               </a>
             </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/canles-rss"
-                data-translate="rss">
+            <li class="px-2">
+              <a class="nav-link text-light" href="https://www.sergas.gal/canles-rss" data-translate="rss">
                 RSS
               </a>
             </li>
           </ul>
         </div>
-        <div class="my-3">
-          <a id="back-to-top " href="#" class="btn btn-primary back-to-top" role="button">
+        
+        <!-- Botón de volver arriba -->
+        <div class="col-12 col-md-3 text-center text-md-end">
+          <a id="back-to-top" href="#" class="btn btn-primary border-light back-to-top" role="button">
             <i class="bi bi-arrow-up"></i>
           </a>
         </div>
       </div>
+    </div>
   </footer>
-  </div>
+  
+  
   <script>
     document.addEventListener("DOMContentLoaded", function () {
     // Supongamos que el idioma actual está en currentLang = "es" o "gl"
@@ -264,24 +605,24 @@
       });
     });
     </script>
-  <script src="../../js/planificador_comidas.js"></script>
+  <script src="../../js/cuestionario_sueno.js"></script>
   <script src="../../js/scripts_submenus.js"></script>
   <script src="../../js/lang_submenus.js"></script>
 </body>
 <!-- Modal para mostrar detalles de la comida -->
 <div class="modal fade" id="mealModal" tabindex="-1" aria-labelledby="mealModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg"> <!-- modal-lg para mayor tamaño -->
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="mealModalLabel">Detalles de la Comida</h5>
+        <h5 class="modal-title" id="mealModalLabel">Detalles de la Comida</h5> <!-- Este título se puede cambiar por JavaScript -->
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        <!-- Aquí se insertarán los ingredientes y las instrucciones -->
-        <div id="mealModalContent"></div>
+        <div id="mealModalContent"></div> <!-- Aquí inyectamos el contenido dinámico -->
       </div>
     </div>
   </div>
 </div>
+
 
 </html>
