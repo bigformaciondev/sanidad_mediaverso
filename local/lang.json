@@ -252,7 +252,21 @@
     "form-q10-3": "En la misma habitación, en otra cama",
     "form-q10-4": "En la misma cama",
     "form-result": "Resultado",
-    "form-download": "Descargar Sueño Saludable (PDF)"
+    "form-download": "Descargar Sueño Saludable (PDF)",
+    "psqi-titulo": "Índice de Calidad del Sueño (PSQI)",
+    "modal-edad": "Edad",
+    "modal-fecha": "Fecha",
+    "modal-horas-dormidas": "Horas dormidas",
+    "psqi-descargar-pdf": "Descargar PDF",
+    "psqi-total": "Puntuación total PSQI",
+  
+    "psqi-calidad-subjetiva-sueno": "Calidad subjetiva del sueño",
+    "psqi-latencia-sueno": "Latencia del sueño",
+    "psqi-duracion-sueno": "Duración del sueño",
+    "psqi-eficiencia-habitual": "Eficiencia del sueño",
+    "psqi-perturbaciones": "Perturbaciones del sueño",
+    "psqi-medicacion-hipnotica": "Uso de medicación para dormir",
+    "psqi-disfuncion-diurna": "Disfunción diurna"
   },
   "gl": {
     "welcome": "Benvidos",
@@ -509,6 +523,21 @@
     "form-q10-3": "Na mesma habitación, noutra cama",
     "form-q10-4": "Na mesma cama",
     "form-result": "Resultado",
-    "form-download": "Descargar Sono Saudable (PDF)"
+    "form-download": "Descargar Sono Saudable (PDF)",
+      "psqi-titulo": "Índice de Calidade do Sono (PSQI)",
+      "modal-edad": "Idade",
+      "modal-fecha": "Data",
+      "modal-horas-dormidas": "Horas durmidas",
+      "psqi-descargar-pdf": "Descargar PDF",
+      "psqi-total": "Puntuación total PSQI",
+    
+      "psqi-calidad-subjetiva-sueno": "Calidade subxectiva do sono",
+      "psqi-latencia-sueno": "Latencia do sono",
+      "psqi-duracion-sueno": "Duración do sono",
+      "psqi-eficiencia-habitual": "Eficiencia do sono",
+      "psqi-perturbaciones": "Perturbacións do sono",
+      "psqi-medicacion-hipnotica": "Uso de medicación para durmir",
+      "psqi-disfuncion-diurna": "Disfunción diúrna"
+    
   }
 }
