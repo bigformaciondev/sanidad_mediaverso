@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
       calcularHorasDeSueño();
     }
   });
-  
+
   wakeTimeInput.addEventListener("change", () => {
     if (bedtimeInput.value) {
       calcularHorasDeSueño();
     }
   });
-  
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     marcarErrores();
@@ -199,125 +199,144 @@ document.addEventListener("DOMContentLoaded", function () {
     return datos;
   }
   function procesarPSQI(datosFormulario, jsonPSQI) {
-  const componentes = jsonPSQI.componentes;
-  const edad = parseInt(datosFormulario.edad, 10);
-  const horasDormidas = parseFloat(datosFormulario.horasDormidas || 0);
-  const campos = datosFormulario.campos;
-  const resultado = {
-    componentes: {},
-    total: 0,
-  };
-
-  console.log("🔍 Edad:", edad);
-  console.log("🔍 Horas dormidas:", parseInt(horasDormidas));
-  console.log("🔍 Campos recogidos:", campos);
-
-  for (const num in componentes) {
-    const comp = componentes[num];
-    let puntuacion = 0;
-    let comentario = "";
-
-    console.log(`\n📘 Procesando componente ${num} - ${comp.nombre}`);
-
-    switch (num) {
-      case "1":
-        puntuacion = parseInt(campos[comp.pregunta] || 0);
-        comentario = comp.comentarios[puntuacion] || "";
-        break;
-
-      case "2":
-        const sleepTime = campos["sleepTime"];
-        const valSleepTime = Object.entries(comp.preguntas.sleepTime).find(
-          ([txt]) => txt === obtenerTextoSleepTime(sleepTime)
-        )?.[1] || 0;
-        const val5a = parseInt(campos["5-a"] || 0);
-        const suma2 = valSleepTime + val5a;
-
-        puntuacion = suma2;
-        comentario = comp.comentarios[puntuacion] || "";
-        break;
-
-      case "3":
-        let edadGrupo = edad >= 65 ? "65+" : edad >= 18 ? "18-64" : "14-17";
-        let horasStr = clasificarDuracionSueno(edad, horasDormidas);
-        puntuacion = comp.tablas[edadGrupo][horasStr] ?? 0;
-        comentario = comp.comentarios[`${puntuacion}`];
-
-        console.log("▶️ Duración del sueño");
-        console.log("  👥 Grupo edad:", edadGrupo);
-        console.log("  🕒 Horas categorizadas:", horasStr);
-        console.log("  ✅ Puntuación:", puntuacion, "| Comentario:", comentario);
-        break;
-
-      case "4":
-        const horaAcostarse = document.getElementById("bedtime").value;
-        const horaDespertarse = document.getElementById("wakeTime").value;
-        const duracionEstimada = calcularDiferenciaHoras(horaAcostarse, horaDespertarse);
-        const eficiencia = (horasDormidas / duracionEstimada) * 100;
-
-        if (eficiencia > 85) puntuacion = 0;
-        else if (eficiencia > 75) puntuacion = 1;
-        else if (eficiencia > 65) puntuacion = 2;
-        else puntuacion = 3;
-
-        comentario = comp.comentarios[`${puntuacion}`] || comp.comentarios["1-2"];
-
-        console.log("▶️ Eficiencia del sueño");
-        console.log("  🛏️ Acostarse:", horaAcostarse);
-        console.log("  ⏰ Levantarse:", horaDespertarse);
-        console.log("  ⌛ Duración estimada:", duracionEstimada);
-        console.log("  📊 Eficiencia calculada:", eficiencia.toFixed(2) + "%");
-        console.log("  ✅ Puntuación:", puntuacion, "| Comentario:", comentario);
-        break;
-
-      case "5":
-        const preguntas5 = comp.preguntas;
-        let suma5 = 0;
-        console.log("▶️ Perturbaciones del sueño");
-        preguntas5.forEach((p) => {
-          const val = parseInt(campos[p] || 0);
-          const score = comp.puntuacion[val] || 0;
-          suma5 += score;
-          console.log(`  ❓ ${p} → ${val} → +${score}`);
-        });
-        puntuacion = calcularPorRango(suma5, comp.rango);
-        comentario = comp.comentarios[`${puntuacion}`];
-        console.log("  ➕ Suma total:", suma5);
-        console.log("  ✅ Puntuación:", puntuacion, "| Comentario:", comentario);
-        break;
-
-      case "6":
-        puntuacion = parseInt(campos[comp.pregunta] || 0);
-        comentario = comp.comentarios[`${puntuacion}`];
-        console.log("▶️ Medicación hipnótica:", puntuacion, comentario);
-        break;
-
-      case "7":
-        const val8a = comp.preguntas["8-a"][campos["8-a"]] ?? 0;
-        const val9a = comp.preguntas["9-a"][campos["9-a"]] ?? 0;
-        const suma7 = val8a + val9a;
-        comentario = comp.comentarios[`${suma7}`] || comp.comentarios[`${suma7}`];
-
-        console.log("▶️ Disfunción diurna");
-        console.log("  🚗 8-a:", campos["8-a"], "→", val8a);
-        console.log("  😩 9-a:", campos["9-a"], "→", val9a);
-        console.log("  ➕ Suma:", suma7);
-        console.log("  ✅ Puntuación:", puntuacion, "| Comentario:", comentario);
-        break;
-    }
-
-    resultado.componentes[comp.nombre] = {
-      puntuacion,
-      comentario,
+    const componentes = jsonPSQI.componentes;
+    const edad = parseInt(datosFormulario.edad, 10);
+    const horasDormidas = parseFloat(datosFormulario.horasDormidas || 0);
+    const campos = datosFormulario.campos;
+    const resultado = {
+      componentes: {},
+      total: 0,
     };
-    resultado.total += puntuacion;
-
-    console.log(`✅ Total acumulado tras ${comp.nombre}:`, resultado.total);
+  
+    console.log("🔍 Edad:", edad);
+    console.log("🔍 Horas dormidas:", parseInt(horasDormidas));
+    console.log("🔍 Campos recogidos:", campos);
+  
+    for (const num in componentes) {
+      const comp = componentes[num];
+      let puntuacion = 0;
+      let comentario = "";
+      let recomendaciones = undefined; // Inicializado fuera del switch
+  
+      console.log(`\n📘 Procesando componente ${num} - ${comp.nombre}`);
+  
+      switch (num) {
+        case "1":
+          puntuacion = parseInt(campos[comp.pregunta] || 0);
+          comentario = comp.comentarios[puntuacion] || "";
+          break;
+  
+        case "2":
+          const sleepTime = campos["sleepTime"];
+          const valSleepTime =
+            Object.entries(comp.preguntas.sleepTime).find(
+              ([txt]) => txt === obtenerTextoSleepTime(sleepTime)
+            )?.[1] || 0;
+          const val5a = parseInt(campos["5-a"] || 0);
+          const suma2 = valSleepTime + val5a;
+  
+          puntuacion = suma2;
+          comentario = comp.comentarios[puntuacion] || "";
+          break;
+  
+        case "3":
+          let edadGrupo = edad >= 65 ? "65+" : edad >= 18 ? "18-64" : "14-17";
+          let horasStr = clasificarDuracionSueno(edad, horasDormidas);
+          puntuacion = comp.tablas[edadGrupo][horasStr] ?? 0;
+          comentario = comp.comentarios[`${puntuacion}`];
+  
+          console.log("▶️ Duración del sueño");
+          console.log("  👥 Grupo edad:", edadGrupo);
+          console.log("  🕒 Horas categorizadas:", horasStr);
+          console.log("  ✅ Puntuación:", puntuacion, "| Comentario:", comentario);
+          break;
+  
+        case "4":
+          const horaAcostarse = document.getElementById("bedtime").value;
+          const horaDespertarse = document.getElementById("wakeTime").value;
+          const duracionEstimada = calcularDiferenciaHoras(horaAcostarse, horaDespertarse);
+          const eficiencia = (horasDormidas / duracionEstimada) * 100;
+  
+          if (eficiencia > 85) puntuacion = 0;
+          else if (eficiencia > 75) puntuacion = 1;
+          else if (eficiencia > 65) puntuacion = 2;
+          else puntuacion = 3;
+  
+          comentario = comp.comentarios[`${puntuacion}`] || comp.comentarios["1-2"];
+  
+          console.log("▶️ Eficiencia del sueño");
+          console.log("  🛏️ Acostarse:", horaAcostarse);
+          console.log("  ⏰ Levantarse:", horaDespertarse);
+          console.log("  ⌛ Duración estimada:", duracionEstimada);
+          console.log("  📊 Eficiencia calculada:", eficiencia.toFixed(2) + "%");
+          console.log("  ✅ Puntuación:", puntuacion, "| Comentario:", comentario);
+          break;
+  
+        case "5": {
+          const preguntas5 = comp.preguntas;
+          let suma5 = 0;
+          recomendaciones = [];
+          const excluidas = ["5-a", "5-i", "5-j"];
+  
+          console.log("▶️ Perturbaciones del sueño");
+          preguntas5.forEach((p) => {
+            const val = parseInt(campos[p] || 0);
+            const score = comp.puntuacion[val] || 0;
+            suma5 += score;
+  
+            console.log(`  ❓ ${p} → ${val} → +${score}`);
+  
+            if (!excluidas.includes(p) && val >= 2) {
+              const claveRecomendacion = `recomendacion-${p}`;
+              recomendaciones.push(claveRecomendacion);
+            }
+          });
+  
+          puntuacion = calcularPorRango(suma5, comp.rango);
+          comentario = comp.comentarios[`${puntuacion}`];
+  
+          console.log("  ➕ Suma total:", suma5);
+          console.log("  ✅ Puntuación:", puntuacion, "| Comentario:", comentario);
+          console.log("📝 Recomendaciones activadas:", recomendaciones);
+          break;
+        }
+  
+        case "6":
+          puntuacion = parseInt(campos[comp.pregunta] || 0);
+          comentario = comp.comentarios[`${puntuacion}`];
+          console.log("▶️ Medicación hipnótica:", puntuacion, comentario);
+          break;
+  
+        case "7":
+          const val8a = comp.preguntas["8-a"][campos["8-a"]] ?? 0;
+          const val9a = comp.preguntas["9-a"][campos["9-a"]] ?? 0;
+          const suma7 = val8a + val9a;
+          puntuacion = calcularPorRango(suma7, comp.rango);
+          comentario = comp.comentarios[`${puntuacion}`];
+  
+          console.log("▶️ Disfunción diurna");
+          console.log("  🚗 8-a:", campos["8-a"], "→", val8a);
+          console.log("  😩 9-a:", campos["9-a"], "→", val9a);
+          console.log("  ➕ Suma:", suma7);
+          console.log("  ✅ Puntuación:", puntuacion, "| Comentario:", comentario);
+          break;
+      }
+  
+      // Asignación al resultado según si hay recomendaciones
+      resultado.componentes[comp.nombre] = {
+        puntuacion,
+        comentario,
+        ...(recomendaciones ? { recomendaciones } : {})
+      };
+  
+      resultado.total += puntuacion;
+      console.log(`✅ Total acumulado tras ${comp.nombre}:`, resultado.total);
+    }
+  
+    console.log("\n📊 Resultado final del PSQI:", resultado);
+    return resultado;
   }
-
-  console.log("\n📊 Resultado final del PSQI:", resultado);
-  return resultado;
-}
+  
 
   function obtenerTextoSleepTime(valor) {
     switch (valor) {
@@ -366,62 +385,64 @@ document.addEventListener("DOMContentLoaded", function () {
       if (horas >= 6) return "6-7";
       return "<6";
     }
-  
+
     if (edad >= 18 && edad < 65) {
       if (horas > 7) return ">7";
       if (horas > 6) return ">6-7";
       if (horas >= 5) return "5-6";
       return "<5";
     }
-  
+
     if (edad >= 65) {
       if (horas > 7) return ">7";
       if (horas > 6) return ">6-7";
       if (horas >= 5) return "5-6";
       return "<5";
     }
-  
+
     return ""; // en caso de que no encaje en nada
   }
-  
+
   function mostrarModalResultadoConPSQI(resultadoPSQI, datosFormulario) {
     const modalContent = document.getElementById("mealModalContent");
-  
+
     let html = `
       <div class="container">
-        <h4 class="mb-4 text-primary fw-bold" data-translate="psqi-titulo">
-          <i class="bi bi-moon-stars-fill"></i> Índice de Calidad del Sueño (PSQI)
-        </h4>
-  
+         <div class=" d-flex justify-content-center text-center">
+           <i class="bi bi-moon-stars-fill text-primary "></i> 
+           <h4 class="mb-4 text-primary fw-bold mx-2" data-translate="psqi-titulo"></h4>
+        </div>
         <div class="row g-3">
           <div class="col-md-4">
             <div class="card shadow-sm border-primary h-100">
               <div class="card-body text-center">
-                <h6 class="card-title" data-translate="modal-edad">
-                  <i class="bi bi-person-fill"></i> Edad
-                </h6>
+                <div class=" d-flex justify-content-center text-center">
+                  <i class="bi bi-person-fill"></i>
+                  <h6 class="card-title mx-2" data-translate="modal-edad"> </h6>
+                </div>
                 <p class="card-text fs-5">${datosFormulario.edad}</p>
               </div>
             </div>
           </div>
-  
-          <div class="col-md-4">
-            <div class="card shadow-sm border-primary h-100">
-              <div class="card-body text-center">
-                <h6 class="card-title" data-translate="modal-fecha">
-                  <i class="bi bi-calendar-date-fill"></i> Fecha
-                </h6>
+            <div class="col-md-4">
+              <div class="card shadow-sm border-primary h-100">
+                <div class="card-body text-center">
+                 <div class=" d-flex justify-content-center text-center">
+                <i class="bi bi-calendar-date-fill"></i>
+                <h6 class="card-title mx-2" data-translate="modal-fecha"></h6>
+                </div>
                 <p class="card-text fs-5">${datosFormulario.fecha}</p>
+                </div>
               </div>
             </div>
-          </div>
   
           <div class="col-md-4">
             <div class="card shadow-sm border-primary h-100">
               <div class="card-body text-center">
-                <h6 class="card-title" data-translate="modal-horas-dormidas">
-                  <i class="bi bi-clock-fill"></i> Horas dormidas
-                </h6>
+               <div class=" d-flex justify-content-center text-center">
+               <i class="bi bi-clock-fill"></i>
+               <h6 class="card-title mx-2" data-translate="modal-horas-dormidas"></h6>
+              </div>
                 <p class="card-text fs-5">${datosFormulario.horasDormidas}</p>
               </div>
             </div>
@@ -432,27 +453,74 @@ document.addEventListener("DOMContentLoaded", function () {
   
         <div class="row g-4">
     `;
-  
+
     for (const nombre in resultadoPSQI.componentes) {
       const comp = resultadoPSQI.componentes[nombre];
       const nombreTraducidoKey = `psqi-${nombre}`;
       const comentarioKey = `psqi-${nombre}-comentario`;
-  
+
       html += `
-        <div class="col-12">
-          <div class="card border-info shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title text-capitalize" data-translate="${nombreTraducidoKey}">
-                ${nombre.replace(/-/g, " ")}
-              </h5>
-              <p class="card-text" data-translate="${comentarioKey}">
-                ${comp.comentario}
-              </p>
+  <div class="col-12">
+    <div class="card border-info shadow-sm h-100">
+      <div class="card-body">
+        <h5 class="card-title text-capitalize" data-translate="${nombreTraducidoKey}">
+          ${nombre.replace(/-/g, " ")}
+        </h5>
+        <p class="card-text text-justify" >
+          ${comp.comentario}
+        </p>
+      </div>`;
+
+      if (
+        nombre === "latencia-sueno" ||
+        nombre === "eficiencia-habitual" ||
+        nombre === "perturbaciones"
+      ) {
+        const acordeonId = `acordeon-${nombre}`;
+        html += `
+          <div class="card-footer bg-transparent border-top">
+            <div class="accordion" id="${acordeonId}">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-${nombre}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${nombre}" aria-expanded="false" aria-controls="collapse-${nombre}">
+                    <span data-translate="recomendaciones-sueno-titulo"></span>
+                  </button>
+                </h2>
+                <div id="collapse-${nombre}" class="accordion-collapse collapse" aria-labelledby="heading-${nombre}" data-bs-parent="#${acordeonId}">
+                  <div class="accordion-body text-justify">
+        `;
+      
+        if (nombre === "perturbaciones" && Array.isArray(comp.recomendaciones)) {
+          comp.recomendaciones.forEach((key) => {
+            html += `<p data-translate="${key}"></p>`;
+          });
+        }
+      
+        if (nombre === "latencia-sueno") {
+          for (let i = 1; i <= 7; i++) {
+            html += `<p data-translate="recomendaciones-sueno-${i}"></p>`;
+          }
+        }
+      
+        if (nombre === "eficiencia-habitual") {
+          for (let i = 1; i <= 3; i++) {
+            html += `<p data-translate="recomendacion-eficiencia-sueno-${i}"></p>`;
+          }
+        }
+      
+        html += `
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>`;
+          </div>`;
+      }
+
+html += `
+    </div>
+  </div>`;
     }
-  
+
     html += `
         </div>
         <!-- Botón para generar PDF -->
@@ -463,9 +531,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </div>
     `;
-  
+
     modalContent.innerHTML = html;
-  
+
     setTimeout(() => {
       const btnPdf = document.getElementById("descargarPdfDesdeModal");
       if (btnPdf) {
@@ -474,66 +542,218 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
     }, 100);
-  
+
     const modal = new bootstrap.Modal(document.getElementById("mealModal"));
+    applyTranslations();
+
     modal.show();
   }
-  
 
-  function generarPDFconPSQI(resultadoPSQI, datosFormulario) {
+  async function generarPDFconPSQI(resultadoPSQI, datosFormulario) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-  
-    const margenIzq = 10;
+    const margenIzq = 15;
+    const anchoTexto = 180;
     let y = 20;
+    const idioma = localStorage.getItem("language") || "es";
   
-    doc.setFontSize(14);
+    // Cargar traducciones
+    const traducciones = await fetch("../../local/lang.json")
+      .then((res) => res.json())
+      .catch((err) => {
+        console.error("Error cargando lang.json para el PDF:", err);
+        return {};
+      });
+  
+    const t = (key) => traducciones[idioma]?.[key] || key;
+  
+    // Cargar imágenes
+    if (idioma == "es") {
+      headerImgURL = "/assets/img/sueno-saludable-es.png";
+      firstHeaderImgURL ="/assets/img/sueno-saludable-es.png";
+      footerImgURL = "/assets/logo/xunta_pie.svg";
+    } else {
+      headerImgURL = "/assets/img/sueno-saludable-gal.png";
+      firstHeaderImgURL = "/assets/img/sueno-saludable-gal.png";
+      footerImgURL = "/assets/logo/xunta_pie.svg";
+    }
+  
+    const firstHeader = await new Promise((resolve) =>
+      getImageData(firstHeaderImgURL, resolve)
+    );
+    const header = await new Promise((resolve) =>
+      getImageData(headerImgURL, resolve)
+    );
+    const footer = await new Promise((resolve) =>
+      getImageData(footerImgURL, resolve)
+    );
+  
+    // Añadir cabecera inicial
+    y = addHeader(doc, true, firstHeader, header);
+
+
+  
+    // TÍTULO
     doc.setFont("helvetica", "bold");
-    doc.text("Resumen del Índice de Calidad del Sueño (PSQI)", margenIzq, y);
-  
+    doc.setFontSize(16);
+    doc.text(t("psqi-titulo"), margenIzq, y);
     y += 10;
-    doc.setFontSize(12);
+  
+    // DATOS PERSONALES
     doc.setFont("helvetica", "normal");
-    doc.text(`Edad: ${datosFormulario.edad}`, margenIzq, y);
-    y += 10;
-    doc.text(`Fecha: ${datosFormulario.fecha}`, margenIzq, y);
-    y += 10;
-    doc.text(`Horas dormidas: ${datosFormulario.horasDormidas}`, margenIzq, y);
-    y += 15;
+    doc.setFontSize(12);
+    doc.setTextColor(50, 50, 50);
+    doc.text(`${t("modal-edad")}: ${datosFormulario.edad}`, margenIzq, y);
+    y += 8;
+    doc.text(`${t("modal-fecha")}: ${datosFormulario.fecha}`, margenIzq, y);
+    y += 8;
+    doc.text(`${t("modal-horas-dormidas")}: ${datosFormulario.horasDormidas}`, margenIzq, y);
+    y += 12;
   
-    // Componentes PSQI
+    doc.setDrawColor(180);
+    doc.line(margenIzq, y, 200, y);
+    y += 10;
+  
     for (const nombre in resultadoPSQI.componentes) {
       const comp = resultadoPSQI.componentes[nombre];
-      const titulo = nombre.replace(/-/g, " ");
+      const tituloKey = `psqi-${nombre}`;
   
-      // Traducción opcional del título (si usas el sistema multilenguaje)
-      // const idioma = localStorage.getItem("language") || "es";
-      // const traduccion = traducciones[idioma][`psqi-${nombre}`] || titulo;
-  
+      // Componente
       doc.setFont("helvetica", "bold");
-      doc.text(titulo.charAt(0).toUpperCase() + titulo.slice(1), margenIzq, y);
+      doc.setFontSize(13);
+      doc.setTextColor(33, 37, 41);
+      doc.text(t(tituloKey), margenIzq, y);
       y += 7;
   
+      // Comentario
       doc.setFont("helvetica", "normal");
-      const comentarioLineas = doc.splitTextToSize(comp.comentario, 180);
+      doc.setFontSize(11);
+      doc.setTextColor(60, 60, 60);
+      const comentarioLineas = doc.splitTextToSize(comp.comentario, anchoTexto);
       doc.text(comentarioLineas, margenIzq, y);
-      y += comentarioLineas.length * 7;
+      y += comentarioLineas.length * 6;
   
-      y += 5; // Espacio adicional entre componentes
+      // Recomendaciones
+      if (
+        nombre === "latencia-sueno" ||
+        nombre === "eficiencia-habitual" ||
+        (nombre === "perturbaciones" && Array.isArray(comp.recomendaciones))
+      ) {
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(12);
+        doc.setTextColor(0, 102, 204);
+        doc.text(t("recomendaciones-sueno-titulo"), margenIzq, y);
+        y += 7;
   
-      // Salto de página si se pasa del margen inferior
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(11);
+        doc.setTextColor(80, 80, 80);
+  
+        if (nombre === "latencia-sueno") {
+          for (let i = 1; i <= 7; i++) {
+            const texto = doc.splitTextToSize(`• ${t(`recomendaciones-sueno-${i}`)}`, anchoTexto);
+            doc.text(texto, margenIzq, y);
+            y += texto.length * 6;
+          }
+        }
+  
+        if (nombre === "eficiencia-habitual") {
+          for (let i = 1; i <= 3; i++) {
+            const texto = doc.splitTextToSize(`• ${t(`recomendacion-eficiencia-sueno-${i}`)}`, anchoTexto);
+            doc.text(texto, margenIzq, y);
+            y += texto.length * 6;
+          }
+        }
+  
+        if (nombre === "perturbaciones") {
+          comp.recomendaciones.forEach((clave) => {
+            const texto = doc.splitTextToSize(`• ${t(clave)}`, anchoTexto);
+            doc.text(texto, margenIzq, y);
+            y += texto.length * 6;
+          });
+        }
+      }
+  
+      y += 8;
+      doc.setDrawColor(220);
+      doc.line(margenIzq, y, 200, y);
+      y += 10;
+  
+      // Salto de página si es necesario
       if (y > 270) {
+        addFooter(doc, footer);
         doc.addPage();
-        y = 20;
+        y = addHeader(doc, false, firstHeader, header);
       }
     }
   
-    // Puntuación total al final
+    // PUNTUACIÓN FINAL
     doc.setFont("helvetica", "bold");
     doc.setFontSize(13);
-    doc.text(`Puntuación total PSQI: ${resultadoPSQI.total}`, margenIzq, y + 10);
+    doc.setTextColor(0, 128, 0);
+    doc.text(`${t("psqi-total")}: ${resultadoPSQI.total}`, margenIzq, y);
   
+    addFooter(doc, footer);
     doc.save("resultado-psqi.pdf");
   }
+  
+  function getImageData(url, callback) {
+    const img = new Image();
+    // Permitir solicitudes de origen cruzado si las imágenes se sirven localmente
+    img.crossOrigin = "Anonymous";
+    img.src = url;
+    img.onload = function () {
+      // Crear un canvas para extraer la imagen en base64
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      const dataURL = canvas.toDataURL("image/png");
+      callback(dataURL);
+    };
+    img.onerror = function (err) {
+      console.error("Error al cargar la imagen: " + url, err);
+      callback(null); // En caso de error, se pasa null
+    };
+  }
+  
+  /**
+   * Agrega la cabecera en la página actual.
+   * @param {jsPDF} doc - La instancia de jsPDF.
+   * @param {boolean} isFirstPage - Si es la primera página, se usa una imagen distinta.
+   * @param {string} firstPageHeaderData - Base64 de la cabecera especial (solo para la primera página).
+   * @param {string} headerData - Base64 de la cabecera para las páginas siguientes.
+   * @returns {number} - La coordenada Y a partir de la cual se puede escribir.
+   */
+  function addHeader(doc, isFirstPage, firstPageHeaderData, headerData) {
+    let yOffset = 0;
+    const yImg = 10; // margen superior
+    const imgHeight = 30; // altura real del banner
+  
+    if (isFirstPage && firstPageHeaderData) {
+      doc.addImage(firstPageHeaderData, "PNG", 10, yImg, 190, 15);
+      yOffset = yImg + imgHeight + 5; // espacio adicional tras la imagen
+    } else if (headerData) {
+      doc.addImage(headerData, "PNG", 10, yImg, 190, 15);
+      yOffset = yImg + imgHeight + 5;
+    }
+  
+    return yOffset;
+  }
+  
+  
+  /**
+   * Agrega el pie de página en la página actual.
+   * @param {jsPDF} doc - La instancia de jsPDF.
+   * @param {string} footerData - Base64 de la imagen del pie de página.
+   */
+  function addFooter(doc, footerData) {
+    const pageHeight = doc.internal.pageSize.height;
+    if (footerData) {
+      doc.addImage(footerData, "PNG", 10, pageHeight - 20, 40, 15); // Y = parte inferior
+    }
+  }
+  
   
 });

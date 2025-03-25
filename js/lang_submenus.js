@@ -1,6 +1,8 @@
+let currentLanguage = localStorage.getItem("language") || "es";
+let currentTranslations = {};
+
 document.addEventListener("DOMContentLoaded", function () {
-  const language = localStorage.getItem("language") || "es";
-  changeLanguage(language);
+  changeLanguage(currentLanguage);
 });
 
 function changeLanguage(lang) {
@@ -12,40 +14,41 @@ function changeLanguage(lang) {
         return;
       }
 
-      // Traducir cada elemento con atributo "data-translate"
-      document.querySelectorAll("[data-translate]").forEach((element) => {
-        const key = element.getAttribute("data-translate");
-        element.innerText = data[lang][key] || element.innerText;
-      });
-      // 2. Reasignar src de los iframes según el idioma
-      // Reasignar src de los iframes según el idioma usando el atributo correcto "data-src-es"
-      document.querySelectorAll("iframe[data-src-es]").forEach((iframe) => {
-        let newSrc = null;
-        if (lang === "gl") {
-          newSrc = iframe.getAttribute("data-src-gl");
-        } else {
-          newSrc = iframe.getAttribute("data-src-es");
-        }
-        if (newSrc) {
-          iframe.src = newSrc;
-        }
-      });
-      // 2. Reasignar src de los images según el idioma
-      // Reasignar src de los images según el idioma usando el atributo correcto "data-src-es"
-      document.querySelectorAll("img[data-src-es]").forEach((iframe) => {
-        let newSrc = null;
-        if (lang === "gl") {
-          newSrc = iframe.getAttribute("data-src-gl");
-        } else {
-          newSrc = iframe.getAttribute("data-src-es");
-        }
-        if (newSrc) {
-          iframe.src = newSrc;
-        }
-      });
+      currentLanguage = lang;
+      currentTranslations = data[lang];
       localStorage.setItem("language", lang);
+
+      applyTranslations(); // aplica a toda la página como antes
     })
     .catch((error) =>
       console.error("Error al cargar el archivo de idioma", error)
     );
+}
+
+function applyTranslations() {
+  if (!currentTranslations || Object.keys(currentTranslations).length === 0) return;
+
+  // Textos
+  document.querySelectorAll("[data-translate]").forEach((element) => {
+    const key = element.getAttribute("data-translate");
+    if (currentTranslations[key]) {
+      element.innerText = currentTranslations[key];
+    }
+  });
+
+  // Iframes
+  document.querySelectorAll("iframe[data-src-es]").forEach((iframe) => {
+    const newSrc = currentLanguage === "gl"
+      ? iframe.getAttribute("data-src-gl")
+      : iframe.getAttribute("data-src-es");
+    if (newSrc) iframe.src = newSrc;
+  });
+
+  // Imágenes
+  document.querySelectorAll("img[data-src-es]").forEach((img) => {
+    const newSrc = currentLanguage === "gl"
+      ? img.getAttribute("data-src-gl")
+      : img.getAttribute("data-src-es");
+    if (newSrc) img.src = newSrc;
+  });
 }
