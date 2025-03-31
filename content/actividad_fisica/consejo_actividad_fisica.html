@@ -1,36 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <!-- SEO básico -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Página de inicio de Sanidad Mediaverso" />
-    <title>Sanidad Mediaverso</title>
-
-    <!-- Bootstrap CSS -->
-
-    <!-- Bootstrap CSS desde archivos locales -->
+    <meta name="description" content="Consejos visuales en vídeo del SERGAS para promover hábitos saludables y actividad física. Una iniciativa de Sanidade Mediaverso. Disponible en gallego y castellano." />
+    <meta name="keywords" content="consejos de salud, vídeos educativos, actividad física, salud pública, sanidad gallega, SERGAS, Sanidade Mediaverso, Xunta de Galicia" />
+    <meta name="author" content="Servizo Galego de Saúde (SERGAS)" />
+    <title>Consejos de Saúde | Vídeos Educativos del SERGAS | Sanidade Mediaverso</title>
+    <link rel="canonical" href="https://sanidademediaverso.sergas.gal/content/actividad_fisica/consejo_actividad_fisica.html" />
+  
+    <!-- Open Graph -->
+    <meta property="og:title" content="Consejos de Saúde | Vídeos Educativos del SERGAS" />
+    <meta property="og:description" content="Vídeos con consejos sobre salud, bienestar y ejercicio. Material didáctico audiovisual promovido por Sanidade Mediaverso." />
+    <meta property="og:image" content="https://sanidademediaverso.sergas.gal/assets/img/camina-banner1.webp" />
+    <meta property="og:url" content="https://sanidademediaverso.sergas.gal/content/actividad_fisica/consejo_actividad_fisica.html" />
+    <meta property="og:type" content="website" />
+  
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Consejos de Saúde | Vídeos del SERGAS para tu bienestar" />
+    <meta name="twitter:description" content="Serie de vídeos del SERGAS para fomentar hábitos saludables. Accede desde Sanidade Mediaverso." />
+    <meta name="twitter:image" content="https://sanidademediaverso.sergas.gal/assets/img/camina-banner1.webp" />
+  
+    <!-- Bootstrap, diseño y fuentes -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-    />
-    <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../../css/styles.css" />
-
-    <!-- Icono del sitio (favicon) -->
-    <link rel="icon" href="../../assets/favicon.webp" type="image/x-icon">
-    <!-- Google tag (gtag.js) -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+  
+    <!-- Icono del sitio -->
+    <link rel="icon" href="../../assets/favicon.webp" type="image/webp" />
+  
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-XXXXXXXXXX');
     </script>
-
+  
+    <!-- Datos estructurados JSON-LD (VideoObject simple) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Consejos de Saúde",
+      "description": "Vídeos educativos producidos por el SERGAS sobre hábitos saludables, actividad física y bienestar.",
+      "url": "https://sanidademediaverso.sergas.gal/content/consejos/consejos.html",
+      "hasPart": [
+        {
+          "@type": "VideoObject",
+          "name": "Consejo de Actividad Física",
+          "description": "Consejo audiovisual del SERGAS sobre la importancia de moverse para mantener la salud.",
+          "thumbnailUrl": "https://sanidademediaverso.sergas.gal/assets/img/camina-banner1.webp",
+          "uploadDate": "2024-01-01",
+          "contentUrl": "https://tv.bigteam.es/player?videoId=hbGhFI56"
+        }
+      ]
+    }
+    </script>
   </head>
+  
 
   <body id="page-top">
    <!-- Navigation-->

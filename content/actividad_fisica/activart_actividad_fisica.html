@@ -2,40 +2,91 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Página de inicio de Sanidad Mediaverso">
-    <title>Sanidad Mediaverso</title>
+  <!-- SEO Básico -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Descubre ActivAR-t, la app en realidad aumentada del SERGAS para fomentar la actividad física. Disponible en iOS y Android.">
+  <meta name="keywords" content="actividad física, salud, juego interactivo, realidad aumentada, app móvil, ActivAR-t, SERGAS, Sanidad Galicia, Xunta de Galicia">
+  <meta name="author" content="Servizo Galego de Saúde (SERGAS)">
+  <title>ActivAR-t | App de Realidad Aumentada para Ejercicio | SERGAS</title>
+  <link rel="canonical" href="https://sanidademediaverso.sergas.gal/content/actividad_fisica/activart_actividad_fisica.html" />
 
-    <!-- Prueba style arreglo tamaño youtube      -->
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:title" content="ActivAR-t | App de Realidad Aumentada para Ejercicio">
+  <meta property="og:description" content="Explora ActivAR-t, la app que te reta a moverte con realidad aumentada. Disponible para iOS y Android. Promueve el ejercicio desde el SERGAS.">
+  <meta property="og:image" content="https://sanidademediaverso.sergas.gal/assets/img/activar-t-banner1.webp">
+  <meta property="og:url" content="https://sanidademediaverso.sergas.gal/content/actividad_fisica/activart_actividad_fisica.html" />
+  <meta property="og:type" content="website">
 
-    <style type="text/css">
-        html, body, div#yt, iframe { margin:0; padding:0; height:100%; }
-        iframe { display:block; width:100%; border:none; }
-    </style>
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ActivAR-t | App de Realidad Aumentada para Ejercicio">
+  <meta name="twitter:description" content="App de ejercicio físico con realidad aumentada. Reta al robot, supera niveles y mejora tu salud con ActivAR-t.">
+  <meta name="twitter:image" content="https://sanidademediaverso.sergas.gal/assets/img/activar-t-banner1.webp">
 
-    <!-- Bootstrap CSS desde archivos locales -->
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <!-- Google Fonts: Poppins + Open Sans -->
+  <!-- Bootstrap y diseño -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <!-- Archivo CSS personalizado -->
-    <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/styles.css">
 
-    <!-- Icono del sitio (favicon) -->
-    <link rel="icon" href="../../assets/favicon.webp" type="image/x-icon">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/favicon.webp" type="image/webp">
 
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
+  <!-- Estilo específico para iframe YouTube -->
+  <style>
+    html, body, div#yt, iframe {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+  </style>
+
+  <!-- Datos estructurados JSON-LD para App -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "ActivAR-t",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "HealthApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Servizo Galego de Saúde (SERGAS)"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "ratingCount": "150"
+    },
+    "downloadUrl": [
+      "https://apps.apple.com/es/app/activar-t/id6475166955",
+      "https://play.google.com/store/apps/details?id=es.sergas.sanmed.ob212"
+    ]
+  }
+  </script>
 </head>
+
 
 <body id="page-top">
     <!-- Navigation-->
