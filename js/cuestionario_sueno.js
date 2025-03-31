@@ -692,7 +692,11 @@ html += `
     doc.setFontSize(13);
     doc.setTextColor(0, 128, 0);
     doc.text(`${t("psqi-total")}: ${resultadoPSQI.total}`, margenIzq, y);
-  
+    doc.setTextColor(0, 0, 255); // Azul para simular enlace
+    doc.textWithLink("Visitar Videos recomendados", 10, 90, {
+      url: "https://sanidademediaverso.gal/content/bienestar_emocional/videos_sueno_saludable.html"
+    });
+    
     addFooter(doc, footer);
     doc.save("resultado-psqi.pdf");
   }

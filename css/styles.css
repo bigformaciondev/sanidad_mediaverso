@@ -6237,6 +6237,9 @@ fieldset:disabled .btn {
   padding: var(--bs-modal-padding);
 }
 
+.footer {
+  font-size:10px;
+}
 .modal-footer {
   display: flex;
   flex-shrink: 0;
@@ -12805,7 +12808,7 @@ p.lead {
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;
-  text-transform: uppercase;
+  text-transform: camelcase;
 }
 
 #sideNav .navbar-toggler:focus {

@@ -111,6 +111,7 @@
               <h4 class="mt-2" data-translate="formacion-alimentacion-5"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
               <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(1)"></button>
+              <button aria-label="Descargar contenido salud nutricion 1 y 2" class="btn btn-success mt-2 w-100" onclick="downloadScorm(1)"><i class="bi bi-download"></i></button>  
             </div>
           </div>
         </div>
@@ -125,7 +126,9 @@
               <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
               <h4 class="mt-2" data-translate="formacion-alimentacion-6"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
-              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(2)"></button>            </div>
+              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(2)"></button>            
+              <button aria-label="Descargar contenido salud nutricion 3 y 4" class="btn btn-success mt-2 w-100" onclick="downloadScorm(2)"><i class="bi bi-download"></i></button>  
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
@@ -139,7 +142,9 @@
               <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
               <h4 class="mt-2" data-translate="formacion-alimentacion-7"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
-              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(3)"></button>            </div>
+              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(3)"></button>           
+              <button aria-label="Descargar contenido salud nutricion 5 y 6" class="btn btn-success mt-2 w-100" onclick="downloadScorm(3)"><i class="bi bi-download"></i></button>          
+            </div>
           </div>
         </div>
         </div>
@@ -207,30 +212,43 @@
     </div>
   </div>
   <script>
-          const scormList = [
-      {
-        id: 1,
-        folder: {
-          es: "assets/SCORMS/salud-nutricion-y-dietetica-unidades-1-2/content/#/",
-          gl: "assets/SCORMS/saude-nutricion-e-dietetica-unidades-unidades-1-2-gal/content/#/"
-        }
-      },
-      {
-        id: 2,
-        folder: {
-          es: "assets/SCORMS/salud-nutricion-y-dietetica-unidades-3-4/content/#/",
-          gl: "assets/SCORMS/saude-nutricion-e-dietetica-unidades-unidades-3-4-gal/content/#/"
-        }
-      },
-      {
-        id: 3,
-        folder: {
-          es: "assets/SCORMS/salud-nutricion-y-dietetica-unidades-5-6/content/#/",
-          gl: "assets/SCORMS/saude-nutricion-e-dietetica-unidades-unidades-5-6-gal/content/#/"
-        }
-      }
-    // Agrega más SCORMs según necesites...
-    ];
+         const scormList = [
+  {
+    id: 1,
+    folder: {
+      es: "assets/SCORMS/salud-nutricion-y-dietetica-unidades-1-2/content/#/",
+      gl: "assets/SCORMS/saude-nutricion-e-dietetica-unidades-1-2-gal/content/#/"
+    },
+    rar: {
+      es: "/assets/SCORMS/salud-nutricion-y-dietetica-unidades-1-2.rar",
+      gl: "/assets/SCORMS/saude-nutricion-e-dietetica-unidades-unidades-1-2-gal.rar"
+    }
+  },
+  {
+    id: 2,
+    folder: {
+      es: "assets/SCORMS/salud-nutricion-y-dietetica-unidades-3-4/content/#/",
+      gl: "assets/SCORMS/saude-nutricion-e-dietetica-unidades-3-4-gal/content/#/"
+    },
+    rar: {
+      es: "/assets/SCORMS/salud-nutricion-y-dietetica-unidades-3-4.rar",
+      gl: "/assets/SCORMS/saude-nutricion-e-dietetica-unidades-3-4-gal.rar"
+    }
+  },
+  {
+    id: 3,
+    folder: {
+      es: "assets/SCORMS/salud-nutricion-y-dietetica-unidades-5-6/content/#/",
+      gl: "assets/SCORMS/saude-nutricion-e-dietetica-unidades-5-6-gal/content/#/"
+    },
+    rar: {
+      es: "/assets/SCORMS/salud-nutricion-y-dietetica-unidades-5-6.rar",
+      gl: "/assets/SCORMS/saude-nutricion-e-dietetica-unidades-5-6-gal.rar"
+    }
+  }
+  // Agrega más SCORMs según necesites...
+];
+
     function getScormFolderById(id) {
       const numericId = Number(id);
       const scormItem = scormList.find(item => item.id === numericId);
@@ -255,6 +273,30 @@
       const scormPath = "../../verScorm.html?scorm=" + encodeURIComponent(folder);
       window.open(scormPath, "_blank");
     }
+    async function downloadScorm(id) {
+        const scormItem = scormList.find((item) => item.id === Number(id));
+        if (!scormItem || !scormItem.rar) {
+          alert("Archivo SCORM no disponible para este recurso.");
+          return;
+        }
+
+        const idioma = localStorage.getItem("language") || "es";
+        const rarURL = scormItem.rar[idioma] || scormItem.rar["es"];
+
+        try {
+          const response = await fetch(rarURL, { method: "HEAD" });
+          if (!response.ok) throw new Error("Archivo no encontrado");
+
+          const a = document.createElement("a");
+          a.href = rarURL;
+          a.download = "";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        } catch (err) {
+          alert("Archivo SCORM no disponible en este idioma.");
+        }
+      }
   </script>
   <script src="../../js/scripts_submenus.js"></script>
   <script src="../../js/lang_submenus.js"></script>

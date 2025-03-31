@@ -75,7 +75,7 @@
         </div>
         <!-- Descargas -->
         <div class="ms-2">
-          <a href="../../content/descargas.html" class="text-light" title="Descargar archivos">
+          <a href="../../content/alimentacion/descargas.html" class="text-light" title="Descargar archivos">
             <i class="bi bi-download text-light h5"></i>
           </a>
         </div>
@@ -118,7 +118,8 @@
               <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
               <h4 class="mt-2" data-translate="formacion-alimentacion-2"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
-              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(1)"></button>            
+              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(1)"></button>      
+              <button aria-label="Descargar contenido informacion alimentacion saludable" class="btn btn-success mt-2 w-100" onclick="downloadScorm(1)"><i class="bi bi-download"></i></button>                
             </div>
           </div>
         </div>
@@ -148,7 +149,8 @@
               <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
               <h4 class="mt-2" data-translate="formacion-alimentacion-4"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
-              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(2)"></button>            
+              <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(2)"></button>  
+              <button aria-label="Descargar contenido cocinar sano y facil" class="btn btn-success mt-2 w-100" onclick="downloadScorm(2)"><i class="bi bi-download"></i></button>          
             </div>
           </div>
         </div>
@@ -217,22 +219,31 @@
       </div>
   <script>
     const scormList = [
-      {
-        id: 1,
-        folder: {
-          es: "assets/SCORMS/formacion-sobre-alimentacion-y-nutricion-saludable/content/#/",
-          gl: "assets/SCORMS/formacion-sobre-alimentacion-e-nutricion-saudable-gal/content/#/"
-        }
-      },
-      {
-        id: 2,
-        folder: {
-          es: "assets/SCORMS/cocinar-sano-es-facil-si-sabes-como/content/#/",
-          gl: "assets/SCORMS/cocinar-saudable-e-sinxelo-se-sabes-como-gal/content/#/"
-        }
-      }
-    // Agrega más SCORMs según necesites...
-    ];
+  {
+    id: 1,
+    folder: {
+      es: "assets/SCORMS/formacion-sobre-alimentacion-y-nutricion-saludable/content/#/",
+      gl: "assets/SCORMS/formacion-sobre-alimentacion-e-nutricion-saudable-gal/content/#/"
+    },
+    rar: {
+      es: "/assets/SCORMS/formacion-sobre-alimentacion-y-nutricion-saludable.rar",
+      gl: "/assets/SCORMS/formacion-sobre-alimentacion-e-nutricion-saudable-gal.rar"
+    }
+  },
+  {
+    id: 2,
+    folder: {
+      es: "assets/SCORMS/cocinar-sano-es-facil-si-sabes-como/content/#/",
+      gl: "assets/SCORMS/cocinar-saudable-e-sinxelo-se-sabes-como-gal/content/#/"
+    },
+    rar: {
+      es: "/assets/SCORMS/cocinar-sano-es-facil-si-sabes-como.rar",
+      gl: "/assets/SCORMS/cocinar-saudable-e-sinxelo-se-sabes-como-gal.rar"
+    }
+  }
+  // Puedes seguir añadiendo más SCORMs si lo necesitas...
+];
+
     function getScormFolderById(id) {
       const numericId = Number(id);
       const scormItem = scormList.find(item => item.id === numericId);
@@ -257,6 +268,30 @@
       const scormPath = "../../verScorm.html?scorm=" + encodeURIComponent(folder);
       window.open(scormPath, "_blank");
     }
+    async function downloadScorm(id) {
+        const scormItem = scormList.find((item) => item.id === Number(id));
+        if (!scormItem || !scormItem.rar) {
+          alert("Archivo SCORM no disponible para este recurso.");
+          return;
+        }
+
+        const idioma = localStorage.getItem("language") || "es";
+        const rarURL = scormItem.rar[idioma] || scormItem.rar["es"];
+
+        try {
+          const response = await fetch(rarURL, { method: "HEAD" });
+          if (!response.ok) throw new Error("Archivo no encontrado");
+
+          const a = document.createElement("a");
+          a.href = rarURL;
+          a.download = "";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        } catch (err) {
+          alert("Archivo SCORM no disponible en este idioma.");
+        }
+      }
   </script>
   <script src="../../js/scripts_submenus.js"></script>
   <script src="../../js/lang_submenus.js"></script>
