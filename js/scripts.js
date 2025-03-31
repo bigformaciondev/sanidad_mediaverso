@@ -221,10 +221,10 @@ document.addEventListener("DOMContentLoaded", function () {
     col.className = "col-12 col-md-6 col-lg-4 col-xl-3 p-3";
   
     const card = document.createElement("div");
-    card.className = "card text-center";
+    card.className = "card rounded-4 shadow text-center hover-scale";
   
     const img = document.createElement("img");
-    img.className = "card-img-top";
+    img.className = "card-img-top rounded-top";
     img.src = item.imagen;
     img.alt = item.nombre;
     img.style.width = "100%";

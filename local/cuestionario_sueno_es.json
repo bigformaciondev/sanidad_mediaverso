@@ -1,0 +1,152 @@
+{
+    "componentes": {
+      "1": {
+        "nombre": "calidad-subjetiva-sueno",
+        "pregunta": "6-a",
+        "comentarios": {
+          "1": "La percepción que usted tiene es que su calidad de sueño es muy buena.",
+          "2": "La percepción que usted tiene es que su calidad de sueño es bastante buena.",
+          "3": "La percepción que usted tiene es que su calidad de sueño es mala.",
+          "4": "La percepción que usted tiene es que su calidad de sueño es muy mala."
+        }
+      },
+      "2": {
+        "nombre": "latencia-sueno",
+        "preguntas": {
+          "sleepTime": {
+            "Menos de 15 min": 0,
+            "Entre 16-30 min": 1,
+            "Entre 31-60 min": 2,
+            "Más de 60 min": 3
+          },
+          "5-a": {
+            "1": 0,
+            "2": 1,
+            "3": 2,
+            "4": 3
+          }
+        },
+        "comentarios": {
+          "0": "El tiempo que tarda en dormirse desde el momento que se acuesta es adecuado.",
+          "1": "El tiempo que tarda en dormirse es normal.",
+          "2": "El tiempo que tarda en dormirse es normal.",
+          "3": "El tiempo que tarda en dormirse es mayor de lo normal. Siga las recomendaciones para promover un sueño saludable.",
+          "4": "El tiempo que tarda en dormirse es mayor de lo normal. Siga las recomendaciones para promover un sueño saludable.",
+          "5": "El tiempo que tarda en dormirse es mucho mayor de lo normal. Siga las recomendaciones para promover un sueño saludable.",
+          "6": "El tiempo que tarda en dormirse es mucho mayor de lo normal. Siga las recomendaciones para promover un sueño saludable."
+        }
+      },
+      "3": {
+        "nombre": "duracion-sueno",
+        "tablas": {
+          "14-17": {
+            ">8": 0,
+            ">7-8": 1,
+            "6-7": 2,
+            "<6": 3
+          },
+          "18-64": {
+            ">7": 0,
+            ">6-7": 1,
+            "5-6": 2,
+            "<5": 3
+          },
+          "65+": {
+            ">7": 0,
+            ">6-7": 1,
+            "5-6": 2,
+            "<5": 3
+          }
+        },
+        "comentarios": {
+          "0": "La duración de su sueño está dentro de lo que se considera normal para su edad.",
+          "1": "La duración de su sueño está ligeramente por debajo de lo recomendable.",
+          "2": "La duración de su sueño es inferior a lo recomendable.",
+          "3": "La duración de su sueño es mucho menor de lo recomendable."
+        }
+      },
+      "4": {
+        "nombre": "eficiencia-habitual",
+        "rango": {
+          ">85": 0,
+          "76-85": 1,
+          "66-75": 2,
+          "<=65": 3
+        },
+        "comentarios": {
+          "0": "Su eficiencia de sueño es muy buena.",
+          "1-2": "Su eficiencia de sueño es inferior a lo normal. Siga las recomendaciones.",
+          "3": "Su eficiencia es muy inferior a lo normal. Consulte con su profesional sanitario."
+        }
+      },
+      "5": {
+        "nombre": "perturbaciones",
+        "preguntas": ["5-b", "5-c", "5-d", "5-e", "5-f", "5-g", "5-h", "5-i"],
+        "puntuacion": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3
+        },
+        "rango": {
+          "0": 0,
+          "1-9": 1,
+          "10-18": 2,
+          "19-27": 3
+        },
+        "comentarios": {
+          "0": "Su calidad de sueño es muy buena.",
+          "1": "Su calidad de sueño se encuentra dentro de lo que se considera normal.",
+          "2": "Su calidad de sueño es peor de lo deseable. Siga las recomendaciones.",
+          "3": "Su calidad de sueño es mucho peor de lo deseable. Siga las recomendaciones y consulte con su profesional sanitario."
+        }
+      },
+      "6": {
+        "nombre": "medicacion-hipnotica",
+        "pregunta": "7-a",
+        "comentarios": {
+          "1": "Si en algun momento comienza a tomar medicinas para dormir por su cuenta, tenga en cuenta que deben ser recetadas por un profesional médico.",
+          "2": "Si está tomando medicinas para dormir por su cuenta, tenga en cuenta que deben ser recetadas por un profesional médico.",
+          "3": "Si está tomando medicinas para dormir por su cuenta, tenga en cuenta que deben ser recetadas por un profesional médico.",
+          "4": "Si está tomando medicinas para dormir por su cuenta, tenga en cuenta que deben ser recetadas por un profesional médico."
+        }
+      },
+      "7": {
+        "nombre": "disfuncion-diurna",
+        "preguntas": {
+          "8-a": {
+            "1": 0,
+            "2": 1,
+            "3": 2,
+            "4": 3
+          },
+          "9-a": {
+            "1": 0,
+            "2": 1,
+            "3": 2,
+            "4": 3
+          }
+        },
+        "rango": {
+          "0": 0,
+          "1": 1,
+          "2": 1,
+          "3": 2,
+          "4": 2,
+          "5": 3,
+          "6": 3
+        },
+        "comentarios": {
+          "0": "Su sueño parece ser bastante reparador.",
+          "1": "Su sueño podría ser causa de la somnolencia diurna.",
+          "2": "Su sueño podría ser causa de la somnolencia diurna.",
+          "3": "Una mala calidad de sueño podría ser la causa de la somnolencia diurna. Siga recomendaciones.",
+          "4": "Una mala calidad de sueño podría ser la causa de la somnolencia diurna. Siga recomendaciones.",
+          "5": "Somnolencia y baja motivación pueden deberse a mala calidad de sueño. Consulte si persiste.",
+          "6": "Somnolencia y baja motivación pueden deberse a mala calidad de sueño. Consulte si persiste."
+        }
+      }
+    },
+    "mensaje-menor-edad": "Este cuestionario es útil para personas mayores de 14 años. Siga las recomendaciones de su pediatra de referencia para personas menores de esa edad."
+  }
+  

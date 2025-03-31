@@ -5,10 +5,10 @@
       {
         "dia": "1",
         "almorzo": {
-          "nombre": "Leite. Torrada de xamón curado con mazá e noces",
+          "nombre": "Leche. Tostada de jamón curado con manzana y nueces",
           "ingredientes": [
             {
-              "nombre": "Leite",
+              "nombre": "Leche",
               "cantidad": 250,
               "unidad": "ml"
             },
@@ -18,33 +18,33 @@
               "unidad": "g"
             },
             {
-              "nombre": "Xamón curado",
+              "nombre": "Jamón curado",
               "cantidad": 30,
               "unidad": "g"
             },
             {
-              "nombre": "Mazá",
+              "nombre": "Manzana",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Noces",
+              "nombre": "Nueces",
               "cantidad": 10,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Cortar a mazá en láminas finas.",
-            "Engadir as noces e colocar o xamón curado por enriba.",
-            "Servir acompañado de leite."
+            "Tostar el pan integral.",
+            "Cortar la manzana en láminas finas.",
+            "Añadir las nueces y colocar el jamón curado por encima.",
+            "Servir acompañado de leche."
           ]
         },
         "comida": {
-          "nombre": "Ensalada de lentellas, quinoa, tomates cereixa, cogombro e brotes verdes. Pera",
+          "nombre": "Ensalada de lentejas, quinoa, tomates cherry, pepino y brotes verdes. Pera",
           "ingredientes": [
             {
-              "nombre": "Lentellas",
+              "nombre": "Lentejas",
               "cantidad": 80,
               "unidad": "g"
             },
@@ -54,12 +54,12 @@
               "unidad": "g"
             },
             {
-              "nombre": "Tomates cereixa",
+              "nombre": "Tomates cherry",
               "cantidad": 60,
               "unidad": "g"
             },
             {
-              "nombre": "Cogombro",
+              "nombre": "Pepino",
               "cantidad": 40,
               "unidad": "g"
             },
@@ -79,20 +79,20 @@
               "unidad": "ml"
             },
             {
-              "nombre": "Zume de limón",
+              "nombre": "Zumo de limón",
               "cantidad": 5,
               "unidad": "ml"
             }
           ],
           "instrucciones": [
-            "Cocer as lentellas e a quinoa segundo as instrucións do paquete.",
-            "Cortar os tomates cereixa e o cogombro en anacos pequenos.",
-            "Mesturar os ingredientes e engadir os brotes verdes.",
-            "Servir cun chisco de aceite de oliva e zume de limón."
+            "Cocer las lentejas y la quinoa según las instrucciones del paquete.",
+            "Cortar los tomates cherry y el pepino en trozos pequeños.",
+            "Mezclar los ingredientes y añadir los brotes verdes.",
+            "Servir con un chorrito de aceite de oliva y zumo de limón."
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Tostada de plátano y chocolate negro 85%",
           "ingredientes": [
             {
               "nombre": "Pan integral",
@@ -110,23 +110,23 @@
               "unidad": "g"
             },
             {
-              "nombre": "Manteiga",
+              "nombre": "Mantequilla",
               "cantidad": 5,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
+            "Tostar el pan integral.",
+            "Untar un poco de mantequilla si se desea.",
+            "Colocar rodajas de plátano y rociar con chocolate derretido.",
             "Servir de inmediato."
           ]
         },
         "cea": {
-          "nombre": "Pisto de berenxenas con ovos á prancha. Pan integral. Mazá.",
+          "nombre": "Pisto de berenjenas con huevos a la plancha. Pan integral. Manzana.",
           "ingredientes": [
             {
-              "nombre": "Berenxena",
+              "nombre": "Berenjena",
               "cantidad": 100,
               "unidad": "g"
             },
@@ -136,7 +136,7 @@
               "unidad": "g"
             },
             {
-              "nombre": "Cebola",
+              "nombre": "Cebolla",
               "cantidad": 50,
               "unidad": "g"
             },
@@ -146,7 +146,7 @@
               "unidad": "ml"
             },
             {
-              "nombre": "Ovo",
+              "nombre": "Huevo",
               "cantidad": 1,
               "unidad": "unidad"
             },
@@ -156,54 +156,55 @@
               "unidad": "g"
             },
             {
-              "nombre": "Mazá",
+              "nombre": "Manzana",
               "cantidad": 100,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Cortar a berenxena e a cebola en dados pequenos.",
-            "Nunha tixola con aceite de oliva, saltear a cebola ata que estea dourada.",
-            "Engadir a berenxena e cociñar ata que estea tenra.",
-            "Engadir o tomate triturado e cociñar durante 10 minutos a lume medio.",
-            "Fritir o ovo á prancha ata que a clara estea cociñada.",
-            "Servir o pisto con o ovo á prancha, acompañado de pan integral e mazá como sobremesa."
+            "Cortar la berenjena y la cebolla en dados pequeños.",
+            "En una sartén con aceite de oliva, saltear la cebolla hasta que esté dorada.",
+            "Añadir la berenjena y cocinar hasta que esté tierna.",
+            "Añadir el tomate triturado y cocinar durante 10 minutos a fuego medio.",
+            "Freír el huevo a la plancha hasta que la clara esté cocida.",
+            "Servir el pisto con el huevo a la plancha, acompañado de pan integral y manzana como postre."
           ]
         }
       },
       {
         "dia": "2",
         "almorzo": {
-          "nombre": "Iogur con granola e plátano",
-          "ingredientes": [
-            {
-              "nombre": "Iogur natural",
-              "cantidad": 200,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Granola",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Plátano",
-              "cantidad": 100,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Mel",
-              "cantidad": 5,
-              "unidad": "ml"
-            }
-          ],
-          "instrucciones": [
-            "Verter o iogur nunha cunca.",
-            "Engadir a granola por enriba.",
-            "Cortar o plátano en rodaxas e colocarlle enriba.",
-            "Opcionalmente, engadir un chisco de mel para endulzar."
-          ]
-        },
+        "nombre": "Yogur con granola y plátano",
+        "ingredientes": [
+          {
+            "nombre": "Yogur natural",
+            "cantidad": 200,
+            "unidad": "g"
+          },
+          {
+            "nombre": "Granola",
+            "cantidad": 30,
+            "unidad": "g"
+          },
+          {
+            "nombre": "Plátano",
+            "cantidad": 100,
+            "unidad": "g"
+          },
+          {
+            "nombre": "Miel",
+            "cantidad": 5,
+            "unidad": "ml"
+          }
+        ],
+        "instrucciones": [
+          "Verter el yogur en un bol.",
+          "Añadir la granola por encima.",
+          "Cortar el plátano en rodajas y colocarlo encima.",
+          "Opcionalmente, añadir un chorrito de miel para endulzar."
+        ]
+      },
+
         "comida": {
           "nombre": "Arroz de verduras e luras. Albaricoques",
           "ingredientes": [

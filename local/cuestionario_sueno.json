@@ -1,0 +1,153 @@
+{
+    "componentes": {
+      "1": {
+        "nombre": "calidad-subjetiva-sueno",
+        "pregunta": "6-a",
+        "comentarios": {
+          "1": "A percepción que vostede ten é que a súa calidade de soño é moi boa.",
+          "2": "A percepción que vostede ten é que a súa calidade de soño é bastante boa.",
+          "3": "A percepción que vostede ten é que a súa calidade de soño é mala.",
+          "4": "A percepción que vostede ten é que a súa calidade de soño é bastante moi mala."
+        }
+      },
+      "2": {
+        "nombre": "latencia-sueno",
+        "preguntas": {
+          "sleepTime": {
+            "Menos de 15 min": 0,
+            "Entre 16-30 min": 1,
+            "Entre 31-60 min": 2,
+            "Más de 60 min": 3
+          },
+          "5-a": {
+            "1": 0,
+            "2": 1,
+            "3": 2,
+            "4": 3
+          }
+        },
+        "comentarios": {
+          "0": "O tempo que tarda en durmirse desde o momento que se deita é adecuado.",
+          "1": "O tempo que tarda en durmirse desde o momento que se deita é normal.",
+          "2": "O tempo que tarda en durmirse desde o momento que se deita é normal.",
+          "3": "O tempo que tarda en durmirse desde o momento que se deita é maior do adecuado.. Siga  as recomendacións para promover un sono saudable.",
+          "4": "O tempo que tarda en durmirse desde o momento que se deita é maior do adecuado.. Siga  as recomendacións para promover un sono saudable.",
+          "5": "O tempo que tarda en durmirse desde o momento que se deita é muito maior do adecuado.. Siga  as recomendacións para promover un sono saudable.",
+          "6": "O tempo que tarda en durmirse desde o momento que se deita é muito maior do adecuado.. Siga  as recomendacións para promover un sono saudable."
+        }
+      },
+      "3": {
+        "nombre": "duracion-sueno",
+        "tablas": {
+          "14-17": {
+            ">8": 0,
+            ">7-8": 1,
+            "6-7": 2,
+            "<6": 3
+          },
+          "18-64": {
+            ">7": 0,
+            ">6-7": 1,
+            "5-6": 2,
+            "<5": 3
+          },
+          "65+": {
+            ">7": 0,
+            ">6-7": 1,
+            "5-6": 2,
+            "<5": 3
+          }
+        },
+        "comentarios": {
+          "0": "A duración do seu soño está dentro do que se considera normal para a súa idade.",
+          "1": "A duración do seu soño está lixeiramente por baixo do recomendable.",
+          "2": "A duración do seu soño é inferior ao recomendable.",
+          "3": "A duración do seu soño é moito menor do recomendable."
+        }
+      },
+      "4": {
+        "nombre": "eficiencia-habitual",
+        "rango": {
+          ">85": 0,
+          "76-85": 1,
+          "66-75": 2,
+          "<=65": 3
+        },
+        "comentarios": {
+          "0": "A súa eficiencia de soño é moi boa.",
+          "1-2": "A súa eficiencia de soño é inferior ao normal. Siga as recomendacións.",
+          "3": "A súa eficiencia é moi inferior ao normal. Consulte co seu profesional sanitario."
+        }
+      },
+      "5": {
+        "nombre": "perturbaciones",
+        "preguntas": ["5-b", "5-c", "5-d", "5-e", "5-f", "5-g", "5-h", "5-i"],
+        "puntuacion": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3
+        },
+        "rango": {
+          "0": 0,
+          "1-9": 1,
+          "10-18": 2,
+          "19-27": 3
+        },
+        "comentarios": {
+          "0": "A súa calidade de soño é moi boa.",
+          "1": "A súa calidade de soño atópase dentro do que se considera normal.",
+          "2": "A súa calidade de soño é peor do desexable. Siga as recomendacións.",
+          "3": "A súa calidade de soño é moito peor do desexable. Siga as recomendacións e consulte co seu profesional sanitario."
+        }
+      },
+      "6": {
+        "nombre": "medicacion-hipnotica",
+        "pregunta": "7-a",
+        "comentarios": {
+          "1": "Se en algún momento comeza a tomar medicinas para durmir pola súa conta, teña en conta que deben ser receitadas por un profesional médico.",
+          "2": "Se está a tomar medicinas para durmir pola súa conta, teña en conta que deben ser receitadas por un profesional médico.",
+          "3": "Se está a tomar medicinas para durmir pola súa conta, teña en conta que deben ser receitadas por un profesional médico.",
+          "4": "Se está a tomar medicinas para durmir pola súa conta, teña en conta que deben ser receitadas por un profesional médico."
+        }
+      },
+      "7": {
+        "nombre": "disfuncion-diurna",
+        "preguntas": {
+          "8-a": {
+            "1": 0,
+            "2": 1,
+            "3": 2,
+            "4": 3
+          },
+          "9-a": {
+            "1": 0,
+            "2": 1,
+            "3": 2,
+            "4": 3
+          }
+        },
+        "rango": {
+          "0": 0,
+          "1": 1,
+          "2": 1,
+          "3": 2,
+          "4": 2,
+          "5": 3,
+          "6": 3
+        },
+        "comentarios": {
+          "0": "O seu soño parece ser bastante reparador.",
+          "1": "O seu soño podería ser causa da somnolencia diúrna.",
+          "2": "O seu soño podería ser causa da somnolencia diúrna.",
+          "3": "Unha mala calidade de soño podería ser a causa da somnolencia diúrna. Siga recomendacións.",
+          "4": "Unha mala calidade de soño podería ser a causa da somnolencia diúrna. Siga recomendacións.",
+          "5": "Somnolencia e baixa motivación poden deberse a mala calidade de soño. Consulte se persiste.",
+          "6": "Somnolencia e baixa motivación poden deberse a mala calidade de soño. Consulte se persiste."
+        
+        }
+      }
+    },
+    "mensaje-menor-edad": "Este cuestionario é útil para persoas maiores de 14 anos. Siga as recomendacións do seu pediatra de referencia para persoas menores desa idade."
+  }
+  

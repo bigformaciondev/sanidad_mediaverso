@@ -208,15 +208,18 @@ function showWeek(weekNumber) {
   container.innerHTML = "";
 
   // Buscamos la semana en mealPlanData
-  const weekData = mealPlanData.find((week) => week.semana === weekNumber);
-  if (!weekData) {
-    container.innerHTML = `<p>No hay datos para la semana ${weekNumber}</p>`;
-    return;
+  if(mealPlanData){
+    const weekData = mealPlanData.find((week) => week.semana === weekNumber);
+    if (!weekData) {
+      container.innerHTML = `<p>No hay datos para la semana ${weekNumber}</p>`;
+      return;
+    }
+  
+    // Creamos la tabla
+    const table = renderWeekTableWithoutThead(weekData);
+    container.appendChild(table);
   }
-
-  // Creamos la tabla
-  const table = renderWeekTableWithoutThead(weekData);
-  container.appendChild(table);
+  
 }
 
 /***********************************************
@@ -360,213 +363,221 @@ function groupIngredients(adultos, ninos, semana, dias) {
 function generarCestaPDF(adultos, ninos, semana, dias) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  const lineHeight = 6;
+  const pageWidth = doc.internal.pageSize.width;
+  const pageHeight = doc.internal.pageSize.height;
+  const margin = 10;
+  const lineHeight = 8;
+  let y = 30; // Ajustado para dejar espacio al header pequeño
+  let pageNumber = 1;
 
-  getImageData(
-    "/assets/img/planificador-comidas-subbanner1.png",
-    function (firstPageHeaderData) {
-      getImageData(
-        "/assets/img/planificador-comidas-subbanner1.png",
-        function (headerData) {
-          getImageData(
-            "/assets/img/planificador-comidas-subbanner1.png",
-            function (footerData) {
-              let y = addHeader(doc, true, firstPageHeaderData, headerData);
+  // Cargar imágenes reducidas
+  getImageData("/assets/img/planificador-comidas-subbanner1.png", function (headerData) {
+      getImageData("/assets/logo/logos.png", function (footerData) {
 
-              doc.setFontSize(16);
-              doc.text("Cesta de la compra", 10, y);
-              y += 10;
-              doc.setFontSize(12);
-              doc.text(`Adultos: ${adultos}   Niños: ${ninos}`, 10, y);
-              y += 10;
-              doc.text(
-                `Semana: ${
-                  semana === "9" ? "Todas las semanas" : "Semana " + semana
-                }`,
-                10,
-                y
-              );
-              y += 10;
-              const dayLabel =
-                dias === "8"
-                  ? "Todos los días"
-                  : dayNames[currentLang] && dayNames[currentLang][dias]
-                  ? dayNames[currentLang][dias]
-                  : dias;
-              doc.text(`Días: ${dayLabel}`, 10, y);
-              y += 10;
+          function addHeaderFooter() {
+              // Agregar encabezado reducido (170x15 px)
+              doc.addImage(headerData, "PNG", 20, 5, 170, 15);
 
-              const grouped = groupIngredients(adultos, ninos, semana, dias);
-              const ingredientsArray = Object.values(grouped);
-              ingredientsArray.sort((a, b) => a.nombre.localeCompare(b.nombre));
+              // Agregar pie de página reducido (170x15 px)
+              doc.addImage(footerData, "PNG", 20, pageHeight - 20, 50, 5);
 
-              ingredientsArray.forEach((ing) => {
-                if (y > 270) {
-                  addFooter(doc, footerData);
+              // Número de página en la parte inferior derecha
+              doc.setFont("helvetica", "italic");
+              doc.setFontSize(10);
+              doc.text(`Página ${pageNumber}`, pageWidth - 30, pageHeight - 10);
+          }
+
+          // Primera página con header y footer
+          addHeaderFooter();
+
+          // Título principal
+          doc.setFont("times", "bold");
+          doc.setFontSize(16);
+          doc.text("Cesta de la Compra", pageWidth / 2, y, { align: "center" });
+          y += lineHeight;
+
+          // Datos generales
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(12);
+          doc.text(`Adultos: ${adultos}  |  Niños: ${ninos}`, margin, y);
+          y += lineHeight;
+          doc.text(`Semana: ${semana === "9" ? "Todas las semanas" : "Semana " + semana}`, margin, y);
+          y += lineHeight;
+          const dayLabel = dias === "8" ? "Todos los días" : (dayNames[currentLang] && dayNames[currentLang][dias]) || dias;
+          doc.text(`Día: ${dayLabel}`, margin, y);
+          y += lineHeight + 5;
+
+          // Obtener ingredientes agrupados
+          const grouped = groupIngredients(adultos, ninos, semana, dias);
+          const ingredientsArray = Object.values(grouped);
+          ingredientsArray.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+          // Encabezado de ingredientes
+          doc.setFont("helvetica", "bold");
+          doc.setTextColor(0, 0, 150);
+          doc.text("Lista de Ingredientes:", margin, y);
+          y += lineHeight;
+          doc.setFont("helvetica", "normal");
+          doc.setTextColor(0, 0, 0);
+
+          // Dividir ingredientes en dos columnas
+          let colLeft = margin + 10;
+          let colRight = pageWidth / 2;
+          let useRightCol = false;
+
+          ingredientsArray.forEach((ing) => {
+              if (y > pageHeight - 30) {
                   doc.addPage();
-                  y = addHeader(doc, false, firstPageHeaderData, headerData);
-                }
-                doc.text(
-                  `- ${ing.nombre}: ${ing.cantidad.toFixed(2)} ${ing.unidad}`,
-                  10,
-                  y
-                );
-                y += lineHeight;
-              });
+                  pageNumber++;
+                  y = 30;
+                  addHeaderFooter();
+              }
 
-              addFooter(doc, footerData);
-              doc.save("cesta_de_compra.pdf");
-            }
-          );
-        }
-      );
-    }
-  );
+              let posX = useRightCol ? colRight : colLeft;
+              doc.text(`- ${ing.nombre}: ${ing.cantidad.toFixed(2)} ${ing.unidad}`, posX, y);
+              useRightCol = !useRightCol;
+              if (!useRightCol) y += lineHeight;
+          });
+
+          doc.save("cesta_de_compra.pdf");
+      });
+  });
 }
 
-// Función para generar el PDF del recetario (puedes dejarlo igual o ajustarlo similarmente)
+
 function generarRecetarioPDF(adultos, ninos, semana, dias) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  const lineHeight = 6; // Altura de línea para cada texto
+  const pageWidth = doc.internal.pageSize.width;
+  const pageHeight = doc.internal.pageSize.height;
+  const margin = 10;
+  const lineHeight = 8;
+  let y = 40; // Ajustado para dejar espacio al header
+  let pageNumber = 1;
 
-  // Primero cargamos las imágenes necesarias
-  getImageData(
-    "/assets/img/planificador-comidas-subbanner1.png",
-    function (firstPageHeaderData) {
-      getImageData("/assets/img/planificador-comidas-subbanner1.png", function (headerData) {
-        getImageData("/assets/img/planificador-comidas-subbanner1.png", function (footerData) {
-          // Agregar cabecera en la primera página
-          let y = addHeader(doc, true, firstPageHeaderData, headerData);
+  // Cargar imágenes
+  getImageData("/assets/img/planificador-comidas-subbanner1.png", function (headerData) {
+      getImageData("/assets/logo/xunta_pie.svg", function (footerData) {
 
-          // Encabezado del PDF
-          doc.setFontSize(16);
-          doc.text("Recetario", 10, y);
-          y += 10;
+          function addHeaderFooter() {
+              // Agregar encabezado
+              doc.addImage(headerData, "PNG", 20, 5, 170, 15);
+
+              // Agregar pie de página con número de página
+              doc.addImage(footerData, "PNG", 10, pageHeight - 25, 70, 15);
+              doc.setFont("helvetica", "italic");
+              doc.setFontSize(10);
+              doc.text(`Página ${pageNumber}`, pageWidth - 30, pageHeight - 10);
+          }
+
+          // Primera página
+          addHeaderFooter();
+
+          // Título principal
+          doc.setFont("times", "bold");
+          doc.setFontSize(18);
+          doc.text("Recetario Semanal", pageWidth / 2, y, { align: "center" });
+          y += lineHeight;
+
+          // Datos generales
+          doc.setFont("helvetica", "normal");
           doc.setFontSize(12);
-          doc.text(`Adultos: ${adultos}   Niños: ${ninos}`, 10, y);
-          y += 10;
-          doc.text(
-            `Semana: ${
-              semana === "9" ? "Todas las semanas" : "Semana " + semana
-            }`,
-            10,
-            y
-          );
-          y += 10;
-          const dayLabel =
-            dias === "8"
-              ? "Todos los días"
-              : dayNames[currentLang] && dayNames[currentLang][dias]
-              ? dayNames[currentLang][dias]
-              : dias;
-          doc.text(`Días: ${dayLabel}`, 10, y);
-          y += 10;
+          doc.text(`Adultos: ${adultos}  |  Niños: ${ninos}`, margin, y);
+          y += lineHeight;
+          doc.text(`Semana: ${semana === "9" ? "Todas las semanas" : "Semana " + semana}`, margin, y);
+          y += lineHeight;
+          const dayLabel = dias === "8" ? "Todos los días" : (dayNames[currentLang] && dayNames[currentLang][dias]) || dias;
+          doc.text(`Día: ${dayLabel}`, margin, y);
+          y += lineHeight + 5;
 
-          // Recorremos mealPlanData y listamos las recetas
+          // Generación del contenido del recetario
           mealPlanData.forEach((week) => {
-            if (semana === "9" || week.semana == semana) {
-              if (y > 260) {
-                // Antes de agregar nueva sección, verifica el espacio
-                addFooter(doc, footerData);
-                doc.addPage();
-                y = addHeader(doc, false, firstPageHeaderData, headerData);
-              }
-              doc.setFontSize(14);
-              doc.text(`Semana ${week.semana}:`, 10, y);
-              y += lineHeight + 2;
-              week.dias.forEach((day) => {
-                if (dias === "8" || day.dia == dias) {
-                  if (y > 260) {
-                    addFooter(doc, footerData);
-                    doc.addPage();
-                    y = addHeader(doc, false, firstPageHeaderData, headerData);
-                  }
-                  doc.setFontSize(12);
-                  const dayName =
-                    dayNames[currentLang] && dayNames[currentLang][day.dia]
-                      ? dayNames[currentLang][day.dia]
-                      : day.dia;
-                  doc.text(`Día ${dayName}:`, 10, y);
+              if (semana === "9" || week.semana == semana) {
+                  doc.setFontSize(14);
+                  doc.setTextColor(0, 0, 150);
+                  doc.text(`Semana ${week.semana}`, margin, y);
                   y += lineHeight;
-                  ["almorzo", "comida", "merenda", "cea"].forEach((type) => {
-                    if (day[type]) {
-                      const typeLabel =
-                        mealTypeNames[currentLang][type] || capitalize(type);
-                      const meal = day[type];
 
-                      if (y > 260) {
-                        addFooter(doc, footerData);
-                        doc.addPage();
-                        y = addHeader(
-                          doc,
-                          false,
-                          firstPageHeaderData,
-                          headerData
-                        );
-                      }
-                      doc.text(`${typeLabel}: ${meal.nombre}`, 15, y);
-                      y += lineHeight;
-
-                      if (meal.ingredientes && meal.ingredientes.length > 0) {
-                        doc.text("  Ingredientes:", 18, y);
-                        y += lineHeight;
-                        meal.ingredientes.forEach((ing) => {
-                          if (y > 260) {
-                            addFooter(doc, footerData);
-                            doc.addPage();
-                            y = addHeader(
-                              doc,
-                              false,
-                              firstPageHeaderData,
-                              headerData
-                            );
-                          }
-                          doc.text(
-                            `    - ${ing.nombre}: ${ing.cantidad}${ing.unidad}`,
-                            20,
-                            y
-                          );
+                  week.dias.forEach((day) => {
+                      if (dias === "8" || day.dia == dias) {
+                          const dayName = (dayNames[currentLang] && dayNames[currentLang][day.dia]) || day.dia;
+                          doc.setFontSize(12);
+                          doc.setTextColor(0, 0, 0);
+                          doc.text(`Día: ${dayName}`, margin, y);
                           y += lineHeight;
-                        });
-                      }
 
-                      if (meal.instrucciones && meal.instrucciones.length > 0) {
-                        doc.text("  Instrucciones:", 18, y);
-                        y += lineHeight;
-                        meal.instrucciones.forEach((step) => {
-                          if (y > 260) {
-                            addFooter(doc, footerData);
-                            doc.addPage();
-                            y = addHeader(
-                              doc,
-                              false,
-                              firstPageHeaderData,
-                              headerData
-                            );
-                          }
-                          doc.text(`    • ${step}`, 20, y);
-                          y += lineHeight;
-                        });
+                          ["almorzo", "comida", "merenda", "cea"].forEach((type) => {
+                              if (day[type]) {
+                                  const meal = day[type];
+                                  const typeLabel = mealTypeNames[currentLang][type] || capitalize(type);
+
+                                  doc.setFont("helvetica", "bold");
+                                  doc.text(`${typeLabel}:`, margin, y);
+                                  doc.setFont("helvetica", "normal");
+                                  doc.text(meal.nombre, margin + 30, y);
+                                  y += lineHeight;
+
+                                  if (meal.ingredientes.length > 0) {
+                                      doc.setFont("helvetica", "bold");
+                                      doc.text("Ingredientes:", margin + 5, y);
+                                      doc.setFont("helvetica", "normal");
+                                      y += lineHeight;
+
+                                      // Ingredientes en dos columnas
+                                      let colLeft = margin + 10;
+                                      let colRight = pageWidth / 2;
+                                      let useRightCol = false;
+
+                                      meal.ingredientes.forEach((ing) => {
+                                          if (y > pageHeight - 40) {
+                                              doc.addPage();
+                                              pageNumber++;
+                                              y = 40;
+                                              addHeaderFooter();
+                                          }
+                                          let posX = useRightCol ? colRight : colLeft;
+                                          doc.text(`- ${ing.nombre}: ${ing.cantidad}${ing.unidad}`, posX, y);
+                                          useRightCol = !useRightCol;
+                                          if (!useRightCol) y += lineHeight;
+                                      });
+                                      y += lineHeight;
+                                  }
+
+                                  if (meal.instrucciones.length > 0) {
+                                      doc.setFont("helvetica", "bold");
+                                      doc.text("Instrucciones:", margin + 5, y);
+                                      doc.setFont("helvetica", "normal");
+                                      y += lineHeight;
+
+                                      meal.instrucciones.forEach((step) => {
+                                          if (y > pageHeight - 40) {
+                                              doc.addPage();
+                                              pageNumber++;
+                                              y = 40;
+                                              addHeaderFooter();
+                                          }
+                                          doc.text(`• ${step}`, margin + 10, y);
+                                          y += lineHeight;
+                                      });
+                                  }
+                                  y += 8;
+                              }
+                          });
+
+                          // Separador entre días
+                          doc.setDrawColor(100);
+                          doc.line(margin, y, pageWidth - margin, y);
+                          y += 5;
                       }
-                      y += 2;
-                    }
                   });
-                  y += 4;
-                }
-              });
-              y += 8;
-            }
+              }
           });
 
-          // Agregar el pie de página final
-          addFooter(doc, footerData);
           doc.save("recetario.pdf");
-        });
       });
-    }
-  );
+  });
 }
+
 
 function getImageData(url, callback) {
   const img = new Image();

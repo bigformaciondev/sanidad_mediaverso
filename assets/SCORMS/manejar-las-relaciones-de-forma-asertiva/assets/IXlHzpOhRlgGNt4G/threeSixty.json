@@ -1,0 +1,27 @@
+{
+  "version": "3.56.26219.0",
+  "course_id": "5igp9t7j3av_course_id",
+  "title": "Arrastra y suelta con imágenes",
+  "thumbnail": "story_content/thumbnail.jpg",
+  "scenes": [
+    {
+      "title": "Escena sin título"
+    }
+  ],
+  "slides": [
+    {
+      "id": "6IlrceEZsiH",
+      "title": "DRAG-AND-DROP INTERACTION",
+      "scene_index": "1.1"
+    }
+  ],
+  "player": {
+    "name": "unified",
+    "width": 740,
+    "height": 611
+  },
+  "stage": {
+    "width": 720,
+    "height": 540
+  }
+}
