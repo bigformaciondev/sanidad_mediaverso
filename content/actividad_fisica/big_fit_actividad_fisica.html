@@ -1,26 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <!-- SEO Básico -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Página de inicio de Sanidad Mediaverso" />
-    <title>Sanidad Mediaverso</title>
-
-    <!-- Bootstrap CSS -->
-
-    <!-- Bootstrap CSS desde archivos locales -->
+    <meta name="description" content="Descubre la colección de vídeos Big Fit del SERGAS sobre salud, alimentación, bienestar emocional y actividad física. Recursos audiovisuales educativos en español y gallego." />
+    <meta name="keywords" content="Big Fit, vídeos de salud, bienestar, alimentación saludable, actividad física, educación sanitaria, SERGAS, Xunta de Galicia" />
+    <meta name="author" content="Servizo Galego de Saúde (SERGAS)" />
+    <title>Big Fit | Vídeos Educativos sobre Saúde e Benestar | Sanidade Mediaverso</title>
+    <link rel="canonical" href="https://sanidademediaverso.sergas.gal/content/actividad_fisica/big_fit_actividad_fisica.html" />
+  
+    <!-- Open Graph (para redes sociales como Facebook, LinkedIn) -->
+    <meta property="og:title" content="Big Fit | Vídeos Educativos sobre Saúde e Benestar" />
+    <meta property="og:description" content="Vídeos de promoción da saúde do SERGAS: alimentación, actividade física, benestar emocional e máis. Dispoñibles en galego e castelán." />
+    <meta property="og:image" content="https://sanidademediaverso.sergas.gal/assets/img/activar-t-banner1.webp" />
+    <meta property="og:url" content="https://sanidademediaverso.sergas.gal/content/actividad_fisica/big_fit_actividad_fisica.html" />
+    <meta property="og:type" content="website" />
+  
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Big Fit | Vídeos Educativos sobre Saúde e Benestar" />
+    <meta name="twitter:description" content="Colección de vídeos educativos do SERGAS sobre saúde, dispoñibles en español e galego." />
+    <meta name="twitter:image" content="https://sanidademediaverso.sergas.gal/assets/img/activar-t-banner1.webp" />
+  
+    <!-- Bootstrap y diseño -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-    />
-    <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../../css/styles.css" />
-
-    <!-- Icono del sitio (favicon) -->
-    <link rel="icon" href="../../assets/favicon.webp" type="image/x-icon">
+  
+    <!-- Icono del sitio -->
+    <link rel="icon" href="../../assets/favicon.webp" type="image/webp" />
+  
+    <!-- Datos estructurados JSON-LD (Video Gallery Page) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Big Fit - Vídeos Educativos del SERGAS",
+      "url": "https://sanidademediaverso.sergas.gal/content/videos/bigfit.html",
+      "description": "Página de vídeos educativos sobre salud y bienestar producidos por el SERGAS, disponibles en español y gallego.",
+      "hasPart": [
+        {
+          "@type": "VideoObject",
+          "name": "Big Fit - Alimentación Saludable",
+          "thumbnailUrl": "https://sanidademediaverso.sergas.gal/assets/img/activar-t-banner1.webp",
+          "uploadDate": "2024-01-01",
+          "contentUrl": "https://tv.bigteam.es/player?videoId=bdbeE1IG"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Big Fit - Actividad Física",
+          "thumbnailUrl": "https://sanidademediaverso.sergas.gal/assets/img/activar-t-banner1.webp",
+          "uploadDate": "2024-01-01",
+          "contentUrl": "https://tv.bigteam.es/player?videoId=05i31GB5"
+        }
+      ]
+    }
+    </script>
   </head>
+  
 
   <body id="page-top">
     <!-- Navigation-->
@@ -149,7 +188,7 @@
               alt="Español"
               class="mx-1 flag-icon"
             />
-            <span data-translate="espanol">Español</span>
+            <span data-translate="espanol" style="font-size: 1rem;">Español</span>
           </div>
         </div>
         <div class="d-flex">
@@ -163,7 +202,7 @@
               alt="Galego"
               class="mx-1 flag-icon"
             />
-            <span data-translate="gallego">Gallego</span>
+            <span data-translate="gallego" style="font-size: 1rem;">Gallego</span>
           </div>
         </div>
         <div class="d-flex">

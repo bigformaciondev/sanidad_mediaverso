@@ -2,27 +2,76 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Página de inicio de Sanidad Mediaverso">
-    <title>Sanidad Mediaverso</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Proyecto 'En tus manos' del programa Sanidade Mediaverso: una iniciativa para promover la participación juvenil en la salud.">
+  <meta name="keywords" content="En tus manos, Sanidade Mediaverso, participación juvenil, promoción de la salud, Sergas, Xunta de Galicia">
+  <meta name="author" content="Sanidade Mediaverso - Sergas">
+  <meta name="robots" content="index, follow">
+  <title>En tus manos | Sanidade Mediaverso</title>
 
-    <!-- Bootstrap CSS -->
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sanidademediaverso.sergas.gal/content/conductas_adictivas/en_tus_manos_conductas_adictivas.html">
 
-    <!-- Bootstrap CSS desde archivos locales -->
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <!-- Archivo CSS personalizado -->
-    <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="En tus manos | Sanidade Mediaverso">
+  <meta property="og:description" content="Iniciativa del Sergas para fomentar la implicación de adolescentes en decisiones relacionadas con su salud.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sanidademediaverso.sergas.gal/content/conductas_adictivas/en_tus_manos_conductas_adictivas.html">
+  <meta property="og:image" content="https://sanidademediaverso.sergas.gal/assets/img/en-tus-manos-subbanner1.webp">
 
-    <!-- Icono del sitio (favicon) -->
-    <link rel="icon" href="../../assets/favicon.webp" type="image/x-icon">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="En tus manos | Sanidade Mediaverso">
+  <meta name="twitter:description" content="Participa y decide sobre tu bienestar emocional. Descubre el proyecto educativo 'En tus manos'.">
+  <meta name="twitter:image" content="https://sanidademediaverso.sergas.gal/assets/img/en-tus-manos-subbanner1.webp">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS desde archivos locales -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="../../css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/favicon.webp" type="image/x-icon">
+
+  <!-- Google Analytics (Reemplazar ID por el real) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Marcado estructurado JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "En tus manos",
+    "url": "https://sanidademediaverso.sergas.gal/content/bienestar_emocional/en_tus_manos.html",
+    "description": "Iniciativa educativa para adolescentes que promueve la participación activa en la promoción de la salud y el bienestar emocional.",
+    "publisher": {
+      "@type": "GovernmentOrganization",
+      "name": "Sanidade Mediaverso - Sergas"
+    },
+    "image": "https://sanidademediaverso.sergas.gal/assets/img/en-tus-manos-subbanner1.webp"
+  }
+  </script>
 </head>
+
 
 <body id="page-top">
      <!-- Navigation-->
-     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
         <div class="navbar-brand d-flex text-light">
           <a class="p-1 text-light"
@@ -45,7 +94,7 @@
         </div>
       </div>
       <a class="navbar-brand js-scroll-trigger m-1" href="../../index.html">
-          <span class="d-block d-lg-block h4 text-white">Sanidade Mediaverso</span>
+          <span class="d-block d-lg-block h5 text-white">Sanidade Mediaverso</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -65,11 +114,11 @@
           <!-- Idiomas -->
           <div class="d-flex align-items-center ms-2" onclick="changeLanguage('es')" role="button">
             <img src="../../assets/flag/esflag.svg" alt="Español" class="mx-1 flag-icon">
-            <span data-translate="espanol">Español</span>
+            <span data-translate="espanol" style="font-size: 1rem;">Español</span>
           </div>
           <div class="d-flex align-items-center ms-2" onclick="changeLanguage('gl')" role="button">
             <img src="../../assets/flag/glflag.svg" alt="Galego" class="mx-1 flag-icon">
-            <span data-translate="gallego">Gallego</span>
+            <span data-translate="gallego" style="font-size: 1rem;">Gallego</span>
           </div>
           <!-- Descargas -->
           <div class="ms-2">
@@ -78,8 +127,15 @@
             </a>
           </div>
         </div>
+        <div class="navbar-brand d-flex justify-content-between text-light mt-2">
+          <div class="d-flex ms-2 w-100  d-flex justify-content-center">
+            <a href="https://vida-saudable.sergas.gal/" class="text-light" title="nlace a Xanela Aberta">
+              <img src="../../assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-1 mw-100" >
+            </a>
+          </div>
+        </div>
       </div>
-  
+      
     </nav>
     <!-- Page Content-->
     <div class="container-fluid " id="yt">
