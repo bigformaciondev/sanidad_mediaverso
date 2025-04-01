@@ -178,7 +178,7 @@
           </div>
           <div class="card-body d-flex flex-column justify-content-center" style="height: 180px;">
             <span class="badge bg-secondary mb-2" data-translate="chef-junior">Chef Junior</span>
-            <a class="btn btn-primary mt-3 w-100" data-translate="juega-ahora" aria-label="Jugar ahora a Chef Junior" href="../alimentacion/chef_junior_alimentacion_saludable.html">Xoga agora</a>
+            <button class="btn btn-primary mt-3 w-100" data-translate="juega-ahora" aria-label="Jugar ahora a Chef Junior" onclick="openGame(1)">Xoga agora</button>
           </div>
           <!-- Pie de la tarjeta con las imágenes de las tiendas -->
           <div class="card-footer d-flex flex-column align-items-center justify-content-center"
@@ -205,7 +205,7 @@
           <!-- Contenido del cuerpo de la tarjeta -->
           <div class="card-body d-flex flex-column justify-content-center" style="height: 180px;">
             <span class="badge bg-secondary mb-2" data-translate="decisiones-en-mano">Decisions Na man</span>
-            <a class="btn btn-primary mt-3 w-100" data-translate="juega-ahora" aria-label="Jugar ahora a Decisións na man" href="../conductas_adictivas/decisiones_mano_conductas_adictivas.html">Xoga agora</a>
+            <button class="btn btn-primary mt-3 w-100" data-translate="juega-ahora" aria-label="Jugar ahora a Decisións na man" onclick="openGame(2)">Xoga agora</button>
           </div>
         
           <!-- Pie de la tarjeta con las imágenes de las tiendas -->
@@ -287,7 +287,49 @@
     </footer>
     </div>
 
-
+    <script>
+      const GameList = [
+    {
+      id: 1,
+      folder: {
+        es: "webgl/cs11",
+        gl: "webgl/cs11"
+      }
+    },
+    {
+      id: 2,
+      folder: {
+        es: "webgl/cs412",
+        gl: "webgl/cs412"
+      }
+    }
+  ];
+  
+      function getGameFolderById(id) {
+        const numericId = Number(id);
+        const gameItem = GameList.find(item => item.id === numericId);
+        if (!gameItem) {
+          console.error("VIDEOGAME ID not found:", id);
+          return null;
+        }
+        // Retorna la carpeta correspondiente al idioma actual, 
+        // si no existe para ese idioma, se usa el valor por defecto en "es"
+        const language = localStorage.getItem("language") || "es";
+        return gameItem.folder[language] || gameItem.folder["es"];
+      }
+  
+      // Función openGame que utiliza el ID y detecta el idioma para obtener la ruta adecuada
+      function openGame(id) {
+        const folder = getGameFolderById(id);
+        if (!folder) {
+          alert("VIDEOGAME no encontrado para el ID " + id);
+          return;
+        }
+        // Construye la URL al VIDEOGAME. Ajusta la ruta según tu estructura de carpetas.
+        const gamePath = "../../" + encodeURIComponent(folder);
+        window.open(gamePath, "_blank");
+      }
+    </script>
   <script src="../../js/scripts_submenus.js"></script>
   <script src="../../js/lang_submenus.js"></script>
 </body>

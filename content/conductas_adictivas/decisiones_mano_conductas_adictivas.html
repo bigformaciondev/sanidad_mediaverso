@@ -178,7 +178,7 @@
           </ul>
       </div>
       <div class="m-3 p-3">
-          <a href="https://sanidademediaverso.sergas.gal/decisions-en-man-juego/" target="_blank" data-translate="pulse-para-jugar">Pulsa aquí para jugar desde el ordenador.</a>
+          <a class="btn btn-primary  w-100" onclick="openGame(2)" target="_blank" data-translate="pulse-para-jugar">Pulsa aquí para jugar desde el ordenador.</a>
           <ul>
               <li class="m-2">
               <a href="https://apps.apple.com/es/app/decisi%C3%B3ns-na-man/id6473543991" target="_blank" data-translate="descarga-app-iOS">Descarga la aplicación para dispositivos iOS</a>
@@ -250,7 +250,42 @@
         </div>
       </footer>
     </div>
-
+    <script>
+      const GameList = [
+    {
+      id: 2,
+      folder: {
+        es: "webgl/cs412",
+        gl: "webgl/cs412"
+      }
+    },
+  ];
+  
+      function getGameFolderById(id) {
+        const numericId = Number(id);
+        const gameItem = GameList.find(item => item.id === numericId);
+        if (!gameItem) {
+          console.error("VIDEOGAME ID not found:", id);
+          return null;
+        }
+        // Retorna la carpeta correspondiente al idioma actual, 
+        // si no existe para ese idioma, se usa el valor por defecto en "es"
+        const language = localStorage.getItem("language") || "es";
+        return gameItem.folder[language] || gameItem.folder["es"];
+      }
+  
+      // Función openGame que utiliza el ID y detecta el idioma para obtener la ruta adecuada
+      function openGame(id) {
+        const folder = getGameFolderById(id);
+        if (!folder) {
+          alert("VIDEOGAME no encontrado para el ID " + id);
+          return;
+        }
+        // Construye la URL al VIDEOGAME. Ajusta la ruta según tu estructura de carpetas.
+        const gamePath = "../../" + encodeURIComponent(folder);
+        window.open(gamePath, "_blank");
+      }
+    </script>
     <script src="../../js/scripts_submenus.js"></script>
     <script src="../../js/lang_submenus.js"></script>
 </body>
