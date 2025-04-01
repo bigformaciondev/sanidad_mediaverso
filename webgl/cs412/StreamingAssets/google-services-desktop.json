@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "97995308357",
+    "firebase_url": "https://cs412-3d3f3-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "cs412-3d3f3",
+    "storage_bucket": "cs412-3d3f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97995308357:android:839122f7f277cee8be522c",
+        "android_client_info": {
+          "package_name": "com.jacobo.cs412"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcmSh-12C8K7PUTtNMadrJ_zowofUpXJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

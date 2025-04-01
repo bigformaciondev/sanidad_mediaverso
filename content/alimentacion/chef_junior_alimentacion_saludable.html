@@ -179,8 +179,8 @@
       <div class="m-3 p-3">
           <p data-translate="chef-junior-8">El diseño de la aplicación y la información está adaptado para un público infantil correspondiente a alumnos de 5º y 6º de primaria, entre 10 y 12 años.</p>
       </div>
-      <div class="m-3 p-3">
-          <a href="https://sanidademediaverso.sergas.gal/chef-junior-juego/" target="_blank" data-translate="chef-junior-9">Pulsa aquí para jugar desde el ordenador.</a>
+      <div class="m-3 ">
+          <button class="btn btn-primary  w-100" onclick="openGame(1)" target="_blank" data-translate="chef-junior-9">Pulsa aquí para jugar desde el ordenador.</button>
           <ul>
               <li class="m-2">
               <a href="https://apps.apple.com/es/app/chef-junior/id6475166701" target="_blank" data-translate="chef-junior-10">Descarga la aplicación para dispositivos iOS</a>
@@ -253,7 +253,42 @@
       </footer>
     </div>     
           
-
+    <script>
+      const GameList = [
+    {
+      id: 1,
+      folder: {
+        es: "webgl/cs11",
+        gl: "webgl/cs11"
+      }
+    }
+  ];
+  
+      function getGameFolderById(id) {
+        const numericId = Number(id);
+        const gameItem = GameList.find(item => item.id === numericId);
+        if (!gameItem) {
+          console.error("VIDEOGAME ID not found:", id);
+          return null;
+        }
+        // Retorna la carpeta correspondiente al idioma actual, 
+        // si no existe para ese idioma, se usa el valor por defecto en "es"
+        const language = localStorage.getItem("language") || "es";
+        return gameItem.folder[language] || gameItem.folder["es"];
+      }
+  
+      // Función openGame que utiliza el ID y detecta el idioma para obtener la ruta adecuada
+      function openGame(id) {
+        const folder = getGameFolderById(id);
+        if (!folder) {
+          alert("VIDEOGAME no encontrado para el ID " + id);
+          return;
+        }
+        // Construye la URL al VIDEOGAME. Ajusta la ruta según tu estructura de carpetas.
+        const gamePath = "../../" + encodeURIComponent(folder);
+        window.open(gamePath, "_blank");
+      }
+    </script>
     <script src="../../js/scripts_submenus.js"></script>
     <script src="../../js/lang_submenus.js"></script>
 </body>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "638368052931",
+    "project_id": "sanmed-83507",
+    "storage_bucket": "sanmed-83507.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638368052931:android:7d6f8289990b86599e1476",
+        "android_client_info": {
+          "package_name": "es.sergas.sanmed.ob11.pre"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG113xPNGdGoPs6uHxawdioZnuNyR9O4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

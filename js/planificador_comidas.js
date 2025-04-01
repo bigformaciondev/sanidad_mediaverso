@@ -636,26 +636,37 @@ function addFooter(doc, footerData) {
 // Asignamos eventos a los botones del formulario
 // Función para validar y sanitizar los valores del formulario
 function validateFormValues(adultos, ninos, semana, dias) {
-  // Verifica que sean números y no negativos
-  if (isNaN(adultos) || adultos < 1 || adultos > 100) {
-    alert("Por favor, ingresa un valor válido para Adultos (1 - 100).");
+  // Convertir a número por si llegan como strings
+  adultos = parseInt(adultos, 10);
+  ninos = parseInt(ninos, 10);
+
+  // Validación: adultos y niños deben estar en el rango permitido
+  if (isNaN(adultos) || adultos < 0 || adultos > 100) {
+    alert("Por favor, ingresa un valor válido para Adultos (0 - 100).");
     return false;
   }
-  if (isNaN(ninos) || ninos < 1 || ninos > 100) {
-    alert("Por favor, ingresa un valor válido para Niños (1 - 100).");
+
+  if (isNaN(ninos) || ninos < 0 || ninos > 100) {
+    alert("Por favor, ingresa un valor válido para Niños (0 - 100).");
     return false;
   }
-  // Para semana: si no es "9" (todas las semanas), debe estar entre 1 y 8
+
+  // Validación: al menos uno debe ser mayor a 0
+  if (adultos === 0 && ninos === 0) {
+    alert("Debe haber al menos un adulto o un niño para generar el menú.");
+    return false;
+  }
+
+  // Validación de semana (1-8) o 9 = "todas las semanas"
   if (semana !== "9") {
     const semNum = parseInt(semana, 10);
     if (isNaN(semNum) || semNum < 1 || semNum > 8) {
-      alert(
-        "Por favor, selecciona una semana válida (1 - 8) o 'Todas las semanas'."
-      );
+      alert("Por favor, selecciona una semana válida (1 - 8) o 'Todas las semanas'.");
       return false;
     }
   }
-  // Para días: si no es "8" (todos los días), debe estar entre 1 y 7
+
+  // Validación de días (1-7) o 8 = "todos los días"
   if (dias !== "8") {
     const diaNum = parseInt(dias, 10);
     if (isNaN(diaNum) || diaNum < 1 || diaNum > 7) {
@@ -663,8 +674,10 @@ function validateFormValues(adultos, ninos, semana, dias) {
       return false;
     }
   }
+
   return true;
 }
+
 
 // Asignamos eventos a los botones del formulario
 document.getElementById("btnRecetario").addEventListener("click", function (e) {
