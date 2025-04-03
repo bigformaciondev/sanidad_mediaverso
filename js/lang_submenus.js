@@ -19,6 +19,7 @@ function changeLanguage(lang) {
       localStorage.setItem("language", lang);
 
       applyTranslations(); // aplica a toda la página como antes
+      loadMealPlanData();
     })
     .catch((error) =>
       console.error("Error al cargar el archivo de idioma", error)

@@ -272,7 +272,7 @@
     async function downloadScorm(id) {
         const scormItem = scormList.find((item) => item.id === Number(id));
         if (!scormItem || !scormItem.rar) {
-          alert("Archivo SCORM no disponible para este recurso.");
+          alert("archivo PDF no disponible para este recurso.");
           return;
         }
 
@@ -290,7 +290,7 @@
           a.click();
           document.body.removeChild(a);
         } catch (err) {
-          alert("Archivo SCORM no disponible en este idioma.");
+          alert("archivo PDF no disponible en este idioma.");
         }
       }
   </script>

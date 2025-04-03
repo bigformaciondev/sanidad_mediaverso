@@ -16,7 +16,7 @@ const dayNames = {
   gl: {
     1: "Luns",
     2: "Martes",
-    2: "Mércoles",
+    3: "Mércores",
     4: "Xoves",
     5: "Venres",
     6: "Sábado",
@@ -41,7 +41,33 @@ const mealTypeNames = {
 
 // Define el idioma actual (puede venir de localStorage o de otro mecanismo)
 // Por ejemplo, si no hay idioma definido, se usa "es" (castellano) por defecto:
-const currentLang = localStorage.getItem("language") || "es";
+function getCurrentLanguage() {
+  return localStorage.getItem("language") || "es";
+}
+let mealPlanData = []; // Definimos aquí la variable global
+
+function loadMealPlanData() {
+  const lang = getCurrentLanguage();
+  let jsonPath;
+
+  if (lang === "gl") {
+    jsonPath = "../../local/plan_alimentacion_completo.json";
+  } else {
+    jsonPath = "../../local/plan_alimentacion_completo_es.json";
+  }
+
+  return fetch(jsonPath)
+    .then(response => response.json())
+    .then(data => {
+      mealPlanData = data;
+      showWeek(1); // Mostrar semana 1 al cargar
+      renderWeekPagination();
+    })
+    .catch(error => {
+      console.error("Error al cargar el plan de alimentación:", error);
+    });
+}
+
 /***********************************************
  * renderWeekTableWithoutThead(weekData)
  * --------------------------------------------
@@ -86,7 +112,7 @@ function renderWeekTableWithoutThead(weekData) {
   weekData.dias.forEach((day) => {
     const tdDay = document.createElement("td");
     // Asignamos el nombre mapeado si existe, o mostramos el número como fallback
-    const dayLabel = dayNames[currentLang][day.dia] || day.dia;
+    const dayLabel = dayNames[getCurrentLanguage()][day.dia] || day.dia;
     tdDay.innerText = dayLabel;
 
     tdDay.className = "fw-bold text-center bg-primary text-light py-3";
@@ -157,7 +183,7 @@ function renderMeal(mealKey, day) {
     const mealTypeSpan = document.createElement("span");
     mealTypeSpan.className = "fw-bold";
     // Usamos la traducción del mealType según el idioma actual
-    mealTypeSpan.innerText = mealTypeNames[currentLang][mealKey] || mealKey;
+    mealTypeSpan.innerText = mealTypeNames[getCurrentLanguage()][mealKey] || mealKey;
 
     headerLine.appendChild(hrLeft);
     headerLine.appendChild(mealTypeSpan);
@@ -208,7 +234,7 @@ function showWeek(weekNumber) {
   container.innerHTML = "";
 
   // Buscamos la semana en mealPlanData
-  if(mealPlanData){
+if (typeof mealPlanData !== "undefined" && mealPlanData) {
     const weekData = mealPlanData.find((week) => week.semana === weekNumber);
     if (!weekData) {
       container.innerHTML = `<p>No hay datos para la semana ${weekNumber}</p>`;
@@ -221,7 +247,6 @@ function showWeek(weekNumber) {
   }
   
 }
-
 /***********************************************
  * renderWeekPagination(totalWeeks = 8)
  * --------------------------------------------
@@ -360,223 +385,252 @@ function groupIngredients(adultos, ninos, semana, dias) {
 }
 
 // Función para generar el PDF de la cesta de la compra
-function generarCestaPDF(adultos, ninos, semana, dias) {
+async function generarCestaPDF(adultos, ninos, semana, dias) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.width;
   const pageHeight = doc.internal.pageSize.height;
   const margin = 10;
   const lineHeight = 8;
-  let y = 30; // Ajustado para dejar espacio al header pequeño
+  let y = 30;
   let pageNumber = 1;
 
-  // Cargar imágenes reducidas
+  const idioma = localStorage.getItem("language") || "es";
+  const { t } = await cargarTraducciones();
+
+  const dayNames = {
+    es: { 1: "Lunes", 2: "Martes", 3: "Miércoles", 4: "Jueves", 5: "Viernes", 6: "Sábado", 7: "Domingo", 8: "Todos los días" },
+    gl: { 1: "Luns", 2: "Martes", 3: "Mércores", 4: "Xoves", 5: "Venres", 6: "Sábado", 7: "Domingo", 8: "Todos os días" }
+  };
+
   getImageData("/assets/img/planificador-comidas-subbanner1.png", function (headerData) {
-      getImageData("/assets/logo/logos.png", function (footerData) {
+    getImageData("/assets/logo/logo-xunta-azul.png", function (footerData) {
 
-          function addHeaderFooter() {
-              // Agregar encabezado reducido (170x15 px)
-              doc.addImage(headerData, "PNG", 20, 5, 170, 15);
+      function addHeaderFooter() {
+        doc.addImage(headerData, "PNG", 20, 5, 170, 15);
+        doc.addImage(footerData, "PNG", 20, pageHeight - 20, 50, 5);
+        doc.setFont("helvetica", "italic");
+        doc.setFontSize(10);
+        doc.text(`${t("pagina")} ${pageNumber}`, pageWidth - 30, pageHeight - 10);
+      }
 
-              // Agregar pie de página reducido (170x15 px)
-              doc.addImage(footerData, "PNG", 20, pageHeight - 20, 50, 5);
+      addHeaderFooter();
 
-              // Número de página en la parte inferior derecha
-              doc.setFont("helvetica", "italic");
-              doc.setFontSize(10);
-              doc.text(`Página ${pageNumber}`, pageWidth - 30, pageHeight - 10);
-          }
+      doc.setFont("times", "bold");
+      doc.setFontSize(16);
+      doc.text(t("titulo-cesta-compra") || "Cesta de la Compra", pageWidth / 2, y, { align: "center" });
+      y += lineHeight;
 
-          // Primera página con header y footer
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(12);
+      doc.text(`${t("adultos")}: ${adultos}  |  ${t("ninos")}: ${ninos}`, margin, y);
+      y += lineHeight;
+      doc.text(`${t("semana")}: ${semana === "9" ? t("todas-semanas") : t("semana") + " " + semana}`, margin, y);
+      y += lineHeight;
+
+      const dayLabel = dayNames[idioma][dias] || dias;
+      doc.text(`${t("dia")}: ${dayLabel}`, margin, y);
+      y += lineHeight + 5;
+
+      const grouped = groupIngredients(adultos, ninos, semana, dias);
+      const ingredientsArray = Object.values(grouped);
+      ingredientsArray.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(0, 0, 150);
+      doc.text(t("lista-ingredientes") || "Lista de Ingredientes:", margin, y);
+      y += lineHeight;
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(0, 0, 0);
+
+      let colLeft = margin + 10;
+      let colRight = pageWidth / 2;
+      let useRightCol = false;
+
+      ingredientsArray.forEach((ing) => {
+        if (y > pageHeight - 30) {
+          doc.addPage();
+          pageNumber++;
+          y = 30;
           addHeaderFooter();
-
-          // Título principal
-          doc.setFont("times", "bold");
-          doc.setFontSize(16);
-          doc.text("Cesta de la Compra", pageWidth / 2, y, { align: "center" });
-          y += lineHeight;
-
-          // Datos generales
-          doc.setFont("helvetica", "normal");
-          doc.setFontSize(12);
-          doc.text(`Adultos: ${adultos}  |  Niños: ${ninos}`, margin, y);
-          y += lineHeight;
-          doc.text(`Semana: ${semana === "9" ? "Todas las semanas" : "Semana " + semana}`, margin, y);
-          y += lineHeight;
-          const dayLabel = dias === "8" ? "Todos los días" : (dayNames[currentLang] && dayNames[currentLang][dias]) || dias;
-          doc.text(`Día: ${dayLabel}`, margin, y);
-          y += lineHeight + 5;
-
-          // Obtener ingredientes agrupados
-          const grouped = groupIngredients(adultos, ninos, semana, dias);
-          const ingredientsArray = Object.values(grouped);
-          ingredientsArray.sort((a, b) => a.nombre.localeCompare(b.nombre));
-
-          // Encabezado de ingredientes
-          doc.setFont("helvetica", "bold");
-          doc.setTextColor(0, 0, 150);
-          doc.text("Lista de Ingredientes:", margin, y);
-          y += lineHeight;
-          doc.setFont("helvetica", "normal");
-          doc.setTextColor(0, 0, 0);
-
-          // Dividir ingredientes en dos columnas
-          let colLeft = margin + 10;
-          let colRight = pageWidth / 2;
-          let useRightCol = false;
-
-          ingredientsArray.forEach((ing) => {
-              if (y > pageHeight - 30) {
-                  doc.addPage();
-                  pageNumber++;
-                  y = 30;
-                  addHeaderFooter();
-              }
-
-              let posX = useRightCol ? colRight : colLeft;
-              doc.text(`- ${ing.nombre}: ${ing.cantidad.toFixed(2)} ${ing.unidad}`, posX, y);
-              useRightCol = !useRightCol;
-              if (!useRightCol) y += lineHeight;
-          });
-
-          doc.save("cesta_de_compra.pdf");
+        }
+        const posX = useRightCol ? colRight : colLeft;
+        doc.text(`- ${ing.nombre}: ${ing.cantidad.toFixed(2)} ${ing.unidad}`, posX, y);
+        useRightCol = !useRightCol;
+        if (!useRightCol) y += lineHeight;
       });
+
+      doc.save("cesta_de_compra.pdf");
+    });
   });
 }
 
+async function cargarTraducciones() {
+  const idioma = localStorage.getItem("language") || "es";
+  try {
+    const res = await fetch("../../local/lang.json");
+    const json = await res.json();
+    return { t: (key) => json[idioma]?.[key] || key };
+  } catch (err) {
+    console.error("Error al cargar lang.json:", err);
+    return { t: (key) => key }; // Fallback
+  }
+}
 
-function generarRecetarioPDF(adultos, ninos, semana, dias) {
+async function generarRecetarioPDF(adultos, ninos, semana, dias) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.width;
   const pageHeight = doc.internal.pageSize.height;
   const margin = 10;
   const lineHeight = 8;
-  let y = 40; // Ajustado para dejar espacio al header
+  let y = 40;
   let pageNumber = 1;
 
-  // Cargar imágenes
+  const idioma = localStorage.getItem("language") || "es";
+  const { t } = await cargarTraducciones(); // ✅ Carga dinámica del idioma
+
+  const dayNames = {
+    es: {
+      1: "Lunes", 2: "Martes", 3: "Miércoles", 4: "Jueves", 5: "Viernes", 6: "Sábado", 7: "Domingo", 8: "Todos los días"
+    },
+    gl: {
+      1: "Luns", 2: "Martes", 3: "Mércores", 4: "Xoves", 5: "Venres", 6: "Sábado", 7: "Domingo", 8: "Todos os días"
+    }
+  };
+
+  const mealTypeNames = {
+    es: {
+      almorzo: "Desayuno",
+      comida: "Comida",
+      merenda: "Merienda",
+      cea: "Cena"
+    },
+    gl: {
+      almorzo: "Almorzo",
+      comida: "Xantar",
+      merenda: "Merenda",
+      cea: "Cea"
+    }
+  };
+
   getImageData("/assets/img/planificador-comidas-subbanner1.png", function (headerData) {
-      getImageData("/assets/logo/xunta_pie.svg", function (footerData) {
+    getImageData("/assets/logo/logo-xunta-azul.png", function (footerData) {
+      
+      function addHeaderFooter() {
+        doc.addImage(headerData, "PNG", 20, 5, 170, 15);
+        doc.addImage(footerData, "PNG", 10, pageHeight - 25, 90, 15);
+        doc.setFont("helvetica", "italic");
+        doc.setFontSize(10);
+        doc.text(`${t("pagina")} ${pageNumber}`, pageWidth - 30, pageHeight - 10);
+      }
 
-          function addHeaderFooter() {
-              // Agregar encabezado
-              doc.addImage(headerData, "PNG", 20, 5, 170, 15);
+      addHeaderFooter();
 
-              // Agregar pie de página con número de página
-              doc.addImage(footerData, "PNG", 10, pageHeight - 25, 70, 15);
-              doc.setFont("helvetica", "italic");
-              doc.setFontSize(10);
-              doc.text(`Página ${pageNumber}`, pageWidth - 30, pageHeight - 10);
-          }
+      // 📝 Título
+      doc.setFont("times", "bold");
+      doc.setFontSize(18);
+      doc.text(t("recetario-semanal"), pageWidth / 2, y, { align: "center" });
+      y += lineHeight;
 
-          // Primera página
-          addHeaderFooter();
+      // 👤 Datos
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(12);
+      doc.text(`${t("adultos")}: ${adultos}  |  ${t("ninos")}: ${ninos}`, margin, y);
+      y += lineHeight;
+      doc.text(`${t("semana")}: ${semana === "9" ? t("todas-semanas") : t("semana") + " " + semana}`, margin, y);
+      y += lineHeight;
+      const dayLabel = dayNames[idioma][dias];
+      doc.text(`${t("dia")}: ${dayLabel}`, margin, y);
+      y += lineHeight + 5;
 
-          // Título principal
-          doc.setFont("times", "bold");
-          doc.setFontSize(18);
-          doc.text("Recetario Semanal", pageWidth / 2, y, { align: "center" });
+      // 🧾 Contenido
+      mealPlanData.forEach((week) => {
+        if (semana === "9" || week.semana == semana) {
+          doc.setFontSize(14);
+          doc.setTextColor(0, 0, 150);
+          doc.text(`${t("semana")} ${week.semana}`, margin, y);
           y += lineHeight;
 
-          // Datos generales
-          doc.setFont("helvetica", "normal");
-          doc.setFontSize(12);
-          doc.text(`Adultos: ${adultos}  |  Niños: ${ninos}`, margin, y);
-          y += lineHeight;
-          doc.text(`Semana: ${semana === "9" ? "Todas las semanas" : "Semana " + semana}`, margin, y);
-          y += lineHeight;
-          const dayLabel = dias === "8" ? "Todos los días" : (dayNames[currentLang] && dayNames[currentLang][dias]) || dias;
-          doc.text(`Día: ${dayLabel}`, margin, y);
-          y += lineHeight + 5;
+          week.dias.forEach((day) => {
+            if (dias === "8" || day.dia == dias) {
+              const dayName = dayNames[idioma][day.dia];
+              doc.setFontSize(12);
+              doc.setTextColor(0, 0, 0);
+              doc.text(`${t("dia")}: ${dayName}`, margin, y);
+              y += lineHeight;
 
-          // Generación del contenido del recetario
-          mealPlanData.forEach((week) => {
-              if (semana === "9" || week.semana == semana) {
-                  doc.setFontSize(14);
-                  doc.setTextColor(0, 0, 150);
-                  doc.text(`Semana ${week.semana}`, margin, y);
+              ["almorzo", "comida", "merenda", "cea"].forEach((type) => {
+                if (day[type]) {
+                  const meal = day[type];
+                  const typeLabel = mealTypeNames[idioma][type] || type;
+
+                  doc.setFont("helvetica", "bold");
+                  doc.text(`${typeLabel}:`, margin, y);
+                  doc.setFont("helvetica", "normal");
+                  doc.text(meal.nombre, margin + 30, y);
                   y += lineHeight;
 
-                  week.dias.forEach((day) => {
-                      if (dias === "8" || day.dia == dias) {
-                          const dayName = (dayNames[currentLang] && dayNames[currentLang][day.dia]) || day.dia;
-                          doc.setFontSize(12);
-                          doc.setTextColor(0, 0, 0);
-                          doc.text(`Día: ${dayName}`, margin, y);
-                          y += lineHeight;
+                  if (meal.ingredientes.length > 0) {
+                    doc.setFont("helvetica", "bold");
+                    doc.text(`${t("ingredientes")}:`, margin + 5, y);
+                    doc.setFont("helvetica", "normal");
+                    y += lineHeight;
 
-                          ["almorzo", "comida", "merenda", "cea"].forEach((type) => {
-                              if (day[type]) {
-                                  const meal = day[type];
-                                  const typeLabel = mealTypeNames[currentLang][type] || capitalize(type);
+                    let colLeft = margin + 10;
+                    let colRight = pageWidth / 2;
+                    let useRightCol = false;
 
-                                  doc.setFont("helvetica", "bold");
-                                  doc.text(`${typeLabel}:`, margin, y);
-                                  doc.setFont("helvetica", "normal");
-                                  doc.text(meal.nombre, margin + 30, y);
-                                  y += lineHeight;
-
-                                  if (meal.ingredientes.length > 0) {
-                                      doc.setFont("helvetica", "bold");
-                                      doc.text("Ingredientes:", margin + 5, y);
-                                      doc.setFont("helvetica", "normal");
-                                      y += lineHeight;
-
-                                      // Ingredientes en dos columnas
-                                      let colLeft = margin + 10;
-                                      let colRight = pageWidth / 2;
-                                      let useRightCol = false;
-
-                                      meal.ingredientes.forEach((ing) => {
-                                          if (y > pageHeight - 40) {
-                                              doc.addPage();
-                                              pageNumber++;
-                                              y = 40;
-                                              addHeaderFooter();
-                                          }
-                                          let posX = useRightCol ? colRight : colLeft;
-                                          doc.text(`- ${ing.nombre}: ${ing.cantidad}${ing.unidad}`, posX, y);
-                                          useRightCol = !useRightCol;
-                                          if (!useRightCol) y += lineHeight;
-                                      });
-                                      y += lineHeight;
-                                  }
-
-                                  if (meal.instrucciones.length > 0) {
-                                      doc.setFont("helvetica", "bold");
-                                      doc.text("Instrucciones:", margin + 5, y);
-                                      doc.setFont("helvetica", "normal");
-                                      y += lineHeight;
-
-                                      meal.instrucciones.forEach((step) => {
-                                          if (y > pageHeight - 40) {
-                                              doc.addPage();
-                                              pageNumber++;
-                                              y = 40;
-                                              addHeaderFooter();
-                                          }
-                                          doc.text(`• ${step}`, margin + 10, y);
-                                          y += lineHeight;
-                                      });
-                                  }
-                                  y += 8;
-                              }
-                          });
-
-                          // Separador entre días
-                          doc.setDrawColor(100);
-                          doc.line(margin, y, pageWidth - margin, y);
-                          y += 5;
+                    meal.ingredientes.forEach((ing) => {
+                      if (y > pageHeight - 40) {
+                        doc.addPage();
+                        pageNumber++;
+                        y = 40;
+                        addHeaderFooter();
                       }
-                  });
-              }
-          });
+                      const posX = useRightCol ? colRight : colLeft;
+                      doc.text(`- ${ing.nombre}: ${ing.cantidad}${ing.unidad}`, posX, y);
+                      useRightCol = !useRightCol;
+                      if (!useRightCol) y += lineHeight;
+                    });
+                    y += lineHeight;
+                  }
 
-          doc.save("recetario.pdf");
+                  if (meal.instrucciones.length > 0) {
+                    doc.setFont("helvetica", "bold");
+                    doc.text(`${t("instrucciones")}:`, margin + 5, y);
+                    doc.setFont("helvetica", "normal");
+                    y += lineHeight;
+
+                    meal.instrucciones.forEach((step) => {
+                      if (y > pageHeight - 40) {
+                        doc.addPage();
+                        pageNumber++;
+                        y = 40;
+                        addHeaderFooter();
+                      }
+                      doc.text(`• ${step}`, margin + 10, y);
+                      y += lineHeight;
+                    });
+                  }
+                  y += 8;
+                }
+              });
+
+              doc.setDrawColor(100);
+              doc.line(margin, y, pageWidth - margin, y);
+              y += 5;
+            }
+          });
+        }
       });
+
+      doc.save("recetario.pdf");
+    });
   });
 }
+
+
 
 
 function getImageData(url, callback) {

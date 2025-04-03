@@ -252,33 +252,17 @@
       </div>
     </footer>
   </div>
+ 
+ 
+  <script src="../../js/scripts_submenus.js"></script>
+  <script src="../../js/lang_submenus.js"></script>
   <script src="../../js/planificador_comidas.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-  // Determinar el idioma actual. Si no está definido, se usa "es" por defecto.
-  const lang = localStorage.getItem("language") || "es";
-  // Construir la ruta del JSON según el idioma
-  let jsonPath;
-  if (lang === "gl") {
-    jsonPath = "../../local/plan_alimentacion_completo.json";
-  } else {
-    jsonPath = "../../local/plan_alimentacion_completo_es.json";
-  }
-  
-  fetch(jsonPath)
-    .then(response => response.json())
-    .then(data => {
-      // Asigna los datos a la variable global
-      window.mealPlanData = data;
-      // Muestra la semana 1 y la paginación
-      showWeek(1);
-      renderWeekPagination();
-    })
-    .catch(error => console.error("Error al cargar el plan de alimentación:", error));
-});
-  </script>
-  <script src="../../js/scripts_submenus.js"></script>
-  <script src="../../js/lang_submenus.js"></script>
+   loadMealPlanData(); // Carga los datos y renderiza
+ });
+ 
+   </script>
 </body>
 <!-- Modal para mostrar detalles de la comida -->
 <div class="modal fade" id="mealModal" tabindex="-1" aria-labelledby="mealModalLabel" aria-hidden="true">

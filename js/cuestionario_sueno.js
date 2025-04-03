@@ -571,11 +571,11 @@ html += `
     if (idioma == "es") {
       headerImgURL = "/assets/img/sueno-saludable-es.png";
       firstHeaderImgURL ="/assets/img/sueno-saludable-es.png";
-      footerImgURL = "/assets/logo/xunta_pie.svg";
+      footerImgURL = "/assets/logo/logo-xunta-azul.png";
     } else {
       headerImgURL = "/assets/img/sueno-saludable-gal.png";
       firstHeaderImgURL = "/assets/img/sueno-saludable-gal.png";
-      footerImgURL = "/assets/logo/xunta_pie.svg";
+      footerImgURL = "/assets/logo/logo-xunta-azul.png";
     }
   
     const firstHeader = await new Promise((resolve) =>
