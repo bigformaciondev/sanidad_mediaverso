@@ -408,20 +408,20 @@ async function generarCestaPDF(adultos, ninos, semana, dias) {
 
       function addHeaderFooter() {
         doc.addImage(headerData, "PNG", 20, 5, 170, 15);
-        doc.addImage(footerData, "PNG", 20, pageHeight - 20, 50, 5);
-        doc.setFont("helvetica", "italic");
+        doc.addImage(footerData, "PNG", 20, pageHeight - 20, 30, 15);
+        doc.setFont("Xunta Sans", "italic");
         doc.setFontSize(10);
         doc.text(`${t("pagina")} ${pageNumber}`, pageWidth - 30, pageHeight - 10);
       }
 
       addHeaderFooter();
 
-      doc.setFont("times", "bold");
+      doc.setFont("Xunta Sans", "bold");
       doc.setFontSize(16);
       doc.text(t("titulo-cesta-compra") || "Cesta de la Compra", pageWidth / 2, y, { align: "center" });
       y += lineHeight;
 
-      doc.setFont("helvetica", "normal");
+      doc.setFont("Xunta Sans", "normal");
       doc.setFontSize(12);
       doc.text(`${t("adultos")}: ${adultos}  |  ${t("ninos")}: ${ninos}`, margin, y);
       y += lineHeight;
@@ -429,18 +429,18 @@ async function generarCestaPDF(adultos, ninos, semana, dias) {
       y += lineHeight;
 
       const dayLabel = dayNames[idioma][dias] || dias;
-      doc.text(`${t("dia")}: ${dayLabel}`, margin, y);
+      doc.text(`${t("día")}: ${dayLabel}`, margin, y);
       y += lineHeight + 5;
 
       const grouped = groupIngredients(adultos, ninos, semana, dias);
       const ingredientsArray = Object.values(grouped);
       ingredientsArray.sort((a, b) => a.nombre.localeCompare(b.nombre));
 
-      doc.setFont("helvetica", "bold");
+      doc.setFont("Xunta Sans", "bold");
       doc.setTextColor(0, 0, 150);
       doc.text(t("lista-ingredientes") || "Lista de Ingredientes:", margin, y);
       y += lineHeight;
-      doc.setFont("helvetica", "normal");
+      doc.setFont("Xunta Sans", "normal");
       doc.setTextColor(0, 0, 0);
 
       let colLeft = margin + 10;
@@ -519,8 +519,8 @@ async function generarRecetarioPDF(adultos, ninos, semana, dias) {
       
       function addHeaderFooter() {
         doc.addImage(headerData, "PNG", 20, 5, 170, 15);
-        doc.addImage(footerData, "PNG", 10, pageHeight - 25, 90, 15);
-        doc.setFont("helvetica", "italic");
+        doc.addImage(footerData, "PNG", 10, pageHeight - 25, 30, 15);
+        doc.setFont("Xunta Sans", "italic");
         doc.setFontSize(10);
         doc.text(`${t("pagina")} ${pageNumber}`, pageWidth - 30, pageHeight - 10);
       }
@@ -534,14 +534,14 @@ async function generarRecetarioPDF(adultos, ninos, semana, dias) {
       y += lineHeight;
 
       // 👤 Datos
-      doc.setFont("helvetica", "normal");
+      doc.setFont("Xunta Sans", "normal");
       doc.setFontSize(12);
       doc.text(`${t("adultos")}: ${adultos}  |  ${t("ninos")}: ${ninos}`, margin, y);
       y += lineHeight;
       doc.text(`${t("semana")}: ${semana === "9" ? t("todas-semanas") : t("semana") + " " + semana}`, margin, y);
       y += lineHeight;
       const dayLabel = dayNames[idioma][dias];
-      doc.text(`${t("dia")}: ${dayLabel}`, margin, y);
+      doc.text(`${t("día")}: ${dayLabel}`, margin, y);
       y += lineHeight + 5;
 
       // 🧾 Contenido
@@ -557,7 +557,7 @@ async function generarRecetarioPDF(adultos, ninos, semana, dias) {
               const dayName = dayNames[idioma][day.dia];
               doc.setFontSize(12);
               doc.setTextColor(0, 0, 0);
-              doc.text(`${t("dia")}: ${dayName}`, margin, y);
+              doc.text(`${t("día")}: ${dayName}`, margin, y);
               y += lineHeight;
 
               ["almorzo", "comida", "merenda", "cea"].forEach((type) => {
@@ -565,16 +565,16 @@ async function generarRecetarioPDF(adultos, ninos, semana, dias) {
                   const meal = day[type];
                   const typeLabel = mealTypeNames[idioma][type] || type;
 
-                  doc.setFont("helvetica", "bold");
+                  doc.setFont("Xunta Sans", "bold");
                   doc.text(`${typeLabel}:`, margin, y);
-                  doc.setFont("helvetica", "normal");
+                  doc.setFont("Xunta Sans", "normal");
                   doc.text(meal.nombre, margin + 30, y);
                   y += lineHeight;
 
                   if (meal.ingredientes.length > 0) {
-                    doc.setFont("helvetica", "bold");
+                    doc.setFont("Xunta Sans", "bold");
                     doc.text(`${t("ingredientes")}:`, margin + 5, y);
-                    doc.setFont("helvetica", "normal");
+                    doc.setFont("Xunta Sans", "normal");
                     y += lineHeight;
 
                     let colLeft = margin + 10;
@@ -597,9 +597,9 @@ async function generarRecetarioPDF(adultos, ninos, semana, dias) {
                   }
 
                   if (meal.instrucciones.length > 0) {
-                    doc.setFont("helvetica", "bold");
+                    doc.setFont("Xunta Sans", "bold");
                     doc.text(`${t("instrucciones")}:`, margin + 5, y);
-                    doc.setFont("helvetica", "normal");
+                    doc.setFont("Xunta Sans", "normal");
                     y += lineHeight;
 
                     meal.instrucciones.forEach((step) => {

@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
     img.src = item.imagen;
     img.alt = item.nombre;
     img.style.width = "100%";
-    img.style.height = "200px";
+    img.style.height = "250px";
     img.style.objectFit = "cover";
   
     const cardBody = document.createElement("div");

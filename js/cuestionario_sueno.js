@@ -594,13 +594,13 @@ html += `
 
   
     // TÍTULO
-    doc.setFont("helvetica", "bold");
+    doc.setFont("Xunta Sans", "bold");
     doc.setFontSize(16);
     doc.text(t("psqi-titulo"), margenIzq, y);
     y += 10;
   
     // DATOS PERSONALES
-    doc.setFont("helvetica", "normal");
+    doc.setFont("Xunta Sans", "normal");
     doc.setFontSize(12);
     doc.setTextColor(50, 50, 50);
     doc.text(`${t("modal-edad")}: ${datosFormulario.edad}`, margenIzq, y);
@@ -619,14 +619,14 @@ html += `
       const tituloKey = `psqi-${nombre}`;
   
       // Componente
-      doc.setFont("helvetica", "bold");
+      doc.setFont("Xunta Sans", "bold");
       doc.setFontSize(13);
       doc.setTextColor(33, 37, 41);
       doc.text(t(tituloKey), margenIzq, y);
       y += 7;
   
       // Comentario
-      doc.setFont("helvetica", "normal");
+      doc.setFont("Xunta Sans", "normal");
       doc.setFontSize(11);
       doc.setTextColor(60, 60, 60);
       const comentarioLineas = doc.splitTextToSize(comp.comentario, anchoTexto);
@@ -639,13 +639,13 @@ html += `
         nombre === "eficiencia-habitual" ||
         (nombre === "perturbaciones" && Array.isArray(comp.recomendaciones))
       ) {
-        doc.setFont("helvetica", "bold");
+        doc.setFont("Xunta Sans", "bold");
         doc.setFontSize(12);
         doc.setTextColor(0, 102, 204);
         doc.text(t("recomendaciones-sueno-titulo"), margenIzq, y);
         y += 7;
   
-        doc.setFont("helvetica", "normal");
+        doc.setFont("Xunta Sans", "normal");
         doc.setFontSize(11);
         doc.setTextColor(80, 80, 80);
   
@@ -688,7 +688,7 @@ html += `
     }
   
     // PUNTUACIÓN FINAL
-    doc.setFont("helvetica", "bold");
+    doc.setFont("Xunta Sans", "bold");
     doc.setFontSize(13);
     doc.setTextColor(0, 128, 0);
     doc.text(`${t("psqi-total")}: ${resultadoPSQI.total}`, margenIzq, y);
