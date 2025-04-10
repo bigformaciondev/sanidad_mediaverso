@@ -825,7 +825,7 @@ progress {
     max-width: 1140px;
   }
 }
-@media (max-width: 1280px) {
+@media (max-width: 1440px) {
   .navbar{
     overflow-y: auto;
   }
