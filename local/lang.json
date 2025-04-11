@@ -359,7 +359,8 @@
     "descargar-cesta-compra": "Descargar cesta de la compra",
     "recetario-semanal": "Recetario Semanal",
     "titulo-cesta-compra": "Cesta de la Compra",
-    "lista-ingredientes": "Lista de Ingredientes"
+    "lista-ingredientes": "Lista de Ingredientes",
+    "ayuda": "Ayuda"
   },
   "gl": {
     "welcome": "Benvidos",
@@ -723,6 +724,7 @@
     "descargar-cesta-compra": "Descargar cesta da compra",
     "recetario-semanal": "Recetario Semanal",
     "titulo-cesta-compra": "Cesta da Compra",
-    "lista-ingredientes": "Listaxe de Ingredentes"
+    "lista-ingredientes": "Listaxe de Ingredentes",
+    "ayuda": "Axuda"
   }
 }
