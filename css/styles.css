@@ -825,22 +825,17 @@ progress {
     max-width: 1140px;
   }
 }
-@media (max-width: 1440px) and (max-height: 800px) {
+@media (min-width: 1440px) and (max-height: 800px) {
   .navbar {
     overflow-y: auto;
     max-height: 100vh;
   }
 }
 
-@media (max-width: 1440px) and (max-height: 900px) {
+@media (min-width: 1440px) and (max-height: 900px) {
   .navbar {
     overflow-y: auto;
     max-height: 100vh;
-  }
-}
-@media (max-width: 992px) {
-  .navbar {
-    overflow-y: hidden;
   }
 }
 /* Estilo base de cada item */
