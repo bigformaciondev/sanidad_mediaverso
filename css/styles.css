@@ -825,14 +825,54 @@ progress {
     max-width: 1140px;
   }
 }
-@media (max-width: 1440px) {
-  .navbar{
+@media (max-width: 1440px) and (max-height: 800px) {
+  .navbar {
     overflow-y: auto;
+    max-height: 100vh;
+  }
+}
+
+@media (max-width: 1440px) and (max-height: 900px) {
+  .navbar {
+    overflow-y: auto;
+    max-height: 100vh;
   }
 }
 @media (max-width: 992px) {
-  .navbar{
-    overflow-y: hidden !important;
+  .navbar {
+    overflow-y: hidden;
+  }
+}
+/* Estilo base de cada item */
+.menu-item {
+  flex: 0 1 calc(50% - 1rem); /* 2 por fila en móvil */
+  text-align: center;
+}
+
+/* Imagen dentro del item */
+.menu-item img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ajuste del enlace */
+.menu-item a {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+/* En pantallas más grandes (ej. >=768px), que vuelvan al diseño horizontal */
+@media (min-width: 768px) {
+  #nav-menu {
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+
+  .menu-item {
+    flex: 0 1 auto;
   }
 }
 @media (min-width: 1400px) {
@@ -13126,6 +13166,10 @@ iframe {
     width: 80px !important;
     /* Reduce el tamaño en portátiles */
     height: 71px !important;
+  }
+  .titulos-index {
+    width: 100% !important;
+    font-size: 2.4rem;
   }
   .titulos-index-categorias {
     font-size: 2rem;

@@ -49,23 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const navUl = document.getElementById("nav-menu");
     navUl.innerHTML = "";
   
-    // Agrega la pestaña "Todos"
-    const liTodos = document.createElement("li");
-    liTodos.className = "nav-item";
-    const aTodos = document.createElement("a");
-    // Se le asignan las clases activas para que "Todos" sea la pestaña por defecto
-    aTodos.className = "nav-link active show text-light";
-    aTodos.setAttribute("data-bs-toggle", "tab");
-    aTodos.setAttribute("data-bs-target", "#todos-filter");
-    /*aTodos.innerText = "Todos"; // Puedes traducirlo si lo deseas*/
-    
-    liTodos.appendChild(aTodos);
-    navUl.appendChild(liTodos);
+   
   
     // Agrega las demás pestañas basadas en el JSON
     menus.forEach(menu => {
       const li = document.createElement("li");
-      li.className = "nav-item";
+      li.className = "nav-item menu-item";
   
       const img = document.createElement("img");
       img.id = "circulo";
@@ -87,6 +76,18 @@ document.addEventListener("DOMContentLoaded", function () {
       li.appendChild(a);
       navUl.appendChild(li);
     });
+     // Agrega la pestaña "Todos"
+     const liTodos = document.createElement("li");
+     liTodos.className = "nav-item";
+     const aTodos = document.createElement("a");
+     // Se le asignan las clases activas para que "Todos" sea la pestaña por defecto
+     aTodos.className = "nav-link active show text-light";
+     aTodos.setAttribute("data-bs-toggle", "tab");
+     aTodos.setAttribute("data-bs-target", "#todos-filter");
+     /*aTodos.innerText = "Todos"; // Puedes traducirlo si lo deseas*/
+     
+     liTodos.appendChild(aTodos);
+     navUl.appendChild(liTodos);
   }
   
   function renderPaginationControls(totalItems, itemsPerPage, currentPage, container, onPageClick) {
@@ -204,13 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll(".nav-link[data-bs-target]");
     
     tabs.forEach(tab => {
-      console.log("tab atributo");
-      console.log(tab.getAttribute("data-bs-target"));
-      console.log("category");
-      console.log(category);
       if (tab.getAttribute("data-bs-target") === category) {
-        console.log("tab");
-        console.log(tab);
         tab.click(); // Simula el clic en la pestaña correspondiente
       }
     });
