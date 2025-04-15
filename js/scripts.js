@@ -217,18 +217,22 @@ document.addEventListener("DOMContentLoaded", function () {
   
     const card = document.createElement("div");
     card.className = "card rounded-4 shadow text-center hover-scale";
-  
+  // Altura dinámica basada en el alto de la pantalla (máximo 35% del alto)
+  const screenHeight = window.innerHeight;
+  const imgHeight = Math.min(Math.max(screenHeight * 0.25, 250), 400); // entre 250px y 400px
+  const bodyHeight = Math.min(Math.max(screenHeight * 0.15, 180), 300); // entre 180px y 300px
+
     const img = document.createElement("img");
     img.className = "card-img-top rounded-top";
     img.src = item.imagen;
     img.alt = item.nombre;
     img.style.width = "100%";
-    img.style.height = "250px";
+    img.style.height = `${imgHeight}px`;
     img.style.objectFit = "cover";
   
     const cardBody = document.createElement("div");
     cardBody.className = "card-body";
-    cardBody.style.height = "180px";
+    cardBody.style.height = `${bodyHeight}px`;
     const badge = document.createElement("span");
     badge.className = "badge bg-secondary mb-2";
     badge.innerText = item.badge;
