@@ -7895,7 +7895,7 @@
         },
         "cea": {
           "nombre": "Salteado de cogomelos e alcachofas con polo. Pan integral. Pera",
-          "ingredients": [
+          "ingredientes":[
             {
               "nombre": "Cogomelos",
               "cantidad": 80,
