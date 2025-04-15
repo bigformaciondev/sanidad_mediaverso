@@ -731,6 +731,83 @@ function validateFormValues(adultos, ninos, semana, dias) {
 
   return true;
 }
+//Descarga el menu semanal 
+// Nueva función: Generar PDF del menú semanal en tabla horizontal
+async function generarMenuSemanalPDF() {
+  const semana = document.getElementById("semanaForm").value.trim();
+
+  if (semana === "9") {
+    alert("Por favor, selecciona una semana específica para generar el menú semanal.");
+    return;
+  }
+
+  const weekData = mealPlanData.find((week) => week.semana === parseInt(semana, 10));
+  if (!weekData) {
+    alert("Semana no encontrada.");
+    return;
+  }
+
+  const idioma = localStorage.getItem("language") || "es";
+  const { t } = await cargarTraducciones();
+
+  // Cargar la imagen superior
+  const headerData = await new Promise((resolve) => {
+    getImageData("../../assets/img/planificador-comidas-subbanner1.png", resolve);
+  });
+
+  // Crear contenedor temporal
+  const tempContainer = document.createElement("div");
+  tempContainer.style.width = "1200px";
+  tempContainer.style.padding = "30px";
+  tempContainer.style.fontFamily = "'Xunta Sans', sans-serif";
+  tempContainer.style.backgroundColor = "#fff";
+
+  // Imagen del menú
+  const img = document.createElement("img");
+  img.src = headerData;
+  img.style.width = "100%";
+  img.style.marginBottom = "20px";
+  tempContainer.appendChild(img);
+
+  // Título de semana
+  const titulo = document.createElement("h4");
+  titulo.className = "text-center mb-4 fw-bold";
+  titulo.innerText = `${t("semana")} ${semana}`;
+  titulo.style.textAlign = "center";
+  tempContainer.appendChild(titulo);
+
+  // Tabla
+  const table = renderWeekTableWithoutThead(weekData);
+
+  // Eliminar primera columna vertical (la de SEMANA)
+  const firstTd = table.querySelector("tr td[rowspan]");
+  if (firstTd) firstTd.remove();
+
+  table.style.borderCollapse = "collapse";
+  table.style.width = "100%";
+  table.style.fontSize = "14px";
+
+  tempContainer.appendChild(table);
+  document.body.appendChild(tempContainer);
+
+  const canvas = await html2canvas(tempContainer, { scale: 2 });
+
+  const imgData = canvas.toDataURL("image/png");
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({ orientation: "landscape" });
+
+  const pageWidth = pdf.internal.pageSize.getWidth();
+  const imgWidth = pageWidth - 20;
+  const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+  pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+  pdf.save(`menu_semanal_semana${semana}.pdf`);
+
+  document.body.removeChild(tempContainer);
+}
+
+
+
 
 
 // Asignamos eventos a los botones del formulario
@@ -771,4 +848,16 @@ document.getElementById("btnCesta").addEventListener("click", function (e) {
   }
 
   generarCestaPDF(adultos, ninos, semana, dias);
+});
+document.getElementById("btnMenuTabla").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const semana = document.getElementById("semanaForm").value.trim();
+
+  if (semana === "9") {
+    alert("Por favor, selecciona una semana específica para generar el menú.");
+    return;
+  }
+
+  generarMenuSemanalPDF(semana);
 });

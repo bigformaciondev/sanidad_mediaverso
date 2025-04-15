@@ -360,7 +360,8 @@
     "recetario-semanal": "Recetario Semanal",
     "titulo-cesta-compra": "Cesta de la Compra",
     "lista-ingredientes": "Lista de Ingredientes",
-    "ayuda": "Ayuda"
+    "ayuda": "Ayuda",
+    "descargar-menu-semanal": "Descargar menú semanal"
   },
   "gl": {
     "welcome": "Benvidos",
@@ -725,6 +726,7 @@
     "recetario-semanal": "Recetario Semanal",
     "titulo-cesta-compra": "Cesta da Compra",
     "lista-ingredientes": "Listaxe de Ingredentes",
-    "ayuda": "Axuda"
+    "ayuda": "Axuda",
+    "descargar-menu-semanal": "Descargar menú semanal"
   }
 }
