@@ -39,12 +39,12 @@
   <link rel="icon" href="assets/favicon.webp" type="image/webp">
 
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMP3WWFF30"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-WMP3WWFF30');
   </script>
 
   <!-- Datos estructurados con JSON-LD (opcional, personalizable según el contenido real del portal) -->
@@ -96,7 +96,14 @@
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
         class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse h-100  flex-column px-2" id="navbarResponsive">
-      <ul class="navbar-nav text-center h-100">
+      <div class="navbar-brand d-flex justify-content-center text-light">
+        <div class="d-flex ms-2 w-100  d-flex justify-content-center">
+          <a href="https://vida-saudable.sergas.gal/" class="text-light justify-content-center" title="Enlace a Xanela Aberta">
+            <img src="assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-2 w-100 mw-100" >
+          </a>
+        </div>
+      </div>
+      <ul class="navbar-nav text-center h-100 mt-2">
         <li class="nav-item h-25"><img id="circulo" src="assets/logo/alimentacion-saludable-logo1.png"  onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger pt-3"
             href="index.html#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
         <li class="nav-item h-25"><img id="circulo" src="assets/logo/actividad-fisicas-logo1.png"  onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger pt-3"
@@ -115,21 +122,16 @@
         </div>
         <div class="d-flex align-items-center ms-2" onclick="changeLanguage('gl')" role="button">
           <img src="assets/flag/glflag.svg" alt="Galego" class="mx-1 flag-icon">
-          <span data-translate="gallego" style="font-size: 1rem;">Gallego</span>
+          <span data-translate="gallego" style="font-size: 1rem;"></span>
         </div>
         <!-- Descargas -->
-        <div class="ms-2">
-          <a href="content/alimentacion/descargas.html" class="text-light" title="Descargar archivos">
-            <i class="bi bi-download text-light h5"></i>
-          </a>
-        </div>
+        
       </div>
-      <div class="navbar-brand d-flex justify-content-between text-light mt-2">
-        <div class="d-flex ms-2 w-100  d-flex justify-content-center">
-          <a href="https://vida-saudable.sergas.gal/" class="text-light" title="nlace a Xanela Aberta">
-            <img src="assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-2 w-75 mw-100" >
+      <div class="navbar-brand d-flex justify-content-center text-light mt-1 p-0">
+          <a href="content/alimentacion/descargas.html" class="text-light text-decoration-none" title="Descargar archivos">
+            <i class="bi bi-download text-light h5"></i>
+            <span data-translate="descargas" style="font-size: 1rem;"></span>
           </a>
-        </div>
       </div>
     </div>
     
@@ -248,6 +250,7 @@
     </section>
     <section id="menu" class="menu section">
       <ul id="nav-menu" class="nav flex-wrap justify-content-center text-center bg-primary p-3 gap-3" data-aos="fade-up" data-aos-delay="100">
+        
           <!-- Aquí se inyectarán los elementos del nav -->
         </ul>
 
@@ -333,7 +336,7 @@
         </div>
       </div>
     </footer>
-
+    <script src="js/encuesta_satisfaccion.js"></script>
   <script src="js/scripts.js"></script>
   <script src="js/lang.js"></script>
 </body>

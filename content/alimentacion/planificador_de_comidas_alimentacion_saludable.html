@@ -35,24 +35,27 @@
 
   <!-- jsPDF para exportar PDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  
+  <!-- html2canvas para sacar imagen de los menus semanal en el PDF -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
   <!-- Favicon -->
   <link rel="icon" href="../../assets/favicon.webp" type="image/webp" />
 
   <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMP3WWFF30"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-WMP3WWFF30');
   </script>
 </head>
 
 
 <body id="page-top">
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+   <!-- Navigation-->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
       <div class="navbar-brand d-flex text-light">
         <a class="p-1 text-light"
@@ -81,6 +84,13 @@
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
         class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse h-100  flex-column px-2" id="navbarResponsive">
+      <div class="navbar-brand d-flex justify-content-center text-light">
+        <div class="d-flex ms-2 w-100  d-flex justify-content-center">
+          <a href="https://vida-saudable.sergas.gal/" class="text-light justify-content-center" title="Enlace a Xanela Aberta">
+            <img src="../../assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-2 w-100 mw-100" >
+          </a>
+        </div>
+      </div>
       <ul class="navbar-nav text-center h-100">
         <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png"  onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger pt-3"
             href="../../index.html#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
@@ -108,19 +118,18 @@
           </a>
         </div>
       </div>
-      <div class="navbar-brand d-flex justify-content-between text-light mt-2">
-        <div class="d-flex ms-2 w-100  d-flex justify-content-center">
-          <a href="https://vida-saudable.sergas.gal/" class="text-light" title="nlace a Xanela Aberta">
-            <img src="../../assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-1 mw-100" >
-          </a>
-        </div>
+      <div class="navbar-brand d-flex justify-content-center text-light mt-1 p-0">
+        <a href="../../content/alimentacion/descargas.html" class="text-light text-decoration-none" title="Descargar archivos">
+          <i class="bi bi-download text-light h5"></i>
+          <span data-translate="descargas" style="font-size: 1rem;"></span>
+        </a>
       </div>
     </div>
     
   </nav>
   <!-- Page Content-->
   <div class="container-fluid p-0">
-    <div class="d-flex justify-content-center w-100 my-3">
+     <div class="d-flex justify-content-center w-100 my-3 p-3">
       <h2 class="" data-translate="planificador-comidas">Planificador de comidas</h2>
     </div>
     <div id="form-container" class="container py-4">
@@ -142,7 +151,7 @@
             <label for="semanaForm" class="form-label" data-translate="semana">Semana</label>
             <select class="form-select" id="semanaForm">
               <option value="9" data-translate="todas-semanas" selected>Todas las semanas</option>
-              <option value="1">Semana 1</option>
+              <option value="1" selected>Semana 1</option>
               <option value="2">Semana 2</option>
               <option value="3">Semana 3</option>
               <option value="4">Semana 4</option>
@@ -173,6 +182,7 @@
           <div class="col d-flex w-100">
             <button id="btnRecetario" type="submit" class="btn btn-primary me-2 w-50" data-translate="descargar-recetario">Descargar recetario</button>
             <button id="btnCesta" type="submit" class="btn btn-outline-primary w-50" data-translate="descargar-cesta-compra">Descargar cesta de la compra</button>
+            <button id="btnMenuTabla" type="submit" class="btn btn-primary ms-2 w-50" data-translate="descargar-menu-semanal">Descargar Menu Semanal</button>            
           </div>
         </div>
       </form>
@@ -183,8 +193,11 @@
       <img src="../../assets/img/planificador-comidas-subbanner1.png" alt="Español" class="w-100">
     </div>
 
-    <div id="week-container" class="container my-4">
-      <!-- Aquí se renderizará la tabla de la semana seleccionada -->
+    <div class="container my-4">
+      <div id="week-container" class="table-responsive">
+ <!-- Aquí se renderizará la tabla de la semana seleccionada -->
+      </div>
+     
     </div>
 
     <div id="week-pagination" class="container">
@@ -252,33 +265,17 @@
       </div>
     </footer>
   </div>
+ 
+ 
+  <script src="../../js/scripts_submenus.js"></script>
+  <script src="../../js/lang_submenus.js"></script>
   <script src="../../js/planificador_comidas.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-  // Determinar el idioma actual. Si no está definido, se usa "es" por defecto.
-  const lang = localStorage.getItem("language") || "es";
-  // Construir la ruta del JSON según el idioma
-  let jsonPath;
-  if (lang === "gl") {
-    jsonPath = "../../local/plan_alimentacion_completo.json";
-  } else {
-    jsonPath = "../../local/plan_alimentacion_completo_es.json";
-  }
-  
-  fetch(jsonPath)
-    .then(response => response.json())
-    .then(data => {
-      // Asigna los datos a la variable global
-      window.mealPlanData = data;
-      // Muestra la semana 1 y la paginación
-      showWeek(1);
-      renderWeekPagination();
-    })
-    .catch(error => console.error("Error al cargar el plan de alimentación:", error));
-});
-  </script>
-  <script src="../../js/scripts_submenus.js"></script>
-  <script src="../../js/lang_submenus.js"></script>
+   loadMealPlanData(); // Carga los datos y renderiza
+ });
+ 
+   </script>
 </body>
 <!-- Modal para mostrar detalles de la comida -->
 <div class="modal fade" id="mealModal" tabindex="-1" aria-labelledby="mealModalLabel" aria-hidden="true">

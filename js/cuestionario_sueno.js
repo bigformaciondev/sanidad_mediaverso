@@ -548,13 +548,58 @@ html += `
 
     modal.show();
   }
+/**
+ * Carga una imagen y la convierte en base64 para jsPDF
+ * @param {string} url - URL de la imagen
+ * @param {function} callback - Función que recibe el base64
+ */
+function getImageData(url, callback) {
+  const img = new Image();
+  img.crossOrigin = "Anonymous";
+  img.src = url;
+  img.onload = function () {
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    const dataURL = canvas.toDataURL("image/png");
+    callback(dataURL);
+  };
+  img.onerror = function (err) {
+    console.error("Error al cargar la imagen:", url, err);
+    callback(null);
+  };
+}
+function addHeader(doc, isFirstPage, firstPageHeaderData, headerData) {
+  let yOffset = 0;
+  const yImg = 10; // margen superior
+  const imgHeight = 30;
 
+  if (isFirstPage && firstPageHeaderData) {
+    doc.addImage(firstPageHeaderData, "PNG", 10, yImg, 190, 15);
+    yOffset = yImg + imgHeight + 5;
+  } else if (headerData) {
+    doc.addImage(headerData, "PNG", 10, yImg, 190, 15);
+    yOffset = yImg + imgHeight + 5;
+  }
+
+  return yOffset;
+}
+function addFooter(doc, footerData) {
+  const pageHeight = doc.internal.pageSize.height;
+  if (footerData) {
+    doc.addImage(footerData, "PNG", 10, pageHeight - 20, 40, 15);
+  }
+}
   async function generarPDFconPSQI(resultadoPSQI, datosFormulario) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     const margenIzq = 15;
+    const margenDer = 15;
     const anchoTexto = 180;
     let y = 20;
+  
     const idioma = localStorage.getItem("language") || "es";
   
     // Cargar traducciones
@@ -568,70 +613,61 @@ html += `
     const t = (key) => traducciones[idioma]?.[key] || key;
   
     // Cargar imágenes
-    if (idioma == "es") {
-      headerImgURL = "/assets/img/sueno-saludable-es.png";
-      firstHeaderImgURL ="/assets/img/sueno-saludable-es.png";
-      footerImgURL = "/assets/logo/xunta_pie.svg";
-    } else {
-      headerImgURL = "/assets/img/sueno-saludable-gal.png";
-      firstHeaderImgURL = "/assets/img/sueno-saludable-gal.png";
-      footerImgURL = "/assets/logo/xunta_pie.svg";
-    }
+    const headerImgURL = idioma === "es" ? "/assets/img/sueno-saludable-es.png" : "/assets/img/sueno-saludable-gal.png";
+    const footerImgURL = "/assets/logo/logo-xunta-azul.png";
   
-    const firstHeader = await new Promise((resolve) =>
-      getImageData(firstHeaderImgURL, resolve)
-    );
-    const header = await new Promise((resolve) =>
-      getImageData(headerImgURL, resolve)
-    );
-    const footer = await new Promise((resolve) =>
-      getImageData(footerImgURL, resolve)
-    );
+    const firstHeader = await new Promise((resolve) => getImageData(headerImgURL, resolve));
+    const footer = await new Promise((resolve) => getImageData(footerImgURL, resolve));
   
-    // Añadir cabecera inicial
-    y = addHeader(doc, true, firstHeader, header);
-
-
+    // CABECERA
+    y = addHeader(doc, true, firstHeader, firstHeader);
   
-    // TÍTULO
-    doc.setFont("helvetica", "bold");
+    // TÍTULO PRINCIPAL
+    doc.setFont("Xunta Sans", "bold");
     doc.setFontSize(16);
     doc.text(t("psqi-titulo"), margenIzq, y);
-    y += 10;
-  
-    // DATOS PERSONALES
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(12);
-    doc.setTextColor(50, 50, 50);
-    doc.text(`${t("modal-edad")}: ${datosFormulario.edad}`, margenIzq, y);
-    y += 8;
-    doc.text(`${t("modal-fecha")}: ${datosFormulario.fecha}`, margenIzq, y);
-    y += 8;
-    doc.text(`${t("modal-horas-dormidas")}: ${datosFormulario.horasDormidas}`, margenIzq, y);
     y += 12;
   
+    // DATOS PERSONALES
+    doc.setFont("Xunta Sans", "normal");
+    doc.setFontSize(12);
+    doc.setTextColor(50, 50, 50);
+    const datos = [
+      `${t("modal-edad")}: ${datosFormulario.edad}`,
+      `${t("modal-fecha")}: ${datosFormulario.fecha}`,
+      `${t("modal-horas-dormidas")}: ${datosFormulario.horasDormidas}`
+    ];
+  
+    datos.forEach(texto => {
+      doc.text(texto, margenIzq, y);
+      y += 8;
+    });
+  
     doc.setDrawColor(180);
-    doc.line(margenIzq, y, 200, y);
-    y += 10;
+    doc.line(margenIzq, y, 210 - margenDer, y);
+    y += 12;
   
     for (const nombre in resultadoPSQI.componentes) {
       const comp = resultadoPSQI.componentes[nombre];
       const tituloKey = `psqi-${nombre}`;
   
-      // Componente
-      doc.setFont("helvetica", "bold");
+      // Control de salto de página
+      y = checkSaltoPagina(doc, y, 60, footer, firstHeader);
+  
+      // Título del componente
+      doc.setFont("Xunta Sans", "bold");
       doc.setFontSize(13);
       doc.setTextColor(33, 37, 41);
       doc.text(t(tituloKey), margenIzq, y);
-      y += 7;
+      y += 8;
   
       // Comentario
-      doc.setFont("helvetica", "normal");
+      doc.setFont("Xunta Sans", "normal");
       doc.setFontSize(11);
       doc.setTextColor(60, 60, 60);
-      const comentarioLineas = doc.splitTextToSize(comp.comentario, anchoTexto);
-      doc.text(comentarioLineas, margenIzq, y);
-      y += comentarioLineas.length * 6;
+      const comentario = doc.splitTextToSize(comp.comentario, anchoTexto);
+      doc.text(comentario, margenIzq, y);
+      y += comentario.length * 6 + 2;
   
       // Recomendaciones
       if (
@@ -639,125 +675,63 @@ html += `
         nombre === "eficiencia-habitual" ||
         (nombre === "perturbaciones" && Array.isArray(comp.recomendaciones))
       ) {
-        doc.setFont("helvetica", "bold");
+        doc.setFont("Xunta Sans", "bold");
         doc.setFontSize(12);
         doc.setTextColor(0, 102, 204);
         doc.text(t("recomendaciones-sueno-titulo"), margenIzq, y);
         y += 7;
   
-        doc.setFont("helvetica", "normal");
+        doc.setFont("Xunta Sans", "normal");
         doc.setFontSize(11);
         doc.setTextColor(80, 80, 80);
   
-        if (nombre === "latencia-sueno") {
-          for (let i = 1; i <= 7; i++) {
-            const texto = doc.splitTextToSize(`• ${t(`recomendaciones-sueno-${i}`)}`, anchoTexto);
-            doc.text(texto, margenIzq, y);
-            y += texto.length * 6;
-          }
-        }
-  
-        if (nombre === "eficiencia-habitual") {
-          for (let i = 1; i <= 3; i++) {
-            const texto = doc.splitTextToSize(`• ${t(`recomendacion-eficiencia-sueno-${i}`)}`, anchoTexto);
-            doc.text(texto, margenIzq, y);
-            y += texto.length * 6;
-          }
-        }
-  
-        if (nombre === "perturbaciones") {
-          comp.recomendaciones.forEach((clave) => {
+        const agregarRecomendaciones = (claves) => {
+          claves.forEach((clave) => {
             const texto = doc.splitTextToSize(`• ${t(clave)}`, anchoTexto);
             doc.text(texto, margenIzq, y);
-            y += texto.length * 6;
+            y += texto.length * 6 + 2;
           });
-        }
+        };
+  
+        if (nombre === "latencia-sueno") agregarRecomendaciones([...Array(7).keys()].map(i => `recomendaciones-sueno-${i + 1}`));
+        if (nombre === "eficiencia-habitual") agregarRecomendaciones([...Array(3).keys()].map(i => `recomendacion-eficiencia-sueno-${i + 1}`));
+        if (nombre === "perturbaciones") agregarRecomendaciones(comp.recomendaciones);
       }
   
-      y += 8;
+      y += 5;
       doc.setDrawColor(220);
-      doc.line(margenIzq, y, 200, y);
-      y += 10;
-  
-      // Salto de página si es necesario
-      if (y > 270) {
-        addFooter(doc, footer);
-        doc.addPage();
-        y = addHeader(doc, false, firstHeader, header);
-      }
+      doc.line(margenIzq, y, 210 - margenDer, y);
+      y += 12;
     }
   
     // PUNTUACIÓN FINAL
-    doc.setFont("helvetica", "bold");
+    y = checkSaltoPagina(doc, y, 40, footer, firstHeader);
+  
+    doc.setFont("Xunta Sans", "bold");
     doc.setFontSize(13);
     doc.setTextColor(0, 128, 0);
     doc.text(`${t("psqi-total")}: ${resultadoPSQI.total}`, margenIzq, y);
-    doc.setTextColor(0, 0, 255); // Azul para simular enlace
-    doc.textWithLink("Visitar Videos recomendados", 10, 90, {
+    y += 10;
+  
+    // Enlace
+    doc.setTextColor(0, 0, 255);
+    doc.textWithLink(t("psqi-enlace-video") || "Visitar Videos recomendados", margenIzq, y, {
       url: "https://sanidademediaverso.gal/content/bienestar_emocional/videos_sueno_saludable.html"
     });
-    
+  
     addFooter(doc, footer);
     doc.save("resultado-psqi.pdf");
   }
-  
-  function getImageData(url, callback) {
-    const img = new Image();
-    // Permitir solicitudes de origen cruzado si las imágenes se sirven localmente
-    img.crossOrigin = "Anonymous";
-    img.src = url;
-    img.onload = function () {
-      // Crear un canvas para extraer la imagen en base64
-      const canvas = document.createElement("canvas");
-      canvas.width = img.width;
-      canvas.height = img.height;
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0);
-      const dataURL = canvas.toDataURL("image/png");
-      callback(dataURL);
-    };
-    img.onerror = function (err) {
-      console.error("Error al cargar la imagen: " + url, err);
-      callback(null); // En caso de error, se pasa null
-    };
-  }
-  
-  /**
-   * Agrega la cabecera en la página actual.
-   * @param {jsPDF} doc - La instancia de jsPDF.
-   * @param {boolean} isFirstPage - Si es la primera página, se usa una imagen distinta.
-   * @param {string} firstPageHeaderData - Base64 de la cabecera especial (solo para la primera página).
-   * @param {string} headerData - Base64 de la cabecera para las páginas siguientes.
-   * @returns {number} - La coordenada Y a partir de la cual se puede escribir.
-   */
-  function addHeader(doc, isFirstPage, firstPageHeaderData, headerData) {
-    let yOffset = 0;
-    const yImg = 10; // margen superior
-    const imgHeight = 30; // altura real del banner
-  
-    if (isFirstPage && firstPageHeaderData) {
-      doc.addImage(firstPageHeaderData, "PNG", 10, yImg, 190, 15);
-      yOffset = yImg + imgHeight + 5; // espacio adicional tras la imagen
-    } else if (headerData) {
-      doc.addImage(headerData, "PNG", 10, yImg, 190, 15);
-      yOffset = yImg + imgHeight + 5;
+  function checkSaltoPagina(doc, y, espacioNecesario, footer, header) {
+    const limite = doc.internal.pageSize.height - 30;
+    if (y + espacioNecesario > limite) {
+      addFooter(doc, footer);
+      doc.addPage();
+      return addHeader(doc, false, header, header);
     }
-  
-    return yOffset;
+    return y;
   }
-  
-  
-  /**
-   * Agrega el pie de página en la página actual.
-   * @param {jsPDF} doc - La instancia de jsPDF.
-   * @param {string} footerData - Base64 de la imagen del pie de página.
-   */
-  function addFooter(doc, footerData) {
-    const pageHeight = doc.internal.pageSize.height;
-    if (footerData) {
-      doc.addImage(footerData, "PNG", 10, pageHeight - 20, 40, 15); // Y = parte inferior
-    }
-  }
+    
   
   
 });

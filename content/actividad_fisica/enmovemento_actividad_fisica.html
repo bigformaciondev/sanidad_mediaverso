@@ -33,26 +33,14 @@
     <link rel="icon" href="../../assets/favicon.webp" type="image/webp" />
   
     <!-- Estilo específico para iframe YouTube -->
-    <style>
-      html, body, div#yt, iframe {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-      }
-      iframe {
-        display: block;
-        width: 100%;
-        border: none;
-      }
-    </style>
   
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMP3WWFF30"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-WMP3WWFF30');
     </script>
   
     <!-- Datos estructurados JSON-LD para App institucional -->
@@ -110,6 +98,13 @@
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
           class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse h-100  flex-column px-2" id="navbarResponsive">
+        <div class="navbar-brand d-flex justify-content-center text-light">
+          <div class="d-flex ms-2 w-100  d-flex justify-content-center">
+            <a href="https://vida-saudable.sergas.gal/" class="text-light justify-content-center" title="Enlace a Xanela Aberta">
+              <img src="../../assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-2 w-100 mw-100" >
+            </a>
+          </div>
+        </div>
         <ul class="navbar-nav text-center h-100">
           <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png"  onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger pt-3"
               href="../../index.html#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
@@ -130,32 +125,25 @@
             <img src="../../assets/flag/glflag.svg" alt="Galego" class="mx-1 flag-icon">
             <span data-translate="gallego" style="font-size: 1rem;">Gallego</span>
           </div>
-          <!-- Descargas -->
-          <div class="ms-2">
-            <a href="../../content/alimentacion/descargas.html" class="text-light" title="Descargar archivos">
-              <i class="bi bi-download text-light h5"></i>
-            </a>
-          </div>
         </div>
-        <div class="navbar-brand d-flex justify-content-between text-light mt-2">
-          <div class="d-flex ms-2 w-100  d-flex justify-content-center">
-            <a href="https://vida-saudable.sergas.gal/" class="text-light" title="nlace a Xanela Aberta">
-              <img src="../../assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-1 mw-100" >
-            </a>
-          </div>
+        <div class="navbar-brand d-flex justify-content-center text-light mt-1 p-0">
+          <a href="../../content/alimentacion/descargas.html" class="text-light text-decoration-none" title="Descargar archivos">
+            <i class="bi bi-download text-light h5"></i>
+            <span data-translate="descargas" style="font-size: 1rem;"></span>
+          </a>
         </div>
       </div>
       
     </nav>
     <!-- Page Content-->
-    <div class="container-fluid " id="yt">
-        <div class="d-flex justify-content-center w-100 my-3">
+    <div class="container-fluid p-0" id="yt">
+         <div class="d-flex justify-content-center w-100 my-3 p-3">
           <h2 class="" data-translate="enmovemento">EnMovemento</h2>
         </div>
         <div class="m-3 p-3">
-            <span data-translate="enmovemento-1">Con el objetivo de prevenir la fragilidad en personas mayores, la Consellería de Sanidade de la Xunta de Galicia ofrece la aplicación de realidad virtual </span><b data-translate="enmovemento">«EnMovemento»</b>. <span data-translate="enmovemento-2">Esta novedosa herramienta, que cuenta con 3 niveles de dificultad para adaptarse al nivel de autonomía de las personas, permite realizar entrenamientos con ejercicios multicomponente guiados incluso a personas en sillas de ruedas.</span>
+            <span data-translate="enmovemento-1"> </span><b data-translate="enmovemento">«EnMovemento»</b>. <span data-translate="enmovemento-2">Esta novedosa herramienta, que cuenta con 3 niveles de dificultad para adaptarse al nivel de autonomía de las personas, permite realizar entrenamientos con ejercicios multicomponente guiados incluso a personas en sillas de ruedas.</span>
         </div>
-        <div id="yt" class="m-3 p-3">
+        <div id="yt" class="ratio ratio-16x9 my-3 px-3">
             <iframe src="https://www.youtube.com/embed/D3-tMCJgRvc?si=th1JHxUxQpA58Rm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
         </div>
         <div class="m-3 p-3">
@@ -171,7 +159,7 @@
           <div class="m-3 p-3">
               <span data-translate="enmovemento-9">El objetivo de la aplicación es lograr la transmisión, práctica y formación sobre los ejercicios para poder realizarlos posteriormente. Si desea solicitar el uso de la aplicación, puede hacerlo contactando con la Consellería en la dirección de correo <a href="mailto:smediaverso_regaps@sergas.es">smediaverso_regaps@sergas.es</a></span>
           </div>
-         <div class="d-flex justify-content-center w-100 my-3">
+          <div class="d-flex justify-content-center w-100 my-3 p-3">
             <img class="w-100" src="../../assets/img/en-movimiento-subbanner1.webp" />
         </div>
         <footer id="footer" class="footer bg-primary text-light py-3">

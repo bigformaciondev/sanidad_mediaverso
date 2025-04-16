@@ -49,23 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const navUl = document.getElementById("nav-menu");
     navUl.innerHTML = "";
   
-    // Agrega la pestaña "Todos"
-    const liTodos = document.createElement("li");
-    liTodos.className = "nav-item";
-    const aTodos = document.createElement("a");
-    // Se le asignan las clases activas para que "Todos" sea la pestaña por defecto
-    aTodos.className = "nav-link active show text-light";
-    aTodos.setAttribute("data-bs-toggle", "tab");
-    aTodos.setAttribute("data-bs-target", "#todos-filter");
-    /*aTodos.innerText = "Todos"; // Puedes traducirlo si lo deseas*/
-    
-    liTodos.appendChild(aTodos);
-    navUl.appendChild(liTodos);
+   
   
     // Agrega las demás pestañas basadas en el JSON
     menus.forEach(menu => {
       const li = document.createElement("li");
-      li.className = "nav-item";
+      li.className = "nav-item menu-item";
   
       const img = document.createElement("img");
       img.id = "circulo";
@@ -87,6 +76,18 @@ document.addEventListener("DOMContentLoaded", function () {
       li.appendChild(a);
       navUl.appendChild(li);
     });
+     // Agrega la pestaña "Todos"
+     const liTodos = document.createElement("li");
+     liTodos.className = "nav-item";
+     const aTodos = document.createElement("a");
+     // Se le asignan las clases activas para que "Todos" sea la pestaña por defecto
+     aTodos.className = "nav-link active show text-light";
+     aTodos.setAttribute("data-bs-toggle", "tab");
+     aTodos.setAttribute("data-bs-target", "#todos-filter");
+     /*aTodos.innerText = "Todos"; // Puedes traducirlo si lo deseas*/
+     
+     liTodos.appendChild(aTodos);
+     navUl.appendChild(liTodos);
   }
   
   function renderPaginationControls(totalItems, itemsPerPage, currentPage, container, onPageClick) {
@@ -204,13 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll(".nav-link[data-bs-target]");
     
     tabs.forEach(tab => {
-      console.log("tab atributo");
-      console.log(tab.getAttribute("data-bs-target"));
-      console.log("category");
-      console.log(category);
       if (tab.getAttribute("data-bs-target") === category) {
-        console.log("tab");
-        console.log(tab);
         tab.click(); // Simula el clic en la pestaña correspondiente
       }
     });
@@ -222,18 +217,22 @@ document.addEventListener("DOMContentLoaded", function () {
   
     const card = document.createElement("div");
     card.className = "card rounded-4 shadow text-center hover-scale";
-  
+  // Altura dinámica basada en el alto de la pantalla (máximo 35% del alto)
+  const screenHeight = window.innerHeight;
+  const imgHeight = Math.min(Math.max(screenHeight * 0.25, 250), 400); // entre 250px y 400px
+  const bodyHeight = Math.min(Math.max(screenHeight * 0.15, 180), 300); // entre 180px y 300px
+
     const img = document.createElement("img");
     img.className = "card-img-top rounded-top";
     img.src = item.imagen;
     img.alt = item.nombre;
     img.style.width = "100%";
-    img.style.height = "200px";
+    img.style.height = `${imgHeight}px`;
     img.style.objectFit = "cover";
   
     const cardBody = document.createElement("div");
     cardBody.className = "card-body";
-    cardBody.style.height = "180px";
+    cardBody.style.height = `${bodyHeight}px`;
     const badge = document.createElement("span");
     badge.className = "badge bg-secondary mb-2";
     badge.innerText = item.badge;

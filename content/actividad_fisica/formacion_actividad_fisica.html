@@ -37,12 +37,12 @@
   <link rel="icon" href="../../assets/favicon.webp" type="image/webp" />
 
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMP3WWFF30"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-WMP3WWFF30');
   </script>
 
   <!-- JSON-LD para contenido educativo -->
@@ -92,6 +92,13 @@
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
         class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse h-100  flex-column px-2" id="navbarResponsive">
+      <div class="navbar-brand d-flex justify-content-center text-light">
+        <div class="d-flex ms-2 w-100  d-flex justify-content-center">
+          <a href="https://vida-saudable.sergas.gal/" class="text-light justify-content-center" title="Enlace a Xanela Aberta">
+            <img src="../../assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-2 w-100 mw-100" >
+          </a>
+        </div>
+      </div>
       <ul class="navbar-nav text-center h-100">
         <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png"  onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger pt-3"
             href="../../index.html#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
@@ -113,37 +120,32 @@
           <span data-translate="gallego" style="font-size: 1rem;">Gallego</span>
         </div>
         <!-- Descargas -->
-        <div class="ms-2">
-          <a href="../../content/alimentacion/descargas.html" class="text-light" title="Descargar archivos">
-            <i class="bi bi-download text-light h5"></i>
-          </a>
-        </div>
+       
       </div>
-      <div class="navbar-brand d-flex justify-content-between text-light mt-2">
-        <div class="d-flex ms-2 w-100  d-flex justify-content-center">
-          <a href="https://vida-saudable.sergas.gal/" class="text-light" title="nlace a Xanela Aberta">
-            <img src="../../assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-1 mw-100" >
-          </a>
-        </div>
+      <div class="navbar-brand d-flex justify-content-center text-light mt-1 p-0">
+        <a href="../../content/alimentacion/descargas.html" class="text-light text-decoration-none" title="Descargar archivos">
+          <i class="bi bi-download text-light h5"></i>
+          <span data-translate="descargas" style="font-size: 1rem;"></span>
+        </a>
       </div>
     </div>
     
   </nav>
   <!-- Page Content-->
   <div class="container-fluid p-0 d-flex flex-column p-0" style="min-height: 100vh;">
-    <div class="d-flex justify-content-center w-100 my-3">
+     <div class="d-flex justify-content-center w-100 my-3 p-3">
       <h2 class="" data-translate="formacion-actividad"></h2>
     </div>
     <div class="row gy-5 m-2 justify-content-center flex-grow-1">
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
           <div class="card rounded-4 hover-scale  shadow text-center">
             <div class="card-header rounded-top  bg-primary">
-              <img class="card-img-top rounded-4 " src="../../assets/img/formacion-alimentacion-saludable-subbanner1.svg"
+              <img class="card-img-top rounded-4 " src="../../assets/img/formacion-actividad-fisicasubbanner1.svg"
                 style="width: 100%; height: 200px; object-fit: cover;">
             </div>
             <!-- Cambiamos justify-content-center por justify-content-start para alinear al tope -->
             <div class="card-body d-flex flex-column justify-content-start" style="height: 250px;">
-              <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
+              <span class="badge bg-secondary mb-2" data-translate="formacion-actividad"></span>
               <h4 class="mt-2" data-translate="formacion-actividad-1"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
               <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(1)"></button>       
@@ -159,7 +161,7 @@
             </div>
             <!-- Cambiamos justify-content-center por justify-content-start para alinear al tope -->
             <div class="card-body d-flex flex-column justify-content-start" style="height: 250px;">
-              <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
+              <span class="badge bg-secondary mb-2" data-translate="formacion-actividad"></span>
               <h4 class="mt-2" data-translate="formacion-actividad-2"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
               <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(2)"></button>  
@@ -175,7 +177,7 @@
             </div>
             <!-- Cambiamos justify-content-center por justify-content-start para alinear al tope -->
             <div class="card-body d-flex flex-column justify-content-start" style="height: 250px;">
-              <span class="badge bg-secondary mb-2" data-translate="formacion-alimentacion-saludable"></span>
+              <span class="badge bg-secondary mb-2" data-translate="formacion-actividad"></span>
               <h4 class="mt-2" data-translate="formacion-actividad-3"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
               <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(3)"></button>   
@@ -256,8 +258,8 @@
       gl: "assets/SCORMS/actividade-fisica-para-persoas-maiores-gal/content/#/"
     },
     rar: {
-      es: "/assets/SCORMS/actividad-fisica-para-personas-mayores.rar",
-      gl: "/assets/SCORMS/actividade-fisica-para-persoas-maiores-gal.rar"
+      es: "/assets/SCORMS/actividad-fisica-para-personas-mayores-es.pdf",
+      gl: "/assets/SCORMS/actividade-fisica-para-persoas-maiores-gal.pdf"
     }
   },
   {
@@ -267,8 +269,8 @@
       gl: "assets/SCORMS/go-saude-ergonomia-e-hixiene-postural-gal/#/"
     },
     rar: {
-      es: "/assets/SCORMS/go-salud-ergonomia-postural.rar",
-      gl: "/assets/SCORMS/go-saude-ergonomia-e-hixiene-postural-gal.rar"
+      es: "/assets/SCORMS/go-salud-ergonomia-postural-es.pdf",
+      gl: "/assets/SCORMS/go-saude-ergonomia-postural-gal.pdf"
     }
   },
   {
@@ -278,8 +280,8 @@
       gl: "assets/SCORMS/soporte-vital-basico-desfibrilacion-externa-semiautomatica-gal/content/#/"
     },
     rar: {
-      es: "/assets/SCORMS/soporte-vital-basico.rar",
-      gl: "/assets/SCORMS/soporte-vital-basico-desfibrilacion-externa-semiautomatica-gal.rar"
+      es: "/assets/SCORMS/soporte-vital-basico-desfibrilacion-externa-semiautomatica-es.pdf",
+      gl: "/assets/SCORMS/soporte-vital-basico-desfibrilacion-externa-semiautomatica-gal.pdf"
     }
   }
   // Agrega más SCORMs según necesites...
@@ -312,7 +314,7 @@
     async function downloadScorm(id) {
         const scormItem = scormList.find((item) => item.id === Number(id));
         if (!scormItem || !scormItem.rar) {
-          alert("Archivo SCORM no disponible para este recurso.");
+          alert("archivo PDF no disponible para este recurso.");
           return;
         }
 
@@ -330,7 +332,7 @@
           a.click();
           document.body.removeChild(a);
         } catch (err) {
-          alert("Archivo SCORM no disponible en este idioma.");
+          alert("archivo PDF no disponible en este idioma.");
         }
       }
   </script>
