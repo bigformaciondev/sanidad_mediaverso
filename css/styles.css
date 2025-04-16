@@ -825,19 +825,9 @@ progress {
     max-width: 1140px;
   }
 }
-@media (min-width: 1440px) and (max-height: 800px) {
-  .navbar {
-    overflow-y: auto;
-    max-height: 100vh;
-  }
-}
 
-@media (min-width: 1440px) and (max-height: 900px) {
-  .navbar {
-    overflow-y: auto;
-    max-height: 100vh;
-  }
-}
+
+
 /* Estilo base de cada item */
 .menu-item {
   flex: 0 1 calc(50% - 1rem); /* 2 por fila en móvil */
@@ -12882,8 +12872,9 @@ p.lead {
     flex-direction: column;
     width: 17rem;
     height: 100vh;
+    overflow-y: hidden; /* valor por defecto */
   }
-
+  
   #sideNav .navbar-brand {
     display: flex;
     margin: auto auto 0;
@@ -12916,7 +12907,11 @@ p.lead {
     display: block;
   }
 }
-
+@media (max-width: 1680px) and (min-height: 600px) and (min-width: 900px) {
+  #sideNav {
+    overflow-y: auto !important;
+  }
+}
 .social-icons .social-icon {
   display: inline-flex;
   align-items: center;

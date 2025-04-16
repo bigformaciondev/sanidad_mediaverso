@@ -247,6 +247,8 @@
     "en-tus-manos-8": "Esta experiencia inmersiva permite vivir en primera persona un conjunto de situaciones en las que es necesario tomar decisiones. Así en diferentes momentos se da a escoger entre varias opciones y, en  función de las decisiones tomadas, la historia progresa hacia diferentes desenlaces.",
     "en-tus-manos-9": "Además, dependiendo de la elección, se muestran recomendaciones o lecciones sobre el tema que se trata en ese momento.",
     "en-tus-manos-10": "En el cierre se plantea una reflexión final sobre si las decisiones tomadas a lo largo de la historia están alineadas con los valores personales seleccionados al inicio de la experiencia; así como analizar cómo nuestro entorno cercano, las redes sociales, la publicidad de determinados productos y la sociedad en conjunto influyen en nuestras decisiones. ",
+    "en-tus-manos-12":"La aplicación está disponible tanto en gallego como en castellano y es accesible a personas con discapacidad auditiva. Si desea solicitar el uso de la aplicación, puede hacerlo a través del siguiente formulario: ",
+    "en-tus-manos-13":"Para cualquier duda o aclaración puede ponerse en contacto a través de la siguiente dirección electrónica: ",
     "juega-ahora": "Juega ahora",
     "xunta-de-galicia": "Xunta de Galicia",
     "caracteristicas": "características",
@@ -362,6 +364,7 @@
     "lista-ingredientes": "Lista de Ingredientes",
     "ayuda": "Ayuda",
     "descargar-menu-semanal": "Descargar menú semanal"
+    
   },
   "gl": {
     "welcome": "Benvidos",
@@ -613,6 +616,8 @@
     "en-tus-manos-9": "Ademais, dependendo da elección, móstranse recomendacións ou leccións sobre o tema que se trata nese momento.",
     "en-tus-manos-10": "No peche exponse unha reflexión final sobre se as decisións tomadas ao longo da historia están aliñadas cos valores persoais seleccionados ao comezo da experiencia; así como analizar como a nosa contorna próxima, as redes sociais, a publicidade de determinados produtos e a sociedade en conxunto inflúen nas nosas decisións.",
     "en-tus-manos-11": "A aplicación está dispoñible tanto en galego como en castelán e é accesible a persoas con discapacidade auditiva. Se desexa solicitar o uso da aplicación, pode facelo contactando coa Consellería de Sanidade na dirección de correo: ",
+    "en-tus-manos-12":"A aplicación está dispoñible tanto en galego como en castelán e é accesible a persoas con discapacidade auditiva. Se desexa solicitar o uso da aplicación, pode facelo a través do seguinte formulario: ",
+    "en-tus-manos-13":"Para calquera dúbida ou aclaración pode poñerse en contacto a través da seguinte dirección electrónica: ",
     "juega-ahora": "Xoga agora",
     "xunta-de-galicia": "Xunta de Galicia",
     "caracteristicas": "características",
@@ -728,5 +733,6 @@
     "lista-ingredientes": "Listaxe de Ingredentes",
     "ayuda": "Axuda",
     "descargar-menu-semanal": "Descargar menú semanal"
+    
   }
 }
