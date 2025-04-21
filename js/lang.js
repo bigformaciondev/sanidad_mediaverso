@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const language = localStorage.getItem("language") || "es";
+    const language = localStorage.getItem("language") || "gl";
     changeLanguage(language);
 });
 

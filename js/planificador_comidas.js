@@ -734,77 +734,89 @@ function validateFormValues(adultos, ninos, semana, dias) {
 //Descarga el menu semanal 
 // Nueva función: Generar PDF del menú semanal en tabla horizontal
 async function generarMenuSemanalPDF() {
-  const semana = document.getElementById("semanaForm").value.trim();
-
-  if (semana === "9") {
-    alert("Por favor, selecciona una semana específica para generar el menú semanal.");
-    return;
-  }
-
-  const weekData = mealPlanData.find((week) => week.semana === parseInt(semana, 10));
-  if (!weekData) {
-    alert("Semana no encontrada.");
-    return;
-  }
-
+  const semanaSeleccionada = document.getElementById("semanaForm").value.trim();
   const idioma = localStorage.getItem("language") || "es";
   const { t } = await cargarTraducciones();
-
-  // Cargar la imagen superior
-  const headerData = await new Promise((resolve) => {
-    getImageData("../../assets/img/planificador-comidas-subbanner1.png", resolve);
-  });
-
-  // Crear contenedor temporal
-  const tempContainer = document.createElement("div");
-  tempContainer.style.width = "1200px";
-  tempContainer.style.padding = "30px";
-  tempContainer.style.fontFamily = "'Xunta Sans', sans-serif";
-  tempContainer.style.backgroundColor = "#fff";
-
-  // Imagen del menú
-  const img = document.createElement("img");
-  img.src = headerData;
-  img.style.width = "100%";
-  img.style.marginBottom = "20px";
-  tempContainer.appendChild(img);
-
-  // Título de semana
-  const titulo = document.createElement("h4");
-  titulo.className = "text-center mb-4 fw-bold";
-  titulo.innerText = `${t("semana")} ${semana}`;
-  titulo.style.textAlign = "center";
-  tempContainer.appendChild(titulo);
-
-  // Tabla
-  const table = renderWeekTableWithoutThead(weekData);
-
-  // Eliminar primera columna vertical (la de SEMANA)
-  const firstTd = table.querySelector("tr td[rowspan]");
-  if (firstTd) firstTd.remove();
-
-  table.style.borderCollapse = "collapse";
-  table.style.width = "100%";
-  table.style.fontSize = "14px";
-
-  tempContainer.appendChild(table);
-  document.body.appendChild(tempContainer);
-
-  const canvas = await html2canvas(tempContainer, { scale: 2 });
-
-  const imgData = canvas.toDataURL("image/png");
   const { jsPDF } = window.jspdf;
+
   const pdf = new jsPDF({ orientation: "landscape" });
+  let primeraPagina = true;
 
-  const pageWidth = pdf.internal.pageSize.getWidth();
-  const imgWidth = pageWidth - 20;
-  const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  const generarPagina = async (weekData, index) => {
+    // Imagen de cabecera
+    const headerData = await new Promise((resolve) => {
+      getImageData("../../assets/img/planificador-comidas-subbanner1.png", resolve);
+    });
 
-  pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-  pdf.save(`menu_semanal_semana${semana}.pdf`);
+    // Crear contenedor temporal
+    const tempContainer = document.createElement("div");
+    tempContainer.style.width = "1200px";
+    tempContainer.style.padding = "30px";
+    tempContainer.style.fontFamily = "'Xunta Sans', sans-serif";
+    tempContainer.style.backgroundColor = "#fff";
 
-  document.body.removeChild(tempContainer);
+    // Imagen
+    const img = document.createElement("img");
+    img.src = headerData;
+    img.style.width = "100%";
+    img.style.marginBottom = "20px";
+    tempContainer.appendChild(img);
+
+    // Título
+    const titulo = document.createElement("h4");
+    titulo.className = "text-center mb-4 fw-bold";
+    titulo.innerText = `${t("semana")} ${weekData.semana}`;
+    titulo.style.textAlign = "center";
+    tempContainer.appendChild(titulo);
+
+    // Tabla
+    const table = renderWeekTableWithoutThead(weekData);
+
+    const firstTd = table.querySelector("tr td[rowspan]");
+    if (firstTd) firstTd.remove();
+
+    table.style.borderCollapse = "collapse";
+    table.style.width = "100%";
+    table.style.fontSize = "14px";
+
+    tempContainer.appendChild(table);
+    document.body.appendChild(tempContainer);
+
+    // Captura como imagen
+    const canvas = await html2canvas(tempContainer, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+
+    // Añadir al PDF
+    if (!primeraPagina) pdf.addPage();
+    primeraPagina = false;
+
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const imgWidth = pageWidth - 20;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+
+    document.body.removeChild(tempContainer);
+  };
+
+  // 🧠 Lógica para 1 semana o todas
+  if (semanaSeleccionada === "9" || semanaSeleccionada.toLowerCase() === "todas") {
+    for (const weekData of mealPlanData) {
+      await generarPagina(weekData);
+    }
+    pdf.save("menu_semanal_todas_las_semanas.pdf");
+  } else {
+    const semanaNum = parseInt(semanaSeleccionada, 10);
+    const weekData = mealPlanData.find((w) => w.semana === semanaNum);
+    if (!weekData) {
+      alert("Semana no encontrada.");
+      return;
+    }
+    await generarPagina(weekData);
+    pdf.save(`menu_semanal_semana${semanaNum}.pdf`);
+  }
 }
+
 
 
 
@@ -854,10 +866,7 @@ document.getElementById("btnMenuTabla").addEventListener("click", function (e) {
 
   const semana = document.getElementById("semanaForm").value.trim();
 
-  if (semana === "9") {
-    alert("Por favor, selecciona una semana específica para generar el menú.");
-    return;
-  }
+  
 
   generarMenuSemanalPDF(semana);
 });

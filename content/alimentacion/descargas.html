@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="gl">
 
 <head>
   <meta charset="UTF-8" />
@@ -320,8 +320,8 @@
         }
         // Retorna la carpeta correspondiente al idioma actual, 
         // si no existe para ese idioma, se usa el valor por defecto en "es"
-        const language = localStorage.getItem("language") || "es";
-        return gameItem.folder[language] || gameItem.folder["es"];
+        const language = localStorage.getItem("language") || "gl";
+        return gameItem.folder[language] || gameItem.folder["gl"];
       }
   
       // Función openGame que utiliza el ID y detecta el idioma para obtener la ruta adecuada

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="gl">
 
 <head>
   <meta charset="UTF-8">
@@ -335,7 +335,7 @@
       }
       // Retorna la carpeta correspondiente al idioma actual, 
       // si no existe para ese idioma, se usa el valor por defecto en "es"
-      const language = localStorage.getItem("language") || "es";
+      const language = localStorage.getItem("language") || "gl";
       return scormItem.folder[language] || scormItem.folder["es"];
     }
 
@@ -357,7 +357,7 @@
           return;
         }
 
-        const idioma = localStorage.getItem("language") || "es";
+        const idioma = localStorage.getItem("language") || "gl";
         const rarURL = scormItem.rar[idioma] || scormItem.rar["es"];
 
         try {

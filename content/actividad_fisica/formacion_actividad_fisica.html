@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="gl">
 
 <head>
   <!-- SEO básico -->
@@ -296,8 +296,8 @@
       }
       // Retorna la carpeta correspondiente al idioma actual, 
       // si no existe para ese idioma, se usa el valor por defecto en "es"
-      const language = localStorage.getItem("language") || "es";
-      return scormItem.folder[language] || scormItem.folder["es"];
+      const language = localStorage.getItem("language") || "gl";
+      return scormItem.folder[language] || scormItem.folder["gl"];
     }
 
     // Función openScorm que utiliza el ID y detecta el idioma para obtener la ruta adecuada
@@ -318,8 +318,8 @@
           return;
         }
 
-        const idioma = localStorage.getItem("language") || "es";
-        const rarURL = scormItem.rar[idioma] || scormItem.rar["es"];
+        const idioma = localStorage.getItem("language") || "gl";
+        const rarURL = scormItem.rar[idioma] || scormItem.rar["gl"];
 
         try {
           const response = await fetch(rarURL, { method: "HEAD" });
