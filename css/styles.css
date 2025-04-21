@@ -832,12 +832,13 @@ progress {
 .menu-item {
   flex: 0 1 calc(50% - 1rem); /* 2 por fila en móvil */
   text-align: center;
+  width: 200px;
 }
 
 /* Imagen dentro del item */
 .menu-item img {
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   max-width: 100%;
   height: auto;
 }
@@ -848,7 +849,15 @@ progress {
   margin-top: 0.5rem;
   font-weight: bold;
 }
+.menu-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.menu-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
 /* En pantallas más grandes (ej. >=768px), que vuelvan al diseño horizontal */
 @media (min-width: 768px) {
   #nav-menu {
