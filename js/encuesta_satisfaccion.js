@@ -19,9 +19,13 @@ const idioma = localStorage.getItem("language") || "gl";
 const textos = traduccionesEncuesta[idioma];
 let tiempoInicio = Date.now();
 
-setTimeout(() => {
-  mostrarPopupEncuesta();
-}, 60000); // Mostrar a los 10 segundos
+// Solo mostrar una vez por sesión
+if (!sessionStorage.getItem("encuesta-mostrada")) {
+  setTimeout(() => {
+    mostrarPopupEncuesta();
+    sessionStorage.setItem("encuesta-mostrada", "true");
+  }, 60000); // Mostrar después de 60 segundos
+}
 
 function mostrarPopupEncuesta() {
   const backdrop = document.createElement("div");
