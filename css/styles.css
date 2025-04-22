@@ -13004,7 +13004,7 @@ section.resume-section .resume-section-content {
 /*background index html*/
 section#inicio-banner-1 {
   background-color: rgba(0, 0, 0, 0.075);
-  background-image: url(../assets/img/banner1.webp);
+  background-image: url(../assets/img/banner1-azul.webp);
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13022,7 +13022,7 @@ section#alimentacion-saludable {
 
 section#actividad-fisica {
   background-color: rgba(0, 0, 0, 0.075);
-  background-image: url(../assets/img/banner3.webp);
+  background-image: url(../assets/img/banner3-azul.webp);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13030,7 +13030,7 @@ section#actividad-fisica {
 
 section#bienestar-emocional {
   background-color: rgba(0, 0, 0, 0.075);
-  background-image: url(../assets/img/banner4.webp);
+  background-image: url(../assets/img/banner4-azul.webp);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
