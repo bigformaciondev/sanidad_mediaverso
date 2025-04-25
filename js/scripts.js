@@ -30,15 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const targetElement = document.getElementById(id);
   
     if (targetElement) {
+      // Scroll suave a la sección
       const navbar = document.getElementById('sideNav');
       const navbarHeight = navbar ? navbar.offsetHeight : 70; // Altura estimada por defecto
       const yOffset = -navbarHeight;
+      targetElement.scrollIntoView({top: yOffset, behavior: "smooth" });
   
-      const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
-  
-      window.scrollTo({ top: y, behavior: "smooth" });
-  
-      // Cerrar el menú responsive si está activo
+      // Cierra el menú si está activo en responsive
       const navbarToggler = document.querySelector('.navbar-toggler');
       const navbarCollapse = document.querySelector('#navbarResponsive');
   
@@ -47,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const isExpanded = navbarCollapse.classList.contains('show');
   
         if (isVisible && isExpanded) {
-          navbarToggler.click(); // Cierra el menú
+          navbarToggler.click(); // Esto cierra el menú
         }
       }
   
@@ -56,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = "index.html#" + id;
     }
   }
-  
 
 document.addEventListener("DOMContentLoaded", function () {
     fetch("../local/menu.json")
