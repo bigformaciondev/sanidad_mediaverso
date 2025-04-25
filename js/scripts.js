@@ -30,11 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const targetElement = document.getElementById(id);
   
     if (targetElement) {
-      // Scroll suave a la sección
-      var headerOffset = 45;
-      var elementPosition = element.getBoundingClientRect().top;
-      var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      targetElement.scrollIntoView({top: offsetPosition, behavior: "smooth" });
+      targetElement.scrollIntoView({top: 50, behavior: "smooth" });
   
       // Cierra el menú si está activo en responsive
       const navbarToggler = document.querySelector('.navbar-toggler');
