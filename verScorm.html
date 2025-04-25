@@ -21,8 +21,16 @@
   <!-- Icono del sitio (favicon) -->
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <style type="text/css">
-    html, body, div#yt, iframe { margin:0; padding:0; height:100%; }
-    iframe { display:block; width:100%; border:none; }
+  iframe { margin:0; padding:0; height:100%; }
+  iframe { display:block; width:100%; border:none; }
+
+  /* Bloquear scroll horizontal */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto;
+    margin:0; padding:0; height:100%;
+  }
+    
 </style>
 </head>
 

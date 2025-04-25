@@ -18,7 +18,7 @@ $contenido = file_exists($archivo) ? file_get_contents($archivo) : "";
 $nuevaLinea = "[$fechaLocal] Idioma: $idioma | Tiempo: {$tiempo}s | Respuesta: $respuesta | URL: $url | UserAgent: $userAgent\n";
 
 // Añadir al contenido (sin estadísticas)
-$contenido = preg_replace('/--- ESTADÍSTICAS(.|\s)*$/', '', $contenido); // eliminar viejo resumen
+$contenido = preg_replace('/--- ESTADISTICAS(.|\s)*$/', '', $contenido); // eliminar viejo resumen
 $contenido .= $nuevaLinea;
 
 // Calcular estadísticas
