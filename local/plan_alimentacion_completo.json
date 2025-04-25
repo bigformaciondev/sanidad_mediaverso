@@ -265,34 +265,38 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Bocadillo integral de pavo e aguacate. Nectarina",
           "ingredientes": [
             {
               "nombre": "Pan integral",
+              "cantidad": 1,
+              "unidad": "rebanada"
+            },
+            {
+              "nombre": "Pavo cocido",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
+              "nombre": "Aguacate",
+              "cantidad": 50,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Sal e pementa",
+              "cantidad": 2,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Nectarina",
               "cantidad": 1,
               "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteiga",
-              "cantidad": 5,
-              "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Machacar o aguacate e untalo sobre a rebanada de pan integral tostado.",
+            "Engadir tiras de pavo e sazonar con sal e pementa.",
+            "Servir acompañado dunha nectarina fresca."
           ]
         },
         "cea": {
@@ -437,7 +441,7 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Torrada integral de tahini con plátano",
           "ingredientes": [
             {
               "nombre": "Pan integral",
@@ -445,26 +449,20 @@
               "unidad": "g"
             },
             {
+              "nombre": "Tahini",
+              "cantidad": 15,
+              "unidad": "g"
+            },
+            {
               "nombre": "Plátano",
               "cantidad": 1,
               "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteiga",
-              "cantidad": 5,
-              "unidad": "g"
             }
           ],
           "instrucciones": [
             "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Untar tahini sobre o pan tostado.",
+            "Engadir rodaxas de plátano e servir inmediatamente."
           ]
         },
         "cea": {
@@ -603,34 +601,27 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Iogur con compota de pera",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
-              "cantidad": 50,
+              "nombre": "Iogur natural",
+              "cantidad": 150,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Pera",
+              "cantidad": 100,
               "unidad": "g"
             },
             {
-              "nombre": "Manteiga",
-              "cantidad": 5,
+              "nombre": "Canela",
+              "cantidad": 2,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Cociñar a pera en cubos cun pouco de canela ata que se amole e triturala para facer compota.",
+            "Mesturar a compota co iogur natural e servir frío."
           ]
         },
         "cea": {
@@ -769,34 +760,42 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Humus de garavanzos con paus de cenoria. Moras",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Garavanzos cocidos",
+              "cantidad": 150,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Tahini",
+              "cantidad": 15,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Zume de limón",
+              "cantidad": 10,
+              "unidad": "ml"
+            },
+            {
+              "nombre": "Cenoria",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Moras",
+              "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Manteiga",
-              "cantidad": 5,
+              "nombre": "Sal",
+              "cantidad": 2,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Licuar os garavanzos con tahini, zume de limón e sal ata obter un humus cremoso.",
+            "Servir o humus con bastóns de cenoria fresca e moras como aperitivo."
           ]
         },
         "cea": {
@@ -941,34 +940,43 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Gachas de avea con canela, limón, framboesas e sementes de xirasol",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Avea en flocos",
+              "cantidad": 40,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Leite ou bebida vexetal",
+              "cantidad": 250,
+              "unidad": "ml"
+            },
+            {
+              "nombre": "Canela en po",
+              "cantidad": 2,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Ralladura de limón",
+              "cantidad": 2,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Framboesas",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteiga",
-              "cantidad": 5,
+              "nombre": "Sementes de xirasol",
+              "cantidad": 10,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Nun cazo, quentar a leite e engadir a avea, remover ata espesar.",
+            "Engadir a canela e a ralladura de limón, mesturar ben.",
+            "Servir as gachas e decorar con framboesas e sementes de xirasol."
           ]
         },
         "cea": {
@@ -1115,34 +1123,39 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Biscoito de iogur con cacao e noces",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Iogur natural",
+              "cantidad": 150,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Farina integral",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteiga",
+              "nombre": "Cacao puro en po",
               "cantidad": 5,
               "unidad": "g"
+            },
+            {
+              "nombre": "Noces picadas",
+              "cantidad": 20,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Mel",
+              "cantidad": 5,
+              "unidad": "ml"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Mesturar o iogur, a farina e o cacao para formar unha masa homogénea.",
+            "Incorporar as noces e un pouco de mel para endulzar.",
+            "Formar pequenos biscoitos e cocer no forno a 180°C durante 15 minutos.",
+            "Deixar arrefriar e servir."
           ]
         },
         "cea": {
@@ -1481,34 +1494,33 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Iogur con noces, amorodos e coco relado",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Iogur natural",
+              "cantidad": 150,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Noces",
+              "cantidad": 20,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Amorodos",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteiga",
-              "cantidad": 5,
+              "nombre": "Coco relado",
+              "cantidad": 10,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Nun bol, verter o iogur natural.",
+            "Engadir noces picadas e amorodos cortados en láminas.",
+            "Espolvorear coco relado por enriba e servir frío."
           ]
         },
         "cea": {
@@ -1644,34 +1656,34 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Galletas de avea, plátano e canela",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
-              "cantidad": 50,
+              "nombre": "Avea en flocos",
+              "cantidad": 100,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
+              "nombre": "Plátano maduro",
               "cantidad": 1,
               "unidad": "unidad"
             },
             {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Canela en po",
+              "cantidad": 2,
               "unidad": "g"
             },
             {
-              "nombre": "Manteiga",
+              "nombre": "Mel (opcional)",
               "cantidad": 5,
-              "unidad": "g"
+              "unidad": "ml"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Prequentar o forno a 180ºC.",
+            "Esmagar o plátano e mesturar coa avea e a canela ata formar unha masa.",
+            "Formar pequenas galletas sobre papel de forno e cocer 12-15 minutos.",
+            "Deixar arrefriar e servir."
           ]
         },
         "cea": {
@@ -1839,7 +1851,7 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Torrada integral de requeixo con arandos",
           "ingredientes": [
             {
               "nombre": "Pan integral",
@@ -1847,25 +1859,19 @@
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Requeixo",
+              "cantidad": 40,
               "unidad": "g"
             },
             {
-              "nombre": "Manteiga",
-              "cantidad": 5,
+              "nombre": "Arandos",
+              "cantidad": 30,
               "unidad": "g"
             }
           ],
           "instrucciones": [
             "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
+            "Untar o requeixo e engadir arandos frescos por enriba.",
             "Servir de inmediato."
           ]
         },
@@ -2037,34 +2043,43 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Gachas de avea con canela, limón, framboesas e sementes de xirasol",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Avea en flocos",
+              "cantidad": 40,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Leite ou bebida vexetal",
+              "cantidad": 250,
+              "unidad": "ml"
+            },
+            {
+              "nombre": "Canela en po",
+              "cantidad": 2,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Ralladura de limón",
+              "cantidad": 2,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Framboesas",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteiga",
-              "cantidad": 5,
+              "nombre": "Sementes de xirasol",
+              "cantidad": 10,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Nun cazo, quentar a leite e engadir a avea, remover ata espesar.",
+            "Engadir a canela e a ralladura de limón, mesturar ben.",
+            "Servir as gachas e decorar con framboesas e sementes de xirasol."
           ]
         },
         "cea": {
@@ -2221,34 +2236,33 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Leite. Torrada de crema de cacahuete e amorodos",
           "ingredientes": [
+            {
+              "nombre": "Leite",
+              "cantidad": 200,
+              "unidad": "ml"
+            },
             {
               "nombre": "Pan integral",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Crema de cacahuete",
+              "cantidad": 20,
               "unidad": "g"
             },
             {
-              "nombre": "Manteiga",
-              "cantidad": 5,
+              "nombre": "Amorodos",
+              "cantidad": 50,
               "unidad": "g"
             }
           ],
           "instrucciones": [
             "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Untar a crema de cacahuete e engadir amorodos laminados.",
+            "Servir cun vaso de leite."
           ]
         },
         "cea": {
@@ -2400,34 +2414,28 @@
           ]
         },
         "merenda": {
-          "nombre": "Torrada de plátano e chocolate negro 85%",
+          "nombre": "Sandía xeada con chocolate negro e pistachos",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
-              "cantidad": 50,
+              "nombre": "Sandía",
+              "cantidad": 100,
               "unidad": "g"
-            },
-            {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
             },
             {
               "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "cantidad": 20,
               "unidad": "g"
             },
             {
-              "nombre": "Manteiga",
-              "cantidad": 5,
+              "nombre": "Pistachos",
+              "cantidad": 10,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar o pan integral.",
-            "Untar un pouco de manteiga se desexado.",
-            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
-            "Servir de inmediato."
+            "Cortar a sandía en cubos e conxelala uns minutos para que estea xeada.",
+            "Derreter lixeiramente o chocolate e botar por enriba dos anacos de sandía.",
+            "Espolvorear pistachos picados e servir de inmediato."
           ]
         },
         "cea": {
@@ -4531,38 +4539,33 @@
           ]
         },
         "merenda": {
-          "nombre": "Bocadillo integral de pavo e aguacate. Nectarina",
+          "nombre": "Queixo batido con flocos de millo, compota de mazá e pipas",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
-              "cantidad": 1,
-              "unidad": "rebanada"
-            },
-            {
-              "nombre": "Pavo cocido",
-              "cantidad": 50,
+              "nombre": "Queixo batido",
+              "cantidad": 150,
               "unidad": "g"
             },
             {
-              "nombre": "Aguacate",
-              "cantidad": 50,
+              "nombre": "Flocos de millo",
+              "cantidad": 30,
               "unidad": "g"
             },
             {
-              "nombre": "Sal e pementa",
-              "cantidad": 2,
+              "nombre": "Mazá",
+              "cantidad": 80,
               "unidad": "g"
             },
             {
-              "nombre": "Nectarina",
-              "cantidad": 1,
-              "unidad": "unidad"
+              "nombre": "Pipas",
+              "cantidad": 10,
+              "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Machacar o aguacate e untalo sobre a rebanada de pan integral tostado.",
-            "Engadir tiras de pavo e sazonar con sal e pementa.",
-            "Servir acompañado dunha nectarina fresca."
+            "Cociñar a mazá en cubos ata formar unha compota e deixar arrefriar.",
+            "Nun bol, mesturar o queixo batido cos flocos de millo.",
+            "Engadir a compota de mazá e as pipas por enriba e servir."
           ]
         },
         "cea": {
@@ -7293,27 +7296,34 @@
           ]
         },
         "merenda": {
-          "nombre": "Leite con avea e kiwi",
+          "nombre": "Torrada de plátano e chocolate negro 85%",
           "ingredientes": [
             {
-              "nombre": "Leite",
-              "cantidad": 200,
-              "unidad": "ml"
+              "nombre": "Pan integral",
+              "cantidad": 50,
+              "unidad": "g"
             },
             {
-              "nombre": "Avea en flocos",
+              "nombre": "Plátano",
+              "cantidad": 1,
+              "unidad": "unidad"
+            },
+            {
+              "nombre": "Chocolate negro 85%",
               "cantidad": 30,
               "unidad": "g"
             },
             {
-              "nombre": "Kiwi",
-              "cantidad": 1,
-              "unidad": "unidade"
+              "nombre": "Manteiga",
+              "cantidad": 5,
+              "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Quentar o leite e engadir a avea, cociñando uns minutos.",
-            "Servir nun bol ou vaso e acompañar cun kiwi pelado."
+            "Tostar o pan integral.",
+            "Untar un pouco de manteiga se desexado.",
+            "Colocar rodaxas de plátano e rociar con chocolate derretido.",
+            "Servir de inmediato."
           ]
         },
         "cea": {
