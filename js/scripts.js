@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const targetElement = document.getElementById(id);
   
     if (targetElement) {
-      targetElement.scrollIntoView({top: 50, behavior: "smooth" });
+      targetElement.scrollIntoView({behavior: "smooth" });
   
       // Cierra el menú si está activo en responsive
       const navbarToggler = document.querySelector('.navbar-toggler');
