@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
     if (targetElement) {
       // Scroll suave a la sección
-      const navbar = document.getElementById('sideNav');
-      const navbarHeight = navbar ? navbar.offsetHeight : 70; // Altura estimada por defecto
-      const yOffset = -navbarHeight;
-      targetElement.scrollIntoView({top: yOffset, behavior: "smooth" });
+      var headerOffset = 45;
+      var elementPosition = element.getBoundingClientRect().top;
+      var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      targetElement.scrollIntoView({top: offsetPosition, behavior: "smooth" });
   
       // Cierra el menú si está activo en responsive
       const navbarToggler = document.querySelector('.navbar-toggler');
