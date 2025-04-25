@@ -183,7 +183,8 @@
       
           const valoracion = parseInt(document.getElementById('valoracion').value);
           const respuesta = document.getElementById('respuesta').value.trim();
-          const sexo = document.getElementById('sexo').value;
+          const sexo = document.getElementById('sexo').value.trim();
+
       
           if (!valoracion || valoracion < 1 || valoracion > 10 || respuesta === '' || sexo === '') {
             alert("Por favor, completa todos os campos correctamente.");
@@ -211,8 +212,7 @@
           console.log("Enviando:", datos);
       
           // Enviar al backend (descomenta cuando esté listo)
-          /*
-          fetch("guardar_encuesta_satisfaccion.php", {
+          fetch("guardar_encuesta_formacion.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(datos)
@@ -226,7 +226,6 @@
             console.error("Erro:", err);
             alert("Houbo un problema ao enviar os datos.");
           });
-          */
         });
       });
       </script>
