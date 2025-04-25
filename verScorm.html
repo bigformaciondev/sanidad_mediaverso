@@ -40,7 +40,44 @@
   <div class="container-fluid p-0" style="height: 100%;">
 
     <iframe id="scormFrame" src=""></iframe>
+<!-- Pop-up con formulario -->
+<div id="popupForm" class="card shadow position-fixed" style="z-index: 1050; width: 320px; bottom: 2rem; right: 2rem;">
+  <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+    <span data-translate="encuestas-satisfaccion-1"></span>
+    <button type="button" class="btn-close btn-close-white" aria-label="Cerrar" onclick="minimizePopup()"></button>
+  </div>
+  <div class="card-body">
+    <div class="alert alert-warning text-center" role="alert"  data-translate="encuestas-satisfaccion-2">
+      
+    </div>
+    <form id="formEncuesta" novalidate>
+      <div class="mb-3">
+        <label for="valoracion" class="form-label"  data-translate="encuestas-satisfaccion-3"></label>
+        <input type="number" class="form-control" id="valoracion" name="valoracion" min="1" max="10" required>
+      </div>
+      <div class="mb-3">
+        <label for="respuesta" class="form-label"  data-translate="encuestas-satisfaccion-4"></label>
+        <textarea class="form-control" id="respuesta" name="respuesta" rows="3" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="sexo" class="form-label"  data-translate="encuestas-satisfaccion-5"></label>
+        <select class="form-select" id="sexo" name="sexo" required>
+          <option value="" disabled selected  data-translate="encuestas-satisfaccion-6"></option>
+          <option value="Mujer "  data-translate="encuestas-satisfaccion-7"></option>
+          <option value="Hombre"  data-translate="encuestas-satisfaccion-8"></option>
+          <option value="Prefiero no decirlo"  data-translate="encuestas-satisfaccion-9"></option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-100"  data-translate="encuestas-satisfaccion-10"></button>
+    </form>
+  </div>
+</div>
 
+
+<!-- Botón minimizado -->
+<button id="minimizedButton" class="btn btn-primary position-fixed m-3 d-none" onclick="restorePopup()" style="z-index: 1050;bottom: 2rem; right: 2rem;" >
+  <i class="bi bi-chat-dots"></i> <span data-translate="encuestas-satisfaccion-11">Encuesta</span>
+</button>
     <footer id="footer" class="footer bg-primary text-light py-3">
       <div class="container">
         <div class="row align-items-center text-center text-md-start">
@@ -102,24 +139,98 @@
         </div>
       </div>
     </footer>
-  <script>
-  
+    <!-- Pop-up con formulario -->
 
-window.addEventListener("DOMContentLoaded", function() {
-  const params = new URLSearchParams(window.location.search);
-  const scormFolder = params.get("scorm");
-  
-  if (!scormFolder) {
-    alert("No se ha especificado el SCORM a cargar.");
-    return;
-  }
-  
-  // Ruta final, ajusta los niveles ../ según ubicación
-  const scormPath = scormFolder;
-  document.getElementById("scormFrame").src = scormPath;
-});
-    
-    </script>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const scormFolder = params.get("scorm");
+        const idioma = localStorage.getItem("language") || "gl";
+        const tiempoInicio = Date.now();
+      
+        if (!scormFolder) {
+          alert("No se ha especificado el SCORM a cargar.");
+          return;
+        }
+      
+        // Cargar SCORM
+        const scormPath = scormFolder;
+        document.getElementById("scormFrame").src = scormPath;
+      
+        // Mostrar pop-up al iniciar
+        showPopup();
+      
+        // Mostrar/ocultar popup
+        function showPopup() {
+          document.getElementById('popupForm').classList.remove('d-none');
+          document.getElementById('minimizedButton').classList.add('d-none');
+        }
+      
+        window.minimizePopup = function () {
+          document.getElementById('popupForm').classList.add('d-none');
+          document.getElementById('minimizedButton').classList.remove('d-none');
+        };
+      
+        window.restorePopup = function () {
+          document.getElementById('popupForm').classList.remove('d-none');
+          document.getElementById('minimizedButton').classList.add('d-none');
+        };
+      
+        // Formulario
+        document.getElementById('formEncuesta').addEventListener('submit', function (e) {
+          e.preventDefault();
+      
+          const valoracion = parseInt(document.getElementById('valoracion').value);
+          const respuesta = document.getElementById('respuesta').value.trim();
+          const sexo = document.getElementById('sexo').value;
+      
+          if (!valoracion || valoracion < 1 || valoracion > 10 || respuesta === '' || sexo === '') {
+            alert("Por favor, completa todos os campos correctamente.");
+            return;
+          }
+      
+          // Extraer nombre_formacion del path del iframe
+          const match = scormPath.match(/SCORMS\/([^\/]+)\//);
+          const nombre_formacion = match ? decodeURIComponent(match[1]) : "desconocido";
+      
+          const tiempo_formacion = Math.round((Date.now() - tiempoInicio) / 1000);
+      
+          const datos = {
+            nombre_formacion: nombre_formacion,
+            valoracion: valoracion,
+            respuesta: respuesta,
+            sexo: sexo,
+            idioma: idioma,
+            tiempo_formacion: tiempo_formacion,
+            url: window.location.href,
+            fecha: new Date().toISOString(),
+            userAgent: navigator.userAgent
+          };
+      
+          console.log("Enviando:", datos);
+      
+          // Enviar al backend (descomenta cuando esté listo)
+          /*
+          fetch("guardar_encuesta_satisfaccion.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(datos)
+          })
+          .then(res => {
+            if (!res.ok) throw new Error("Erro no envío");
+            alert("Grazas pola túa resposta!");
+            minimizePopup();
+          })
+          .catch(err => {
+            console.error("Erro:", err);
+            alert("Houbo un problema ao enviar os datos.");
+          });
+          */
+        });
+      });
+      </script>
+      
   <script src="js/scripts.js"></script>
   <script src="js/lang.js"></script>
 </body>

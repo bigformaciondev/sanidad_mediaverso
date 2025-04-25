@@ -375,8 +375,18 @@
     "titulo-cesta-compra": "Cesta de la Compra",
     "lista-ingredientes": "Lista de Ingredientes",
     "ayuda": "Ayuda",
-    "descargar-menu-semanal": "Descargar menú semanal"
-    
+    "descargar-menu-semanal": "Descargar menú semanal",
+    "encuestas-satisfaccion-1": "Formulario de Evaluación",
+    "encuestas-satisfaccion-2": "¡Gracias por participar! Tu opinión es importante para nosotros. Por favor, completa la encuesta de satisfacción.",
+    "encuestas-satisfaccion-3": "Valoración (1-10)",
+    "encuestas-satisfaccion-4": "Comentario",
+    "encuestas-satisfaccion-5": "Sexo",
+    "encuestas-satisfaccion-6": "Selecciona una opción",
+    "encuestas-satisfaccion-7": "Mujer",
+    "encuestas-satisfaccion-8": "Hombre",
+    "encuestas-satisfaccion-9": "Prefiero no decirlo",
+    "encuestas-satisfaccion-10": "Enviar",
+    "encuestas-satisfaccion-11": "Encuesta"
   },
   "gl": {
     "welcome": "Benvidos",
@@ -756,7 +766,18 @@
     "titulo-cesta-compra": "Cesta da Compra",
     "lista-ingredientes": "Listaxe de Ingredentes",
     "ayuda": "Axuda",
-    "descargar-menu-semanal": "Descargar menú semanal"
+    "descargar-menu-semanal": "Descargar menú semanal",
+    "encuestas-satisfaccion-1": "Formulario de Avaliación",
+    "encuestas-satisfaccion-2": "Grazas por participar! A túa opinión é importante para nós. Por favor, completa a enquisa de satisfacción.",
+    "encuestas-satisfaccion-3": "Valoración (1-10)",
+    "encuestas-satisfaccion-4": "Comentario",
+    "encuestas-satisfaccion-5": "Sexo",
+    "encuestas-satisfaccion-6": "Selecciona unha opción",
+    "encuestas-satisfaccion-7": "Muller",
+    "encuestas-satisfaccion-8": "Home",
+    "encuestas-satisfaccion-9": "Prefiro non dicilo",
+    "encuestas-satisfaccion-10": "Enviar",
+    "encuestas-satisfaccion-11": "Enquisa"
     
   }
 }
