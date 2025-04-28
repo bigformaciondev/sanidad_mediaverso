@@ -68,6 +68,10 @@
           <option value="Prefiero no decirlo"  data-translate="encuestas-satisfaccion-9"></option>
         </select>
       </div>
+      <div class="mb-3">
+        <label for="edad" class="form-label">Idade</label>
+        <input type="number" class="form-control" id="edad" name="edad" min="1" max="120" required>
+      </div>      
       <button type="submit" class="btn btn-primary w-100"  data-translate="encuestas-satisfaccion-10"></button>
     </form>
   </div>
@@ -184,9 +188,9 @@
           const valoracion = parseInt(document.getElementById('valoracion').value);
           const respuesta = document.getElementById('respuesta').value.trim();
           const sexo = document.getElementById('sexo').value.trim();
-
+          const edad = parseInt(document.getElementById('edad').value);
       
-          if (!valoracion || valoracion < 1 || valoracion > 10 || respuesta === '' || sexo === '') {
+          if (!valoracion || valoracion < 1 || valoracion > 10 || respuesta === '' || sexo === '' || !edad || edad < 1 || edad > 120) {
             alert("Por favor, completa todos os campos correctamente.");
             return;
           }
@@ -202,6 +206,7 @@
             valoracion: valoracion,
             respuesta: respuesta,
             sexo: sexo,
+            edad: edad,
             idioma: idioma,
             tiempo_formacion: tiempo_formacion,
             url: window.location.href,
