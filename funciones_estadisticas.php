@@ -145,15 +145,50 @@ function valoracion_media_por_sexo($data, $sexo) {
 
 
 
-
-
-
-
-// Función para obtener los 5 cursos más populares. SIN HACER.
+// Función para obtener los 5 cursos más populares.
 function cursos_populares($data) {
-    usort($data, function($a, $b) {
-    });
+    $conteo_cursos = []; // array vacío para contar cada curso
+    foreach ($data as $encuesta) { // recorremos el array de la encuesta
+        $nombre_curso = $encuesta['nombre_formacion']; // obtenemos el nombre del curso 
+        if (!isset($conteo_cursos[$nombre_curso])) { //Si no existe el nombre...
+            $conteo_cursos[$nombre_curso] = 0; // ... Inicializamos a 0
+        }
+        $conteo_cursos[$nombre_curso]++; // Si el curso ya existe, aunmentamos el conteo en 1
+    }
 
+    // Ordenamos el array por conteo descendente
+    arsort($conteo_cursos); // arsort lo ordena de forma descendente
+    $top_cursos = array_slice($conteo_cursos, 0, 5, true); // slice devuelve los 5 primeros elementos del array indicado 
+    // 0 indica el primer elemento, y el 5 lalongitud del elemento que queremos obtener. True indica que se mantenga la clave original del array.
+    
+    // Se deuvelve el array top_cursos con los 5 cursos más populares.
+    return $top_cursos;
+}
+
+
+// Conteo de edades por los rangos establecidos. Devolvemos un array asociativo con los rangos de edad y su conteo
+function conteo_edades($data) {
+    $rangos_edad = [ // array para almacenar los rangos de edad y el conteo de cada uno de ellos
+        '15-25' => 0,
+        '26-40' => 0,
+        '41-65' => 0,
+        '65+'   => 0,
+    ];
+    // Iteramos a través de cada usuario
+    foreach ($data as $usuario) {
+        $edad = $usuario['edad'];
+        if ($edad >= 15 && $edad <= 25) {
+            $rangos_edad['15-25']++;
+        } elseif ($edad >= 26 && $edad <= 40) {
+            $rangos_edad['26-40']++;
+        } elseif ($edad >= 41 && $edad <= 65) {
+            $rangos_edad['41-65']++;
+        } elseif ($edad > 65) {
+            $rangos_edad['65+']++;
+        }
+    }
+    // Devuelve el aray con el conteo de edades.
+    return $rangos_edad;
 }
 
 ?>

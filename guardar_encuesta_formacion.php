@@ -87,6 +87,21 @@ $contenido_txt .= "\n--- Valoración media por sexo ---\n";
 $contenido_txt .= "  - Hombres: " . number_format(valoracion_media_por_sexo($datos_existentes, 'hombre'), 2) . "/10\n";
 $contenido_txt .= "  - Mujeres: " . number_format(valoracion_media_por_sexo($datos_existentes, 'mujer'), 2) . "/10\n";
 
+// Conteo de edades
+$conteo_edad = conteo_edades($datos_existentes);
+$contenido_txt .= "\n--- Conteo de Edades ---\n";
+foreach ($conteo_edad as $rango => $conteo) {
+    $contenido_txt .= "  - Rango $rango: $conteo usuarios\n";
+}
+
+// Top 5 de cursos
+$top_cursos = cursos_populares($datos_existentes);
+$contenido_txt .= "\n--- Top 5 Cursos Más Populares ---\n";
+$posicion = 1; // inicializamos la variable a 1 para que el primer curso en el bucle sea el 1
+foreach ($top_cursos as $curso => $conteo) {
+    $contenido_txt .= "  " . $posicion++ . ". " . $curso . ": " . $conteo . " encuestas\n";
+}
+
 file_put_contents($archivo_txt, $contenido_txt, FILE_APPEND); // FILE_APPEND: añade el contenido al final sin sobreescribir
 
 http_response_code(200);
