@@ -10,6 +10,7 @@ if ($data === null) {
 
 // Capturar datos de la encuesta 
 $sexo = $data['sexo'] ?? 'No especificado';
+$edad = $data['edad'] ?? 'No especificado';
 $valoracion = $data['valoracion'] ?? 0;
 $tiempoFormacion = $data['tiempo_formacion'] ?? 0;
 $nombreFormacion = $data['nombre_formacion'] ?? 'Sin nombre';
@@ -24,6 +25,7 @@ $userAgent = $data['userAgent'] ?? 'Desconocido';
 // Nueva entrada de la encuesta
 $nueva_encuesta = [
     'sexo' => $sexo,
+    'edad' => $edad,
     'valoracion' => $valoracion,
     'tiempo_formacion' => $tiempoFormacion,
     'nombre_formacion' => $nombreFormacion,
