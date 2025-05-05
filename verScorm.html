@@ -30,7 +30,26 @@
     overflow-y: auto;
     margin:0; padding:0; height:100%;
   }
-    
+  #popupForm {
+  width: 320px;
+  bottom: 2rem;
+  right: 2rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Estilo responsive para móviles */
+@media (max-width: 576px) {
+  #popupForm {
+    width: 90%;
+    left: 50%;
+    bottom: auto;
+    top: 10%;
+    right: auto;
+    transform: translateX(-50%);
+    max-height: 80vh;
+  }
+}
 </style>
 </head>
 
@@ -50,7 +69,16 @@
     <div class="alert alert-warning text-center" role="alert"  data-translate="encuestas-satisfaccion-2">
       
     </div>
-    <form id="formEncuesta" novalidate>
+    <!-- Confirmación antes del formulario -->
+<div id="confirmacionFormacion" class="text-center">
+  <p data-translate="encuestas-satisfaccion-confirmar">Preme no seguinte botón se remataches a formación.</p>
+  <button class="btn btn-success w-100" onclick="mostrarFormulario()">
+    <i class="bi bi-check-circle"></i> <span data-translate="encuestas-satisfaccion-empezar">Comezar a enquisa</span>
+  </button>
+</div>
+
+<!-- Formulario real (inicialmente oculto) -->
+<form id="formEncuesta" class="d-none" novalidate>
       <div class="mb-3">
         <label for="valoracion" class="form-label"  data-translate="encuestas-satisfaccion-3"></label>
         <input type="number" class="form-control" id="valoracion" name="valoracion" min="1" max="10" required>
@@ -147,6 +175,10 @@
 
 
     <script>
+      window.mostrarFormulario = function () {
+  document.getElementById("confirmacionFormacion").classList.add("d-none");
+  document.getElementById("formEncuesta").classList.remove("d-none");
+};
       window.addEventListener("DOMContentLoaded", function () {
         const params = new URLSearchParams(window.location.search);
         const scormFolder = params.get("scorm");

@@ -386,7 +386,9 @@
     "encuestas-satisfaccion-8": "Hombre",
     "encuestas-satisfaccion-9": "Prefiero no decirlo",
     "encuestas-satisfaccion-10": "Enviar",
-    "encuestas-satisfaccion-11": "Encuesta"
+    "encuestas-satisfaccion-11": "Encuesta",
+    "encuestas-satisfaccion-confirmar": "Apreta el botón si finalizaste la formación.",
+    "encuestas-satisfaccion-empezar": "Comenzar encuesta"
   },
   "gl": {
     "welcome": "Benvidos",
@@ -409,7 +411,7 @@
     "consejos": "Consellos",
     "formacion-alimentacion": "Formación",
     "formacion-alimentacion-saludable": "Formación alimentación saudable",
-    "ladrones-de-salud": "Os ladrones de a saúde",
+    "ladrones-de-salud": "Os ladrones da saúde",
     "planificador-de-comidas": "Planificador de comidas",
     "activar-t": "ActivAR-T",
     "big-fit": "BiG Fit: actividade física en familia",
@@ -422,7 +424,7 @@
     "programas-bienestar": "Programas para o benestar",
     "sueno-saludable": "Sono saudable",
     "decisiones-en-mano": "Decisións na man",
-    "en-tus-manos": "En túas mans",
+    "en-tus-manos": "Nas túas mans",
     "formacion-conductas-adictivas": "Formación condutas adictivas",
     "vuelve-a-lo-esencial": "Volve ao esencial",
     "footer-info-xunta": "© Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade",
@@ -639,7 +641,7 @@
     "formacion-conductas-adictivas-2": "U.D. 2 - Habilidades sociais / Control emocional",
     "formacion-conductas-adictivas-3": "U.D. 3 - Habilidades de comunicación e xestión de conflitos",
     "formacion-conductas-adictivas-4": "U.D. 4 - Coñecementos, actitudes e crenzas sobre o consumo de substancias/drogas",
-    "en-tus-manos-1": "Co objectivo de previr o consumo de substancias adictivas na mocidade, a Consellería de Sanidade da Xunta de Galicia deseñou a aplicación de realidade virtual “Nas túas mans”. Está dirixida a mocidade de 12 a 14 anos (1º ciclo de ESO) para a prevención e sensibilización de temas como o consumo de bebidas alcohólicas, o uso problemático das redes sociais ou o acoso.",
+    "en-tus-manos-1": "Co obxectivo de previr o consumo de substancias adictivas na mocidade, a Consellería de Sanidade da Xunta de Galicia deseñou a aplicación de realidade virtual “Nas túas mans”. Está dirixida a mocidade de 12 a 14 anos (1º ciclo de ESO) para a prevención e sensibilización de temas como o consumo de bebidas alcohólicas, o uso problemático das redes sociais ou o acoso.",
     "en-tus-manos-2": "A aplicación está plantexada como unha experiencia en primeira persoa na que se recrea unha historia próxima á realidade actual da mocidade. O obxectivo é que reflexionen sobre a importancia de tomar decisións por sí mesmos e sobre as consecuencias positivas e negativas destas sobre eles e sobre os demais; así como fomentar o debate sobre os seguintes temas:",
     "en-tus-manos-3": "Consumo de bebidas alcohólicas",
     "en-tus-manos-4": "Presión grupal",
@@ -777,7 +779,8 @@
     "encuestas-satisfaccion-8": "Home",
     "encuestas-satisfaccion-9": "Prefiro non dicilo",
     "encuestas-satisfaccion-10": "Enviar",
-    "encuestas-satisfaccion-11": "Enquisa"
-    
+    "encuestas-satisfaccion-11": "Enquisa",
+    "encuestas-satisfaccion-confirmar": "Preme no seguinte botón se remataches a formación.",
+    "encuestas-satisfaccion-empezar": "Comezar a enquisa"
   }
 }
