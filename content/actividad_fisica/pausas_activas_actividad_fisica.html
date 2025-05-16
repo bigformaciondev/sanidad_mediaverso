@@ -65,7 +65,7 @@
   </head>
   
 
-  <body id="page-top">
+  <div id="page-top">
    <!-- Navigation-->
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
@@ -139,14 +139,24 @@
        <div class="d-flex justify-content-center w-100 my-3 p-3">
         <h2 class="" data-translate="pausas-activa-1"></h2>
       </div>
+    <div class="container mt-4 mb-3 text-center">
+  <div class="btn-group btn-group-toggle border rounded overflow-hidden shadow-sm" role="group">
+    <button type="button" class="btn btn-primary text-light active px-4" id="btnAdultos" data-translate="adultos">Adultos</button>
+    <button type="button" class="btn btn-outline-primary px-4" id="btnAdolescentes" data-translate="adolescentes">Adolescentes</button>
+  </div>
+</div>
+
+<!-- Contenido de adultos (VISIBLE por defecto) -->
+<div class="container-fluid" id="tabAdultos">
+  <div class="adultos">
       <div class="row gy-5 m-2 justify-content-center flex-grow-1">
         <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3 ">
           <div class="card rounded-4 hover-scale  shadow text-center">
             <div class="card-header rounded-top  p-0">
               <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
                 <iframe
-                  data-src-es=""
-                  data-src-gl=""
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=Ic2i00hB&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=Di6c70cE&captions=y&chapterId=0&playerJs=n"
                   frameborder="0"
                   scrolling="no"
                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
@@ -168,8 +178,8 @@
             <div class="card-header rounded-top  p-0">
               <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
                 <iframe
-                  data-src-es=""
-                  data-src-gl=""
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=Igg8fhf5&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=f7iiHhiD&captions=y&chapterId=0&playerJs=n"
                   frameborder="0"
                   scrolling="no"
                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
@@ -191,8 +201,8 @@
             <div class="card-header rounded-top  p-0">
               <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
                 <iframe
-                  data-src-es=""
-                  data-src-gl=""
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=bi18eAj6&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=54fCaJH4&captions=y&chapterId=0&playerJs=n"
                   frameborder="0"
                   scrolling="no"
                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
@@ -214,8 +224,8 @@
             <div class="card-header rounded-top  p-0">
               <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
                 <iframe
-                  data-src-es=""
-                  data-src-gl=""
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=4B1e6FFD&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=0dG9gcfe&captions=y&chapterId=0&playerJs=n"
                   frameborder="0"
                   scrolling="no"
                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
@@ -237,8 +247,8 @@
             <div class="card-header rounded-top  p-0">
               <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
                 <iframe
-                  data-src-es=""
-                  data-src-gl=""
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=HhaId5g9&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=cEjAhbHb&captions=y&chapterId=0&playerJs=n"
                   frameborder="0"
                   scrolling="no"
                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
@@ -257,6 +267,129 @@
         </div>
         </div>
       </div>
+</div>
+<div class="container-fluid d-none" id="tabAdolescentes">
+  <div class="adolescentes">
+      <div class="row gy-5 m-2 justify-content-center flex-grow-1">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3 ">
+          <div class="card rounded-4 hover-scale  shadow text-center">
+            <div class="card-header rounded-top  p-0">
+              <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
+                <iframe
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=2AdEiGb2&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=E2iBeDHi&captions=y&chapterId=0&playerJs=n"
+                  frameborder="0"
+                  scrolling="no"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div
+              class="card-body d-flex flex-column justify-content-center"
+              style="height: 180px"
+            >
+              <h4 data-translate="pausas-activa-2"></h4>
+              <p data-translate="pausas-activa-3"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3 ">
+          <div class="card rounded-4 hover-scale  shadow text-center">
+            <div class="card-header rounded-top  p-0">
+              <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
+                <iframe
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=Gg8J3AiH&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=CI70Df7h&captions=y&chapterId=0&playerJs=n"
+                  frameborder="0"
+                  scrolling="no"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div
+              class="card-body d-flex flex-column justify-content-center"
+              style="height: 180px"
+            >
+              <h4 data-translate="pausas-activa-4"></h4>
+              <p data-translate="pausas-activa-5"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3 ">
+          <div class="card rounded-4 hover-scale  shadow text-center">
+            <div class="card-header rounded-top  p-0">
+              <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
+                <iframe
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=iCD4g31I&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=B7diEjdI&captions=y&chapterId=0&playerJs=n"
+                  frameborder="0"
+                  scrolling="no"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div
+              class="card-body d-flex flex-column justify-content-center"
+              style="height: 180px"
+            >
+              <h4 data-translate="pausas-activa-6"></h4>
+              <p data-translate="pausas-activa-7"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3 ">
+          <div class="card rounded-4 hover-scale  shadow text-center">
+            <div class="card-header rounded-top  p-0">
+              <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
+                <iframe
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=3ABJc51A&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=Eh3DgDd3&captions=y&chapterId=0&playerJs=n"
+                  frameborder="0"
+                  scrolling="no"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div
+              class="card-body d-flex flex-column justify-content-center"
+              style="height: 180px"
+            >
+              <h4 data-translate="pausas-activa-8"></h4>
+              <p data-translate="pausas-activa-9"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3 ">
+          <div class="card rounded-4 hover-scale  shadow text-center">
+            <div class="card-header rounded-top  p-0">
+              <div style="position: relative; padding-bottom: 56%; padding-top: 20px; height: 0;">
+                <iframe
+                  data-src-es="https://tv.bigteam.es/player?autostart=n&videoId=G452cchD&captions=y&chapterId=0&playerJs=n"
+                  data-src-gl="https://tv.bigteam.es/player?autostart=n&videoId=2iGJGhDF&captions=y&chapterId=0&playerJs=n"
+                  frameborder="0"
+                  scrolling="no"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-top-left-radius: 1rem !important; border-top-right-radius: 1rem !important;"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div
+              class="card-body d-flex flex-column justify-content-center"
+              style="height: 180px"
+            >
+              <h4 data-translate="pausas-activa-10"></h4>
+              <p data-translate="pausas-activa-11"></p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+        </div>
       <footer id="footer" class="footer bg-primary text-light py-3">
         <div class="container">
           <div class="row align-items-center text-center text-md-start">
@@ -343,6 +476,30 @@
           }
         });
       });
+   document.addEventListener('DOMContentLoaded', function () {
+    const btnAdultos = document.getElementById('btnAdultos');
+    const btnAdolescentes = document.getElementById('btnAdolescentes');
+    const tabAdultos = document.getElementById('tabAdultos');
+    const tabAdolescentes = document.getElementById('tabAdolescentes');
+
+    function activarTab(btnMostrar, btnOcultar, tabMostrar, tabOcultar) {
+      btnMostrar.classList.add('btn-primary', 'text-white', 'active');
+      btnMostrar.classList.remove('btn-outline-primary', 'text-primary');
+      btnOcultar.classList.remove('btn-primary', 'text-white', 'active');
+      btnOcultar.classList.add('btn-outline-primary', 'text-primary');
+
+      tabMostrar.classList.remove('d-none');
+      tabOcultar.classList.add('d-none');
+    }
+
+    btnAdultos.addEventListener('click', function () {
+      activarTab(btnAdultos, btnAdolescentes, tabAdultos, tabAdolescentes);
+    });
+
+    btnAdolescentes.addEventListener('click', function () {
+      activarTab(btnAdolescentes, btnAdultos, tabAdolescentes, tabAdultos);
+    });
+  });
       </script>
   </body>
 </html>
