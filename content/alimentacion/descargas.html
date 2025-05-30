@@ -298,15 +298,15 @@
     {
       id: 1,
       folder: {
-        es: "webgl/cs11",
-        gl: "webgl/cs11"
+        es: "webgl/cs11/index.html",
+        gl: "webgl/cs11/index.html"
       }
     },
     {
       id: 2,
       folder: {
-        es: "webgl/cs412",
-        gl: "webgl/cs412"
+        es: "webgl/cs412/index.html",
+        gl: "webgl/cs412/index.html"
       }
     }
   ];
@@ -332,7 +332,7 @@
           return;
         }
         // Construye la URL al VIDEOGAME. Ajusta la ruta según tu estructura de carpetas.
-        const gamePath = "../../" + encodeURIComponent(folder);
+        const gamePath = "../../" + folder;
         window.open(gamePath, "_blank");
       }
     </script>
