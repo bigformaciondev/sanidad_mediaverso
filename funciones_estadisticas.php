@@ -1,194 +1,198 @@
 <?php
 
-// Leemos el archivo JSON
-$data = json_decode(file_get_contents('datos.json'), true);
-
-
-// Función para calcular la valoración media de todos los cursos
+// Calcula la valoración media general
 function valoracion_media($data)
 {
-    $sum = 0; // inicializamos el acumulador
-    $total = count($data); // Cuenta el número de cursos en data
+    $sum = 0;
+    $count = 0;
 
-    foreach ($data as $curso) { // Itero sobre los cursos en 'data'
-        $sum += $curso['valoracion']; // acumulamos la nota de cada uno de los cursos
+    foreach ($data as $curso) {
+        if (isset($curso['valoracion']) && is_numeric($curso['valoracion'])) {
+            $sum += $curso['valoracion'];
+            $count++;
+        }
     }
-    // return $sum; // suma total de valoraciones
-    return $sum / $total; // suma total de valoraciones dividido por el número de cursos
+
+    return $count > 0 ? $sum / $count : 0;
 }
 
-// Función para calcular la duración media TOTAL de todos los cursos
+// Calcula duración media total (formato legible)
 function duracion_media($data)
 {
-    $sum = 0; // usaremos este acumulador para la duracion 
-    $total = count($data); // cuenta el número de cursos en data
-    foreach ($data as $curso) { // iteramos sobre los cursos
-        $sum += $curso['tiempo_formacion']; // accedemos a 'tiempo_formacion' en lugar de 'duracion'
+    $sum = 0;
+    $count = 0;
+
+    foreach ($data as $curso) {
+        if (isset($curso['tiempo_formacion']) && is_numeric($curso['tiempo_formacion'])) {
+            $sum += $curso['tiempo_formacion'];
+            $count++;
+        }
     }
-    // Calculamos el total de segundos en promedio
-    $tot_segundos = $sum / $total;
 
-    // Convertimos a horas, minutos y segundos. Con floor redondeamos hacia abajo
-    $horas = floor($tot_segundos / 3600);  // calcular horas
-    $tot_segundos = $tot_segundos % 3600;  // el resto de segundos después de las horas
-    $minutos = floor($tot_segundos / 60);  // Calcular minutos
-    $segundos = $tot_segundos % 60;  // El resto son los segundos
+    if ($count === 0) return "0 horas, 0 minutos, 0 segundos";
 
-    // Devolvemos el resultado en formato "X horas Y minutos Z segundos"
+    $avg_seconds = $sum / $count;
+    $horas = floor($avg_seconds / 3600);
+    $minutos = floor(($avg_seconds % 3600) / 60);
+    $segundos = $avg_seconds % 60;
+
     return "{$horas} horas, {$minutos} minutos, {$segundos} segundos";
 }
 
-// Función para calcular la duración media POR CURSO
+// Duración media por curso
 function duracion_media_por_curso($data)
 {
-    $duraciones = []; // inicializamos un array vacio donde guardamos los resultados por curso
+    $duraciones = [];
+
     foreach ($data as $curso) {
-        $nombre_curso = $curso['nombre_formacion']; // Cogemos el nobre del curso para identificarlo
-        if (!isset($duraciones[$nombre_curso])) { // si no existe el curso en el array, lo inicializamos
-            $duraciones[$nombre_curso] = ['total' => 0, 'count' => 0];
+        $nombre = strtolower(trim($curso['nombre_formacion'] ?? 'sin nombre'));
+        $tiempo = $curso['tiempo_formacion'] ?? 0;
+
+        if (!is_numeric($tiempo)) continue;
+
+        if (!isset($duraciones[$nombre])) {
+            $duraciones[$nombre] = ['total' => 0, 'count' => 0];
         }
-        // acumulamos el tiempo de formacion del curso actual en el total 
-        $duraciones[$nombre_curso]['total'] += $curso['tiempo_formacion']; // Usamos 'tiempo_formacion'
-        $duraciones[$nombre_curso]['count']++; // suma al total de duracion del curso
+
+        $duraciones[$nombre]['total'] += $tiempo;
+        $duraciones[$nombre]['count']++;
     }
 
-    // Calcula la media por cada curso
-    foreach ($duraciones as $curso => $info) {
-        // calcula la duracion media por curso
-        $duraciones[$curso]['media'] = $info['total'] / $info['count'];
+    foreach ($duraciones as $nombre => $info) {
+        $duraciones[$nombre]['media'] = $info['count'] > 0 ? $info['total'] / $info['count'] : 0;
     }
 
     return $duraciones;
 }
 
-// Función para calcular el porcentaje de cursos en español vs gallego
+// Porcentaje por idioma
 function porcentaje_idioma($data)
 {
-    $total = count($data); // total de cursos en el json
-    $es = 0; // inicializo la variable para español
-    $gl = 0; // inicializo la variable para gallego
-    foreach ($data as $curso) { // Iteramos sobre los cursos
-        if (strtolower($curso['idioma']) == 'es') { // Convertimos el idioma a minúsculas antes de comparar
-            $es++; // aumentamos la variable 'es' en 1
-        } elseif (strtolower($curso['idioma']) == 'gl') { // Convertimos el idioma a minúsculas antes de comparar
-            $gl++; // aumentamos la variable 'gl' en 1
-        }
+    $cuenta = [];
+    $total = 0;
+
+    foreach ($data as $curso) {
+        $idioma = strtolower(trim($curso['idioma'] ?? 'no definido'));
+        if ($idioma === '') continue;
+
+        if (!isset($cuenta[$idioma])) $cuenta[$idioma] = 0;
+        $cuenta[$idioma]++;
+        $total++;
     }
-    return [ // devolvemos el resultado en un array asociativo que se pasa como parámetro a $idiomas en 'index.php'
-        'es' => round(($es / $total) * 100, 2), // cono round redondeo el resultado con dos decimales
-        'gl' => round(($gl / $total) * 100, 2)
-    ];
+
+    $porcentajes = [];
+    foreach ($cuenta as $idioma => $cantidad) {
+        $porcentajes[$idioma] = ($total > 0) ? ($cantidad / $total) * 100 : 0;
+    }
+
+    return $porcentajes;
 }
 
-// Función para calcular el porcentaje de hombres vs mujeres
+// Porcentaje por sexo
 function porcentaje_sexo($data)
 {
-    $total = count($data); // total de cursos en el JSON (cantidad de elementos en el array $data)
+    $hombres = 0;
+    $mujeres = 0;
+    $total = 0;
 
-    if ($total == 0)
-        return ['hombres' => 0, 'mujeres' => 0]; // Prevención de división por cero: si no hay cursos, devolvemos 0% para hombres y mujeres
-
-    $hombres = 0; // inicializo la variable para contar el número de hombres
-    $mujeres = 0; // inicializo la variable para contar el número de mujeres
-
-    foreach ($data as $curso) { // iteramos sobre los cursos
-        if (strtolower($curso['sexo']) == 'hombre') { // transformamos a minúsculas y lo comparamos
-            $hombres++; // si es positivo se aumenta la variable 'hombres' en 1
-        } elseif (strtolower($curso['sexo']) == 'mujer') { // transformamos a minúsculas y si el sexo es mujer
-            $mujeres++; // aumento la variable 'mujeres' en 1
+    foreach ($data as $curso) {
+        $sexo = strtolower(trim($curso['sexo'] ?? ''));
+        if ($sexo === 'hombre') {
+            $hombres++;
+            $total++;
+        } elseif ($sexo === 'mujer') {
+            $mujeres++;
+            $total++;
         }
     }
 
-    return [ // devolvemos el resultado en un array asociativo que contiene el porcentaje de hombres y mujeres, sin redondear
+    if ($total === 0) return ['hombres' => 0, 'mujeres' => 0];
+
+    return [
         'hombres' => ($hombres / $total) * 100,
-        'mujeres' => ($mujeres / $total) * 100 // porcentaje
+        'mujeres' => ($mujeres / $total) * 100
     ];
 }
 
-// Función para calcular la valoración media por idioma (español o gallego)
+// Valoración media por idioma
 function valoracion_media_por_idioma($data, $idioma)
 {
-    $sum = 0; // inicializamos el acumulador donde se va a almacenar la suma de las valoraciones segun el idioma
-    $count = 0; // inicializamos el contador de cursos en data
-    foreach ($data as $curso) { //iteramos por cada curso del array data
-        if (strtolower($curso['idioma']) == strtolower($idioma)) {
-            $sum += $curso['valoracion']; // acumulamos la valoracion de cada curso
-            $count++; // aumentamos el contador para tener un control de todos los cursos que coinciden con el idioma
-        }
-    }
-    // Verificamos si el contador de cursos con ese idioma es mayor que cero
-    if ($count > 0) {
-        return $sum / $count;  // si hay cursos, devolvemos la media
-    } else {
-        return 0;  // si no hay cursos con ese idioma, devolvemos 0
-    }
-}
+    $sum = 0;
+    $count = 0;
+    $idioma = strtolower(trim($idioma));
 
-
-// Función para calcular la valoración media por sexo (hombres o mujeres)
-function valoracion_media_por_sexo($data, $sexo) {
-    // si el valor del campo 'sexo' es igual a 'hombre' o 'mujer' transf a minus
-    if (!in_array(strtolower($sexo), ['hombre', 'mujer'])) {
-        return 0; // Retorna 0 si el sexo proporcionado es inválido
-    }
-
-    $sum = 0; // inicializamos el acumulador donde se va a almacenar la suma de las valoraciones según el sexo
-    $count = 0; // inicializamos el contador de cursos que coinciden con el sexo proporcionado
     foreach ($data as $curso) {
-        if (strtolower($curso['sexo']) == strtolower($sexo)) { // comparamossi coincide 
-            $sum += $curso['valoracion']; // acumulamos la valoracion de cada curso coincidente con el sexp
-            $count++; // Aumentramos el contador de cursos 
+        if (strtolower(trim($curso['idioma'] ?? '')) === $idioma && is_numeric($curso['valoracion'])) {
+            $sum += $curso['valoracion'];
+            $count++;
         }
     }
+
     return $count > 0 ? $sum / $count : 0;
 }
 
+// Valoración media por sexo
+function valoracion_media_por_sexo($data, $sexo)
+{
+    $sexo = strtolower(trim($sexo));
+    if (!in_array($sexo, ['hombre', 'mujer'])) return 0;
 
+    $sum = 0;
+    $count = 0;
 
-// Función para obtener los 5 cursos más populares.
-function cursos_populares($data) {
-    $conteo_cursos = []; // array vacío para contar cada curso
-    foreach ($data as $encuesta) { // recorremos el array de la encuesta
-        $nombre_curso = $encuesta['nombre_formacion']; // obtenemos el nombre del curso 
-        if (!isset($conteo_cursos[$nombre_curso])) { //Si no existe el nombre...
-            $conteo_cursos[$nombre_curso] = 0; // ... Inicializamos a 0
+    foreach ($data as $curso) {
+        if (strtolower(trim($curso['sexo'] ?? '')) === $sexo && is_numeric($curso['valoracion'])) {
+            $sum += $curso['valoracion'];
+            $count++;
         }
-        $conteo_cursos[$nombre_curso]++; // Si el curso ya existe, aunmentamos el conteo en 1
     }
 
-    // Ordenamos el array por conteo descendente
-    arsort($conteo_cursos); // arsort lo ordena de forma descendente
-    $top_cursos = array_slice($conteo_cursos, 0, 5, true); // slice devuelve los 5 primeros elementos del array indicado 
-    // 0 indica el primer elemento, y el 5 lalongitud del elemento que queremos obtener. True indica que se mantenga la clave original del array.
-    
-    // Se deuvelve el array top_cursos con los 5 cursos más populares.
-    return $top_cursos;
+    return $count > 0 ? $sum / $count : 0;
 }
 
+// Cursos más populares (top 5)
+function cursos_populares($data)
+{
+    $conteo = [];
 
-// Conteo de edades por los rangos establecidos. Devolvemos un array asociativo con los rangos de edad y su conteo
-function conteo_edades($data) {
-    $rangos_edad = [ // array para almacenar los rangos de edad y el conteo de cada uno de ellos
+    foreach ($data as $curso) {
+        $nombre = strtolower(trim($curso['nombre_formacion'] ?? 'sin nombre'));
+        if (!isset($conteo[$nombre])) $conteo[$nombre] = 0;
+        $conteo[$nombre]++;
+    }
+
+    arsort($conteo);
+    return array_slice($conteo, 0, 5, true);
+}
+
+// Conteo de edades por rangos
+function conteo_edades($data)
+{
+    $rangos = [
         '15-25' => 0,
         '26-40' => 0,
         '41-65' => 0,
         '65+'   => 0,
     ];
-    // Iteramos a través de cada usuario
+
     foreach ($data as $usuario) {
-        $edad = $usuario['edad'];
+        $edad = $usuario['edad'] ?? null;
+        if (!is_numeric($edad)) continue;
+
+        $edad = (int)$edad;
+
         if ($edad >= 15 && $edad <= 25) {
-            $rangos_edad['15-25']++;
+            $rangos['15-25']++;
         } elseif ($edad >= 26 && $edad <= 40) {
-            $rangos_edad['26-40']++;
+            $rangos['26-40']++;
         } elseif ($edad >= 41 && $edad <= 65) {
-            $rangos_edad['41-65']++;
+            $rangos['41-65']++;
         } elseif ($edad > 65) {
-            $rangos_edad['65+']++;
+            $rangos['65+']++;
         }
     }
-    // Devuelve el aray con el conteo de edades.
-    return $rangos_edad;
+
+    return $rangos;
 }
 
 ?>

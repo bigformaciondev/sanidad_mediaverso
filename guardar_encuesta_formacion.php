@@ -8,15 +8,15 @@ if ($data === null) {
     exit;
 }
 
-// Capturar datos de la encuesta 
-$sexo = $data['sexo'] ?? 'No especificado';
-$edad = $data['edad'] ?? 'No especificado';
-$valoracion = $data['valoracion'] ?? 0;
-$tiempoFormacion = $data['tiempo_formacion'] ?? 0;
-$nombreFormacion = $data['nombre_formacion'] ?? 'Sin nombre';
+// Normalizamos y validamos campos
+$sexo = strtolower(trim($data['sexo'] ?? 'no especificado'));
+$edad = is_numeric($data['edad']) ? (int)$data['edad'] : null;
+$valoracion = is_numeric($data['valoracion']) ? (float)$data['valoracion'] : 0;
+$tiempoFormacion = is_numeric($data['tiempo_formacion']) ? (int)$data['tiempo_formacion'] : 0;
+$nombreFormacion = trim($data['nombre_formacion'] ?? 'Sin nombre');
 $respuesta = $data['respuesta'] ?? 'Sin respuesta';
-$tiempo = $data['tiempo'] ?? 0;
-$idioma = $data['idioma'] ?? 'es';
+$tiempo = is_numeric($data['tiempo']) ? (int)$data['tiempo'] : 0;
+$idioma = strtolower(trim($data['idioma'] ?? 'es'));
 $url = $data['url'] ?? 'desconocida';
 $fechaISO = $data['fecha'] ?? date("c");
 $fechaLocal = date("Y-m-d H:i:s");
@@ -37,74 +37,90 @@ $nueva_encuesta = [
     'userAgent' => $userAgent
 ];
 
-// Actualizar archivo datos.json para calcular estadísticas
-$archivo_json = 'local/datos_estadisticas.json';
-$datos_existentes = file_exists($archivo_json) ? json_decode(file_get_contents($archivo_json), true) : [];
+// Ruta al archivo JSON
+$archivo_json = __DIR__ . '/local/datos_estadisticas.json';
 
-// Añadir la nueva encuesta al array existentfe
+// Leer datos existentes
+$datos_existentes = [];
+if (file_exists($archivo_json)) {
+    $contenido = file_get_contents($archivo_json);
+    if ($contenido !== false) {
+        $datos_existentes = json_decode($contenido, true) ?? [];
+    }
+}
+
+// Añadir la nueva encuesta
 $datos_existentes[] = $nueva_encuesta;
 
-// Guardar los datos actualizados en datos.json
-file_put_contents($archivo_json, json_encode($datos_existentes, JSON_PRETTY_PRINT)); // JSON_PRETTY PRINT es opcional pero se formatea el json con saltos de linea.
+// Guardar datos actualizados
+if (file_put_contents($archivo_json, json_encode($datos_existentes, JSON_PRETTY_PRINT)) === false) {
+    http_response_code(500);
+    echo "Error al guardar el archivo JSON.";
+    exit;
+}
 
-// Genero encuestas.txt
-$archivo_txt = 'encuestas_formacion_estadisticas.txt';
-$contenido_txt = "\n\n--- REGISTRO DE ENCUESTAS ---\n\n";
+// Generar archivo .txt (se sobrescribe cada vez)
+$archivo_txt = __DIR__ . '/encuestas_formacion_estadisticas.txt';
+$contenido_txt = "--- REGISTRO DE ENCUESTAS ---\n\n";
 $nombreLegible = ucwords(str_replace('-', ' ', $nombreFormacion));
-$tiempoEnMin = round($tiempoFormacion / 60, 1); // minutos con 1 decimal
-// Añadir cada respuesta individual
-$contenido_txt .= "Nuevos registros:\n";
+$tiempoEnMin = round($tiempoFormacion / 60, 1);
+
+$contenido_txt .= "Última respuesta:\n";
 $contenido_txt .= "-------------------------------------------------------------------------------------------------------------------------------------------------------------------\n";
 $contenido_txt .= "[{$fechaLocal}] Sexo: {$sexo} | Valoración: {$valoracion}/10 | Tiempo: {$tiempoEnMin} min | Formación: {$nombreLegible} | Idioma: {$idioma} | Tiempo en plataforma: {$tiempo}s | Respuesta: {$respuesta} | URL: {$url} | UserAgent: {$userAgent}\n";
 $contenido_txt .= "-------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n";
 
-// Importamos el archivo 'funciones.php' para calcular las estadísicas
-include 'funciones_estadisticas.php';
+// Incluir funciones estadísticas
+include __DIR__ . '/funciones_estadisticas.php';
 
+// Estadísticas
 $contenido_txt .= "--- ESTADÍSTICAS RESUMEN ---\n\n";
-$contenido_txt .= "Valoración media: " . number_format(valoracion_media($datos_existentes), 2) . "/10\n\n"; // redondeo a 2 decimales
+$contenido_txt .= "Valoración media: " . number_format(valoracion_media($datos_existentes), 2) . "/10\n\n";
 $contenido_txt .= "Duración media: " . duracion_media($datos_existentes) . "\n\n";
 
 $contenido_txt .= "\n--- Duración media por curso ---\n";
-$duraciones_por_curso = duracion_media_por_curso($datos_existentes);
-foreach ($duraciones_por_curso as $curso => $info) {
-    $contenido_txt .= "  - " . ucfirst($curso) . ": " . number_format($info['media'] / 3600, 2) . " horas\n";  // Conversión a horass
+foreach (duracion_media_por_curso($datos_existentes) as $curso => $info) {
+    $contenido_txt .= "  - " . ucfirst($curso) . ": " . number_format($info['media'] / 3600, 2) . " horas\n";
 }
 
 $contenido_txt .= "\n--- Porcentaje por idioma ---\n";
-$porcentaje_idioma = porcentaje_idioma($datos_existentes);
-$contenido_txt .= "  - Español: " . number_format($porcentaje_idioma['es'], 2) . "%\n"; // 2 decimales
-$contenido_txt .= "  - Gallego: " . number_format($porcentaje_idioma['gl'], 2) . "%\n";
+foreach (porcentaje_idioma($datos_existentes) as $lang => $percent) {
+    $contenido_txt .= "  - " . ucfirst($lang) . ": " . number_format($percent, 2) . "%\n";
+}
 
 $contenido_txt .= "\n--- Porcentaje por sexo ---\n";
-$porcentaje_sexo = porcentaje_sexo($datos_existentes);
-$contenido_txt .= "  - Hombres: " . number_format($porcentaje_sexo['hombres'], 2) . "%\n";
-$contenido_txt .= "  - Mujeres: " . number_format($porcentaje_sexo['mujeres'], 2) . "%\n";
+$sexo_stats = porcentaje_sexo($datos_existentes);
+$contenido_txt .= "  - Hombres: " . number_format($sexo_stats['hombres'], 2) . "%\n";
+$contenido_txt .= "  - Mujeres: " . number_format($sexo_stats['mujeres'], 2) . "%\n";
 
 $contenido_txt .= "\n--- Valoración media por idioma ---\n";
-$contenido_txt .= "  - Español: " . number_format(valoracion_media_por_idioma($datos_existentes, 'es'), 2) . "/10\n";
-$contenido_txt .= "  - Gallego: " . number_format(valoracion_media_por_idioma($datos_existentes, 'gl'), 2) . "/10\n";
+foreach (['es', 'gl'] as $lang) {
+    $contenido_txt .= "  - " . ucfirst($lang) . ": " . number_format(valoracion_media_por_idioma($datos_existentes, $lang), 2) . "/10\n";
+}
 
 $contenido_txt .= "\n--- Valoración media por sexo ---\n";
-$contenido_txt .= "  - Hombres: " . number_format(valoracion_media_por_sexo($datos_existentes, 'hombre'), 2) . "/10\n";
-$contenido_txt .= "  - Mujeres: " . number_format(valoracion_media_por_sexo($datos_existentes, 'mujer'), 2) . "/10\n";
+foreach (['hombre', 'mujer'] as $s) {
+    $contenido_txt .= "  - " . ucfirst($s) . ": " . number_format(valoracion_media_por_sexo($datos_existentes, $s), 2) . "/10\n";
+}
 
-// Conteo de edades
-$conteo_edad = conteo_edades($datos_existentes);
 $contenido_txt .= "\n--- Conteo de Edades ---\n";
-foreach ($conteo_edad as $rango => $conteo) {
+foreach (conteo_edades($datos_existentes) as $rango => $conteo) {
     $contenido_txt .= "  - Rango $rango: $conteo usuarios\n";
 }
 
-// Top 5 de cursos
-$top_cursos = cursos_populares($datos_existentes);
 $contenido_txt .= "\n--- Top 5 Cursos Más Populares ---\n";
-$posicion = 1; // inicializamos la variable a 1 para que el primer curso en el bucle sea el 1
-foreach ($top_cursos as $curso => $conteo) {
-    $contenido_txt .= "  " . $posicion++ . ". " . $curso . ": " . $conteo . " encuestas\n";
+$posicion = 1;
+foreach (cursos_populares($datos_existentes) as $curso => $conteo) {
+    $contenido_txt .= "  $posicion. " . $curso . ": " . $conteo . " encuestas\n";
+    $posicion++;
 }
 
-file_put_contents($archivo_txt, $contenido_txt, FILE_APPEND); // FILE_APPEND: añade el contenido al final sin sobreescribir
+// Guardar estadísticas en .txt (sobrescribe)
+if (file_put_contents($archivo_txt, $contenido_txt) === false) {
+    http_response_code(500);
+    echo "Error al guardar el archivo TXT.";
+    exit;
+}
 
 http_response_code(200);
-echo "Encuesta guardada y estadísticas actualizadas."; // Sacamos por pantalla el mensaje de confirmación
+echo "Encuesta guardada y estadísticas actualizadas.";
