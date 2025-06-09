@@ -57,7 +57,7 @@ $registros[] = [
 $resultado = file_put_contents($archivo_json, json_encode($registros, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
 if ($resultado === false) {
-    file_put_contents(__DIR__ . '/debug_log.txt', date("Y-m-d H:i:s") . " - ❌ Error al guardar JSON\n", FILE_APPEND);
+    file_put_contents(__DIR__ . '/debug_log.txt', date("Y-m-d H:i:s") . " - Error al guardar JSON\n", FILE_APPEND);
     http_response_code(500);
     echo json_encode(['error' => 'Error al guardar JSON']);
     exit;
@@ -83,11 +83,11 @@ foreach ($conteo as $curso => $total) {
 
 // Guardar resumen en texto
 if (file_put_contents($archivo_txt, $contenido_txt) === false) {
-    file_put_contents(__DIR__ . '/debug_log.txt', date("Y-m-d H:i:s") . " - ❌ Error al guardar TXT\n", FILE_APPEND);
+    file_put_contents(__DIR__ . '/debug_log.txt', date("Y-m-d H:i:s") . " - Error al guardar TXT\n", FILE_APPEND);
     http_response_code(500);
     echo json_encode(['error' => 'Error al guardar TXT']);
     exit;
 }
 
-file_put_contents(__DIR__ . '/debug_log.txt', date("Y-m-d H:i:s") . " - ✅ Registro guardado correctamente\n", FILE_APPEND);
+file_put_contents(__DIR__ . '/debug_log.txt', date("Y-m-d H:i:s") . " - Registro guardado correctamente\n", FILE_APPEND);
 echo json_encode(['success' => true]);
