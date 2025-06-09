@@ -193,7 +193,20 @@
         // Cargar SCORM
         const scormPath = scormFolder;
         document.getElementById("scormFrame").src = scormPath;
-      
+        // Extraer nombre_formacion del path
+        const match = scormPath.match(/SCORMS\/([^\/]+)\//);
+        const nombre_formacion = match ? decodeURIComponent(match[1]) : "desconocido";
+
+        // Registrar acceso
+        fetch("/registrar_acceso_formacion.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nombre_formacion,
+            url: window.location.href,
+            userAgent: navigator.userAgent
+          })
+        }).catch(err => console.warn("Error al registrar acceso:", err));
         // Mostrar pop-up al iniciar
         showPopup();
       
