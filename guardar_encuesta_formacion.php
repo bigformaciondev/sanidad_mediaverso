@@ -14,7 +14,7 @@ $sexo = strtolower(trim($data['sexo'] ?? 'no especificado'));
 $edad = is_numeric($data['edad']) ? (int)$data['edad'] : null;
 $valoracion = is_numeric($data['valoracion']) ? (float)$data['valoracion'] : 0;
 $tiempoFormacion = is_numeric($data['tiempo_formacion']) ? (int)$data['tiempo_formacion'] : 0;
-$nombreFormacion = trim($data['nombre_formacion'] ?? 'Sin nombre');
+$nombre_formacion = trim($data['nombre_formacion'] ?? 'Sin nombre');
 $respuesta = $data['respuesta'] ?? 'Sin respuesta';
 $tiempo = is_numeric($data['tiempo']) ? (int)$data['tiempo'] : 0;
 $idioma = strtolower(trim($data['idioma'] ?? 'es'));
@@ -29,7 +29,7 @@ $nueva_encuesta = [
     'edad' => $edad,
     'valoracion' => $valoracion,
     'tiempo_formacion' => $tiempoFormacion,
-    'nombre_formacion' => $nombreFormacion,
+    'nombre_formacion' => $nombre_formacion,
     'respuesta' => $respuesta,
     'tiempo' => $tiempo,
     'idioma' => $idioma,
@@ -63,7 +63,7 @@ if (file_put_contents($archivo_json, json_encode($datos_existentes, JSON_PRETTY_
 // Generar archivo .txt (se sobrescribe cada vez)
 $archivo_txt = __DIR__ . '/encuestas_formacion_estadisticas.txt';
 $contenido_txt = "--- REGISTRO DE ENCUESTAS ---\n\n";
-$nombreLegible = ucwords(str_replace('-', ' ', $nombreFormacion));
+$nombreLegible = ucwords(str_replace('-', ' ', $nombre_formacion));
 $tiempoEnMin = round($tiempoFormacion / 60, 1);
 
 $contenido_txt .= "Última respuesta:\n";

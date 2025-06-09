@@ -249,7 +249,7 @@
           console.log("Enviando:", datos);
       
           // Enviar al backend (descomenta cuando esté listo)
-          fetch("guardar_encuesta_formacion.php", {
+          fetch("/guardar_encuesta_formacion.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(datos)
