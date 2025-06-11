@@ -246,11 +246,23 @@
         </div>
       </footer>
     </div>
+    
     <script>
-      function abrirPDF() {
-        window.open('../../assets/DIARO-SUENO_MENSUAL.pdf', '_blank');
-      }
-    </script>
+  function abrirPDF() {
+    const idioma = localStorage.getItem("language") || "gl"; // gallego por defecto
+
+    // Rutas de los PDF según idioma
+    const rutasPDF = {
+      es: '../../assets/DIARO-SUENO_MENSUAL.pdf',
+      gl: '../../assets/DIARIO_SONO_MENSUAL.pdf' // ya estás usando esta
+    };
+
+    const rutaSeleccionada = rutasPDF[idioma] || rutasPDF["gl"];
+
+    // Abre el PDF en una nueva pestaña
+    window.open(rutaSeleccionada, '_blank');
+  }
+</script>
     <script src="../../js/scripts_submenus.js"></script>
     <script src="../../js/lang_submenus.js"></script>
 </body>
