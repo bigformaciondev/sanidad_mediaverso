@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="gl">
 
 <head>
   <meta charset="UTF-8" />
@@ -35,12 +35,12 @@
   <link rel="icon" href="../../assets/favicon.webp" type="image/webp" />
 
   <!-- Google Tag Manager (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMP3WWFF30"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F7M5R510L9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-WMP3WWFF30');
+    gtag('config', 'G-F7M5R510L9');
   </script>
 
   <!-- Bootstrap Bundle JS (con defer) -->
@@ -127,8 +127,8 @@
     <div class="row gy-5 m-2 justify-content-center flex-grow-1">
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
           <div class="card rounded-4 hover-scale  shadow text-center">
-            <div class="card-header rounded-top  bg-primary">
-              <img class="card-img-top rounded-4 " src="../../assets/img/formacion-alimentacion-saludable-subbanner1.svg"
+            <div class="card-header rounded-top  bg-primary p-0">
+              <img class="card-img-top rounded-top " src="../../assets/img/formacion-alimentacion-saludable-5.webp"
                 style="width: 100%; height: 200px; object-fit: cover;">
             </div>
             <!-- Cambiamos justify-content-center por justify-content-start para alinear al tope -->
@@ -137,14 +137,14 @@
               <h4 class="mt-2" data-translate="formacion-alimentacion-8"></h4>
               <!-- El botón se posiciona al fondo con mt-auto -->
               <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(1)"></button>
-              <button aria-label="Descargar contenido cocinar bien sentirse mejor 1" class="btn btn-success mt-2 w-100" onclick="downloadScorm(1)"><i class="bi bi-download"></i></button>          
+              <!--  <button aria-label="Descargar contenido cocinar bien sentirse mejor 1" class="btn btn-success mt-2 w-100" onclick="downloadScorm(1)"><i class="bi bi-download"></i></button>   -->       
             </div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
             <div class="card rounded-4 hover-scale  shadow text-center">
-              <div class="card-header rounded-top  bg-primary">
-                <img class="card-img-top rounded-4 " src="../../assets/img/formacion-alimentacion-saludable-subbanner1.svg"
+              <div class="card-header rounded-top  bg-primary p-0">
+                <img class="card-img-top rounded-top " src="../../assets/img/formacion-alimentacion-saludable-6.webp"
                   style="width: 100%; height: 200px; object-fit: cover;">
               </div>
               <!-- Cambiamos justify-content-center por justify-content-start para alinear al tope -->
@@ -153,7 +153,7 @@
                 <h4 class="mt-2" data-translate="formacion-alimentacion-9"></h4>
                 <!-- El botón se posiciona al fondo con mt-auto -->
                 <button class="btn btn-primary mt-auto w-100" data-translate="accede" onclick="openScorm(2)"></button>
-                <button aria-label="Descargar contenido cocinar bien sentirse mejor 2" class="btn btn-success mt-2 w-100" onclick="downloadScorm(2)"><i class="bi bi-download"></i></button>          
+               <!--   <button aria-label="Descargar contenido cocinar bien sentirse mejor 2" class="btn btn-success mt-2 w-100" onclick="downloadScorm(2)"><i class="bi bi-download"></i></button> -->         
               </div>
             </div>
           </div>
@@ -257,7 +257,7 @@
       }
       // Retorna la carpeta correspondiente al idioma actual, 
       // si no existe para ese idioma, se usa el valor por defecto en "es"
-      const language = localStorage.getItem("language") || "es";
+      const language = localStorage.getItem("language") || "gl";
       return scormItem.folder[language] || scormItem.folder["es"];
     }
 
@@ -279,7 +279,7 @@
           return;
         }
 
-        const idioma = localStorage.getItem("language") || "es";
+        const idioma = localStorage.getItem("language") || "gl";
         const rarURL = scormItem.rar[idioma] || scormItem.rar["es"];
 
         try {

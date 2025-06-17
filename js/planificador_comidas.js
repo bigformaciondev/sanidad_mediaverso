@@ -383,6 +383,11 @@ function groupIngredients(adultos, ninos, semana, dias) {
 
   return grouped;
 }
+function inicializarEstilosPagina(doc) {
+  doc.setFont("Xunta Sans", "normal");
+  doc.setFontSize(12);
+  doc.setTextColor(0, 0, 0);
+}
 
 // Función para generar el PDF de la cesta de la compra
 async function generarCestaPDF(adultos, ninos, semana, dias) {
@@ -392,7 +397,7 @@ async function generarCestaPDF(adultos, ninos, semana, dias) {
   const pageHeight = doc.internal.pageSize.height;
   const margin = 10;
   const lineHeight = 8;
-  let y = 30;
+  let y = 50;
   let pageNumber = 1;
 
   const idioma = localStorage.getItem("language") || "es";
@@ -415,7 +420,7 @@ async function generarCestaPDF(adultos, ninos, semana, dias) {
       }
 
       addHeaderFooter();
-
+      inicializarEstilosPagina(doc);
       doc.setFont("Xunta Sans", "bold");
       doc.setFontSize(16);
       doc.text(t("titulo-cesta-compra") || "Cesta de la Compra", pageWidth / 2, y, { align: "center" });
@@ -453,6 +458,7 @@ async function generarCestaPDF(adultos, ninos, semana, dias) {
           pageNumber++;
           y = 30;
           addHeaderFooter();
+          inicializarEstilosPagina(doc); 
         }
         const posX = useRightCol ? colRight : colLeft;
         doc.text(`- ${ing.nombre}: ${ing.cantidad.toFixed(2)} ${ing.unidad}`, posX, y);
@@ -482,13 +488,15 @@ async function generarRecetarioPDF(adultos, ninos, semana, dias) {
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.width;
   const pageHeight = doc.internal.pageSize.height;
-  const margin = 10;
+  const margen = 10;
+  const margenSuperior = 50;
+  const margenInferior = 30;
   const lineHeight = 8;
-  let y = 40;
+  let y = margenSuperior;
   let pageNumber = 1;
 
   const idioma = localStorage.getItem("language") || "es";
-  const { t } = await cargarTraducciones(); // ✅ Carga dinámica del idioma
+  const { t } = await cargarTraducciones();
 
   const dayNames = {
     es: {
@@ -514,120 +522,131 @@ async function generarRecetarioPDF(adultos, ninos, semana, dias) {
     }
   };
 
-  getImageData("/assets/img/planificador-comidas-subbanner1.png", function (headerData) {
-    getImageData("/assets/logo/logo-xunta-azul.png", function (footerData) {
-      
-      function addHeaderFooter() {
-        doc.addImage(headerData, "PNG", 20, 5, 170, 15);
-        doc.addImage(footerData, "PNG", 10, pageHeight - 25, 30, 15);
-        doc.setFont("Xunta Sans", "italic");
-        doc.setFontSize(10);
-        doc.text(`${t("pagina")} ${pageNumber}`, pageWidth - 30, pageHeight - 10);
-      }
+  const headerData = await new Promise(resolve => getImageData("/assets/img/planificador-comidas-subbanner1.png", resolve));
+  const footerData = await new Promise(resolve => getImageData("/assets/logo/logo-xunta-azul.png", resolve));
 
-      addHeaderFooter();
+  function addHeaderFooter() {
+    doc.addImage(headerData, "PNG", 20, 5, 170, 15);
+    doc.addImage(footerData, "PNG", 10, pageHeight - 25, 30, 15);
+    doc.setFont("Xunta Sans", "italic");
+    doc.setFontSize(10);
+    doc.text(`${t("pagina")} ${pageNumber}`, pageWidth - 30, pageHeight - 10);
+  }
 
-      // 📝 Título
-      doc.setFont("times", "bold");
-      doc.setFontSize(18);
-      doc.text(t("recetario-semanal"), pageWidth / 2, y, { align: "center" });
+  function aplicarEstilosGenerales() {
+    doc.setFont("Xunta Sans", "normal");
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+  }
+
+  function saltoDePagina() {
+    doc.addPage();
+    pageNumber++;
+    addHeaderFooter();
+    aplicarEstilosGenerales();
+    y = margenSuperior;
+  }
+
+  // Primera página
+  addHeaderFooter();
+  aplicarEstilosGenerales();
+
+  // Título
+  doc.setFont("times", "bold");
+  doc.setFontSize(18);
+  doc.text(t("recetario-semanal"), pageWidth / 2, y, { align: "center" });
+  y += lineHeight;
+
+  // Datos del usuario
+  doc.setFont("Xunta Sans", "normal");
+  doc.setFontSize(12);
+  doc.text(`${t("adultos")}: ${adultos}  |  ${t("ninos")}: ${ninos}`, margen, y);
+  y += lineHeight;
+  doc.text(`${t("semana")}: ${semana === "9" ? t("todas-semanas") : t("semana") + " " + semana}`, margen, y);
+  y += lineHeight;
+  const dayLabel = dayNames[idioma][dias];
+  doc.text(`${t("día")}: ${dayLabel}`, margen, y);
+  y += lineHeight + 5;
+
+  mealPlanData.forEach((week) => {
+    if (semana === "9" || week.semana == semana) {
+      doc.setFontSize(14);
+      doc.setTextColor(0, 0, 150);
+      if (y + lineHeight > pageHeight - margenInferior) saltoDePagina();
+      doc.text(`${t("semana")} ${week.semana}`, margen, y);
       y += lineHeight;
 
-      // 👤 Datos
-      doc.setFont("Xunta Sans", "normal");
-      doc.setFontSize(12);
-      doc.text(`${t("adultos")}: ${adultos}  |  ${t("ninos")}: ${ninos}`, margin, y);
-      y += lineHeight;
-      doc.text(`${t("semana")}: ${semana === "9" ? t("todas-semanas") : t("semana") + " " + semana}`, margin, y);
-      y += lineHeight;
-      const dayLabel = dayNames[idioma][dias];
-      doc.text(`${t("día")}: ${dayLabel}`, margin, y);
-      y += lineHeight + 5;
-
-      // 🧾 Contenido
-      mealPlanData.forEach((week) => {
-        if (semana === "9" || week.semana == semana) {
-          doc.setFontSize(14);
-          doc.setTextColor(0, 0, 150);
-          doc.text(`${t("semana")} ${week.semana}`, margin, y);
+      week.dias.forEach((day) => {
+        if (dias === "8" || day.dia == dias) {
+          const dayName = dayNames[idioma][day.dia];
+          if (y + lineHeight > pageHeight - margenInferior) saltoDePagina();
+          doc.setFontSize(12);
+          doc.setTextColor(0, 0, 0);
+          doc.text(`${t("día")}: ${dayName}`, margen, y);
           y += lineHeight;
 
-          week.dias.forEach((day) => {
-            if (dias === "8" || day.dia == dias) {
-              const dayName = dayNames[idioma][day.dia];
-              doc.setFontSize(12);
-              doc.setTextColor(0, 0, 0);
-              doc.text(`${t("día")}: ${dayName}`, margin, y);
+          ["almorzo", "comida", "merenda", "cea"].forEach((type) => {
+            if (day[type]) {
+              const meal = day[type];
+              const typeLabel = mealTypeNames[idioma][type] || type;
+
+              if (y + lineHeight * 2 > pageHeight - margenInferior) saltoDePagina();
+              doc.setFont("Xunta Sans", "bold");
+              doc.text(`${typeLabel}:`, margen, y);
+              doc.setFont("Xunta Sans", "normal");
+              doc.text(meal.nombre, margen + 30, y);
               y += lineHeight;
 
-              ["almorzo", "comida", "merenda", "cea"].forEach((type) => {
-                if (day[type]) {
-                  const meal = day[type];
-                  const typeLabel = mealTypeNames[idioma][type] || type;
+              // Ingredientes
+              if (meal.ingredientes.length > 0) {
+                if (y + lineHeight > pageHeight - margenInferior) saltoDePagina();
+                doc.setFont("Xunta Sans", "bold");
+                doc.text(`${t("ingredientes")}:`, margen + 5, y);
+                doc.setFont("Xunta Sans", "normal");
+                y += lineHeight;
 
-                  doc.setFont("Xunta Sans", "bold");
-                  doc.text(`${typeLabel}:`, margin, y);
-                  doc.setFont("Xunta Sans", "normal");
-                  doc.text(meal.nombre, margin + 30, y);
+                let colLeft = margen + 10;
+                let colRight = pageWidth / 2;
+                let useRightCol = false;
+
+                meal.ingredientes.forEach((ing) => {
+                  if (y + lineHeight > pageHeight - margenInferior) saltoDePagina();
+                  const posX = useRightCol ? colRight : colLeft;
+                  doc.text(`- ${ing.nombre}: ${ing.cantidad}${ing.unidad}`, posX, y);
+                  useRightCol = !useRightCol;
+                  if (!useRightCol) y += lineHeight;
+                });
+                y += lineHeight;
+              }
+
+              // Instrucciones
+              if (meal.instrucciones.length > 0) {
+                if (y + lineHeight > pageHeight - margenInferior) saltoDePagina();
+                doc.setFont("Xunta Sans", "bold");
+                doc.text(`${t("instrucciones")}:`, margen + 5, y);
+                doc.setFont("Xunta Sans", "normal");
+                y += lineHeight;
+
+                meal.instrucciones.forEach((step) => {
+                  if (y + lineHeight > pageHeight - margenInferior) saltoDePagina();
+                  doc.text(`• ${step}`, margen + 10, y);
                   y += lineHeight;
-
-                  if (meal.ingredientes.length > 0) {
-                    doc.setFont("Xunta Sans", "bold");
-                    doc.text(`${t("ingredientes")}:`, margin + 5, y);
-                    doc.setFont("Xunta Sans", "normal");
-                    y += lineHeight;
-
-                    let colLeft = margin + 10;
-                    let colRight = pageWidth / 2;
-                    let useRightCol = false;
-
-                    meal.ingredientes.forEach((ing) => {
-                      if (y > pageHeight - 40) {
-                        doc.addPage();
-                        pageNumber++;
-                        y = 40;
-                        addHeaderFooter();
-                      }
-                      const posX = useRightCol ? colRight : colLeft;
-                      doc.text(`- ${ing.nombre}: ${ing.cantidad}${ing.unidad}`, posX, y);
-                      useRightCol = !useRightCol;
-                      if (!useRightCol) y += lineHeight;
-                    });
-                    y += lineHeight;
-                  }
-
-                  if (meal.instrucciones.length > 0) {
-                    doc.setFont("Xunta Sans", "bold");
-                    doc.text(`${t("instrucciones")}:`, margin + 5, y);
-                    doc.setFont("Xunta Sans", "normal");
-                    y += lineHeight;
-
-                    meal.instrucciones.forEach((step) => {
-                      if (y > pageHeight - 40) {
-                        doc.addPage();
-                        pageNumber++;
-                        y = 40;
-                        addHeaderFooter();
-                      }
-                      doc.text(`• ${step}`, margin + 10, y);
-                      y += lineHeight;
-                    });
-                  }
-                  y += 8;
-                }
-              });
-
-              doc.setDrawColor(100);
-              doc.line(margin, y, pageWidth - margin, y);
-              y += 5;
+                });
+              }
+              y += 8;
             }
           });
+
+          if (y + 5 > pageHeight - margenInferior) saltoDePagina();
+          doc.setDrawColor(100);
+          doc.line(margen, y, pageWidth - margen, y);
+          y += 5;
         }
       });
-
-      doc.save("recetario.pdf");
-    });
+    }
   });
+
+  doc.save("recetario.pdf");
 }
 
 
@@ -734,77 +753,89 @@ function validateFormValues(adultos, ninos, semana, dias) {
 //Descarga el menu semanal 
 // Nueva función: Generar PDF del menú semanal en tabla horizontal
 async function generarMenuSemanalPDF() {
-  const semana = document.getElementById("semanaForm").value.trim();
-
-  if (semana === "9") {
-    alert("Por favor, selecciona una semana específica para generar el menú semanal.");
-    return;
-  }
-
-  const weekData = mealPlanData.find((week) => week.semana === parseInt(semana, 10));
-  if (!weekData) {
-    alert("Semana no encontrada.");
-    return;
-  }
-
+  const semanaSeleccionada = document.getElementById("semanaForm").value.trim();
   const idioma = localStorage.getItem("language") || "es";
   const { t } = await cargarTraducciones();
-
-  // Cargar la imagen superior
-  const headerData = await new Promise((resolve) => {
-    getImageData("../../assets/img/planificador-comidas-subbanner1.png", resolve);
-  });
-
-  // Crear contenedor temporal
-  const tempContainer = document.createElement("div");
-  tempContainer.style.width = "1200px";
-  tempContainer.style.padding = "30px";
-  tempContainer.style.fontFamily = "'Xunta Sans', sans-serif";
-  tempContainer.style.backgroundColor = "#fff";
-
-  // Imagen del menú
-  const img = document.createElement("img");
-  img.src = headerData;
-  img.style.width = "100%";
-  img.style.marginBottom = "20px";
-  tempContainer.appendChild(img);
-
-  // Título de semana
-  const titulo = document.createElement("h4");
-  titulo.className = "text-center mb-4 fw-bold";
-  titulo.innerText = `${t("semana")} ${semana}`;
-  titulo.style.textAlign = "center";
-  tempContainer.appendChild(titulo);
-
-  // Tabla
-  const table = renderWeekTableWithoutThead(weekData);
-
-  // Eliminar primera columna vertical (la de SEMANA)
-  const firstTd = table.querySelector("tr td[rowspan]");
-  if (firstTd) firstTd.remove();
-
-  table.style.borderCollapse = "collapse";
-  table.style.width = "100%";
-  table.style.fontSize = "14px";
-
-  tempContainer.appendChild(table);
-  document.body.appendChild(tempContainer);
-
-  const canvas = await html2canvas(tempContainer, { scale: 2 });
-
-  const imgData = canvas.toDataURL("image/png");
   const { jsPDF } = window.jspdf;
+
   const pdf = new jsPDF({ orientation: "landscape" });
+  let primeraPagina = true;
 
-  const pageWidth = pdf.internal.pageSize.getWidth();
-  const imgWidth = pageWidth - 20;
-  const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  const generarPagina = async (weekData, index) => {
+    // Imagen de cabecera
+    const headerData = await new Promise((resolve) => {
+      getImageData("../../assets/img/planificador-comidas-subbanner1.png", resolve);
+    });
 
-  pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-  pdf.save(`menu_semanal_semana${semana}.pdf`);
+    // Crear contenedor temporal
+    const tempContainer = document.createElement("div");
+    tempContainer.style.width = "1200px";
+    tempContainer.style.padding = "30px";
+    tempContainer.style.fontFamily = "'Xunta Sans', sans-serif";
+    tempContainer.style.backgroundColor = "#fff";
 
-  document.body.removeChild(tempContainer);
+    // Imagen
+    const img = document.createElement("img");
+    img.src = headerData;
+    img.style.width = "100%";
+    img.style.marginBottom = "20px";
+    tempContainer.appendChild(img);
+
+    // Título
+    const titulo = document.createElement("h4");
+    titulo.className = "text-center mb-4 fw-bold";
+    titulo.innerText = `${t("semana")} ${weekData.semana}`;
+    titulo.style.textAlign = "center";
+    tempContainer.appendChild(titulo);
+
+    // Tabla
+    const table = renderWeekTableWithoutThead(weekData);
+
+    const firstTd = table.querySelector("tr td[rowspan]");
+    if (firstTd) firstTd.remove();
+
+    table.style.borderCollapse = "collapse";
+    table.style.width = "100%";
+    table.style.fontSize = "14px";
+
+    tempContainer.appendChild(table);
+    document.body.appendChild(tempContainer);
+
+    // Captura como imagen
+    const canvas = await html2canvas(tempContainer, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+
+    // Añadir al PDF
+    if (!primeraPagina) pdf.addPage();
+    primeraPagina = false;
+
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const imgWidth = pageWidth - 20;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+
+    document.body.removeChild(tempContainer);
+  };
+
+  // 🧠 Lógica para 1 semana o todas
+  if (semanaSeleccionada === "9" || semanaSeleccionada.toLowerCase() === "todas") {
+    for (const weekData of mealPlanData) {
+      await generarPagina(weekData);
+    }
+    pdf.save("menu_semanal_todas_las_semanas.pdf");
+  } else {
+    const semanaNum = parseInt(semanaSeleccionada, 10);
+    const weekData = mealPlanData.find((w) => w.semana === semanaNum);
+    if (!weekData) {
+      alert("Semana no encontrada.");
+      return;
+    }
+    await generarPagina(weekData);
+    pdf.save(`menu_semanal_semana${semanaNum}.pdf`);
+  }
 }
+
 
 
 
@@ -854,10 +885,7 @@ document.getElementById("btnMenuTabla").addEventListener("click", function (e) {
 
   const semana = document.getElementById("semanaForm").value.trim();
 
-  if (semana === "9") {
-    alert("Por favor, selecciona una semana específica para generar el menú.");
-    return;
-  }
+  
 
   generarMenuSemanalPDF(semana);
 });

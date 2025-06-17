@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="gl">
 
 <head>
   <meta charset="UTF-8" />
@@ -36,12 +36,12 @@
   <link rel="icon" href="../../assets/favicon.webp" type="image/webp" />
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMP3WWFF30"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F7M5R510L9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-WMP3WWFF30');
+    gtag('config', 'G-F7M5R510L9');
   </script>
 </head>
 
@@ -298,15 +298,15 @@
     {
       id: 1,
       folder: {
-        es: "webgl/cs11",
-        gl: "webgl/cs11"
+        es: "webgl/cs11/index.html",
+        gl: "webgl/cs11/index.html"
       }
     },
     {
       id: 2,
       folder: {
-        es: "webgl/cs412",
-        gl: "webgl/cs412"
+        es: "webgl/cs412/index.html",
+        gl: "webgl/cs412/index.html"
       }
     }
   ];
@@ -320,8 +320,8 @@
         }
         // Retorna la carpeta correspondiente al idioma actual, 
         // si no existe para ese idioma, se usa el valor por defecto en "es"
-        const language = localStorage.getItem("language") || "es";
-        return gameItem.folder[language] || gameItem.folder["es"];
+        const language = localStorage.getItem("language") || "gl";
+        return gameItem.folder[language] || gameItem.folder["gl"];
       }
   
       // Función openGame que utiliza el ID y detecta el idioma para obtener la ruta adecuada
@@ -332,7 +332,7 @@
           return;
         }
         // Construye la URL al VIDEOGAME. Ajusta la ruta según tu estructura de carpetas.
-        const gamePath = "../../" + encodeURIComponent(folder);
+        const gamePath = "../../" + folder;
         window.open(gamePath, "_blank");
       }
     </script>

@@ -1,4 +1,4 @@
-let currentLanguage = localStorage.getItem("language") || "es";
+let currentLanguage = localStorage.getItem("language") || "gl";
 let currentTranslations = {};
 
 document.addEventListener("DOMContentLoaded", function () {

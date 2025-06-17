@@ -174,37 +174,36 @@
       {
         "dia": "2",
         "almorzo": {
-        "nombre": "Yogur con muesli y plátano",
-        "ingredientes": [
-          {
-            "nombre": "Yogur natural",
-            "cantidad": 200,
-            "unidad": "g"
-          },
-          {
-            "nombre": "Muesli",
-            "cantidad": 30,
-            "unidad": "g"
-          },
-          {
-            "nombre": "Plátano",
-            "cantidad": 100,
-            "unidad": "g"
-          },
-          {
-            "nombre": "Miel",
-            "cantidad": 5,
-            "unidad": "ml"
-          }
-        ],
-        "instrucciones": [
-          "Verter el yogur en un bol.",
-          "Añadir el muesli por encima.",
-          "Cortar el plátano en rodajas y colocarlo encima.",
-          "Opcionalmente, añadir un chorrito de miel para endulzar."
-        ]
-      },
-
+          "nombre": "Yogur con muesli y plátano",
+          "ingredientes": [
+            {
+              "nombre": "Yogur natural",
+              "cantidad": 200,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Muesli",
+              "cantidad": 30,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Plátano",
+              "cantidad": 100,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Miel",
+              "cantidad": 5,
+              "unidad": "ml"
+            }
+          ],
+          "instrucciones": [
+            "Verter el yogur en un bol.",
+            "Añadir el muesli por encima.",
+            "Cortar el plátano en rodajas y colocarlo encima.",
+            "Opcionalmente, añadir un chorrito de miel para endulzar."
+          ]
+        },
         "comida": {
           "nombre": "Arroz de verduras e luras. Albaricoques",
           "ingredientes": [
@@ -266,34 +265,33 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Sándwich de pavo y aguacate. Nectarina",
           "ingredientes": [
             {
               "nombre": "Pan integral",
-              "cantidad": 50,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Plátano",
               "cantidad": 1,
               "unidad": "unidad"
             },
             {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Pavo cocido",
+              "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Manteca",
-              "cantidad": 5,
+              "nombre": "Aguacate",
+              "cantidad": 50,
               "unidad": "g"
+            },
+            {
+              "nombre": "Nectarina",
+              "cantidad": 1,
+              "unidad": "unidad"
             }
           ],
           "instrucciones": [
-            "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "Machacar el aguacate y untarlo sobre el pan tostado.",
+            "Añade las tiras de pavo y condiméntalas con sal y pimienta.",
+            "Servir acompañado de una nectarina fresca."
           ]
         },
         "cea": {
@@ -438,7 +436,7 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Tostada de tahini integral con plátano",
           "ingredientes": [
             {
               "nombre": "Pan integral",
@@ -446,26 +444,20 @@
               "unidad": "g"
             },
             {
+              "nombre": "Tahini",
+              "cantidad": 15,
+              "unidad": "g"
+            },
+            {
               "nombre": "Plátano",
               "cantidad": 1,
               "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteca",
-              "cantidad": 5,
-              "unidad": "g"
             }
           ],
           "instrucciones": [
             "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "Untar tahini sobre el pan tostado.",
+            "Añade rodajas de plátano y sirve inmediatamente."
           ]
         },
         "cea": {
@@ -604,34 +596,27 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Yogur con compota de pera",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
-              "cantidad": 50,
+              "nombre": "Yogur natural",
+              "cantidad": 150,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Pera",
+              "cantidad": 100,
               "unidad": "g"
             },
             {
-              "nombre": "Manteca",
-              "cantidad": 5,
+              "nombre": "Canela",
+              "cantidad": 2,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "Cocer la pera cortada en cubitos con un poco de canela hasta que esté blanda y triturarla para hacer compota.",
+            "Mezclar la compota con el yogur natural y servir fría."
           ]
         },
         "cea": {
@@ -770,34 +755,42 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Hummus de garbanzos con palitos de zanahoria. Moras",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Garbanzos cocidos",
+              "cantidad": 150,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Tahini",
+              "cantidad": 15,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Zumo de limón",
+              "cantidad": 10,
+              "unidad": "ml"
+            },
+            {
+              "nombre": "Zanahoria",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Moras",
+              "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Manteca",
-              "cantidad": 5,
+              "nombre": "Sal",
+              "cantidad": 2,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "Licua los garbanzos con el tahini, el zumo de limón y la sal hasta obtener un hummus cremoso.",
+            "Sirva el hummus con palitos de zanahoria fresca y moras como aperitivo."
           ]
         },
         "cea": {
@@ -942,34 +935,43 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Gachas de avena con canela, limón, frambuesas y pipas de girasol",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Copos de avena",
+              "cantidad": 40,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Leche o bebida vegetal",
+              "cantidad": 250,
+              "unidad": "ml"
+            },
+            {
+              "nombre": "Canela en polvo",
+              "cantidad": 2,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Ralladura de limón",
+              "cantidad": 2,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Frambuesas",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteca",
-              "cantidad": 5,
+              "nombre": "Semillas de girasol",
+              "cantidad": 10,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "En una cacerola calienta la leche y agrega la avena, revuelve hasta que espese.",
+            "Añade la canela y la ralladura de limón, mezcla bien.",
+            "Sirve las gachas y decora con frambuesas y pipas de girasol."
           ]
         },
         "cea": {
@@ -1116,34 +1118,39 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Galleta de yogur con cacao y nueces",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Yogur natural",
+              "cantidad": 150,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Harina integral",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteca",
+              "nombre": "Cacao puro en polvo",
               "cantidad": 5,
               "unidad": "g"
+            },
+            {
+              "nombre": "Nueces picadas",
+              "cantidad": 20,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Miel",
+              "cantidad": 5,
+              "unidad": "ml"
             }
           ],
           "instrucciones": [
-            "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "Mezclar el yogur, la harina y el cacao hasta formar una masa homogénea.",
+            "Añade las nueces y un poco de miel para endulzar.",
+            "Formar pequeñas galletas y hornear en el horno a 180°C durante 15 minutos.",
+            "Dejar enfriar y servir."
           ]
         },
         "cea": {
@@ -1482,34 +1489,33 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Yogur con nueces, fresas y coco rallado",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Yogur natural",
+              "cantidad": 150,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Nueces",
+              "cantidad": 20,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Fresas",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteca",
-              "cantidad": 5,
+              "nombre": "Coco rallado",
+              "cantidad": 10,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "En un bol, vierte el yogur natural.",
+            "Añade las nueces picadas y las fresas en rodajas.",
+            "Espolvorear coco rallado por encima y servir frío."
           ]
         },
         "cea": {
@@ -1645,34 +1651,34 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Galletas de avena, plátano y canela",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
-              "cantidad": 50,
+              "nombre": "Copos de avena",
+              "cantidad": 100,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
+              "nombre": "Plátano maduro",
               "cantidad": 1,
               "unidad": "unidad"
             },
             {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Canela en polvo",
+              "cantidad": 2,
               "unidad": "g"
             },
             {
-              "nombre": "Manteca",
+              "nombre": "Miel (opcional)",
               "cantidad": 5,
-              "unidad": "g"
+              "unidad": "ml"
             }
           ],
           "instrucciones": [
-            "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "Precalentar el horno a 180ºC.",
+            "Machacar el plátano y mezclar con la avena y la canela hasta formar una masa.",
+            "Formar pequeñas galletas sobre papel de horno y hornear durante 12-15 minutos.",
+            "Dejar enfriar y servir."
           ]
         },
         "cea": {
@@ -1739,27 +1745,27 @@
         "almorzo": {
           "nombre": "Leche con arroz inflado, cacao y plátano",
           "ingredientes": [
-          {
-            "nombre": "Leche",
-            "cantidad": 250,
-            "unidad": "ml"
-          },
-          {
-            "nombre": "Arroz inflado",
-            "cantidad": 30,
-            "unidad": "g"
-          },
-          {
-            "nombre": "Cacao puro en polvo",
-            "cantidad": 5,
-            "unidad": "g"
-          },
-          {
-            "nombre": "Plátano",
-            "cantidad": 1,
-            "unidad": "unidad"
-          }
-        ],
+            {
+              "nombre": "Leche",
+              "cantidad": 250,
+              "unidad": "ml"
+            },
+            {
+              "nombre": "Arroz inflado",
+              "cantidad": 30,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Cacao puro en polvo",
+              "cantidad": 5,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Plátano",
+              "cantidad": 1,
+              "unidad": "unidad"
+            }
+          ],
           "instrucciones": [
             "Calentar la leche sin que hierva.",
             "Añade el cacao en polvo y revuelve bien hasta que se disuelva.",
@@ -1840,7 +1846,7 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Tostada integral con requesón y arándanos",
           "ingredientes": [
             {
               "nombre": "Pan integral",
@@ -1848,25 +1854,19 @@
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Requesón",
+              "cantidad": 40,
               "unidad": "g"
             },
             {
-              "nombre": "Manteca",
-              "cantidad": 5,
+              "nombre": "Arándanos",
+              "cantidad": 30,
               "unidad": "g"
             }
           ],
           "instrucciones": [
             "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
+            "Unta el requesón y añade arándanos frescos por encima.",
             "Servir de inmediato."
           ]
         },
@@ -2038,34 +2038,43 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Gachas de avena con canela, limón, frambuesas y pipas de girasol",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
+              "nombre": "Copos de avena",
+              "cantidad": 40,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Leche o bebida vegetal",
+              "cantidad": 250,
+              "unidad": "ml"
+            },
+            {
+              "nombre": "Canela en polvo",
+              "cantidad": 2,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Ralladura de limón",
+              "cantidad": 2,
+              "unidad": "g"
+            },
+            {
+              "nombre": "Frambuesas",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
-              "unidad": "g"
-            },
-            {
-              "nombre": "Manteca",
-              "cantidad": 5,
+              "nombre": "Semillas de girasol",
+              "cantidad": 10,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "En una cacerola calienta la leche y agrega la avena, revuelve hasta que espese.",
+            "Añade la canela y la ralladura de limón, mezcla bien.",
+            "Sirve las gachas y decora con frambuesas y pipas de girasol."
           ]
         },
         "cea": {
@@ -2222,34 +2231,33 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Leche. Tostada de mantequilla de cacahuete y fresa",
           "ingredientes": [
+            {
+              "nombre": "Leche",
+              "cantidad": 200,
+              "unidad": "ml"
+            },
             {
               "nombre": "Pan integral",
               "cantidad": 50,
               "unidad": "g"
             },
             {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "nombre": "Crema de cacahuete",
+              "cantidad": 20,
               "unidad": "g"
             },
             {
-              "nombre": "Manteca",
-              "cantidad": 5,
+              "nombre": "Fresas",
+              "cantidad": 50,
               "unidad": "g"
             }
           ],
           "instrucciones": [
             "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "Unta la mantequilla de cacahuete y añade las fresas en rodajas.",
+            "Servir con un vaso de leche."
           ]
         },
         "cea": {
@@ -2401,34 +2409,28 @@
           ]
         },
         "merenda": {
-          "nombre": "Tostada de plátano y chocolate negro 85%",
+          "nombre": "Sandía congelada con chocolate negro y pistachos",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
-              "cantidad": 50,
+              "nombre": "Sandía",
+              "cantidad": 100,
               "unidad": "g"
-            },
-            {
-              "nombre": "Plátano",
-              "cantidad": 1,
-              "unidad": "unidad"
             },
             {
               "nombre": "Chocolate negro 85%",
-              "cantidad": 30,
+              "cantidad": 20,
               "unidad": "g"
             },
             {
-              "nombre": "Manteca",
-              "cantidad": 5,
+              "nombre": "Pistachos",
+              "cantidad": 10,
               "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Tostar el pan integral.",
-            "Unta un poco de mantequilla si lo deseas.",
-            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
-            "Servir de inmediato."
+            "Corta la sandía en cubos y congélala unos minutos para que esté bien helada.",
+            "Derretir ligeramente el chocolate y verterlo sobre los trozos de sandía.",
+            "Espolvorear con pistachos picados y servir inmediatamente."
           ]
         },
         "cea": {
@@ -4532,38 +4534,33 @@
           ]
         },
         "merenda": {
-          "nombre": "Sándwich de pavo y aguacate. Nectarina",
+          "nombre": "Queso crema con copos de maíz, puré de manzana y pepitas",
           "ingredientes": [
             {
-              "nombre": "Pan integral",
-              "cantidad": 1,
-              "unidad": "unidad"
-            },
-            {
-              "nombre": "Pavo cocido",
-              "cantidad": 50,
+              "nombre": "Queso crema",
+              "cantidad": 150,
               "unidad": "g"
             },
             {
-              "nombre": "Aguacate",
-              "cantidad": 50,
+              "nombre": "Copos de maíz",
+              "cantidad": 30,
               "unidad": "g"
             },
             {
-              "nombre": "Sal y pimienta",
-              "cantidad": 2,
+              "nombre": "Manzana",
+              "cantidad": 80,
               "unidad": "g"
             },
             {
-              "nombre": "Nectarina",
-              "cantidad": 1,
-              "unidad": "unidad"
+              "nombre": "Pepitas",
+              "cantidad": 10,
+              "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Machacar el aguacate y extenderlo sobre la rebanada de pan integral tostado.",
-            "Añade las tiras de pavo y condiméntalas con sal y pimienta.",
-            "Servir acompañado de una nectarina fresca."
+            "Cocer la manzana cortada en cubitos hasta formar una compota y dejar enfriar.",
+            "En un bol mezcla el queso crema con los copos de maíz.",
+            "Añade la compota de manzana y las pepitas por encima y sirve."
           ]
         },
         "cea": {
@@ -7294,27 +7291,34 @@
           ]
         },
         "merenda": {
-          "nombre": "Leche con avena y kiwi",
+          "nombre": "Tostada de plátano y chocolate negro 85%",
           "ingredientes": [
             {
-              "nombre": "Leche",
-              "cantidad": 200,
-              "unidad": "ml"
+              "nombre": "Pan integral",
+              "cantidad": 50,
+              "unidad": "g"
             },
             {
-              "nombre": "Copos de avena",
+              "nombre": "Plátano",
+              "cantidad": 1,
+              "unidad": "unidad"
+            },
+            {
+              "nombre": "Chocolate negro 85%",
               "cantidad": 30,
               "unidad": "g"
             },
             {
-              "nombre": "Kiwi",
-              "cantidad": 1,
-              "unidad": "unidad"
+              "nombre": "Manteca",
+              "cantidad": 5,
+              "unidad": "g"
             }
           ],
           "instrucciones": [
-            "Calentamos la leche y añadimos la avena, cocinando unos minutos.",
-            "Servir en un bol o vaso y acompañar con un kiwi pelado."
+            "Tostar el pan integral.",
+            "Unta un poco de mantequilla si lo deseas.",
+            "Coloque rodajas de plátano y rocíe con chocolate derretido.",
+            "Servir de inmediato."
           ]
         },
         "cea": {

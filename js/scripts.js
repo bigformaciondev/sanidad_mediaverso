@@ -26,17 +26,30 @@ window.addEventListener('DOMContentLoaded', event => {
 document.addEventListener("DOMContentLoaded", function () {
     loadMenusAndSubmenus();
   });
-function irASeccion(id) {
-  // Busca el elemento en la página actual
-  const targetElement = document.getElementById(id);
-  if (targetElement) {
-    // Si lo encuentra, realiza un scroll suave
-    targetElement.scrollIntoView({ behavior: "smooth" });
-  } else {
-    // Si no se encuentra (por ejemplo, no estamos en la página index), redirige a la página principal con el hash
-    window.location.href = "index.html#" + id;
+  function irASeccion(id) {
+    const targetElement = document.getElementById(id);
+  
+    if (targetElement) {
+      targetElement.scrollIntoView({behavior: "smooth" });
+  
+      // Cierra el menú si está activo en responsive
+      const navbarToggler = document.querySelector('.navbar-toggler');
+      const navbarCollapse = document.querySelector('#navbarResponsive');
+  
+      if (navbarToggler && navbarCollapse) {
+        const isVisible = window.getComputedStyle(navbarToggler).display !== 'none';
+        const isExpanded = navbarCollapse.classList.contains('show');
+  
+        if (isVisible && isExpanded) {
+          navbarToggler.click(); // Esto cierra el menú
+        }
+      }
+  
+    } else {
+      // Redirige si no está en la página actual
+      window.location.href = "index.html#" + id;
+    }
   }
-}
 
 document.addEventListener("DOMContentLoaded", function () {
     fetch("../local/menu.json")
@@ -54,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Agrega las demás pestañas basadas en el JSON
     menus.forEach(menu => {
       const li = document.createElement("li");
-      li.className = "nav-item menu-item";
+      li.className = "nav-item menu-item menu-hover";
   
       const img = document.createElement("img");
       img.id = "circulo";

@@ -15,13 +15,17 @@ const traduccionesEncuesta = {
   },
 };
 
-const idioma = localStorage.getItem("language") || "es";
+const idioma = localStorage.getItem("language") || "gl";
 const textos = traduccionesEncuesta[idioma];
 let tiempoInicio = Date.now();
 
-setTimeout(() => {
-  mostrarPopupEncuesta();
-}, 10000); // Mostrar a los 10 segundos
+// Solo mostrar una vez por sesión
+if (!sessionStorage.getItem("encuesta-mostrada")) {
+  setTimeout(() => {
+    mostrarPopupEncuesta();
+    sessionStorage.setItem("encuesta-mostrada", "true");
+  }, 60000); // Mostrar después de 60 segundos
+}
 
 function mostrarPopupEncuesta() {
   const backdrop = document.createElement("div");
@@ -79,7 +83,7 @@ function mostrarPopupEncuesta() {
     span.innerText = carita;
     span.dataset.value = textos.valores[index];
     Object.assign(span.style, {
-      fontSize: "2.5rem",
+      fontSize: "3rem",
       cursor: "pointer"
     });
     span.classList.add("mx-2", "emoji-hover");

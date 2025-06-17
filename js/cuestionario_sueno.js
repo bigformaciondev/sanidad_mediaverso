@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const datos = recolectarDatos();
     // Construir la ruta del JSON según el idioma
-    const idioma = localStorage.getItem("language") || "es";
+    const idioma = localStorage.getItem("language") || "gl";
     let jsonPath;
     if (idioma === "gl") {
       jsonPath = "../../local/cuestionario_sueno.json";
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Mostrar advertencia si es menor de 14
       if (edad < 14) {
-        const idioma = localStorage.getItem("language") || "es";
+        const idioma = localStorage.getItem("language") || "gl";
         advertenciaEdad.style.display = "block";
         advertenciaEdad.textContent =
           idioma === "gl"
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Por favor, complete todos os campos obrigatorios.",
       },
     };
-    const idioma = localStorage.getItem("language") || "es";
+    const idioma = localStorage.getItem("language") || "gl";
     alert(mensajes[idioma][claveTraduccion]);
   }
 
@@ -600,7 +600,7 @@ function addFooter(doc, footerData) {
     const anchoTexto = 180;
     let y = 20;
   
-    const idioma = localStorage.getItem("language") || "es";
+    const idioma = localStorage.getItem("language") || "gl";
   
     // Cargar traducciones
     const traducciones = await fetch("../../local/lang.json")

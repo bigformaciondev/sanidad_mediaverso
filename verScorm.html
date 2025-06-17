@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="gl">
 
 <head>
   <meta charset="UTF-8">
@@ -21,8 +21,35 @@
   <!-- Icono del sitio (favicon) -->
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <style type="text/css">
-    html, body, div#yt, iframe { margin:0; padding:0; height:100%; }
-    iframe { display:block; width:100%; border:none; }
+  iframe { margin:0; padding:0; height:100%; }
+  iframe { display:block; width:100%; border:none; }
+
+  /* Bloquear scroll horizontal */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto;
+    margin:0; padding:0; height:100%;
+  }
+  #popupForm {
+  width: 320px;
+  bottom: 2rem;
+  right: 2rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Estilo responsive para móviles */
+@media (max-width: 576px) {
+  #popupForm {
+    width: 90%;
+    left: 50%;
+    bottom: auto;
+    top: 10%;
+    right: auto;
+    transform: translateX(-50%);
+    max-height: 80vh;
+  }
+}
 </style>
 </head>
 
@@ -32,89 +59,227 @@
   <div class="container-fluid p-0" style="height: 100%;">
 
     <iframe id="scormFrame" src=""></iframe>
+<!-- Pop-up con formulario -->
+<div id="popupForm" class="card shadow position-fixed" style="z-index: 1050; width: 320px; bottom: 2rem; right: 2rem;">
+  <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+    <span data-translate="encuestas-satisfaccion-1"></span>
+    <button type="button" class="btn-close btn-close-white" aria-label="Cerrar" onclick="minimizePopup()"></button>
+  </div>
+  <div class="card-body">
+    <div class="alert alert-warning text-center" role="alert"  data-translate="encuestas-satisfaccion-2">
+      
+    </div>
+    <!-- Confirmación antes del formulario -->
+<div id="confirmacionFormacion" class="text-center">
+  <p data-translate="encuestas-satisfaccion-confirmar">Preme no seguinte botón se remataches a formación.</p>
+  <button class="btn btn-success w-100" onclick="mostrarFormulario()">
+    <i class="bi bi-check-circle"></i> <span data-translate="encuestas-satisfaccion-empezar">Comezar a enquisa</span>
+  </button>
+</div>
 
-    <footer id="footer" class="footer bg-primary text-light">
-      <div class="container d-flex justify-content-between text-center py-4">
-        <div>
-          <img src="assets/logo/logo-xunta-negativo.svg" width="80" height="71" />
-        </div>
-        <div>
-          <p data-translate="footer-info-xunta">© Xunta de Galicia. Información mantida e publicada en Internet pola
-            Consellería de Sanidade</p>
-          <ul class="d-flex d-inline-flex footer-links">
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://012.xunta.gal/portada"
-                data-translate="atencion-a-la-ciudadania">
-                Atencion a la ciudadania
-              </a>
-            </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/A-nosa-organizacion/Accesibilidade"
-                data-translate="accesibilidad">
-                Accesibilidad
-              </a>
-            </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger"
-                href="https://www.xunta.gal/aviso-legal-do-portal-da-xunta?langId=gl_ES" data-translate="aviso-legal">
-                Aviso Legal
-              </a>
-            </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/mapa-web"
-                data-translate="mapa-del-portal">
-                Mapa del Portal
-              </a>
-            </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger"
-                href="https://www.sergas.gal/A-nosa-organizacion/Consultas-reclamacions-suxestions"
-                data-translate="contacte">
-                Contacte
-              </a>
-            </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://sanidade.xunta.gal/transparencia-e-goberno-aberto"
-                data-translate="transparencia-y-gobierno-abierto">
-                Transparencia y gobierno abierto
-              </a>
-            </li>
-            <li class="text-decoration-none d-flex">
-              <a class="nav-link js-scroll-trigger" href="https://www.sergas.gal/canles-rss" data-translate="rss">
-                RSS
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="my-3">
-          <a id="back-to-top " href="#" class="btn btn-primary back-to-top" role="button">
-            <i class="bi bi-arrow-up"></i>
-          </a>
+<!-- Formulario real (inicialmente oculto) -->
+<form id="formEncuesta" class="d-none" novalidate>
+      <div class="mb-3">
+        <label for="valoracion" class="form-label"  data-translate="encuestas-satisfaccion-3"></label>
+        <input type="number" class="form-control" id="valoracion" name="valoracion" min="1" max="10" required>
+      </div>
+      <div class="mb-3">
+        <label for="respuesta" class="form-label"  data-translate="encuestas-satisfaccion-4"></label>
+        <textarea class="form-control" id="respuesta" name="respuesta" rows="3" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="sexo" class="form-label"  data-translate="encuestas-satisfaccion-5"></label>
+        <select class="form-select" id="sexo" name="sexo" required>
+          <option value="" disabled selected  data-translate="encuestas-satisfaccion-6"></option>
+          <option value="Mujer "  data-translate="encuestas-satisfaccion-7"></option>
+          <option value="Hombre"  data-translate="encuestas-satisfaccion-8"></option>
+          <option value="Prefiero no decirlo"  data-translate="encuestas-satisfaccion-9"></option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="edad" class="form-label">Idade</label>
+        <input type="number" class="form-control" id="edad" name="edad" min="1" max="120" required>
+      </div>      
+      <button type="submit" class="btn btn-primary w-100"  data-translate="encuestas-satisfaccion-10"></button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Botón minimizado -->
+<button id="minimizedButton" class="btn btn-primary position-fixed m-3 d-none" onclick="restorePopup()" style="z-index: 1050;bottom: 2rem; right: 2rem;" >
+  <i class="bi bi-chat-dots"></i> <span data-translate="encuestas-satisfaccion-11">Encuesta</span>
+</button>
+    <footer id="footer" class="footer bg-primary text-light py-3">
+      <div class="container">
+        <div class="row align-items-center text-center text-md-start">
+          <!-- Logo -->
+          <div class="col-12 col-md-3 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start">
+            <img src="../../assets/logo/logo-xunta-negativo.svg" width="120" height="71" alt="Logo Xunta de Galicia" />
+          </div>
+          
+          <!-- Información y enlaces -->
+          <div class="col-12 col-md-6 text-center mb-3 mb-md-0">
+            <p class="mb-2" data-translate="footer-info-xunta">
+              © Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade
+            </p>
+            <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-2 pt-2">
+              <li class="px-2 border-end">
+                <a class="nav-link text-light" href="https://012.xunta.gal/portada" data-translate="atencion-a-la-ciudadania">
+                  Atención a la ciudadanía
+                </a>
+              </li>
+              <li class="px-2 border-end">
+                <a class="nav-link text-light" href="https://www.sergas.gal/A-nosa-organizacion/Accesibilidade" data-translate="accesibilidad">
+                  Accesibilidad
+                </a>
+              </li>
+              <li class="px-2 border-end">
+                <a class="nav-link text-light" href="https://www.xunta.gal/aviso-legal-do-portal-da-xunta?langId=gl_ES" data-translate="aviso-legal">
+                  Aviso Legal
+                </a>
+              </li>
+              <li class="px-2 border-end">
+                <a class="nav-link text-light" href="https://www.sergas.gal/mapa-web" data-translate="mapa-del-portal">
+                  Mapa del Portal
+                </a>
+              </li>
+              <li class="px-2 border-end">
+                <a class="nav-link text-light" href="https://www.sergas.gal/A-nosa-organizacion/Consultas-reclamacions-suxestions" data-translate="contacte">
+                  Contacte
+                </a>
+              </li>
+              <li class="px-2 border-end">
+                <a class="nav-link text-light" href="https://sanidade.xunta.gal/transparencia-e-goberno-aberto" data-translate="transparencia-y-gobierno-abierto">
+                  Transparencia y gobierno abierto
+                </a>
+              </li>
+              <li class="px-2">
+                <a class="nav-link text-light" href="https://www.sergas.gal/canles-rss" data-translate="rss">
+                  RSS
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Botón de volver arriba -->
+          <div class="col-12 col-md-3 text-center text-md-end">
+            <a id="back-to-top" href="#" class="btn btn-primary border-light back-to-top" role="button">
+              <i class="bi bi-arrow-up"></i>
+            </a>
+          </div>
         </div>
       </div>
+    </footer>
+    <!-- Pop-up con formulario -->
 
 
-  </div>
+    <script>
+      window.mostrarFormulario = function () {
+  document.getElementById("confirmacionFormacion").classList.add("d-none");
+  document.getElementById("formEncuesta").classList.remove("d-none");
+};
+      window.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const scormFolder = params.get("scorm");
+        const idioma = localStorage.getItem("language") || "gl";
+        const tiempoInicio = Date.now();
+      
+        if (!scormFolder) {
+          alert("No se ha especificado el SCORM a cargar.");
+          return;
+        }
+      
+        // Cargar SCORM
+        const scormPath = scormFolder;
+        document.getElementById("scormFrame").src = scormPath;
+        // Extraer nombre_formacion del path
+        const match = scormPath.match(/SCORMS\/([^\/]+)\//);
+        const nombre_formacion = match ? decodeURIComponent(match[1]) : "desconocido";
 
-  </footer>
-  <script>
-  
-
-window.addEventListener("DOMContentLoaded", function() {
-  const params = new URLSearchParams(window.location.search);
-  const scormFolder = params.get("scorm");
-  
-  if (!scormFolder) {
-    alert("No se ha especificado el SCORM a cargar.");
-    return;
-  }
-  
-  // Ruta final, ajusta los niveles ../ según ubicación
-  const scormPath = scormFolder;
-  document.getElementById("scormFrame").src = scormPath;
-});
-    
-    </script>
+        // Registrar acceso
+        fetch("/registrar_acceso_formacion.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nombre_formacion,
+            url: window.location.href,
+            userAgent: navigator.userAgent
+          })
+        }).catch(err => console.warn("Error al registrar acceso:", err));
+        // Mostrar pop-up al iniciar
+        showPopup();
+      
+        // Mostrar/ocultar popup
+        function showPopup() {
+          document.getElementById('popupForm').classList.remove('d-none');
+          document.getElementById('minimizedButton').classList.add('d-none');
+        }
+      
+        window.minimizePopup = function () {
+          document.getElementById('popupForm').classList.add('d-none');
+          document.getElementById('minimizedButton').classList.remove('d-none');
+        };
+      
+        window.restorePopup = function () {
+          document.getElementById('popupForm').classList.remove('d-none');
+          document.getElementById('minimizedButton').classList.add('d-none');
+        };
+      
+        // Formulario
+        document.getElementById('formEncuesta').addEventListener('submit', function (e) {
+          e.preventDefault();
+      
+          const valoracion = parseInt(document.getElementById('valoracion').value);
+          const respuesta = document.getElementById('respuesta').value.trim();
+          const sexo = document.getElementById('sexo').value.trim();
+          const edad = parseInt(document.getElementById('edad').value);
+      
+          if (!valoracion || valoracion < 1 || valoracion > 10 || respuesta === '' || sexo === '' || !edad || edad < 1 || edad > 120) {
+            alert("Por favor, completa todos os campos correctamente.");
+            return;
+          }
+      
+          // Extraer nombre_formacion del path del iframe
+          const match = scormPath.match(/SCORMS\/([^\/]+)\//);
+          const nombre_formacion = match ? decodeURIComponent(match[1]) : "desconocido";
+      
+          const tiempo_formacion = Math.round((Date.now() - tiempoInicio) / 1000);
+      
+          const datos = {
+            nombre_formacion: nombre_formacion,
+            valoracion: valoracion,
+            respuesta: respuesta,
+            sexo: sexo,
+            edad: edad,
+            idioma: idioma,
+            tiempo_formacion: tiempo_formacion,
+            url: window.location.href,
+            fecha: new Date().toISOString(),
+            userAgent: navigator.userAgent
+          };
+      
+          console.log("Enviando:", datos);
+      
+          // Enviar al backend (descomenta cuando esté listo)
+          fetch("/guardar_encuesta_formacion.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(datos)
+          })
+          .then(res => {
+            if (!res.ok) throw new Error("Erro no envío");
+            alert("Grazas pola túa resposta!");
+            minimizePopup();
+          })
+          .catch(err => {
+            console.error("Erro:", err);
+            alert("Houbo un problema ao enviar os datos.");
+          });
+        });
+      });
+      </script>
+      
   <script src="js/scripts.js"></script>
   <script src="js/lang.js"></script>
 </body>

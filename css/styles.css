@@ -832,12 +832,13 @@ progress {
 .menu-item {
   flex: 0 1 calc(50% - 1rem); /* 2 por fila en móvil */
   text-align: center;
+  width: 200px;
 }
 
 /* Imagen dentro del item */
 .menu-item img {
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   max-width: 100%;
   height: auto;
 }
@@ -848,7 +849,15 @@ progress {
   margin-top: 0.5rem;
   font-weight: bold;
 }
+.menu-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.menu-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
 /* En pantallas más grandes (ej. >=768px), que vuelvan al diseño horizontal */
 @media (min-width: 768px) {
   #nav-menu {
@@ -12995,7 +13004,7 @@ section.resume-section .resume-section-content {
 /*background index html*/
 section#inicio-banner-1 {
   background-color: rgba(0, 0, 0, 0.075);
-  background-image: url(../assets/img/banner1.webp);
+  background-image: url(../assets/img/banner1-azul.webp);
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13013,7 +13022,7 @@ section#alimentacion-saludable {
 
 section#actividad-fisica {
   background-color: rgba(0, 0, 0, 0.075);
-  background-image: url(../assets/img/banner3.webp);
+  background-image: url(../assets/img/actividad-fisica-banner-2.webp);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13021,7 +13030,7 @@ section#actividad-fisica {
 
 section#bienestar-emocional {
   background-color: rgba(0, 0, 0, 0.075);
-  background-image: url(../assets/img/banner4.webp);
+  background-image: url(../assets/img/banner4-azul.webp);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13202,4 +13211,13 @@ iframe {
 
 #popup-encuesta h5 {
   font-size: 1.25rem;
+}
+.scroll-no-tapa-titulo{
+  scroll-margin-top: 0px; /* Ajusta este valor a la altura de tu navbar */
+}
+
+@media (max-width: 576px) {
+  .scroll-no-tapa-titulo{
+    scroll-margin-top: 60px !important; /* Ajusta este valor a la altura de tu navbar */
+  }
 }

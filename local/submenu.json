@@ -169,5 +169,14 @@
     "imagen": "assets/img/vuelve-esencial-banner1.webp",
     "badge": "conductas-adictivas",
     "key": "vuelve-a-lo-esencial"
+  },
+  {
+    "id": 20,
+    "menu_id": 2,
+    "nombre": "Pausas Activas",
+    "ruta": "/content/actividad_fisica/pausas_activas_actividad_fisica.html",
+    "imagen": "assets/img/formacion-actividad-fisica-1.jpeg",
+    "badge": "actividad-fisica",
+    "key": "pausas-activas"
   }
 ]
