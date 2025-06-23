@@ -178,5 +178,14 @@
     "imagen": "assets/img/formacion-actividad-fisica-1.jpeg",
     "badge": "actividad-fisica",
     "key": "pausas-activas"
+  },
+  {
+    "id": 21,
+    "menu_id": 1,
+    "nombre": "Nutrición y Desarrollo Temprano",
+    "ruta": "/content/alimentacion/nutricion_desarrollo_temprano.html",
+    "imagen": "assets/img/bebes/bebe1.jpg",
+    "badge": "alimentacion-saludable",
+    "key": "nutricion-desarrollo-temprano"
   }
 ]
