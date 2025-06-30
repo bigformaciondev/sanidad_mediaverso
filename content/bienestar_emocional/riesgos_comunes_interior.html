@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Recursos interactivos y materiales educativos para mejorar el sueño saludable en el proyecto Sanidade Mediaverso. Disponible en español y gallego.">
+    <meta name="keywords" content="sueño saludable, descanso, bienestar, educación en salud, Sanidade Mediaverso, Sergas">
+    <meta name="author" content="Sanidade Mediaverso - Sergas">
+    <meta name="robots" content="index, follow">
+    <title>Riesgos Comunes en el Interior | Sanidade Mediaverso</title>
+  
+    <!-- Etiqueta Canonical -->
+    <link rel="canonical" href="https://sanidademediaverso.sergas.gal/content/bienestar_emocional/sueno_saludable_bienestar_emocional.html">
+  
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Sueño Saludable | Sanidade Mediaverso">
+    <meta property="og:description" content="Accede a herramientas y vídeos para mejorar tu calidad de sueño en el marco del proyecto Sanidade Mediaverso.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanidademediaverso.sergas.gal/content/bienestar_emocional/sueno_saludable_bienestar_emocional.html">
+    <meta property="og:image" content="https://sanidademediaverso.sergas.gal/assets/img/sueño-saludable-subbanner1.webp">
+  
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sueño Saludable | Sanidade Mediaverso">
+    <meta name="twitter:description" content="Recursos, vídeos y cuestionarios sobre higiene del sueño y descanso saludable.">
+    <meta name="twitter:image" content="https://sanidademediaverso.sergas.gal/assets/img/sueño-saludable-subbanner1.webp">
+  
+    <!-- Google Fonts: Poppins + Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  
+    <!-- Bootstrap desde archivos locales -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  
+    <!-- Estilo personalizado -->
+    <link rel="stylesheet" href="../../css/styles.css">
+  
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/favicon.webp" type="image/x-icon">
+  
+    <!-- Google Analytics (reemplazar G-WMP3WWFF30 con tu ID real) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7M5R510L9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-F7M5R510L9');
+    </script>
+  
+    <!-- Marcado estructurado JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Sanidade Mediaverso",
+      "url": "https://sanidademediaverso.sergas.gal",
+      "logo": "https://sanidademediaverso.sergas.gal/assets/logo/logo-xunta-negativo.svg",
+      "sameAs": [
+        "https://www.instagram.com/vidasaudable.sergas/",
+        "https://www.facebook.com/vidasaudable.sergas/",
+        "https://x.com/vida_saudable"
+      ],
+      "department": {
+        "@type": "GovernmentHealthAgency",
+        "name": "Consellería de Sanidade",
+        "url": "https://www.sergas.gal"
+      }
+    }
+    </script>
+
+    <!-- Script del Carrousel -->
+    <script defer>
+      // Espera a que el DOM esté listo
+      document.addEventListener("DOMContentLoaded", function () {
+        const collapse1 = document.getElementById('collapse1');
+        const carousel = document.querySelector('#carouselExampleIndicators');
+
+        collapse1.addEventListener('shown.bs.collapse', function () {
+          // Reinicia el carrusel a la primera diapositiva
+          const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
+          carouselInstance.to(0);
+        });
+      });
+    </script>
+  
+  <!-- Web Responsive -->
+  <style>
+   @media (max-width: 1250px){
+    #tarjeta1, #tarjeta2, #tarjeta3 {
+        display:block !important;
+        width:70% !important;
+        height: 700px !important;
+        margin: 0 auto !important;
+    }
+    #tarjeta1 button, #tarjeta2 button, #tarjeta3 button {
+      margin: 10px auto auto auto !important;
+    }
+    #contenedor-tarjetas {
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+    #carrusel {
+      height: 700px !important;
+    }
+    .carousel-indicators {
+      top: 695px !important;
+    }
+   }
+
+   @media (max-width: 767px) {
+    #carrusel {
+      height: 575px !important;
+    }
+    .carousel-indicators {
+      top: 570px !important;
+    }
+   }
+
+    @media (max-width: 575px) {
+    #carrusel {
+      height: 600px !important;
+    }
+    .carousel-indicators {
+      top: 595px !important;
+    }
+   }
+
+    @media (max-width: 364px) {
+    #carrusel {
+      height: 700px !important;
+    }
+    .carousel-indicators {
+      top: 695px !important;
+    }
+   }
+   </style>
+
+   <!-- Script Para Hacer Scroll Down Al Abrir un Collapse -->
+    <script defer>
+      function scrollToCollapse() {
+        const element = document.getElementById('collapses');
+
+        // Delay de 300ms antes de hacer scroll
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 200);
+      }
+    </script>
+  </head>
+  
+
+<body id="page-top">
+   <!-- Navigation-->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <div class="collapse navbar-collapse px-5 text-center" id="navbarResponsive">
+      <div class="navbar-brand d-flex text-light">
+        <a class="p-1 text-light"
+          href="https://www.instagram.com/vidasaudable.sergas/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#"
+          target="_blank">
+          <i class="bi bi-instagram text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="https://www.facebook.com/vidasaudable.sergas/" target="_blank">
+          <i class="bi bi-facebook text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="https://x.com/vida_saudable" target="_blank">
+          <i class="bi bi-twitter-x text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="mailto:sanidademediaverso@sergas.es">
+          <i class="bi bi-envelope text-light"></i>
+        </a>
+        <a class="p-1 text-light" href="http://wa.me/605826010">
+            <i class="bi bi-whatsapp text-light"></i>
+          </a>
+      </div>
+    </div>
+    <a class="navbar-brand js-scroll-trigger m-1" href="../../index.html">
+        <span class="d-block d-lg-block h5 text-white">Sanidade Mediaverso</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse h-100  flex-column px-2" id="navbarResponsive">
+      <div class="navbar-brand d-flex justify-content-center text-light">
+        <div class="d-flex ms-2 w-100  d-flex justify-content-center">
+          <a href="https://vida-saudable.sergas.gal/" class="text-light justify-content-center" title="Enlace a Xanela Aberta">
+            <img src="../../assets/logo/XanelaAbertaAFamilia.png" alt="Logo Xanela Aberta" class="mx-2 w-100 mw-100" >
+          </a>
+        </div>
+      </div>
+      <ul class="navbar-nav text-center h-100">
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/alimentacion-saludable-logo1.png"  onclick="irASeccion('alimentacion-saludable')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#alimentacion-saludable" data-translate="alimentacion-saludable">Alimentacion Saludable</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/actividad-fisicas-logo1.png"  onclick="irASeccion('actividad-fisica')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#actividad-fisica" data-translate="actividad-fisica">Actividade física</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/bienestar-emocional-logo1.png"  onclick="irASeccion('bienestar-emocional')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#bienestar-emocional" data-translate="bienestar-emocional">Benestar emocional</a></li>
+        <li class="nav-item h-25"><img id="circulo" src="../../assets/logo/conductas-adictivas-logo1.png"  onclick="irASeccion('conductas-adictivas')" /><a class="nav-link js-scroll-trigger pt-3"
+            href="../../index.html#conductas-adictivas" data-translate="conductas-adictivas">Conductas adictivas</a></li>
+      </ul>
+      <div class="navbar-brand d-flex justify-content-between text-light mt-2">
+        <!-- Idiomas -->
+        <div class="d-flex align-items-center ms-2" onclick="changeLanguage('es')" role="button">
+          <img src="../../assets/flag/esflag.svg" alt="Español" class="mx-1 flag-icon">
+          <span data-translate="espanol" style="font-size: 1rem;">Español</span>
+        </div>
+        <div class="d-flex align-items-center ms-2" onclick="changeLanguage('gl')" role="button">
+          <img src="../../assets/flag/glflag.svg" alt="Galego" class="mx-1 flag-icon">
+          <span data-translate="gallego" style="font-size: 1rem;">Gallego</span>
+        </div>
+        <!-- Descargas -->
+       
+      </div>
+      <div class="navbar-brand d-flex justify-content-center text-light mt-1 p-0">
+        <a href="../../content/alimentacion/descargas.html" class="text-light text-decoration-none" title="Descargar archivos">
+          <i class="bi bi-download text-light h5"></i>
+          <span data-translate="descargas" style="font-size: 1rem;"></span>
+        </a>
+      </div>
+    </div>
+    
+  </nav>
+    <!-- Page Content-->
+    <div class="container-fluid p-0 d-flex flex-column p-0" style="min-height: 100vh;">
+       <div class="d-flex justify-content-center w-100 my-3 p-3">
+        <h2 class="pt-5 text-center" data-translate="riesgos-comunes-infancia-1"></h2>
+      </div>
+      <hr>
+      <div class="d-flex flex-column align-items-center text-center mt-3 p-0">
+        <p data-translate="riesgos-comunes-interior-1" style="width: 80%;"></p>
+      </div>
+      <hr>
+ 
+    <div id="contenedor-tarjetas" class="d-flex justify-content-center gap-3 mb-5 mt-5">
+
+      <!-- Tarjeta 1 -->
+      <div id="tarjeta1" class="card rounded-4 shadow-lg" style="width: 18rem; margin-right:25px; height: 625px;">
+        <img src="../../assets/img/bebes/bebe4.jpg" class="card-img-top img-fluid d-block mx-auto">
+        <div class="card-body">
+          <h5 class="card-title" data-translate="riesgos-comunes-interior-2"></h5>
+          <div class="d-flex flex-column align-items-center text-center">
+            <p class="card-text" data-translate="riesgos-comunes-interior-5"></p>
+            <div class="d-flex flex-column align-items-center">
+              <button class="btn btn-primary mt-5 mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false"
+              aria-controls="collapseWidthExample" data-translate="riesgos-comunes-interior-9" onclick="scrollToCollapse()">
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false"
+              aria-controls="collapseWidthExample" data-translate="riesgos-comunes-interior-15" onclick="scrollToCollapse()">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div id="tarjeta2" class="card rounded-4 shadow-lg" style="width: 18rem; margin-right:25px; height: 625px;">
+        <img src="../../assets/img/bebes/bebe1.jpg" class="card-img-top img-fluid d-block mx-auto" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" data-translate="riesgos-comunes-interior-3"></h5>
+          <div class="d-flex flex-column align-items-center text-center">
+              <p class="card-text" data-translate="riesgos-comunes-interior-6"></p>
+              <p>
+                <button class="btn btn-primary mt-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false"
+                aria-controls="collapseWidthExample" data-translate="riesgos-comunes-interior-30" onclick="scrollToCollapse()">
+                </button>
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div id="tarjeta3" class="card rounded-4 shadow-lg" style="width: 18rem; height: 625px;">
+        <img src="../../assets/img/bebes/bebe7.jpg" class="card-img-top img-fluid d-block mx-auto" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" data-translate="riesgos-comunes-interior-4"></h5>
+          <div class="d-flex flex-column align-items-center text-center">
+            <p class="card-text" data-translate="riesgos-comunes-interior-7"></p>
+            <p>
+              <button class="btn btn-primary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false"
+              aria-controls="collapseWidthExample" data-translate="riesgos-comunes-interior-8" onclick="scrollToCollapse()">
+              </button>
+              <button class="btn btn-primary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false"
+              aria-controls="collapseWidthExample" data-translate="riesgos-comunes-interior-28" onclick="scrollToCollapse()">
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false"
+              aria-controls="collapseWidthExample" data-translate="riesgos-comunes-interior-29" onclick="scrollToCollapse()">
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>  <!-- Cierre div Tarjetas -->
+
+<div id="collapses" class="container mt-3" style="min-height: 120px;">
+  <div class="accordion" id="accordionExample">
+    
+    <!-- Collapse 1 -->
+    <div class="collapse collapse-horizontal" id="collapse1" data-bs-parent="#accordionExample">
+      <div class="card card-body">
+
+        <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators" style="top: 375px;">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"
+            style="background-color: black !important;"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"
+            style="background-color: black !important;"></button>
+        </div>
+        <div id="carrusel" class="carousel-inner" style="height: 400px;">
+            <div class="carousel-item active">
+                <div class="row mt-2" style="width: 80%; margin: 0 auto; align-items: center;">
+                    <h4 class="col-12" data-translate="riesgos-comunes-interior-38"></h4>
+                    <ul class="col-12 col-xl-6 mt-4" style="font-size: 18px; text-align: justify;">
+                        <li data-translate="riesgos-comunes-interior-10"></li>
+                        <li class="mt-5" data-translate="riesgos-comunes-interior-11"></li>
+                        <li class="mt-5" data-translate="riesgos-comunes-interior-12"></li>
+                    </ul>
+                    <img class="col-12 col-xl-6" src="../../assets/img/bebes/bebe6.jpg" height="auto" width="50%">
+                </div>
+            </div>
+            <div class="carousel-item align">
+                <div class="row mt-2" style="width: 80%; margin: 0 auto; align-items: center;">
+                    <img class="col-12 col-xl-6 mt-5" src="../../assets/img/bebes/bebe7.jpg" height="auto" width="50%">
+                    <ul class="col-12 col-xl-6 mt-4" style="font-size: 18px; text-align: justify;">
+                        <li data-translate="riesgos-comunes-interior-13"></li>
+                        <li class="mt-5" data-translate="riesgos-comunes-interior-14"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black; border-radius: 10px;"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: black; border-radius: 10px;"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapse 2 -->
+    <div class="collapse collapse-horizontal" id="collapse2" data-bs-parent="#accordionExample">
+      <div class="card card-body">
+        <div class="row">
+            <div class="col-12 col-md-6 text-center">
+              <h4 data-translate="riesgos-comunes-interior-40"></h4>
+              <img class="mt-4" src="../../assets/img/bebes/bebe3.jpg" height="auto" width="80%">
+            </div>
+            <div class="col-12 col-md-6 d-flex align-items-center">
+              <ul class="list-group list-group-flush" style="list-style-type:'disc';">
+                <li class="list-group-item" data-translate="riesgos-comunes-interior-31"></li>
+                <li class="list-group-item" data-translate="riesgos-comunes-interior-32"></li>
+                <li class="list-group-item" data-translate="riesgos-comunes-interior-33"></li>
+                <li class="list-group-item" data-translate="riesgos-comunes-interior-34"></li>
+                <li class="list-group-item" data-translate="riesgos-comunes-interior-35"></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapse 3 -->
+    <div class="collapse collapse-horizontal" id="collapse3" data-bs-parent="#accordionExample">
+      <div class="card card-body">
+        <div class="row">
+          <div class="col-12 col-xl-6">
+            <h4 class="mb-4 text-center" data-translate="riesgos-comunes-interior-41"></h4>
+            <ol class="list-group list-group-numbered">
+            <li class="list-group-item bg-primary bg-opacity-10">
+                <strong data-translate="riesgos-comunes-interior-47"></strong>
+                <p data-translate="riesgos-comunes-interior-42" class="mb-0 mt-1" style="text-align: justify;"></p>
+            </li>
+            <li class="list-group-item bg-secondary bg-opacity-10">
+                <strong data-translate="riesgos-comunes-interior-48"></strong>
+                <p data-translate="riesgos-comunes-interior-43" class="mb-0 mt-1" style="text-align: justify;"></p>
+            </li>
+            <li class="list-group-item bg-success bg-opacity-10">
+                <strong data-translate="riesgos-comunes-interior-49"></strong>
+                <p data-translate="riesgos-comunes-interior-44" class="mb-0 mt-1" style="text-align: justify;"></p>
+            </li>
+            <li class="list-group-item bg-danger bg-opacity-10">
+                <strong data-translate="riesgos-comunes-interior-50"></strong>
+                <p data-translate="riesgos-comunes-interior-45" class="mb-0 mt-1" style="text-align: justify;"></p>
+            </li>
+            <li class="list-group-item bg-warning bg-opacity-10">
+                <strong data-translate="riesgos-comunes-interior-51"></strong>
+                <p data-translate="riesgos-comunes-interior-46" class="mb-0 mt-1" style="text-align: justify;"></p>
+            </li>                     
+            </ol>
+          </div>
+          <div class="col-12 col-xl-6 d-flex flex-column align-items-center justify-content-center">
+            <img class="mb-4 img-fluid d-none d-xl-block" src="../../assets/img/bebes/bebe2.jpg" width="80%" height="auto">
+            <img class="img-fluid mt-4" src="../../assets/img/bebes/bebe3.jpg" width="80%" height="auto">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapse 4 -->
+    <div class="collapse collapse-horizontal" id="collapse4" data-bs-parent="#accordionExample">
+      <div class="card card-body">
+        <h4 class="mb-4" data-translate="riesgos-comunes-interior-39"></h4>
+        <ol class="list-group list-group-numbered">
+        <li class="list-group-item bg-primary bg-opacity-10">
+            <strong data-translate="riesgos-comunes-interior-22"></strong>
+            <p data-translate="riesgos-comunes-interior-16" class="mb-0 mt-1"></p>
+        </li>
+        <li class="list-group-item bg-secondary bg-opacity-10">
+            <strong data-translate="riesgos-comunes-interior-23"></strong>
+            <p data-translate="riesgos-comunes-interior-17" class="mb-0 mt-1"></p>
+        </li>
+        <li class="list-group-item bg-success bg-opacity-10">
+            <strong data-translate="riesgos-comunes-interior-24"></strong>
+            <p data-translate="riesgos-comunes-interior-18" class="mb-0 mt-1"></p>
+        </li>
+        <li class="list-group-item bg-danger bg-opacity-10">
+            <strong data-translate="riesgos-comunes-interior-25"></strong>
+            <p data-translate="riesgos-comunes-interior-19" class="mb-0 mt-1"></p>
+        </li>
+        <li class="list-group-item bg-warning bg-opacity-10">
+            <strong data-translate="riesgos-comunes-interior-26"></strong>
+            <p data-translate="riesgos-comunes-interior-20" class="mb-0 mt-1"></p>
+        </li> 
+        <li class="list-group-item bg-info bg-opacity-10">
+            <strong data-translate="riesgos-comunes-interior-27"></strong>
+            <p data-translate="riesgos-comunes-interior-21" class="mb-0 mt-1"></p>
+        </li>                     
+        </ol>
+      </div>
+    </div>
+
+    <!-- Collapse 5 -->
+    <div class="collapse collapse-horizontal" id="collapse5" data-bs-parent="#accordionExample">
+      <div class="card card-body">
+        <div>
+          <h4 class="mb-4" data-translate="riesgos-comunes-interior-52"></h4>
+          <p data-translate="riesgos-comunes-interior-53" style="text-align: justify;"></p>
+          <p data-translate="riesgos-comunes-interior-54" style="text-align: justify;"></p>
+        </div>
+        <div>
+          <ol class="list-group list-group-numbered">
+            <li class="list-group-item bg-primary bg-opacity-10" data-translate="riesgos-comunes-interior-55"></li>
+            <li class="list-group-item bg-secondary bg-opacity-10" data-translate="riesgos-comunes-interior-56"></li>
+            <li class="list-group-item bg-success bg-opacity-10" data-translate="riesgos-comunes-interior-57"></li>
+            <li class="list-group-item bg-warning bg-opacity-10" data-translate="riesgos-comunes-interior-58"></li>
+            <li class="list-group-item bg-danger bg-opacity-10" data-translate="riesgos-comunes-interior-59"></li>
+          </ol>
+        </div>
+        <div class="row">
+          <img class="mt-4 col-6 d-none d-md-block" src="../../assets/img/bebes/bebe7.jpg" height="auto" width="50%">
+          <img class="mt-4 col-12 col-md-6" src="../../assets/img/bebes/bebe5.jpg" height="auto" width="50%">
+        </div>
+      </div>
+    </div>
+
+      <!-- Collapse 6 -->
+    <div class="collapse collapse-horizontal" id="collapse6" data-bs-parent="#accordionExample">
+      <div class="card card-body">
+        <h4 class="mb-4" data-translate="riesgos-comunes-interior-60"></h4>
+        <p data-translate="riesgos-comunes-interior-61" style="text-align: justify;"></p>
+        <p data-translate="riesgos-comunes-interior-62" style="text-align: justify;"></p>
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-2">
+          <button type="button" class="btn rounded-circle p-3 bg-warning bg-opacity-10 fw-bold border border-2 m-3" data-bs-toggle="modal" data-bs-target="#modal1" data-translate="riesgos-comunes-interior-63"></button>
+          <button type="button" class="btn rounded-circle p-3 bg-danger bg-opacity-10 fw-bold border border-2 m-3" data-bs-toggle="modal" data-bs-target="#modal2" data-translate="riesgos-comunes-interior-64"></button>
+          <button type="button" class="btn rounded-circle p-3 bg-success bg-opacity-10 fw-bold border border-2 m-3" data-bs-toggle="modal" data-bs-target="#modal3" data-translate="riesgos-comunes-interior-65"></button>
+        </div>
+        <div class="row mt-4">
+          <img class="col-6 d-none d-md-block" src="../../assets/img/bebes/bebe5.jpg" height="auto" width="50%">
+          <img class="col-12 col-md-6" src="../../assets/img/bebes/bebe3.jpg" height="auto" width="50%">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Modal 1 -->
+      <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal1Label" data-translate="riesgos-comunes-interior-63"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+              <ul>
+                <li data-translate="riesgos-comunes-interior-66"></li>
+                <li data-translate="riesgos-comunes-interior-67"></li>
+                <li data-translate="riesgos-comunes-interior-68"></li>
+                <li data-translate="riesgos-comunes-interior-69"></li>
+              </ul>
+              <img class="d-block mx-auto" src="../../assets/img/bebes/bebe2.jpg" height="auto" width="50%">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="riesgos-comunes-interior-78"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal 2 -->
+      <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal2Label" data-translate="riesgos-comunes-interior-64"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+              <p data-translate="riesgos-comunes-interior-70" style="text-align: justify;"></p>
+              <ul>
+                <li data-translate="riesgos-comunes-interior-71"></li>
+                <li data-translate="riesgos-comunes-interior-72"></li>
+              </ul>
+              <img class="d-block mx-auto" src="../../assets/img/bebes/bebe4.jpg" height="auto" width="50%">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="riesgos-comunes-interior-78"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal 3 -->
+      <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal3Label" data-translate="riesgos-comunes-interior-65"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+              <ul>
+                <li data-translate="riesgos-comunes-interior-73"></li>
+                <li data-translate="riesgos-comunes-interior-74"></li>
+                <li data-translate="riesgos-comunes-interior-75"></li>
+                <li data-translate="riesgos-comunes-interior-76"></li>
+                <li data-translate="riesgos-comunes-interior-77"></li>
+              </ul>
+              <img class="d-block mx-auto" src="../../assets/img/bebes/bebe7.jpg" height="auto" width="50%">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="riesgos-comunes-interior-78"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer id="footer" class="footer bg-primary text-light py-3 mt-4">
+        <div class="container">
+          <div class="row align-items-center text-center text-md-start">
+            <!-- Logo -->
+            <div class="col-12 col-md-3 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start">
+              <img src="../../assets/logo/logo-xunta-negativo.svg" width="120" height="71" alt="Logo Xunta de Galicia" />
+            </div>
+            
+            <!-- Información y enlaces -->
+            <div class="col-12 col-md-6 text-center mb-3 mb-md-0">
+              <p class="mb-2" data-translate="footer-info-xunta">
+                © Xunta de Galicia. Información mantida e publicada en Internet pola Consellería de Sanidade
+              </p>
+              <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-2 pt-2">
+                <li class="px-2 border-end">
+                  <a class="nav-link text-light" href="https://012.xunta.gal/portada" data-translate="atencion-a-la-ciudadania">
+                    Atención a la ciudadanía
+                  </a>
+                </li>
+                <li class="px-2 border-end">
+                  <a class="nav-link text-light" href="https://www.sergas.gal/A-nosa-organizacion/Accesibilidade" data-translate="accesibilidad">
+                    Accesibilidad
+                  </a>
+                </li>
+                <li class="px-2 border-end">
+                  <a class="nav-link text-light" href="https://www.xunta.gal/aviso-legal-do-portal-da-xunta?langId=gl_ES" data-translate="aviso-legal">
+                    Aviso Legal
+                  </a>
+                </li>
+                <li class="px-2 border-end">
+                  <a class="nav-link text-light" href="https://www.sergas.gal/mapa-web" data-translate="mapa-del-portal">
+                    Mapa del Portal
+                  </a>
+                </li>
+                <li class="px-2 border-end">
+                  <a class="nav-link text-light" href="https://www.sergas.gal/A-nosa-organizacion/Consultas-reclamacions-suxestions" data-translate="contacte">
+                    Contacte
+                  </a>
+                </li>
+                <li class="px-2 border-end">
+                  <a class="nav-link text-light" href="https://sanidade.xunta.gal/transparencia-e-goberno-aberto" data-translate="transparencia-y-gobierno-abierto">
+                    Transparencia y gobierno abierto
+                  </a>
+                </li>
+                <li class="px-2">
+                  <a class="nav-link text-light" href="https://www.sergas.gal/canles-rss" data-translate="rss">
+                    RSS
+                  </a>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Botón de volver arriba -->
+            <div class="col-12 col-md-3 text-center text-md-end">
+              <a id="back-to-top" href="#" class="btn btn-primary border-light back-to-top" role="button">
+                <i class="bi bi-arrow-up"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script>
+  function abrirPDF() {
+    const idioma = localStorage.getItem("language") || "gl"; // gallego por defecto
+
+    // Rutas de los PDF según idioma
+    const rutasPDF = {
+      es: '../../assets/DIARO-SUENO_MENSUAL.pdf',
+      gl: '../../assets/DIARIO_SONO_MENSUAL.pdf' // ya estás usando esta
+    };
+
+    const rutaSeleccionada = rutasPDF[idioma] || rutasPDF["gl"];
+
+    // Abre el PDF en una nueva pestaña
+    window.open(rutaSeleccionada, '_blank');
+  }
+</script>
+    <script src="../../js/scripts_submenus.js"></script>
+    <script src="../../js/lang_submenus.js"></script>
+</body>
+
+</html>
