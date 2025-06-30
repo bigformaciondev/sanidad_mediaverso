@@ -187,5 +187,23 @@
     "imagen": "assets/img/bebes/bebe1.jpg",
     "badge": "alimentacion-saludable",
     "key": "nutricion-desarrollo-temprano"
+  },
+  {
+    "id": 22,
+    "menu_id": 3,
+    "nombre": "Salud y Bienestar Infantil",
+    "ruta": "/content/bienestar_emocional/salud_bienestar_infantil.html",
+    "imagen": "../assets/img/bebes/bebe1.jpg",
+    "badge": "bienestar-emocional",
+    "key": "salud-bienestar-infantil-1"
+  },
+  {
+    "id": 23,
+    "menu_id": 2,
+    "nombre": "Desarrollo Físico Infantil",
+    "ruta": "/content/actividad_fisica/desarrollo_fisico_infantil.html",
+    "imagen": "../assets/img/bebes/bebe7.jpg",
+    "badge": "actividad-fisica",
+    "key": "desarrollo-fisico-infantil-1"
   }
 ]
