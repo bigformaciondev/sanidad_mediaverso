@@ -344,7 +344,7 @@
   const nombreLimpio = sinHash.split("/").filter(Boolean).pop(); // Último segmento válido
 
   // Registrar acceso
-  fetch(`../../registrar_acceso.php?nombre=${encodeURIComponent(nombreLimpio)}`)
+  fetch(`../../registrar_acceso_formaciones.php?nombre=${encodeURIComponent(nombreLimpio)}`)
     .then(response => response.json())
     .then(data => {
       if (data.success) {
