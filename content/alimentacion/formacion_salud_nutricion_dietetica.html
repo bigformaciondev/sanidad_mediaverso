@@ -292,13 +292,32 @@
     }
 
     // Función openScorm que utiliza el ID y detecta el idioma para obtener la ruta adecuada
-    function openScorm(id) {
+     function openScorm(id) {
       const folder = getScormFolderById(id);
       if (!folder) {
         alert("SCORM no encontrado para el ID " + id);
         return;
       }
-      // Construye la URL al SCORM. Ajusta la ruta según tu estructura de carpetas.
+
+      // Extraer nombre base de la carpeta (sin /content/#/)
+      const nombreLimpio = folder
+        .replace("content/#/", "")
+        .replace(/\/$/, "") // Elimina la última barra si existe
+        .split("/").pop();  // Extrae solo el último segmento
+
+      // Registrar acceso
+      fetch(`../../registrar_acceso_formaciones.php?nombre=${encodeURIComponent(nombreLimpio)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            console.log(`Acceso registrado a: ${data.nombre} - Total: ${data.total}`);
+          }
+        })
+        .catch(err => {
+          console.error("Error al registrar acceso:", err);
+        });
+
+      // Abrir el SCORM
       const scormPath = "../../verScorm.html?scorm=" + encodeURIComponent(folder);
       window.open(scormPath, "_blank");
     }
