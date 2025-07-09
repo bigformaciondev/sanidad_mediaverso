@@ -263,36 +263,15 @@
 
     // Función openScorm que utiliza el ID y detecta el idioma para obtener la ruta adecuada
     function openScorm(id) {
-  const folder = getScormFolderById(id);
-  if (!folder) {
-    alert("SCORM no encontrado para el ID " + id);
-    return;
-  }
-
-  // Limpieza robusta del nombre base:
-  // 1. Elimina 'content/#/' si está presente
-  // 2. Quita barras finales
-  // 3. Extrae el nombre del directorio padre del SCORM
-  const sinHash = folder.replace(/\/content\/#\/?$/, ""); // Elimina /content/#/ o /content/#//
-  const nombreLimpio = sinHash.split("/").filter(Boolean).pop(); // Último segmento válido
-
-  // Registrar acceso
-  fetch(`../../registrar_acceso_formaciones.php?nombre=${encodeURIComponent(nombreLimpio)}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        console.log(`Acceso registrado a: ${data.nombre} - Total: ${data.total}`);
+      const folder = getScormFolderById(id);
+      if (!folder) {
+        alert("SCORM no encontrado para el ID " + id);
+        return;
       }
-    })
-    .catch(err => {
-      console.error("Error al registrar acceso:", err);
-    });
-
-  // Abrir el SCORM
-  const scormPath = "../../verScorm.html?scorm=" + encodeURIComponent(folder);
-  window.open(scormPath, "_blank");
-}
-
+      // Construye la URL al SCORM. Ajusta la ruta según tu estructura de carpetas.
+      const scormPath = "../../verScorm.html?scorm=" + encodeURIComponent(folder);
+      window.open(scormPath, "_blank");
+    }
     async function downloadScorm(id) {
         const scormItem = scormList.find((item) => item.id === Number(id));
         if (!scormItem || !scormItem.rar) {
